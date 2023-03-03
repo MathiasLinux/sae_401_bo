@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+    --background: #1E1E1E;
+    --yellow: #FFAE00;
+}
+
+body {
+    margin: 0;
+    background-color: var(--background);
+    font-family: 'Roboto', sans-serif;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Header gabarit.php */
+
+header {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    margin: 10px;
+}
+
+.mobileMenuDiv {
+    justify-self: right;
+}
+
+main {
+    margin-right: 5%;
+    margin-left: 5%;
+    color: white
+}
+
+/* Page d'accueil vueAccueil.php */
+
+.accueilLogo {
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 10%;
+}
+
+.underline {
+    border-bottom: var(--yellow) 2px solid;
+}
