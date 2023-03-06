@@ -3,6 +3,7 @@
 :root {
     --background: #1E1E1E;
     --yellow: #FFAE00;
+    --green: #038C4C;
 }
 
 body {
@@ -44,5 +45,64 @@ main {
 }
 
 .underline {
-    border-bottom: var(--yellow) 2px solid;
+    border-bottom: var(--yellow) 3px solid;
+}
+
+.titleUnderline {
+    position: relative;
+    display: inline-block;
+}
+
+.titleUnderline::after {
+    content: "";
+    position: absolute;
+    border-bottom: var(--yellow) 3px solid;
+}
+
+.imgBorder {
+    border: var(--yellow) 3px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.linkGroup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10%;
+}
+
+.greenLink {
+    text-decoration: none;
+    color: white;
+    border: var(--green) 3px solid;
+    padding: 15px;
+    margin: 2%;
+}
+
+.divImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titleYellow {
+    color: var(--yellow);
+    font-size: 24px;
+}
+
+.titleAndImage img {
+    width: 45%;
+    margin-right: 5%;
+}
+
+.contourTitleImage {
+    border-bottom: var(--green) 3px solid;
+}
+
+.titleAndImage {
+    display: flex;
+    margin-top: 5%;
 }

@@ -10,5 +10,5 @@ abstract class config
     public static $DBUser = "root";      // Titre affiché dans le header
 
     // Menu par défaut
-    public static $DBPwd = "MOTDEPASSE";
+    public static $DBPwd = "roro";
 }
