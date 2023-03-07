@@ -11,6 +11,20 @@ class ctrPage
         $objVue->afficher(array(), $title);
     }
 
+    public function aboutUs()
+    {
+        $title = "About us - Kaiserstuhl escape";
+        $objVue = new vue("AboutUs");
+        $objVue->afficher(array(), $title);
+    }
+
+    public function partners()
+    {
+        $title = "Our Partners - Kaiserstuhl escape";
+        $objVue = new vue("Partners");
+        $objVue->afficher(array(), $title);
+    }
+
     public function erreur($message)
     {
         $objVue = new vue("Erreur");

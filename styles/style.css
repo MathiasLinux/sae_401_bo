@@ -4,6 +4,8 @@
     --background: #1E1E1E;
     --yellow: #FFAE00;
     --green: #038C4C;
+    --black: #101010;
+    --lightBlue: #373D50;
 }
 
 body {
@@ -36,6 +38,108 @@ main {
     color: white
 }
 
+/* Menu mobile */
+
+.show {
+    left: 0 !important;
+}
+
+.mobileMenu {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    background-color: var(--background);
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    transition: left 0.2s;
+}
+
+.mobileMenu svg {
+    justify-self: end;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.linksMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    font-size: 24px;
+}
+
+.linksMenu a, .lang a {
+    text-decoration: none;
+    color: white;
+}
+
+.lang {
+    font-size: 16px;
+    justify-self: center;
+    align-self: end;
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10%;
+}
+
+.lang a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lang > a:nth-child(1) {
+    padding-right: 15px;
+    border-right: var(--green) 2px solid;
+}
+
+/* Footer gabarit.php */
+
+footer {
+    background-color: var(--black);
+    padding: 20px;
+    color: white;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+footer img {
+    width: 50%;
+}
+
+.titleFooter {
+    font-size: 24px;
+    color: var(--yellow);
+}
+
+.sectionFooter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.ligneFooter {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
 /* Page d'accueil vueAccueil.php */
 
 .accueilLogo {
@@ -51,6 +155,8 @@ main {
 .titleUnderline {
     position: relative;
     display: inline-block;
+    font-size: 32px;
+    font-weight: 400;
 }
 
 .titleUnderline::after {
@@ -105,4 +211,295 @@ main {
 .titleAndImage {
     display: flex;
     margin-top: 5%;
+}
+
+.reviewsHome {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.aReview {
+    background-color: var(--green);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.leftReview {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.reviewName {
+    font-size: 20px;
+}
+
+/* Page about us vueAboutUs.php */
+
+.aPerson {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    margin-top: 10%;
+    padding-bottom: 10%;
+    border-bottom: var(--green) 3px solid;
+}
+
+.leftPerson {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: var(--yellow) 3px solid;
+}
+
+.contactForm {
+    display: grid;
+    gap: 20px;
+}
+
+.contactForm label {
+    display: grid;
+    flex-direction: column;
+    width: 100%;
+}
+
+.contactForm input, .contactForm textarea {
+    border: var(--yellow) 3px solid;
+    background-color: var(--background);
+    color: white;
+    margin-top: 10px;
+}
+
+.contactForm input {
+    padding: 15px;
+}
+
+.contactForm input[type="submit"] {
+    padding: 10px;
+    font-size: 20px;
+}
+
+.formInput {
+    justify-self: end;
+}
+
+.contactInfos div {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.contactInfos img {
+    width: 32px;
+    height: 32px;
+}
+
+.contactInfos a {
+    text-decoration: none;
+    color: white;
+}
+
+#map {
+    height: 250px;
+}
+
+/* Page de carte cadeau vueGiftCards.php */
+.ligneOneGiftCards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    align-items: center;
+}
+
+.ligneTwoGiftCards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.giftCardsIcon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.giftCardsIcon img {
+    max-width: 32px;
+    max-height: 32px;
+}
+
+.greenButton {
+    background-color: var(--green);
+    padding: 20px;
+    margin: 30px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+.aQuestion {
+    background-color: var(--yellow);
+    color: black;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.titleQuestion {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.descQuestion {
+    display: none;
+}
+
+.displayQuestion {
+    display: block;
+    transition: display 0.4s;
+}
+
+.arrow {
+    transition: transform 0.2s;
+}
+
+.arrowDown {
+    transform: rotate(180deg);
+    transition: transform 0.2s;
+}
+
+.bigTextBold {
+    font-size: 32px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.bigText {
+    font-size: 32px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Page jobs vueJobs.php */
+
+.jobsIcons img {
+    width: 32px;
+    height: 32px;
+}
+
+.jobsIcon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.doubleLigneJobs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    align-items: center;
+}
+
+.singleLigneJobs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aJobOffer {
+    background-color: var(--green);
+    padding: 10px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titleJobOffer, .taskJobOffer, .strenghtJobOffer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titleJobOffer h3 {
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.titleJobOffer p {
+    font-size: 26px;
+    font-weight: 400;
+}
+
+.taskJobOffer p, .strenghtJobOffer p {
+    font-size: 24px;
+    font-weight: 400;
+
+}
+
+.contactJobs {
+    margin-top: 20px;
+}
+
+/* Page Partners vuePartners.php */
+
+.partnersLigne {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.textPartners {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 50px;
+}
+
+/* Page admin vueAdmin.php */
+
+.aButton {
+    text-decoration: none;
+    color: white;
+    background-color: var(--lightBlue);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 40px;
+
+}
+
+.aButton img {
+    width: 64px;
+    height: 64px;
+}
+
+.aButton p {
+    font-size: 26px;
 }

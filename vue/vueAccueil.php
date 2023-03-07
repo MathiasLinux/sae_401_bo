@@ -4,7 +4,7 @@
 <div class="underline">
     <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, alias consequatur cum cupiditate distinctio eum
-        inventore iure natus nesciunt obcaecati perferendis quis quod ratione recusandae repellat suscipit, vel
+        inventore iure natus nesciunt obcaecati perferendis quis q uod ratione recusandae repellat suscipit, vel
         voluptas.
         Et.
     </p>
@@ -55,8 +55,63 @@
         temporibus voluptatibus!</p>
 </div>
 <h2 class="titleUnderline">Reviews</h2>
-<div>
-    <div>
-        
+<div class="reviewsHome">
+    <div class="aReview">
+        <div class="leftReview">
+            <p class="reviewName">John Smith</p>
+            <div class="reviewStars">
+                <svg height="20" width="20">
+                    <circle cx="10" cy="10" r="10" fill="white"/>
+                </svg>
+                <svg height="20" width="20">
+                    <circle cx="10" cy="10" r="10" fill="white"/>
+                </svg>
+                <svg height="20" width="20">
+                    <circle cx="10" cy="10" r="10" fill="white"/>
+                </svg>
+                <svg height="20" width="20">
+                    <circle cx="10" cy="10" r="10" fill="white"/>
+                </svg>
+                <svg height="20" width="10"> <!-- On réduit le width pour que le cercle soit coupé en deux -->
+                    <circle cx="10" cy="10" r="10" fill="white"/>
+                </svg>
+            </div>
+        </div>
+        <div class="rightReview">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet fugiat inventore minus, non
+                provident
+                quibusdam repudiandae similique tempore?</p>
+        </div>
+
+
+    </div>
+    <div class="aReview">
+        <div class="leftReview">
+            <p class="reviewName">John Smith</p>
+            <div class="reviewStars">
+                <svg height="20" width="20">
+                    <circle cx="10" cy="10" r="10" fill="white"/>
+                </svg>
+                <svg height="20" width="20">
+                    <circle cx="10" cy="10" r="10" fill="white"/>
+                </svg>
+                <svg height="20" width="20">
+                    <circle cx="10" cy="10" r="10" fill="white"/>
+                </svg>
+                <svg height="20" width="20">
+                    <circle cx="10" cy="10" r="10" fill="white"/>
+                </svg>
+                <svg height="20" width="10"> <!-- On réduit le width pour que le cercle soit coupé en deux -->
+                    <circle cx="10" cy="10" r="10" fill="white"/>
+                </svg>
+            </div>
+        </div>
+        <div class="rightReview">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet fugiat inventore minus, non
+                provident
+                quibusdam repudiandae similique tempore?</p>
+        </div>
+
+
     </div>
 </div>
