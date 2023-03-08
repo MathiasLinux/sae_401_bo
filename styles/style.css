@@ -6,6 +6,8 @@
     --green: #038C4C;
     --black: #101010;
     --lightBlue: #373D50;
+    --red: #fb4d3d;
+    --lightGrey: #A4A4A4
 }
 
 body {
@@ -541,4 +543,185 @@ footer a {
     font-size: 26px;
     display: flex;
     justify-content: center;
+}
+
+/* Page admin vueAdminContactForm.php */
+
+.tg {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0px auto;
+}
+
+.tg td {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 14px;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal;
+}
+
+.tg th {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 14px;
+    font-weight: normal;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal;
+}
+
+.tg .tg-m5d1 {
+    border-color: #5b5b5b;
+    color: #ffffff;
+    text-align: center;
+    vertical-align: top
+}
+
+.tg .tg-wkfw {
+    background-color: var(--yellow);
+    border-color: #5b5b5b;
+    color: #ffffff;
+    text-align: center;
+    vertical-align: top
+}
+
+.tg .tg-a43n {
+    background-color: var(--green);
+    border-color: #5b5b5b;
+    color: #ffffff;
+    font-weight: bold;
+    position: -webkit-sticky;
+    position: sticky;
+    text-align: center;
+    top: -1px;
+    vertical-align: top;
+    will-change: transform
+}
+
+.tg .tg-i7qu {
+    background-color: var(--yellow);
+    border-color: #5b5b5b;
+    color: #ffffff;
+    text-align: left;
+    vertical-align: top
+}
+
+@media screen and (max-width: 767px) {
+    .tg {
+        width: auto !important;
+    }
+
+    .tg col {
+        width: auto !important;
+    }
+
+    .tg-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: auto 0px;
+    }
+}
+
+/* Page admin vueAdminGiftCards.php */
+
+.amount p {
+    font-size: 20px;
+}
+
+.tg .tg-q4wl {
+    background-color: var(--red);
+    border-color: #5b5b5b;
+    color: #ffffff;
+    text-align: center;
+    vertical-align: top
+}
+
+.newAmount > p {
+    font-size: 20px;
+}
+
+.newAmount input[type="number"] {
+    background-color: var(--lightBlue);
+    border: none;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 20px;
+    color: white;
+    margin-top: 10%;
+}
+
+.newAmount label > p {
+    transform: translate(1%, 390%);
+    color: var(--lightGrey);
+    font-size: 15px;
+}
+
+.submitDivNewAmount {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.newAmount input[type=submit], .yellowButton {
+    background-color: var(--yellow);
+    border: none;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30%;
+    padding-right: 30%;
+    font-size: 20px;
+}
+
+/* Page admin vueAdminQAndA.php */
+
+.addTitle {
+    border: var(--yellow) 3px solid;
+    background-color: var(--background);
+    color: white;
+    padding: 20px;
+    width: 80%;
+    margin-bottom: 30px;
+}
+
+.titleAdminQAndA {
+    font-size: 24px;
+}
+
+.categorieQAndA {
+    background-color: var(--green);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-size: 26px;
+}
+
+.titleCategorieQAndA {
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.categoriesQAndA a {
+    text-decoration: none;
+}
+
+.yellowButtonQAndA {
+    background-color: var(--yellow);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30%;
+    padding-right: 30%;
+    font-size: 20px;
+    color: black;
 }

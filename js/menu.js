@@ -15,6 +15,3 @@ document.querySelector(".closeMenu").addEventListener("click", function () {
 document.querySelector(".closeMenuAdmin").addEventListener("click", function () {
     document.querySelector(".mobileMenuAdmin").classList.remove("show");
 });
-
-console.log(window.location.href);
-console.log(typeof action);

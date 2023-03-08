@@ -17,4 +17,32 @@ class ctrAdmin
         $objVue = new vue("AdminEscapeGames");
         $objVue->afficher(array(), $title);
     }
+
+    public function contactForm()
+    {
+        $title = "Administration Contact Form - Kaiserstuhl escape";
+        $objVue = new vue("AdminContactForm");
+        $objVue->afficher(array(), $title);
+    }
+
+    public function reservations()
+    {
+        $title = "Administration Reservation - Kaiserstuhl escape";
+        $objVue = new vue("AdminReservations");
+        $objVue->afficher(array(), $title);
+    }
+
+    public function giftCards()
+    {
+        $title = "Administration Gift Cards - Kaiserstuhl escape";
+        $objVue = new vue("AdminGiftCards");
+        $objVue->afficher(array(), $title);
+    }
+
+    public function qAndA()
+    {
+        $title = "Administration Q&A - Kaiserstuhl escape";
+        $objVue = new vue("AdminQAndA");
+        $objVue->afficher(array(), $title);
+    }
 }

@@ -51,8 +51,8 @@ class routeur
                             case "contactForm":
                                 $this->ctrAdmin->contactForm();
                                 break;
-                            case "reservation":
-                                $this->ctrAdmin->reservation();
+                            case "reservations":
+                                $this->ctrAdmin->reservations();
                                 break;
                             case "giftCards":
                                 $this->ctrAdmin->giftCards();
