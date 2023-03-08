@@ -43,8 +43,33 @@ class routeur
                     $this->ctrPage->partners();
                     break;
                 case "admin":
-                    $this->ctrAdmin->admin();
-                    break;
+                    if (isset($_GET["page"])) {
+                        switch ($_GET["page"]) {
+                            case "escapeGames":
+                                $this->ctrAdmin->escapeGames();
+                                break;
+                            case "contactForm":
+                                $this->ctrAdmin->contactForm();
+                                break;
+                            case "reservation":
+                                $this->ctrAdmin->reservation();
+                                break;
+                            case "giftCards":
+                                $this->ctrAdmin->giftCards();
+                                break;
+                            case "qAndA":
+                                $this->ctrAdmin->qAndA();
+                                break;
+                            case "jobs":
+                                $this->ctrAdmin->jobs();
+                                break;
+                            default:
+                                $this->ctrPage->erreur("Page introuvable");
+                                break;
+                        }
+                    } else {
+                        $this->ctrAdmin->admin();
+                    }
             }
         } else {
             $this->ctrPage->accueil();

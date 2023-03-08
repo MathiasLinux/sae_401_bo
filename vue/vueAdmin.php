@@ -8,9 +8,9 @@
         <img src="img/svg/email.svg" alt="A email">
         <p>Contact Form</p>
     </a>
-    <a class="aButton" href="index.php?action=admin&page=reservation">
+    <a class="aButton" href="index.php?action=admin&page=reservations">
         <img src="img/svg/moneyHand.svg" alt="A hand with money">
-        <p>Reservation</p>
+        <p>Reservations</p>
     </a>
     <a class="aButton" href="index.php?action=admin&page=giftCards">
         <img src="img/svg/giftCard.svg" alt="A gift card">

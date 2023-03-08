@@ -48,6 +48,62 @@
             </a>
         </div>
     </div>
+    <div class="mobileMenuAdmin">
+        <svg class="closeMenuAdmin" xmlns="http://www.w3.org/2000/svg" width="32.686" height="32.686"
+             viewBox="0 0 32.686 32.686">
+            <g id="Croix" transform="translate(16.343 -21.293) rotate(45)">
+                <line id="Ligne_7" data-name="Ligne 7" y2="43.225" transform="translate(26.613 5)" fill="none"
+                      stroke="#fff" stroke-linejoin="round" stroke-width="3"></line>
+                <line id="Ligne_8" data-name="Ligne 8" x2="43.225" transform="translate(5 26.613)" fill="none"
+                      stroke="#fff" stroke-linejoin="round" stroke-width="3"></line>
+            </g>
+        </svg>
+        <div class="linksMenuAdmin">
+            <a href="index.php">
+                <img src="img/svg/home.svg" alt="a house">
+                <p>Home</p>
+            </a>
+            <div class="menuUnderline">Management</div>
+            <a href="index.php?action=admin&page=escapeGames">
+                <img src="img/svg/key.svg" alt="a key">
+                <p>Escape Games</p>
+            </a>
+            <a href="index.php?action=admin&page=contactForm">
+                <img src="img/svg/email.svg" alt="a letter">
+                <p>Contact Form</p>
+            </a>
+            <a href="index.php?action=admin&page=reservations">
+                <img src="img/svg/moneyHand.svg" alt="an hand with money">
+                <p>Reservations</p>
+            </a>
+            <a href="index.php?action=admin&page=giftCards">
+                <img src="img/svg/giftCard.svg" alt="a gift card">
+                <p>Gift Cards</p>
+            </a>
+            <a href="index.php?action=admin&page=qAndA">
+                <img src="img/svg/faq.svg" alt="an faq">
+                <p>Q&A</p>
+            </a>
+            <a href="index.php?action=admin&page=jobs">
+                <img src="img/svg/briefcase.svg" alt="a briefcase">
+                <p>Jobs</p>
+            </a>
+            <a href="index.php?action=admin&page=users">
+                <img src="img/svg/group.svg" alt="a group of user">
+                <p>Users</p>
+            </a>
+        </div>
+        <div class="lang">
+            <a href="index.php?action=lang&lang=fr">
+                <img src="img/fr.png" alt="fr">
+                <p>FR</p>
+            </a>
+            <a href="index.php?action=lang&lang=en">
+                <img src="img/en.png" alt="en">
+                <p>EN</p>
+            </a>
+        </div>
+    </div>
 </header>
 <main>
     <?= $contenu ?>

@@ -6,7 +6,7 @@ class ctrPage
 {
     public function accueil()
     {
-        $title = "Accueil Kaiserstuhl escape";
+        $title = "Home - Kaiserstuhl escape";
         $objVue = new vue("Accueil");
         $objVue->afficher(array(), $title);
     }

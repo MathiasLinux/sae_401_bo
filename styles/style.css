@@ -44,7 +44,7 @@ main {
     left: 0 !important;
 }
 
-.mobileMenu {
+.mobileMenu, .mobileMenuAdmin {
     position: fixed;
     top: 0;
     left: 100%;
@@ -57,10 +57,15 @@ main {
     transition: left 0.2s;
 }
 
-.mobileMenu svg {
+.mobileMenu svg, .mobileMenuAdmin svg {
     justify-self: end;
     cursor: pointer;
     margin: 10px;
+}
+
+.menuUnderline {
+    border-bottom: var(--yellow) 3px solid;
+    color: white;
 }
 
 .linksMenu {
@@ -72,9 +77,29 @@ main {
     font-size: 24px;
 }
 
-.linksMenu a, .lang a {
+.linksMenuAdmin {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 24px;
+    margin-left: 20%;
+}
+
+.linksMenuAdmin img {
+    width: 48px;
+    height: 48px;
+}
+
+.linksMenu a, .linksMenuAdmin a, .lang a {
     text-decoration: none;
     color: white;
+}
+
+.linksMenuAdmin a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .lang {
@@ -502,4 +527,18 @@ footer a {
 
 .aButton p {
     font-size: 26px;
+}
+
+/* Page admin vueAdminEscapeGames.php */
+
+.anEscapeGameAdmin {
+    background-color: var(--lightBlue);
+    padding-bottom: 10px;
+    margin-top: 20px;
+}
+
+.anEscapeGameAdmin p {
+    font-size: 26px;
+    display: flex;
+    justify-content: center;
 }
