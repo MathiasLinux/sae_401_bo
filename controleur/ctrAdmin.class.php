@@ -45,4 +45,18 @@ class ctrAdmin
         $objVue = new vue("AdminQAndA");
         $objVue->afficher(array(), $title);
     }
+
+    public function jobs()
+    {
+        $title = "Administration Jobs - Kaiserstuhl escape";
+        $objVue = new vue("AdminJobs");
+        $objVue->afficher(array(), $title);
+    }
+
+    public function job()
+    {
+        $title = "Administration Job - Kaiserstuhl escape";
+        $objVue = new vue("AdminJob");
+        $objVue->afficher(array(), $title);
+    }
 }

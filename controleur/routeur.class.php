@@ -63,6 +63,9 @@ class routeur
                             case "jobs":
                                 $this->ctrAdmin->jobs();
                                 break;
+                            case "job":
+                                $this->ctrAdmin->job();
+                                break;
                             default:
                                 $this->ctrPage->erreur("Page introuvable");
                                 break;

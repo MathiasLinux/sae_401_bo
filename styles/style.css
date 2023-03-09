@@ -725,3 +725,60 @@ footer a {
     font-size: 20px;
     color: black;
 }
+
+/* Page Admin vueAdminJobs */
+
+.adminJobs {
+    margin-top: 40px;
+}
+
+.aJob {
+    margin-top: 40px;
+}
+
+.topJob {
+    border: var(--yellow) 3px solid;
+}
+
+.titleJob {
+    background-color: var(--yellow);
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.titleJob p {
+    margin: 0;
+}
+
+.firstTitleJob {
+    font-size: 32px;
+}
+
+.secondTitleJob {
+    font-size: 24px;
+}
+
+.jobDescription {
+    margin: 20px;
+}
+
+.bottomJob {
+    background-color: var(--lightBlue);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.yellowButtonJobs {
+    background-color: var(--yellow);
+    padding: 20px 30%;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
