@@ -7,7 +7,8 @@
     --black: #101010;
     --lightBlue: #373D50;
     --red: #fb4d3d;
-    --lightGrey: #A4A4A4
+    --lightGrey: #A4A4A4;
+    --veryLightBlue: #6A7497;
 }
 
 body {
@@ -648,7 +649,6 @@ footer a {
     background-color: var(--lightBlue);
     border: none;
     padding: 20px;
-    font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-style: normal;
     font-size: 20px;
@@ -781,4 +781,99 @@ footer a {
     font-size: 20px;
     color: black;
     text-decoration: none;
+}
+
+/* Page Admin vueAdminJob.php */
+
+.formAdminJob input:not([type=submit]) {
+    background-color: var(--lightBlue);
+    border: none;
+    padding: 20px;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 20px;
+    color: white;
+}
+
+.formAdminJob label > p {
+    transform: translate(1%, 120%);
+    color: var(--lightGrey);
+    font-size: 15px;
+    margin: 0
+}
+
+.yellowReturn {
+    margin: 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+
+.yellowReturn a {
+    background-color: var(--yellow);
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titleDivAdminJob {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titleDivAdminJob svg {
+    margin-left: 10px;
+}
+
+.formAdminJob textarea {
+    background-color: var(--lightBlue);
+    border: none;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 20px;
+    color: white;
+}
+
+.displayJob {
+    background-color: var(--lightBlue);
+    padding: 20px;
+    margin: 40px 0;
+}
+
+.firstTitleDisplay {
+    font-size: 24px;
+    margin: 0 0 10px 0;
+}
+
+.secondTitleDisplay {
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+
+.divVisibleDisplay {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--veryLightBlue);
+    padding: 15px;
+}
+
+.divVisibleDisplay p {
+    font-size: 24px;
+    margin: 0;
+}
+
+.formAdminJob input[type=submit] {
+    font-size: 26px;
+}
+
+.submitAdminJob {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
