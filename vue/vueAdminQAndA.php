@@ -8,14 +8,26 @@
 </form>
 <div class="categoriesQAndA">
     <p class="categorieQAndA">Categories</p>
-    <p class="titleCategorieQAndA">General questions</p>
     <div>
-        <a class="yellowButtonQAndA" href="#">Modify questions</a>
-        <a class="yellowButtonQAndA" href="#">Modify title</a>
-        <select name="escapeGames" id="escapeGames">
-            <option value="">Choose an escape game</option>
-            <option value="thecodex">The Codex</option>
-        </select>
-        <a href="#">Delete</a>
+    <p class="titleCategorieQAndA">General questions</p>
+        <div class="buttonsQandA">
+            <a class="yellowButtonQAndA" href="#">Modify questions</a>
+            <a class="yellowButtonQAndA" href="#">Modify title</a>
+            <select class="greenButtonEscapeGames" name="escapeGames" id="escapeGames">
+                <option value="thecodex">General</option>
+            </select>
+            <a class="redButtonQandA" href="#">Delete</a>
+        </div>
+    </div>
+    <p class="titleCategorieQAndA">Questions about "The Codex"</p>
+        <div class="buttonsQandA">
+            <a class="yellowButtonQAndA" href="#">Modify questions</a>
+            <a class="yellowButtonQAndA" href="#">Modify title</a>
+            <select class="greenButtonEscapeGames" name="escapeGames" id="escapeGames">
+                <option value="">Escape Games</option>
+                <option value="thecodex">The Codex</option>
+            </select>
+            <a class="redButtonQandA" href="#">Delete</a>
+        </div>
     </div>
 </div>

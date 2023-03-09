@@ -673,10 +673,11 @@ footer a {
 .newAmount input[type=submit], .yellowButton {
     background-color: var(--yellow);
     border: none;
-    padding-top: 20px;
+    /* padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 30%;
-    padding-right: 30%;
+    padding-right: 30%; */
+    padding: 20px 30%;
     font-size: 20px;
 }
 
@@ -718,10 +719,30 @@ footer a {
 
 .yellowButtonQAndA {
     background-color: var(--yellow);
-    padding-top: 20px;
+    /* padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 30%;
-    padding-right: 30%;
-    font-size: 20px;
+    padding-right: 30%; */
+}
+
+.buttonsQandA{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.buttonsQandA>a, .buttonsQandA>select{
+    margin: 4%;
+    font-size: 16px;
     color: black;
+    text-align: center;
+    padding: 8% 0px;
+}
+
+.greenButtonEscapeGames{
+    background-color: var(--green);
+}
+
+.buttonsQandA>.redButtonQandA{
+    background-color: var(--red);
+    color: white;
 }
