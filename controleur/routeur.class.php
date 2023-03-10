@@ -4,6 +4,7 @@ require_once "controleur/ctrPage.class.php";
 require_once "controleur/ctrGiftCards.class.php";
 require_once "controleur/ctrQAndA.class.php";
 require_once "controleur/ctrJobs.class.php";
+require_once "controleur/ctrEscapeGames.class.php";
 require_once "controleur/ctrAdmin.class.php";
 
 class routeur
@@ -12,6 +13,7 @@ class routeur
     private $ctrGiftCards;
     private $ctrQAndA;
     private $ctrJobs;
+    private $ctrEscapeGames;
     private $ctrAdmin;
 
     public function __construct()
@@ -20,6 +22,7 @@ class routeur
         $this->ctrGiftCards = new ctrGiftCards();
         $this->ctrQAndA = new ctrQAndA();
         $this->ctrJobs = new ctrJobs();
+        $this->ctrEscapeGames = new ctrEscapeGames();
         $this->ctrAdmin = new ctrAdmin();
     }
 
@@ -41,6 +44,9 @@ class routeur
                     break;
                 case "partners":
                     $this->ctrPage->partners();
+                    break;
+                case "escapeGames":
+                    $this->ctrEscapeGames->escapeGames();
                     break;
                 case "admin":
                     if (isset($_GET["page"])) {

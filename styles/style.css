@@ -507,6 +507,28 @@ footer a {
     margin-top: 50px;
 }
 
+/* Page Escape Games vueEscapeGames.php */
+
+.escapeGamesAlign{
+    margin: 20px;
+    font-size: 22px;
+    text-align: center;
+}
+
+.escapeGamesAlign>h2{
+    font-size: 32px;
+    margin-top: 0;
+}
+
+.escapeGamesAlign>p{
+    margin-bottom: 50px;
+}
+
+.escapeGamesAlign>.greenLink{
+    padding: 25px;
+    font-size: 16px;
+}
+
 /* Page admin vueAdmin.php */
 
 .aButton {
