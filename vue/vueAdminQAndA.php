@@ -1,6 +1,6 @@
 <h2 class="titleUnderline">Q&A</h2>
 <h3 class="adminQandA">List of title</h3>
-<form class="formAdmin" action="#">
+<form class="formAdmin" action="#" method="post">
     <label>
         <p class="titleAdminQAndA">New Title</p>
         <input class="addTitle" type="text" name="title" id="title">

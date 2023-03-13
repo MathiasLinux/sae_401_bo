@@ -690,7 +690,7 @@ footer a {
     color: white;
     padding: 20px;
     width: 80%;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
 }
 
 .titleAdminQAndA {
@@ -762,6 +762,7 @@ a>button.returnAdmin{
     font-size: 18px;
     background-color: var(--yellow);
     padding: 2% 4%;
+    margin-top: 30px;
     border: none;
 }
 
@@ -774,7 +775,7 @@ textarea.addTitle{
 }
 
 .listQandA{
-    margin: 8% 0%;
+    margin: 12% 0%;
 }
 
 .oneQandA>div>div{
@@ -823,7 +824,7 @@ textarea.addTitle{
 }
 
 .buttonsQandAQuestions{
-    margin: 4% 0%;
+    margin: 8% 0%;
     gap: 4%;
 }
 
@@ -845,11 +846,14 @@ textarea.addTitle{
 
 .formAdmin>label>input[type=text], 
 .formAdmin>label>textarea{
-    width:auto;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    width: auto;
 }
 
 .formAdmin>input[type=submit]{
     padding: 20px 0%;
     text-align: center;
     margin: 0% 10%;
+    margin-top: 30px;
 }
