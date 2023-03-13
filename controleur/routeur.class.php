@@ -60,6 +60,9 @@ class routeur
                             case "qAndA":
                                 $this->ctrAdmin->qAndA();
                                 break;
+                            case "qAndAQuestions":
+                                $this->ctrAdmin->qAndAQuestions();
+                                break;
                             case "jobs":
                                 $this->ctrAdmin->jobs();
                                 break;

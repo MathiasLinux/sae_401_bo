@@ -28,6 +28,6 @@ class ctrPage
     public function erreur($message)
     {
         $objVue = new vue("Erreur");
-        $objVue->afficher(array("message" => $message));
+        $objVue->afficher(array("message" => $message), $title);
     }
 }

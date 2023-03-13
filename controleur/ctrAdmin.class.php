@@ -45,4 +45,11 @@ class ctrAdmin
         $objVue = new vue("AdminQAndA");
         $objVue->afficher(array(), $title);
     }
+
+    public function qAndAQuestions()
+    {
+        $title = "Administration Q&A - Questions - Kaiserstuhl escape";
+        $objVue = new vue("AdminQAndAQuestions");
+        $objVue->afficher(array(), $title);
+    }
 }

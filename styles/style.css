@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 :root {
-    --background: #1E1E1E;
+    --background: #1E212B;
     --yellow: #FFAE00;
     --green: #038C4C;
     --black: #101010;
     --lightBlue: #373D50;
     --red: #fb4d3d;
-    --lightGrey: #A4A4A4
+    --lightGrey: #a4a4a4
 }
 
 body {
@@ -184,6 +184,7 @@ footer a {
     display: inline-block;
     font-size: 32px;
     font-weight: 400;
+    border-bottom: var(--yellow) solid 3px;
 }
 
 .titleUnderline::after {
@@ -693,17 +694,19 @@ footer a {
 }
 
 .titleAdminQAndA {
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .categorieQAndA {
     background-color: var(--green);
+    color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    font-size: 26px;
+    font-size: 32px;
+    font-weight:500;
 }
 
 .titleCategorieQAndA {
@@ -745,4 +748,108 @@ footer a {
 .buttonsQandA>.redButtonQandA{
     background-color: var(--red);
     color: white;
+}
+
+h3.adminQandA{
+    font-weight: normal;
+    font-size: 24px;
+}
+
+a>button.returnAdmin{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+    background-color: var(--yellow);
+    padding: 2% 4%;
+    border: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+textarea.addTitle{
+    height: 240px;
+}
+
+.listQandA{
+    margin: 8% 0%;
+}
+
+.oneQandA>div>div{
+    text-align: center;
+    font-size: 32px;
+    color: black;
+    font-weight:500;
+}
+
+.oneQandA>div>p{
+    margin: 4%;
+    text-align: center;
+}
+
+.oneQ{
+    border: var(--green) solid 3px;
+}
+
+.oneQ>p{
+    font-size: 24px;
+}
+
+.oneA{
+    border: var(--yellow) solid 3px;
+}
+
+.oneA>p{
+    font-size: 20px;
+}
+
+.titleQ{
+    background-color: var(--green);
+}
+
+.titleA{
+    background-color: var(--yellow);
+}
+
+.span2{
+    grid-column: span 2;
+}
+
+.redButtonQandA.span2{
+    margin: 2% 0%;
+    padding: 4% 0%;
+}
+
+.buttonsQandAQuestions{
+    margin: 4% 0%;
+    gap: 4%;
+}
+
+.buttonsQandAQuestions>a{
+    margin: 0%;
+    font-size: 20px;
+}
+
+.formAdmin{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr;
+}
+
+.formAdmin>label{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.formAdmin>label>input[type=text], 
+.formAdmin>label>textarea{
+    width:auto;
+}
+
+.formAdmin>input[type=submit]{
+    padding: 20px 0%;
+    text-align: center;
+    margin: 0% 10%;
 }
