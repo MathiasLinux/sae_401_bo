@@ -23,8 +23,8 @@
         </div>
     </div>
     <div class="buttonsQandA buttonsQandAQuestions">
-        <a class="greenButtonEscapeGames" href="#">Modify questions</a>
-        <a class="yellowButtonQAndA" href="#">Modify categories</a>
+        <a class="greenButtonEscapeGames" href="#">Modify question</a>
+        <a class="yellowButtonQAndA" href="#">Modify answer</a>
         <a class="redButtonQandA span2" href="#">Delete</a>
     </div>
 </div>
