@@ -26,9 +26,9 @@
         <input type="text" name="" id="">
     </label>
     <h2 class="titleUnderline">Tasks</h2>
-    <textarea name="task" id="task" cols="29" rows="10"></textarea>
+    <textarea name="task" id="task" cols="24" rows="10"></textarea>
     <h2 class="titleUnderline">Strength</h2>
-    <textarea name="strength" id="strength" cols="29" rows="10"></textarea>
+    <textarea name="strength" id="strength" cols="24" rows="10"></textarea>
     <div class="displayJob">
         <p class="firstTitleDisplay">Display</p>
         <p class="secondTitleDisplay">Display the job offer for the user</p>
