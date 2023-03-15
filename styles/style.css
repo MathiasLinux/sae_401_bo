@@ -109,6 +109,18 @@ main {
     gap: 10px;
 }
 
+.loginMobileLink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.loginMobileLink svg {
+    width: 40px;
+    height: 40px;
+}
+
 .lang {
     font-size: 16px;
     justify-self: center;
@@ -311,8 +323,12 @@ footer a {
 }
 
 .contactForm input[type="submit"] {
-    padding: 10px;
+    padding: 10px 20px;
     font-size: 20px;
+}
+
+.contactForm input[type="checkbox"] {
+    margin-top: 0;
 }
 
 .formInput {
@@ -758,6 +774,21 @@ footer a {
     margin-top: 40px;
 }
 
+.topAdminJob {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.yellowButtonAddAdmin {
+    background-color: var(--yellow);
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    padding: 10px 20px;
+
+}
+
 .aJob {
     margin-top: 40px;
 }
@@ -902,4 +933,72 @@ footer a {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.textAreaJob {
+    margin: 20px 0;
+}
+
+.textAreaJob textarea {
+    width: 88%;
+    height: 200px;
+    margin-top: 10px;
+}
+
+.labelTextArea {
+    font-size: 18px;
+}
+
+/* Page de connexion vueLogin.php */
+
+.labelCheckbox {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    justify-items: left;
+    grid-gap: 10px;
+}
+
+.loginSubmit {
+    justify-self: center;
+}
+
+.toSignUp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.toSignUp p {
+    font-size: 20px;
+}
+
+.yellowLinkSignUp {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    border: var(--yellow) 3px solid;
+    padding: 10px 20px;
+}
+
+.greenLigne {
+    background-color: var(--green);
+    height: 3px;
+    width: 100%;
+}
+
+/* Page d'inscription vueSignUp.php */
+
+.errorSignUp {
+    background-color: #ff8787;
+    font-size: 20px;
+    margin: 0 10px 20px 10px;
+    color: black;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: solid 3px #ff6161;
 }

@@ -6,29 +6,43 @@
         </svg>
         Return</a>
 </div>
-<form class="formAdminJob" action="#" method="post">
-    <div class="titleDivAdminJob">
-        <input type="text" name="title" id="titile">
-        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33">
-            <g id="Edit" transform="translate(-0.5 -0.5)">
-                <path id="Tracé_29" data-name="Tracé 29"
-                      d="M26,32.5H5A4.505,4.505,0,0,1,.5,28V7A4.505,4.505,0,0,1,5,2.5h8.01a1.5,1.5,0,0,1,0,3H5A1.5,1.5,0,0,0,3.5,7V28A1.5,1.5,0,0,0,5,29.5H26A1.5,1.5,0,0,0,27.5,28V19.99a1.5,1.5,0,0,1,3,0V28A4.505,4.505,0,0,1,26,32.5Z"
-                      transform="translate(0 1)" fill="#fff"></path>
-                <path id="Tracé_30" data-name="Tracé 30"
-                      d="M23,.5a1.5,1.5,0,0,1,1.061.439l6,6a1.5,1.5,0,0,1,0,2.121l-15,15A1.5,1.5,0,0,1,14,24.5H8A1.5,1.5,0,0,1,6.5,23V17a1.5,1.5,0,0,1,.439-1.061l15-15A1.5,1.5,0,0,1,23,.5ZM26.879,8,23,4.121,9.5,17.621V21.5h3.879Z"
-                      transform="translate(3)" fill="#fff"></path>
-            </g>
-        </svg>
-    </div>
+<form class="formAdminJob" action="index.php?action=admin&page=addJob" method="post">
+    <h2 class="titleUnderline">Titles</h2>
+    <label>
+        <p>Title English</p>
+        <input type="text" name="title" id="title">
+    </label>
+    <label>
+        <p>Title French</p>
+        <input type="text" name="titleFR" id="titleFR">
+    </label>
     <h2 class="titleUnderline">Infos</h2>
     <label>
-        <p>Type of position</p>
-        <input type="text" name="" id="">
+        <p>Type of position English</p>
+        <input type="text" name="position" id="position">
+    </label>
+    <label>
+        <p>Type of position French</p>
+        <input type="text" name="positionFR" id="positionFR">
     </label>
     <h2 class="titleUnderline">Tasks</h2>
-    <textarea name="task" id="task" cols="24" rows="10"></textarea>
+    <div class="textAreaJob">
+        <label class="labelTextArea" for="task">Task English</label>
+        <textarea name="task" id="task" cols="24" rows="10"></textarea>
+    </div>
+    <div class="textAreaJob">
+        <label class="labelTextArea" for="taskFR">Task French</label>
+        <textarea name="taskFR" id="taskFR" cols="24" rows="10"></textarea>
+    </div>
     <h2 class="titleUnderline">Strength</h2>
-    <textarea name="strength" id="strength" cols="24" rows="10"></textarea>
+    <div class="textAreaJob">
+        <label class="labelTextArea" for="strength">Strength English</label>
+        <textarea name="strength" id="strength" cols="24" rows="10"></textarea>
+    </div>
+    <div class="textAreaJob">
+        <label class="labelTextArea" for="strengthFR">Strength French</label>
+        <textarea name="strengthFR" id="strengthFR" cols="24" rows="10"></textarea>
+    </div>
     <div class="displayJob">
         <p class="firstTitleDisplay">Display</p>
         <p class="secondTitleDisplay">Display the job offer for the user</p>

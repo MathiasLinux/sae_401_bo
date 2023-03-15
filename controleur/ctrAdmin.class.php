@@ -1,9 +1,17 @@
 <?php
 
+require_once "modele/jobs.class.php";
 require_once "vue/vue.class.php";
 
 class ctrAdmin
 {
+    public $jobs;
+
+    public function __construct()
+    {
+        $this->jobs = new jobs();
+    }
+
     public function admin()
     {
         $title = "Administration - Kaiserstuhl escape";
@@ -46,17 +54,41 @@ class ctrAdmin
         $objVue->afficher(array(), $title);
     }
 
-    public function jobs()
-    {
-        $title = "Administration Jobs - Kaiserstuhl escape";
-        $objVue = new vue("AdminJobs");
-        $objVue->afficher(array(), $title);
-    }
-
     public function job()
     {
         $title = "Administration Job - Kaiserstuhl escape";
         $objVue = new vue("AdminJob");
         $objVue->afficher(array(), $title);
     }
+
+    public function addJob()
+    {
+        var_dump($_POST);
+        $title = $_POST["title"] ?? "";
+        $titleFR = $_POST["titleFR"] ?? "";
+        $position = $_POST["position"] ?? "";
+        $positionFR = $_POST["positionFR"] ?? "";
+        $task = $_POST["task"] ?? "";
+        $taskFR = $_POST["taskFR"] ?? "";
+        $strength = $_POST["strength"] ?? "";
+        $strengthFR = $_POST["strengthFR"] ?? "";
+
+        if (isset($_POST["visible"])) {
+            $visible = 1;
+        } else {
+            $visible = 0;
+        }
+        $this->jobs->addJobs($title, $titleFR, $position, $positionFR, $task, $taskFR, $strength, $strengthFR, $visible);
+        $this->jobs();
+
+    }
+
+    public function jobs()
+    {
+        $jobs = $this->jobs->getJobs();
+        $title = "Administration Jobs - Kaiserstuhl escape";
+        $objVue = new vue("AdminJobs");
+        $objVue->afficher(array("jobs" => $jobs), $title);
+    }
+
 }
