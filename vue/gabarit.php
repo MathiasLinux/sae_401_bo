@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/stylePC.css" media="screen and (min-width: 1024px)">
     <title><?= $title ?></title>
 </head>
 <body>
@@ -20,6 +21,39 @@
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
+    </div>
+    <div class="linksPC">
+        <div class="linksPCDiv">
+            <a href="index.php?action=escapeGames">Escape Games</a>
+            <a href="index.php?action=giftCards">Gift Cards</a>
+            <a href="index.php?action=qAndA">Q&A</a>
+            <a href="index.php?action=aboutUs">About Us</a>
+        </div>
+        <div class="endLinksPC">
+            <div class="lang">
+                <a href="index.php?action=lang&lang=fr">
+                    <img src="img/fr.png" alt="fr">
+                    <p>FR</p>
+                </a>
+                <a href="index.php?action=lang&lang=en">
+                    <img src="img/en.png" alt="en">
+                    <p>EN</p>
+                </a>
+            </div>
+            <div class="loginLinksPC">
+                <a href="index.php?action=login">
+                    <svg id="Calque_2" data-name="Calque 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 470">
+                        <g id="Calque_1-2" data-name="Calque 1">
+                            <path d="M405.23,382.13c-41.25,47.69-102.21,77.87-170.23,77.87s-128.98-30.18-170.23-77.87c28.85-65.34,94.22-110.94,170.23-110.94s141.39,45.6,170.23,110.94Z"
+                                  style="fill: #ffffff;"></path>
+                            <circle cx="235" cy="178.1" r="93.5" style="fill: #ffffff;"></circle>
+                            <path d="M460,235c0,56.25-20.64,107.68-54.77,147.13-41.25,47.69-102.21,77.87-170.23,77.87s-128.98-30.18-170.23-77.87C30.65,342.68,10,291.25,10,235,10,110.73,110.74,10,235,10s225,100.73,225,225Z"
+                                  style="fill: none; stroke: #ffffff; stroke-miterlimit: 10; stroke-width: 20px;"></path>
+                        </g>
+                    </svg>
+                </a>
+            </div>
+        </div>
     </div>
     <div class="mobileMenu">
         <svg class="closeMenu" xmlns="http://www.w3.org/2000/svg" width="32.686" height="32.686"
@@ -36,6 +70,18 @@
             <a href="index.php?action=giftCards">Gift Cards</a>
             <a href="index.php?action=qAndA">Q&A</a>
             <a href="index.php?action=aboutUs">About Us</a>
+            <a class="loginMobileLink" href="index.php?action=login">
+                <svg id="Calque_2" data-name="Calque 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 470">
+                    <g id="Calque_1-2" data-name="Calque 1">
+                        <path d="M405.23,382.13c-41.25,47.69-102.21,77.87-170.23,77.87s-128.98-30.18-170.23-77.87c28.85-65.34,94.22-110.94,170.23-110.94s141.39,45.6,170.23,110.94Z"
+                              style="fill: #ffffff;"></path>
+                        <circle cx="235" cy="178.1" r="93.5" style="fill: #ffffff;"></circle>
+                        <path d="M460,235c0,56.25-20.64,107.68-54.77,147.13-41.25,47.69-102.21,77.87-170.23,77.87s-128.98-30.18-170.23-77.87C30.65,342.68,10,291.25,10,235,10,110.73,110.74,10,235,10s225,100.73,225,225Z"
+                              style="fill: none; stroke: #ffffff; stroke-miterlimit: 10; stroke-width: 20px;"></path>
+                    </g>
+                </svg>
+                <div>Connexion</div>
+            </a>
         </div>
         <div class="lang">
             <a href="index.php?action=lang&lang=fr">

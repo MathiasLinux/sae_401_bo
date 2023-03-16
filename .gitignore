@@ -1,1 +1,8 @@
 /config/config.class.php
+/.idea/.gitignore
+/.idea/deployment.xml
+/.idea/modules.xml
+/.idea/php.xml
+/.idea/sae_401_bo.iml
+/.idea/vcs.xml
+/.idea/webServers.xml

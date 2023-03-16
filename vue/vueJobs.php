@@ -1,3 +1,6 @@
+<?php
+//var_dump($jobs);
+?>
 <h2 class="titleUnderline">Team Spirit and Dynamic Team</h2>
 <div class="jobsFirstIcons jobsIcons">
     <div class="doubleLigneJobs">
@@ -52,58 +55,42 @@
 </div>
 <h2 class="titleUnderline">Job offers</h2>
 <div class="jobsOffers">
-    <div class="aJobOffer">
-        <div class="titleJobOffer">
-            <h3>Account Manager</h3>
-            <p>Permanent position</p>
+    <?php
+    foreach ($jobs as $job) {
+        ?>
+        <div class="aJobOffer">
+            <div class="titleJobOffer">
+                <h3><?= $job['title'] ?></h3>
+                <p><?= $job['position'] ?></p>
+            </div>
+            <div class="taskJobOffer">
+                <p>Your Task :</p>
+                <ul>
+                    <?php
+                    //Detection the \r et on le remplace par un <li>
+                    $jobTask = str_replace("\r", "<li>", $job['task']);
+                    //On ajoute le <li> au début de la chaine
+                    $jobTask = "<li>" . $jobTask;
+                    echo $jobTask . "</li>";
+                    ?>
+                </ul>
+            </div>
+            <div class="strenghtJobOffer">
+                <p>Your strenght :</p>
+                <ul>
+                    <?php
+                    //Detection the \r et on le remplace par un <li>
+                    $jobStrength = str_replace("\r", "<li>", $job['strength']);
+                    //On ajoute le <li> au début de la chaine
+                    $jobStrength = "<li>" . $jobStrength;
+                    echo $jobStrength . "</li>";
+                    ?>
+                </ul>
+            </div>
         </div>
-        <div class="taskJobOffer">
-            <p>Your Task :</p>
-            <ul>
-                <li>Contact with customers via telephone and e-mail</li>
-                <li>Manage bookings/reservations</li>
-                <li>Management of our software/system</li>
-                <li>General office duties</li>
-                <li>Team coordination</li>
-            </ul>
-        </div>
-        <div class="strenghtJobOffer">
-            <p>Your strenght :</p>
-            <ul>
-                <li>Good German, English spoken and written (French an advantage)</li>
-                <li>Confidence in the use of Word, Excel, Outlook</li>
-                <li>Affinity to solve complex problem quickly</li>
-                <li>Experience in HR & Controlling</li>
-                <li>Organizational skills</li>
-            </ul>
-        </div>
-    </div>
-    <div class="aJobOffer">
-        <div class="titleJobOffer">
-            <h3>Account Manager</h3>
-            <p>Permanent position</p>
-        </div>
-        <div class="taskJobOffer">
-            <p>Your Task :</p>
-            <ul>
-                <li>Contact with customers via telephone and e-mail</li>
-                <li>Manage bookings/reservations</li>
-                <li>Management of our software/system</li>
-                <li>General office duties</li>
-                <li>Team coordination</li>
-            </ul>
-        </div>
-        <div class="strenghtJobOffer">
-            <p>Your strenght :</p>
-            <ul>
-                <li>Good German, English spoken and written (French an advantage)</li>
-                <li>Confidence in the use of Word, Excel, Outlook</li>
-                <li>Affinity to solve complex problem quickly</li>
-                <li>Experience in HR & Controlling</li>
-                <li>Organizational skills</li>
-            </ul>
-        </div>
-    </div>
+        <?php
+    }
+    ?>
 </div>
 <h2 class="titleUnderline">Contact us</h2>
 <div class="contactInfos">
