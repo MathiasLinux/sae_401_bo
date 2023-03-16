@@ -728,6 +728,10 @@ footer a {
 
 /* Page admin vueAdminQAndA.php */
 
+.greenButtonEscapeGames{
+    border: none;
+}
+
 .addTitle {
     border: var(--yellow) 3px solid;
     background-color: var(--background);
