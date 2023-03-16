@@ -7,7 +7,7 @@
     --black: #101010;
     --lightBlue: #373D50;
     --red: #fb4d3d;
-    --lightGrey: #A4A4A4;
+    --lightGrey: #a4a4a4
     --veryLightBlue: #6A7497;
 }
 
@@ -201,6 +201,7 @@ footer a {
     display: inline-block;
     font-size: 32px;
     font-weight: 400;
+    border-bottom: var(--yellow) solid 3px;
 }
 
 .titleUnderline::after {
@@ -715,10 +716,11 @@ footer a {
 .newAmount input[type=submit], .yellowButton {
     background-color: var(--yellow);
     border: none;
-    padding-top: 20px;
+    /* padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 30%;
-    padding-right: 30%;
+    padding-right: 30%; */
+    padding: 20px 30%;
     font-size: 20px;
 }
 
@@ -730,21 +732,23 @@ footer a {
     color: white;
     padding: 20px;
     width: 80%;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
 }
 
 .titleAdminQAndA {
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .categorieQAndA {
     background-color: var(--green);
+    color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    font-size: 26px;
+    font-size: 32px;
+    font-weight:500;
 }
 
 .titleCategorieQAndA {
@@ -760,12 +764,140 @@ footer a {
 
 .yellowButtonQAndA {
     background-color: var(--yellow);
-    padding-top: 20px;
+    /* padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 30%;
-    padding-right: 30%;
-    font-size: 20px;
+    padding-right: 30%; */
+}
+
+.buttonsQandA{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.buttonsQandA>a, .buttonsQandA>select{
+    margin: 4%;
+    font-size: 16px;
     color: black;
+    text-align: center;
+    padding: 8% 0px;
+}
+
+.greenButtonEscapeGames{
+    background-color: var(--green);
+}
+
+.buttonsQandA>.redButtonQandA{
+    background-color: var(--red);
+    color: white;
+}
+
+h3.adminQandA{
+    font-weight: normal;
+    font-size: 24px;
+}
+
+a>button.returnAdmin{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+    background-color: var(--yellow);
+    padding: 2% 4%;
+    margin-top: 30px;
+    border: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+textarea.addTitle{
+    height: 240px;
+}
+
+.listQandA{
+    margin: 12% 0%;
+}
+
+.oneQandA>div>div{
+    text-align: center;
+    font-size: 32px;
+    color: black;
+    font-weight:500;
+}
+
+.oneQandA>div>p{
+    margin: 4%;
+    text-align: center;
+}
+
+.oneQ{
+    border: var(--green) solid 3px;
+}
+
+.oneQ>p{
+    font-size: 24px;
+}
+
+.oneA{
+    border: var(--yellow) solid 3px;
+}
+
+.oneA>p{
+    font-size: 20px;
+}
+
+.titleQ{
+    background-color: var(--green);
+}
+
+.titleA{
+    background-color: var(--yellow);
+}
+
+.span2{
+    grid-column: span 2;
+}
+
+.redButtonQandA.span2{
+    margin: 2% 0%;
+    padding: 4% 0%;
+}
+
+.buttonsQandAQuestions{
+    margin: 8% 0%;
+    gap: 4%;
+}
+
+.buttonsQandAQuestions>a{
+    margin: 0%;
+    font-size: 20px;
+}
+
+.formAdmin{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr;
+}
+
+.formAdmin>label{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.formAdmin>label>input[type=text], 
+.formAdmin>label>textarea{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    width: auto;
+}
+
+.formAdmin>input[type=submit]{
+    padding: 20px 0%;
+    text-align: center;
+    margin: 0% 10%;
+    margin-top: 30px;
 }
 
 /* Page Admin vueAdminJobs */
