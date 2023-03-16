@@ -595,6 +595,8 @@ footer a {
     border-collapse: collapse;
     border-spacing: 0;
     margin: 0px auto;
+    text-align: center;
+    
 }
 
 .tg td {
@@ -1065,6 +1067,17 @@ textarea.addTitle{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+/* Vue Admin User */
+
+.marge{
+    margin: 30px 0px;
+}
+
+.tg .pad{
+    padding: 10px 30px;
 }
 
 .textAreaJob {

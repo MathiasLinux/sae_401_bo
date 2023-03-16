@@ -69,6 +69,14 @@ class ctrAdmin
         $objVue->afficher(array(), $title);
     }
 
+
+    public function user()
+    {
+        $title = "Administration user - Kaiserstuhl escape";
+        $objVue = new vue("AdminUser");
+        $objVue->afficher(array(), $title);
+    }
+
     public function addJob()
     {
         var_dump($_POST);
