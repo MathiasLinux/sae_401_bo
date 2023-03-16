@@ -59,4 +59,11 @@ class ctrAdmin
         $objVue = new vue("AdminJob");
         $objVue->afficher(array(), $title);
     }
+
+    public function user()
+    {
+        $title = "Administration user - Kaiserstuhl escape";
+        $objVue = new vue("AdminUser");
+        $objVue->afficher(array(), $title);
+    }
 }
