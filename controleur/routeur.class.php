@@ -6,7 +6,11 @@ require_once "controleur/ctrQAndA.class.php";
 require_once "controleur/ctrJobs.class.php";
 require_once "controleur/ctrEscapeGames.class.php";
 require_once "controleur/ctrAdmin.class.php";
+require_once "controleur/ctrLogin.class.php";
 
+/**********
+ * Classe permettant de gérer les différentes pages
+ *********/
 class routeur
 {
     private $ctrPage;
@@ -15,6 +19,7 @@ class routeur
     private $ctrJobs;
     private $ctrEscapeGames;
     private $ctrAdmin;
+    private $ctrLogin;
 
     public function __construct()
     {
@@ -24,8 +29,12 @@ class routeur
         $this->ctrJobs = new ctrJobs();
         $this->ctrEscapeGames = new ctrEscapeGames();
         $this->ctrAdmin = new ctrAdmin();
+        $this->ctrLogin = new ctrLogin();
     }
 
+    /*******************
+     * Fonction qui gère les différentes pages
+     *******************/
     public function routeurRequete()
     {
         if (isset($_GET["action"])) {
@@ -48,6 +57,18 @@ class routeur
                 case "escapeGames":
                     $this->ctrEscapeGames->escapeGames();
                     break;
+                case "login":
+                    $this->ctrLogin->login();
+                    break;
+                case "signUp":
+                    $this->ctrLogin->signUp();
+                    break;
+                case "createAccount":
+                    $this->ctrLogin->createAccount();
+                    break;
+                case "connexion":
+                    $this->ctrLogin->connexion();
+                    break;
                 case "admin":
                     if (isset($_GET["page"])) {
                         switch ($_GET["page"]) {
@@ -66,14 +87,22 @@ class routeur
                             case "qAndA":
                                 $this->ctrAdmin->qAndA();
                                 break;
+                            case "qAndAQuestions":
+                                $this->ctrAdmin->qAndAQuestions();
+                                break;
                             case "jobs":
                                 $this->ctrAdmin->jobs();
                                 break;
                             case "job":
                                 $this->ctrAdmin->job();
                                 break;
+
                             case "user":
                                 $this->ctrAdmin->user();
+
+                            case "addJob":
+                                $this->ctrAdmin->addJob();
+
                                 break;
                             default:
                                 $this->ctrPage->erreur("Page introuvable");

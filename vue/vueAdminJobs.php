@@ -1,68 +1,48 @@
 <div class="adminJobs">
-    <div class="aJob">
-        <div class="topJob">
-            <div class="titleJob">
-                <p class="firstTitleJob">Account Manager</p>
-                <p class="secondTitleJob">Permanent position</p>
-            </div>
-            <div class="jobDescription">
-                <div class="jobTask">
-                    <p class="secondTitleJob">Your Task :</p>
-                    <ul>
-                        <li>Contact with customers via telephone and e-mail</li>
-                        <li>Manage bookings/reservations</li>
-                        <li>Management of our software/system</li>
-                        <li>General office duties</li>
-                        <li>Team coordination</li>
-                    </ul>
-                </div>
-                <div class="jobStrenghts">
-                    <p class="secondTitleJob">Your Strength :</p>
-                    <ul>
-                        <li>Good German, English spoken and written (French an advantage)</li>
-                        <li>Confidence in the use of Word, Excel, Outlook</li>
-                        <li>Affinity to solve complex problem quickly</li>
-                        <li>Experience in HR & Controlling</li>
-                        <li>Organizational skills</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="bottomJob">
-            <a class="yellowButtonJobs" href="index.php?action=admin&page=job&id=1">Modify</a>
-        </div>
+    <div class="topAdminJob">
+        <a class="yellowButtonAddAdmin" href="index.php?action=admin&page=job">Create a new job</a>
     </div>
-    <div class="aJob">
-        <div class="topJob">
-            <div class="titleJob">
-                <p class="firstTitleJob">Account Manager</p>
-                <p class="secondTitleJob">Permanent position</p>
+    <?php
+    foreach ($jobs as $job) {
+        ?>
+        <div class="aJob">
+            <div class="topJob">
+                <div class="titleJob">
+                    <p class="firstTitleJob"><?= $job['title'] ?></p>
+                    <p class="secondTitleJob"><?= $job['position'] ?></p>
+                </div>
+                <div class="jobDescription">
+                    <div class="jobTask">
+                        <p class="secondTitleJob">Your Task :</p>
+                        <ul>
+                            <?php
+                            //Detection the \r et on le remplace par un <li>
+                            $jobTask = str_replace("\r", "<li>", $job['task']);
+                            //On ajoute le <li> au début de la chaine
+                            $jobTask = "<li>" . $jobTask;
+                            echo $jobTask . "</li>";
+                            ?>
+                        </ul>
+                    </div>
+                    <div class="jobStrenghts">
+                        <p class="secondTitleJob">Your Strength :</p>
+                        <ul>
+                            <?php
+                            //Detection the \r et on le remplace par un <li>
+                            $jobStrength = str_replace("\r", "<li>", $job['strength']);
+                            //On ajoute le <li> au début de la chaine
+                            $jobStrength = "<li>" . $jobStrength;
+                            echo $jobStrength . "</li>";
+                            ?>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="jobDescription">
-                <div class="jobTask">
-                    <p class="secondTitleJob">Your Task :</p>
-                    <ul>
-                        <li>Contact with customers via telephone and e-mail</li>
-                        <li>Manage bookings/reservations</li>
-                        <li>Management of our software/system</li>
-                        <li>General office duties</li>
-                        <li>Team coordination</li>
-                    </ul>
-                </div>
-                <div class="jobStrenghts">
-                    <p class="secondTitleJob">Your Strength :</p>
-                    <ul>
-                        <li>Good German, English spoken and written (French an advantage)</li>
-                        <li>Confidence in the use of Word, Excel, Outlook</li>
-                        <li>Affinity to solve complex problem quickly</li>
-                        <li>Experience in HR & Controlling</li>
-                        <li>Organizational skills</li>
-                    </ul>
-                </div>
+            <div class="bottomJob">
+                <a class="yellowButtonJobs" href="index.php?action=admin&page=job&id=1">Modify</a>
             </div>
         </div>
-        <div class="bottomJob">
-            <a class="yellowButtonJobs" href="index.php?action=admin?page=job&id=1">Modify</a>
-        </div>
-    </div>
+        <?php
+    }
+    ?>
 </div>

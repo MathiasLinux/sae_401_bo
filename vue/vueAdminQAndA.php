@@ -1,5 +1,6 @@
 <h2 class="titleUnderline">Q&A</h2>
-<form action="#">
+<h3 class="adminQandA">List of title</h3>
+<form class="formAdmin" action="#" method="post">
     <label>
         <p class="titleAdminQAndA">New Title</p>
         <input class="addTitle" type="text" name="title" id="title">
@@ -8,14 +9,26 @@
 </form>
 <div class="categoriesQAndA">
     <p class="categorieQAndA">Categories</p>
-    <p class="titleCategorieQAndA">General questions</p>
     <div>
-        <a class="yellowButtonQAndA" href="#">Modify questions</a>
-        <a class="yellowButtonQAndA" href="#">Modify title</a>
-        <select name="escapeGames" id="escapeGames">
-            <option value="">Choose an escape game</option>
-            <option value="thecodex">The Codex</option>
-        </select>
-        <a href="#">Delete</a>
+    <p class="titleCategorieQAndA">General questions</p>
+        <div class="buttonsQandA">
+            <a class="yellowButtonQAndA" href="index.php?action=admin&page=qAndAQuestions&categorie=general">Modify questions</a>
+            <a class="yellowButtonQAndA" href="#">Modify categories</a>
+            <select class="greenButtonEscapeGames" name="escapeGames" id="general" title="escapeGames">
+                <option value="general">General</option>
+            </select>
+            <a class="redButtonQandA" href="#">Delete</a>
+        </div>
+    </div>
+    <p class="titleCategorieQAndA">Questions about "The Codex"</p>
+        <div class="buttonsQandA">
+            <a class="yellowButtonQAndA" href="index.php?action=admin&page=qAndAQuestions&categorie=thecodex">Modify questions</a>
+            <a class="yellowButtonQAndA" href="#">Modify categories</a>
+            <select class="greenButtonEscapeGames" name="escapeGames" id="theCodex" title="escapeGames">
+                <option value="">Escape Games</option>
+                <option value="thecodex">The Codex</option>
+            </select>
+            <a class="redButtonQandA" href="#">Delete</a>
+        </div>
     </div>
 </div>
