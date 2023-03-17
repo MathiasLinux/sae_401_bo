@@ -5,6 +5,7 @@ require_once "controleur/ctrGiftCards.class.php";
 require_once "controleur/ctrQAndA.class.php";
 require_once "controleur/ctrJobs.class.php";
 require_once "controleur/ctrEscapeGames.class.php";
+require_once "controleur/ctrContact.class.php";
 require_once "controleur/ctrAdmin.class.php";
 require_once "controleur/ctrLogin.class.php";
 
@@ -18,6 +19,7 @@ class routeur
     private $ctrQAndA;
     private $ctrJobs;
     private $ctrEscapeGames;
+    private $ctrContact;
     private $ctrAdmin;
     private $ctrLogin;
 
@@ -28,6 +30,7 @@ class routeur
         $this->ctrQAndA = new ctrQAndA();
         $this->ctrJobs = new ctrJobs();
         $this->ctrEscapeGames = new ctrEscapeGames();
+        $this->ctrContact = new ctrContact();
         $this->ctrAdmin = new ctrAdmin();
         $this->ctrLogin = new ctrLogin();
     }
@@ -56,6 +59,12 @@ class routeur
                     break;
                 case "escapeGames":
                     $this->ctrEscapeGames->escapeGames();
+                    break;
+                case "contact":
+                    $this->ctrContact->contact();
+                    break;
+                case "sendForm":
+                    $this->ctrContact->sendForm();
                     break;
                 case "login":
                     $this->ctrLogin->login();
