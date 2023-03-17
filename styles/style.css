@@ -9,6 +9,7 @@
     --red: #fb4d3d;
     --lightGrey: #a4a4a4
     --veryLightBlue: #6A7497;
+    --grey: #D9D9D9;
 }
 
 body {
@@ -1084,6 +1085,7 @@ textarea.addTitle{
     padding: 10px 30px;
 }
 
+
 .textAreaJob {
     margin: 20px 0;
 }
@@ -1097,6 +1099,50 @@ textarea.addTitle{
 .labelTextArea {
     font-size: 18px;
 }
+
+.Nofond{
+    border: 0px !important;
+}
+
+.Nofond>select{
+    padding: 5px 10px;
+    background-color: var(--yellow);
+
+}
+
+.Nofond>select>option{
+    background-color: var(--grey);
+}
+
+.Nofond>a{
+    background-color: var(--red);
+    padding: 10px 30px;
+    color: black;
+    text-decoration: none;
+}
+
+.center{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Search{
+    background-color: var(--yellow);
+    border: none;
+    padding: 15px 50px;
+    font-size: 20px;
+}
+
+.Save{
+    background-color: var(--green);
+    border: none;
+    padding: 15px 50px;
+    font-size: 20px;
+}
+
+
 
 /* Page de connexion vueLogin.php */
 
@@ -1150,4 +1196,9 @@ textarea.addTitle{
     align-items: center;
     text-align: center;
     border: solid 3px #ff6161;
+}
+
+.padding{
+    padding: 0px 20px;
+
 }
