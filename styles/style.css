@@ -730,6 +730,17 @@ footer a {
 
 .greenButtonEscapeGames{
     border: none;
+    background-color: var(--green);
+}
+
+select.greenButtonEscapeGames{
+    font-size: 16px;
+    text-align: center;
+    padding: 20px 0;
+}
+
+select.greenButtonEscapeGames>option{
+    padding: 10px ;
 }
 
 .addTitle {
@@ -745,7 +756,7 @@ footer a {
     font-size: 20px;
 }
 
-.categorieQAndA {
+.categoryQAndA {
     background-color: var(--green);
     color: black;
     display: flex;
@@ -757,7 +768,7 @@ footer a {
     font-weight:500;
 }
 
-.titleCategorieQAndA {
+.titleCategoryQAndA {
     font-size: 24px;
     display: flex;
     justify-content: center;
@@ -781,7 +792,7 @@ footer a {
     grid-template-columns: 1fr 1fr;
 }
 
-.buttonsQandA>a, .buttonsQandA>select{
+.buttonsQandA>a{
     margin: 4%;
     font-size: 16px;
     color: black;
@@ -789,13 +800,10 @@ footer a {
     padding: 8% 0px;
 }
 
-.greenButtonEscapeGames{
-    background-color: var(--green);
-}
-
-.buttonsQandA>.redButtonQandA{
+.buttonsQandA>.redButtonQandA, .redButtonQandA{
     background-color: var(--red);
     color: white;
+    border: none;
 }
 
 h3.adminQandA{
@@ -904,6 +912,14 @@ textarea.addTitle{
     text-align: center;
     margin: 0% 10%;
     margin-top: 30px;
+    font-size: 20px;
+}
+
+.deuxTiers{
+    min-height: 66vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
 }
 
 /* Page Admin vueAdminJobs */

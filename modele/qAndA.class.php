@@ -10,6 +10,46 @@ class qAndA extends bdd
         return $qAndACat;
     }
 
+    public function addQandACat($newCat)
+    {
+        $req = "INSERT INTO qAndACat(id,title,titleFR,id_escapeGame) VALUES (?,?,?,?)";
+        $qAndACat = $this->execReqPrep($req, array(null,$newCat,"",null));
+        if ($qAndACat==1)
+            return TRUE;
+        else
+            return FALSE;
+    }
+
+    public function getOneQandACat($idCat)
+    {
+        $req = "SELECT * FROM qAndACat WHERE id = ?";
+        $data = array($idCat);
+        $qAndACat = $this->execReqPrep($req, $data);
+        return $qAndACat[0];
+    }
+
+    public function updateQandACat($nameCat,$idCat)
+    {
+        $req = "UPDATE qAndACat SET title = ? WHERE id = ?";
+        $data = array($nameCat,$idCat);
+        $qAndACat = $this->execReqPrep($req, $data);
+        if ($qAndACat==1)
+            return TRUE;
+        else
+            return FALSE;
+    }
+
+    public function deleteQandACat($idCat)
+    {
+        $req = "DELETE FROM qAndACat WHERE id = ?";
+        $data = array($idCat);
+        $qAndACat = $this->execReqPrep($req, $data);
+        if ($qAndACat==1)
+            return TRUE;
+        else
+            return FALSE;
+    }
+
     public function getAllQandAQuestions()
     {
         $req = "SELECT * FROM qAndAQuestion";
