@@ -15,6 +15,8 @@ const ABOUT_US_H2_2 = "Contact";
 const ABOUT_US_H2_3 = "Carte";
 
 //Contact Form
+
+const CONTACT_FROM_TITLE = "Contactez-nous";
 const CONTACT_FORM_FIRST_NAME = "Prénom";
 const CONTACT_FORM_LAST_NAME = "Nom";
 const CONTACT_FORM_EMAIL = "Adresse e-mail";
@@ -128,3 +130,53 @@ const PRIVACY_POLICY_H3_16 = "15-	Droit applicable et modalités de recours";
 const PRIVACY_POLICY_P_16 = "<strong>Clause d'arbitrage<strong><br>
 Vous acceptez expressément que tout litige susceptible de naître du fait de la présente Politique de Confidentialité, notamment de son interprétation ou de son exécution, relèvera d'une procédure d'arbitrage soumise au règlement de la plateforme d'arbitrage choisie d'un commun accord, auquel vous adhérerez sans réserve.
 ";
+
+//Q&A
+const QANDA_LINE_1 = "Vous n'avez pas trouvé la réponse à votre question ?";
+const QANDA_LINE_2 = "Contactez-nous via notre formulaire de contact";
+const QANDA_BUTTON = "Contactez-nous";
+
+//Gift Cards
+
+const GIFT_CARDS_TITLE = "Cartes cadeaux";
+
+const GIFT_CARDS_LOGO_1 = "Offrez un montant";
+const GIFT_CARDS_LOGO_2 = "Offrez un escape game";
+
+const GIFT_CARDS_LOGO_3 = "Un cadeau pour plusieurs personnes";
+const GIFT_CARDS_H2_1 = "Qu'est-ce qu'une carte cadeau ?";
+const GIFT_CARDS_P_1 = "Une carte cadeau peut être utilisé pour payer des article sur le site. Vous pouvez aussi acheter une carte cadeau pour offrir un escape game précis";
+
+const GIFT_CARDS_H2_2 = "Acheter";
+
+const GIFT_CARDS_BUTTON_1 = "Carte d'un montant";
+
+const GIFT_CARDS_BUTTON_2 = "Carte d'un escape game";
+
+//Jobs
+
+const JOBS_TITLE = "Esprit d'équipe et équipe dynamique";
+
+const JOBS_LOGO_1_1 = "Bon salaire";
+
+const JOBS_LOGO_1_2 = "Horaires flexibles";
+
+const JOBS_LOGO_1_3 = "Equipe jeune";
+
+const JOBS_LOGO_1_4 = "Education continue";
+
+const JOBS_LOGO_1_5 = "Place permanente";
+
+const JOBS_H2_1 = "Vos talents";
+
+const JOBS_LOGO_2_1 = "Responsable";
+
+const JOBS_LOGO_2_2 = "Esprit d'initiative";
+
+const JOBS_LOGO_2_3 = "Esprit d'équipe";
+
+const JOBS_LOGO_2_4 = "Adaptable";
+
+const JOBS_H2_2 = "Offres d'emplois";
+
+const JOBS_H2_3 = "Contactez-nous";

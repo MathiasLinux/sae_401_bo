@@ -16,6 +16,8 @@ const ABOUT_US_H2_2 = "Contact";
 const ABOUT_US_H2_3 = "Map";
 
 //Contact Form
+
+const CONTACT_FROM_TITLE = "Contact us";
 const CONTACT_FORM_FIRST_NAME = "First name";
 const CONTACT_FORM_LAST_NAME = "Last name";
 const CONTACT_FORM_EMAIL = "E-mail address";
@@ -137,3 +139,52 @@ const PRIVACY_POLICY_H3_16 = "15- Applicable law and recourse procedures";
 const PRIVACY_POLICY_P_16 = "<strong>Arbitration clause</strong><br>
 You expressly agree that any dispute that may arise from this Privacy Policy, including its interpretation or execution, shall be subject to an arbitration procedure under the regulation of the arbitration platform chosen jointly, to which you will adhere without reserve.
 ";
+
+//Q&A
+const QANDA_LINE_1 = "You have not find the answer to you question ?";
+
+const QANDA_LINE_2 = "You can contact us through the contact page :";
+
+const QANDA_BUTTON = "Contact us";
+
+//Gift Cards
+
+const GIFT_CARDS_TITLE = "Gift Cards";
+
+const GIFT_CARDS_LOGO_1 = "Gift an amount";
+const GIFT_CARDS_LOGO_2 = "Gift an escape game";
+
+const GIFT_CARDS_LOGO_3 = "Gift for many persons";
+const GIFT_CARDS_H2_1 = "What is a Gift Card ?";
+const GIFT_CARDS_P_1 = "A Gift Card is a prepaid card that can be used to pay for a purchase on the site. You can also buy a Gift Card for a specific escape game.";
+const GIFT_CARDS_H2_2 = "Buy";
+const GIFT_CARDS_BUTTON_1 = "Money Cards";
+const GIFT_CARDS_BUTTON_2 = "Escape Cards";
+
+//Jobs
+
+const JOBS_TITLE = "Team Spirit and Dynamic Team";
+
+const JOBS_LOGO_1_1 = "Fair Salary";
+
+const JOBS_LOGO_1_2 = "Flexible Working Hours";
+
+const JOBS_LOGO_1_3 = "Young Team";
+
+const JOBS_LOGO_1_4 = "Continuing Education";
+
+const JOBS_LOGO_1_5 = "Permanent Job";
+
+const JOBS_H2_1 = "Your Skills";
+
+const JOBS_LOGO_2_1 = "Responsible";
+
+const JOBS_LOGO_2_2 = "Intiative";
+
+const JOBS_LOGO_2_3 = "Team Player";
+
+const JOBS_LOGO_2_4 = "Adaptable";
+
+const JOBS_H2_2 = "Job offers";
+
+const JOBS_H2_3 = "Contact us";
