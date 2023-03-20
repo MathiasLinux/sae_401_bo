@@ -157,7 +157,7 @@
     <?= $contenu ?>
 </main>
 <footer>
-    <img src="img/logo.png" alt="logo">
+    <img class="taille" src="img/logo.png" alt="logo">
     <div class="sectionFooter">
         <p class="titleFooter">Company</p>
         <div class="ligneFooter">
