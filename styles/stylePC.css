@@ -53,6 +53,41 @@ header img {
     margin-right: 20px;
 }
 
+/* Footer */
+
+.tel{
+    display: none;
+}
+
+.pc{
+    display: flex;
+    justify-content: space-around;
+}
+
+.taille{
+    width: 300px;
+}
+
+.taille>img{
+    width: 100%;
+}
+
+.ligneFooter{
+    display: block;
+    text-align: center;
+    gap: 10px;
+}
+
+.Yellow{
+    color: var(--yellow);
+    text-align: center;
+}
+
+.CenterName{
+    font-size: 12pt;
+    text-align: center;
+}
+
 /* Page d'accueil vue.Accueil.php */
 
 .LogoAccueil {

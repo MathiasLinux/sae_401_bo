@@ -12,6 +12,14 @@
     --grey: #D9D9D9;
 }
 
+.tel{
+    display: block;
+}
+
+.pc{
+    display: none;
+}
+
 body {
     margin: 0;
     background-color: var(--background);
