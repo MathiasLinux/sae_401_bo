@@ -551,6 +551,164 @@ footer a {
     font-size: 16px;
 }
 
+/* Page Escape Game vueEscapeGame.php */
+
+.escapeGameGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+}
+
+.escapeGameGrid>div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+}
+
+.escapeGameGrid>div>img{
+    width: 32px;
+    height: 32px;
+}
+
+.alinea{
+    text-indent: 50px;
+}
+
+.escapeGameSlider{
+    position: relative;
+}
+
+.escapeGameF{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+}
+
+.escapeGSliderRect{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    bottom: 10px;
+    gap: 10px;
+}
+
+.escapeGSliderRect>div{
+    width: 20px;
+    height: 5px;
+    background-color: #fff;
+}
+
+.escapeGameRect{
+    opacity: 40%;
+}
+
+.escapeGameRectSelec{
+    opacity: 80%;
+}
+
+.escapeGSliderIMG{
+    display: flex;
+    height: 250px;
+    overflow: hidden;
+    align-items: center;
+}
+
+.escapeGameSCenterSelec{
+    width: 100%;
+    height: auto;
+    transition:0.4s;
+}
+
+.escapeGameSCenter{
+    width: 0%;
+    height: auto;
+    transition:0.4s;
+}
+
+#mapEscapeGame{
+    height: 250px;
+}
+
+.displayNone{
+    display: none;
+}
+
+.escapeGameReview{
+    background-color: var(--green);
+    display: grid;
+    color: white;
+    grid-template-columns: 2fr 3fr;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    height: 150px;
+    margin-bottom: 25px;
+}
+
+.reviewNom{
+    font-size: 16pt;
+    margin-top: 30px;
+}
+
+.reviewDesc{
+    grid-row: 1/3;
+    grid-column: 2;
+}
+
+.reviewNote{
+    margin-bottom: 30px;
+}
+
+.escapeYellowButton{
+    background-color: var(--yellow);
+    padding: 20px;
+    margin: 30px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.inputBuy{
+    width: 90%;
+    height: 40px;
+}
+
+.escapeSearchButton{
+    border-style: solid;
+    border-color: var(--green);
+    padding: 10px 20px;
+    margin: 30px 0;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+.hoursSchedules>.greenButton{
+    color: black;
+}
+
+.hoursSchedules>.occupied{
+    background-color: #01241a;
+}
+
+.possibleSchedules>.escapeYellowButton{
+    margin-top: 50px;
+}
+
 /* Page admin vueAdmin.php */
 
 .aButton {

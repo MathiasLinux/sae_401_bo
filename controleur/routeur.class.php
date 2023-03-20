@@ -60,6 +60,9 @@ class routeur
                 case "escapeGames":
                     $this->ctrEscapeGames->escapeGames();
                     break;
+                case "escapeGame":
+                    $this->ctrEscapeGames->escapeGame();
+                    break;
                 case "contact":
                     $this->ctrContact->contact();
                     break;
