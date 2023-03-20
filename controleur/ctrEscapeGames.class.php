@@ -19,4 +19,11 @@ class ctrEscapeGames
         $objVue = new vue("EscapeGames");
         $objVue->afficher(array("escapeGames" => $escapeGames), $title);
     }
+
+    public function escapeGame()
+    {
+        $title = "Escape Game - Kaiserstuhl escape";
+        $objVue = new vue("EscapeGame");
+        $objVue->afficher(array(), $title);
+    }
 }
