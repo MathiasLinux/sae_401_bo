@@ -5,6 +5,7 @@ require_once "controleur/ctrGiftCards.class.php";
 require_once "controleur/ctrQAndA.class.php";
 require_once "controleur/ctrJobs.class.php";
 require_once "controleur/ctrEscapeGames.class.php";
+require_once "controleur/ctrContact.class.php";
 require_once "controleur/ctrAdmin.class.php";
 require_once "controleur/ctrLogin.class.php";
 
@@ -18,6 +19,7 @@ class routeur
     private $ctrQAndA;
     private $ctrJobs;
     private $ctrEscapeGames;
+    private $ctrContact;
     private $ctrAdmin;
     private $ctrLogin;
 
@@ -28,6 +30,7 @@ class routeur
         $this->ctrQAndA = new ctrQAndA();
         $this->ctrJobs = new ctrJobs();
         $this->ctrEscapeGames = new ctrEscapeGames();
+        $this->ctrContact = new ctrContact();
         $this->ctrAdmin = new ctrAdmin();
         $this->ctrLogin = new ctrLogin();
     }
@@ -56,6 +59,21 @@ class routeur
                     break;
                 case "escapeGames":
                     $this->ctrEscapeGames->escapeGames();
+                    break;
+                case "escapeGame":
+                    $this->ctrEscapeGames->escapeGame();
+                    break;
+                case "contact":
+                    $this->ctrContact->contact();
+                    break;
+                case "sendForm":
+                    $this->ctrContact->sendForm();
+                    break;
+                case "legal":
+                    $this->ctrPage->legalNotice();
+                    break;
+                case "privacy":
+                    $this->ctrPage->privacyPolicy();
                     break;
                 case "login":
                     $this->ctrLogin->login();
@@ -111,6 +129,26 @@ class routeur
                     } else {
                         $this->ctrAdmin->admin();
                     }
+                case "lang":
+                    if (isset($_GET["lang"])) {
+                        switch ($_GET["lang"]) {
+                            case "fr":
+                                $_SESSION["lang"] = "fr";
+                                //encode the url to avoid special characters
+                                header("Location: " . $_COOKIE["page"]);
+                                //header("Location: " . $_SERVER["REQUEST_URI"]);
+                                break;
+                            case "en":
+                                $_SESSION["lang"] = "en";
+                                header("Location: " . $_COOKIE["page"]);
+                                break;
+
+                        }
+                    }
+                    break;
+                default :
+                    header("Location: index.php");
+                    break;
             }
         } else {
             $this->ctrPage->accueil();

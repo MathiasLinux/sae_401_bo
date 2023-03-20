@@ -11,7 +11,7 @@ echo "<h2 class='titleUnderline'>{$item['title']}</h2>";
 <div class="questions">
     <?php
     foreach ($allQAndAQuestions as $question) {
-        if ($question['id_qAndACat'] == $item['id']) {
+        if ($question['id_qAndACat'] == $item['id_qAndACat']) {
             ?>
             <div class="aQuestion">
                 <div class="titleQuestion">
