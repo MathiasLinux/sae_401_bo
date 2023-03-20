@@ -19,7 +19,7 @@ body {
 }
 
 img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
 }
 
@@ -213,9 +213,7 @@ footer a {
 
 .imgBorder {
     border: var(--yellow) 3px solid;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
 }
 
 .linkGroup {
@@ -260,15 +258,16 @@ footer a {
 }
 
 .reviewsHome {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    display: block;
+
+    
 }
 
 .aReview {
-    background-color: var(--green);
+    background-color: var(--yellow);
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin: 10px;
 }
 
 .leftReview {
@@ -281,6 +280,17 @@ footer a {
 .reviewName {
     font-size: 20px;
 }
+
+.Vue{
+    display: block;
+}
+
+.Vue2{
+    display: none;
+
+}
+
+
 
 /* Page about us vueAboutUs.php */
 
