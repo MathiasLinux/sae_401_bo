@@ -80,7 +80,7 @@
         <a href="mailto:booking@we-escape.de">booking@we-escape.de</a>
     </div>
 </div>
-<h2 class="titleUnderline">Map</h2>
+<h2 class="titleUnderline"><?= ABOUT_US_H2_3 ?></h2>
 <p>Am Krebsbach 2G, 79241 Ihringen, Germany</p>
 
 <div id="map"></div>
