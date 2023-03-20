@@ -1,76 +1,73 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
       integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
       crossorigin=""/>
-<h2 class="titleUnderline">About us</h2>
+<h2 class="titleUnderline"><?= ABOUT_US_TITLE ?></h2>
 <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, fugit, maiores. Sapiente, unde, voluptatum!
-    Architecto aspernatur, cum dolore, dolorum eveniet facilis ipsam maxime officia officiis quae sit, tempora.
-    Necessitatibus, officiis?
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam aliquid autem commodi consectetur
-    deleniti id illum, in inventore maiores minima natus neque nostrum obcaecati quaerat quibusdam quos reiciendis
-    veniam.
+    <?= ABOUT_US_P_1 ?>
 </p>
-<h2 class="titleUnderline">The Team</h2>
+<h2 class="titleUnderline"><?= ABOUT_US_H2_1 ?></h2>
 <div class="persons">
     <div class="aPerson">
         <img src="img/team/eva.png" alt="Eva photo">
         <div class="leftPerson">
             <p>Eva</p>
-            <p>The annunciator</p>
-            <p>Head of Marketing Sales Management</p>
+            <p><?= ABOUT_US_PERSON_1_ROLE ?></p>
+            <p><?= ABOUT_US_PERSON_1_POSITION ?></p>
         </div>
     </div>
     <div class="aPerson">
         <img src="img/team/eva.png" alt="Eva photo">
         <div class="leftPerson">
             <p>Eva</p>
-            <p>The annunciator</p>
-            <p>Head of Marketing Sales Management</p>
-        </div>
-    </div>
-    <div class="aPerson">
-        <img src="img/team/eva.png" alt="Eva photo">
-        <div class="leftPerson">
-            <p>Eva</p>
-            <p>The annunciator</p>
-            <p>Head of Marketing Sales Management</p>
+            <p><?= ABOUT_US_PERSON_1_ROLE ?></p>
+            <p><?= ABOUT_US_PERSON_1_POSITION ?></p>
         </div>
     </div>
 </div>
-<h2 class="titleUnderline">Contact</h2>
+<div class="aPerson">
+    <img src="img/team/eva.png" alt="Eva photo">
+    <div class="leftPerson">
+        <p>Eva</p>
+        <p><?= ABOUT_US_PERSON_1_ROLE ?></p>
+        <p><?= ABOUT_US_PERSON_1_POSITION ?></p>
+    </div>
+</div>
+</div>
+</div>
+<h2 class="titleUnderline"><?= ABOUT_US_H2_2 ?></h2>
 <form class="contactForm" action="#" method="post">
     <div class="formGroup">
         <label>
-            First name
+            <?= CONTACT_FORM_FIRST_NAME ?>
             <input type="text" id="firstName" name="firstName">
         </label>
     </div>
     <div class="formGroup">
         <label>
-            Last name
+            <?= CONTACT_FORM_LAST_NAME ?>
             <input type="text" id="name" name="name">
         </label>
     </div>
     <div class="formGroup">
         <label>
-            E-mail address
+            <?= CONTACT_FORM_EMAIL ?>
             <input type="email" id="email" name="email">
         </label>
     </div>
     <div class="formGroup">
         <label>
-            Phone number
+            <?= CONTACT_FORM_PHONE ?>
             <input type="tel" id="phone" name="phone">
         </label>
     </div>
     <div class="formGroup">
         <label>
-            Your message
+            <?= CONTACT_FORM_MESSAGE ?>
             <textarea name="message" id="message" cols="30" rows="10"></textarea>
         </label>
     </div>
     <div class="formGroup formInput">
-        <input type="submit" value="Send">
+        <input type="submit" value="<?= CONTACT_FORM_SUBMIT ?>">
     </div>
 </form>
 <div class="contactInfos">

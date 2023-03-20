@@ -69,6 +69,12 @@ class routeur
                 case "sendForm":
                     $this->ctrContact->sendForm();
                     break;
+                case "legal":
+                    $this->ctrPage->legalNotice();
+                    break;
+                case "privacy":
+                    $this->ctrPage->privacyPolicy();
+                    break;
                 case "login":
                     $this->ctrLogin->login();
                     break;
@@ -123,6 +129,26 @@ class routeur
                     } else {
                         $this->ctrAdmin->admin();
                     }
+                case "lang":
+                    if (isset($_GET["lang"])) {
+                        switch ($_GET["lang"]) {
+                            case "fr":
+                                $_SESSION["lang"] = "fr";
+                                //encode the url to avoid special characters
+                                header("Location: " . $_COOKIE["page"]);
+                                //header("Location: " . $_SERVER["REQUEST_URI"]);
+                                break;
+                            case "en":
+                                $_SESSION["lang"] = "en";
+                                header("Location: " . $_COOKIE["page"]);
+                                break;
+
+                        }
+                    }
+                    break;
+                default :
+                    header("Location: index.php");
+                    break;
             }
         } else {
             $this->ctrPage->accueil();
