@@ -1,8 +1,8 @@
 <h2 class="titleUnderline">Q&A</h2>
-<h3 class="adminQandA">List of title</h3>
+<h3 class="adminQandA">List of category</h3>
 <form class="formAdmin" action="index.php?action=admin&page=qAndANewCat_S" method="post">
     <label>
-        <p class="titleAdminQAndA">New Title</p>
+        <p class="titleAdminQAndA">New category</p>
         <input class="addTitle" type="text" name="newCat" id="newCat">
     </label>
     <input class="yellowButton" type="submit" value="Add new category">
@@ -18,10 +18,10 @@
                 echo '<div class="oneCategory">';
                 echo '<p class="titleCategoryQAndA">'.$qAndA['title'].'</p>';
                 echo '<div class="buttonsQandA">';
-                echo '<a class="yellowButtonQAndA" href="index.php?action=admin&page=qAndAQuestions&id_qAndACat='.$qAndA['id'].'">Modify questions</a>';
-                echo '<a class="yellowButtonQAndA" href="index.php?action=admin&page=qAndAModifyCat&id_qAndACat='.$qAndA['id'].'">Modify category</a>';
-                echo '<a class="greenButtonEscapeGames" href="index.php?action=admin&page=qAndAModifyES&id_qAndACat='.$qAndA['id'].'">Modify ES</a>';
-                echo '<a class="redButtonQandA" href="index.php?action=admin&page=qAndADeleteCat&id_qAndACat='.$qAndA['id'].'">Delete</a>';
+                echo '<a class="yellowButtonQAndA" href="index.php?action=admin&page=qAndAQuestions&id_qAndACat='.$qAndA['id_qAndACat'].'">Modify questions</a>';
+                echo '<a class="yellowButtonQAndA" href="index.php?action=admin&page=qAndAModifyCat&id_qAndACat='.$qAndA['id_qAndACat'].'">Modify category</a>';
+                echo '<a class="greenButtonEscapeGames" href="index.php?action=admin&page=qAndAModifyES&id_qAndACat='.$qAndA['id_qAndACat'].'">Modify ES</a>';
+                echo '<a class="redButtonQandA" href="index.php?action=admin&page=qAndADeleteCat&id_qAndACat='.$qAndA['id_qAndACat'].'">Delete</a>';
                 echo '</div>';
             }
         }

@@ -90,9 +90,6 @@ class routeur
                             case "qAndANewCat_S":
                                 $this->ctrAdmin->qAndANewCat_S();
                                 break;
-                            case "qAndAQuestions":
-                                $this->ctrAdmin->qAndAQuestions();
-                                break;
                             case "qAndAModifyCat":
                                 $idCat = $_GET['id_qAndACat'];
                                 $this->ctrAdmin->qAndAModifyCat($idCat);
@@ -112,6 +109,23 @@ class routeur
                             case "qAndADeleteCat_S":
                                 $idCat = $_GET['id_qAndACat'];
                                 $this->ctrAdmin->qAndADeleteCat_S($idCat);
+                                break;
+                            case "qAndAQuestions":
+                                $idCat = $_GET['id_qAndACat'];
+                                $this->ctrAdmin->qAndAQuestions($idCat);
+                                break;
+                            case "qAndAQuestionsAdd_S":
+                                $idCat = $_GET['id_qAndACat'];
+                                $this->ctrAdmin->qAndAQuestionsAdd_S($idCat);
+                                break;
+                            case "qAndAQuestionsDelete":
+                                $idQ = $_GET['id_qAndAQ'];
+                                $this->ctrAdmin->qAndAQuestionsDelete($idQ);
+                                break;
+                            case "qAndAQuestionsDelete_S":
+                                $idCat = $_GET['id_qAndACat'];
+                                $idQ = $_GET['id_qAndAQ'];
+                                $this->ctrAdmin->qAndAQuestionsDelete_S($idCat,$idQ);
                                 break;
                             case "jobs":
                                 $this->ctrAdmin->jobs();

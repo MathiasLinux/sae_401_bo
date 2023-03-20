@@ -71,11 +71,41 @@ class ctrAdmin
             $this->qAndA();
     }
 
-    public function qAndAQuestions()
+    public function qAndAQuestions($idCat)
     {
+        $qAndAQs = $this->qAndAs->getQandAQuestions($idCat);
         $title = "Administration Q&A - Questions - Kaiserstuhl escape";
         $objVue = new vue("AdminQAndAQuestions");
-        $objVue->afficher(array(), $title);
+        $objVue->afficher(array("qAndAQs" => $qAndAQs), $title);
+    }
+
+    public function qAndAQuestionsAdd_S($idCat)
+    {
+        extract($_POST);
+        if(!empty($question) && !empty($answer)){
+            if($this->qAndAs->addQandAQuestion($question,$answer,$idCat))
+                $this->qAndAQuestions($idCat);
+            else
+                throw new Exception("An error occured during the adding process");
+        }
+        else
+            $this->qAndAQuestions($idCat);
+    }
+
+    public function qAndAQuestionsDelete($idQ)
+    {
+        $qAndAQs = $this->qAndAs->getOneQandAQuestion($idQ);
+        $title = "Administration Q&A - Delete a Q&A - Kaiserstuhl escape";
+        $objVue = new vue("AdminQAndAQuestionsDelete");
+        $objVue->afficher(array("qAndAQs" => $qAndAQs), $title);
+    }
+
+    public function qAndAQuestionsDelete_S($idCat,$idQ)
+    {
+        if($this->qAndAs->deleteQandAQuestion($idQ))
+            $this->qAndAQuestions($idCat);
+        else
+            throw new Exception("An error occured during the delete process");
     }
 
     public function qAndAModifyCat($idCat)
