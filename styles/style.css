@@ -12,11 +12,11 @@
     --grey: #D9D9D9;
 }
 
-.tel{
+.tel {
     display: block;
 }
 
-.pc{
+.pc {
     display: none;
 }
 
@@ -268,7 +268,7 @@ footer a {
 .reviewsHome {
     display: block;
 
-    
+
 }
 
 .aReview {
@@ -289,15 +289,14 @@ footer a {
     font-size: 20px;
 }
 
-.Vue{
+.Vue {
     display: block;
 }
 
-.Vue2{
+.Vue2 {
     display: none;
 
 }
-
 
 
 /* Page about us vueAboutUs.php */
@@ -571,13 +570,13 @@ footer a {
 
 /* Page Escape Game vueEscapeGame.php */
 
-.escapeGameGrid{
+.escapeGameGrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%;
 }
 
-.escapeGameGrid>div{
+.escapeGameGrid > div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -585,20 +584,20 @@ footer a {
     margin: auto;
 }
 
-.escapeGameGrid>div>img{
+.escapeGameGrid > div > img {
     width: 32px;
     height: 32px;
 }
 
-.alinea{
+.alinea {
     text-indent: 50px;
 }
 
-.escapeGameSlider{
+.escapeGameSlider {
     position: relative;
 }
 
-.escapeGameF{
+.escapeGameF {
     position: absolute;
     width: 100%;
     top: 50%;
@@ -607,7 +606,7 @@ footer a {
     justify-content: space-between;
 }
 
-.escapeGSliderRect{
+.escapeGSliderRect {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -616,48 +615,48 @@ footer a {
     gap: 10px;
 }
 
-.escapeGSliderRect>div{
+.escapeGSliderRect > div {
     width: 20px;
     height: 5px;
     background-color: #fff;
 }
 
-.escapeGameRect{
+.escapeGameRect {
     opacity: 40%;
 }
 
-.escapeGameRectSelec{
+.escapeGameRectSelec {
     opacity: 80%;
 }
 
-.escapeGSliderIMG{
+.escapeGSliderIMG {
     display: flex;
     height: 250px;
     overflow: hidden;
     align-items: center;
 }
 
-.escapeGameSCenterSelec{
+.escapeGameSCenterSelec {
     width: 100%;
     height: auto;
-    transition:0.4s;
+    transition: 0.4s;
 }
 
-.escapeGameSCenter{
+.escapeGameSCenter {
     width: 0%;
     height: auto;
-    transition:0.4s;
+    transition: 0.4s;
 }
 
-#mapEscapeGame{
+#mapEscapeGame {
     height: 250px;
 }
 
-.displayNone{
+.displayNone {
     display: none;
 }
 
-.escapeGameReview{
+.escapeGameReview {
     background-color: var(--green);
     display: grid;
     color: white;
@@ -669,21 +668,21 @@ footer a {
     margin-bottom: 25px;
 }
 
-.reviewNom{
+.reviewNom {
     font-size: 16pt;
     margin-top: 30px;
 }
 
-.reviewDesc{
+.reviewDesc {
     grid-row: 1/3;
     grid-column: 2;
 }
 
-.reviewNote{
+.reviewNote {
     margin-bottom: 30px;
 }
 
-.escapeYellowButton{
+.escapeYellowButton {
     background-color: var(--yellow);
     padding: 20px;
     margin: 30px;
@@ -696,12 +695,12 @@ footer a {
     color: black;
 }
 
-.inputBuy{
+.inputBuy {
     width: 90%;
     height: 40px;
 }
 
-.escapeSearchButton{
+.escapeSearchButton {
     border-style: solid;
     border-color: var(--green);
     padding: 10px 20px;
@@ -715,15 +714,15 @@ footer a {
     color: white;
 }
 
-.hoursSchedules>.greenButton{
+.hoursSchedules > .greenButton {
     color: black;
 }
 
-.hoursSchedules>.occupied{
+.hoursSchedules > .occupied {
     background-color: #01241a;
 }
 
-.possibleSchedules>.escapeYellowButton{
+.possibleSchedules > .escapeYellowButton {
     margin-top: 50px;
 }
 
@@ -1289,8 +1288,9 @@ textarea.addTitle {
 }
 
 .Nofond > select {
-    padding: 5px 10px;
+    padding: 10px 15px;
     background-color: var(--yellow);
+    border: none;
 
 }
 
@@ -1298,11 +1298,49 @@ textarea.addTitle {
     background-color: var(--grey);
 }
 
-.Nofond > a {
+.deleteUser {
     background-color: var(--red);
     padding: 10px 30px;
     color: black;
+    cursor: pointer;
+}
+
+.validationDeleteUser {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--veryLightBlue);
+    padding: 20px;
+}
+
+.delUserDivButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.validationDeleteUser a {
     text-decoration: none;
+    color: black;
+    background-color: var(--red);
+    padding: 10px 30px;
+}
+
+.noDeleteUser {
+    background-color: var(--green);
+    padding: 10px 30px;
+    color: black;
+    cursor: pointer;
+    border: none;
+}
+
+.eachCheckboxUser {
+    display: flex;
+    justify-content: right;
+    align-items: center;
 }
 
 .center {
@@ -1313,10 +1351,11 @@ textarea.addTitle {
 }
 
 .Search {
-    background-color: var(--yellow);
-    border: none;
-    padding: 15px 50px;
-    font-size: 20px;
+    background-color: var(--yellow) !important;
+    border: none !important;
+    padding: 15px 50px !important;
+    font-size: 20px !important;
+    color: black !important;
 }
 
 .Save {
@@ -1324,6 +1363,7 @@ textarea.addTitle {
     border: none;
     padding: 15px 50px;
     font-size: 20px;
+    cursor: pointer;
 }
 
 

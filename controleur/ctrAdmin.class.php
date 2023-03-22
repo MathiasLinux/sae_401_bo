@@ -1,15 +1,18 @@
 <?php
 
 require_once "modele/jobs.class.php";
+require_once "modele/user.class.php";
 require_once "vue/vue.class.php";
 
 class ctrAdmin
 {
     public $jobs;
+    public $user;
 
     public function __construct()
     {
         $this->jobs = new jobs();
+        $this->user = new user();
     }
 
     public function admin()
@@ -69,14 +72,6 @@ class ctrAdmin
         $objVue->afficher(array(), $title);
     }
 
-
-    public function user()
-    {
-        $title = "Administration user - Kaiserstuhl escape";
-        $objVue = new vue("AdminUser");
-        $objVue->afficher(array(), $title);
-    }
-
     public function addJob()
     {
         var_dump($_POST);
@@ -105,6 +100,41 @@ class ctrAdmin
         $title = "Administration Jobs - Kaiserstuhl escape";
         $objVue = new vue("AdminJobs");
         $objVue->afficher(array("jobs" => $jobs), $title);
+    }
+
+    public function delUser($id)
+    {
+        $this->user->delUser($id);
+        header("Location: index.php?action=admin&page=users");
+    }
+
+    public function user()
+    {
+        $users = $this->user->getUsers();
+        $title = "Administration user - Kaiserstuhl escape";
+        $objVue = new vue("AdminUser");
+        $objVue->afficher(array("users" => $users), $title);
+    }
+
+    public function changeUsersRights($id)
+    {
+        $rights = "";
+        if (isset($_POST["superadmin"])) {
+            $rights .= "superadmin,";
+        }
+        if (isset($_POST["editor"])) {
+            $rights .= "editor,";
+        }
+        if (isset($_POST["management"])) {
+            $rights .= "management,";
+        }
+        if (isset($_POST["jobs"])) {
+            $rights .= "jobs,";
+        }
+        //delete last comma
+        $rights = substr($rights, 0, -1);
+        $this->user->updateRightsUser($id, $rights);
+        header("Location: index.php?action=admin&page=users");
     }
 
 }
