@@ -25,6 +25,20 @@ class ctrPage
         $objVue->afficher(array(), $title);
     }
 
+    public function legalNotice()
+    {
+        $title = "Legal Notice - Kaiserstuhl escape";
+        $objVue = new vue("LegalNotice");
+        $objVue->afficher(array(), $title);
+    }
+
+    public function privacyPolicy()
+    {
+        $title = "Privacy Policy - Kaiserstuhl escape";
+        $objVue = new vue("PrivacyPolicy");
+        $objVue->afficher(array(), $title);
+    }
+
     public function erreur($message)
     {
         $objVue = new vue("Erreur");

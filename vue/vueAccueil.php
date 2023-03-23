@@ -1,4 +1,4 @@
-<div class="LogoAccueil">
+<section class="LogoAccueil">
     <div class="accueilLogo">
         <img src="img/logo.png" alt="logo">
     </div>
@@ -13,69 +13,115 @@
             repellendus repudiandae tempora. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto
             deleniti illo minima officiis quas repudiandae soluta suscipit. Accusantium at cum ducimus eius et molestiae
             nulla quaerat sed. Consequatur, delectus dolore. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Adipisci blanditiis, commodi deserunt dolorum eaque earum enim eum facere illo incidunt, officia
-            perspiciatis qui quibusdam quisquam rerum sunt unde ut voluptatum? Lorem ipsum dolor sit amet, consectetur
-            adipisicing elit. Accusantium dicta, dolor dolore dolores illum mollitia non. Beatae expedita inventore non
-            officia reiciendis? Assumenda delectus fuga harum reprehenderit? Neque officiis, sit. Lorem ipsum dolor sit
-            amet, consectetur adipisicing elit. Animi atque consequuntur deserunt ex expedita ipsum iste magnam magni,
-            nobis nostrum odio perferendis perspiciatis, porro provident reiciendis repellat sint ullam, veritatis.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad animi autem culpa dolorem eum eveniet, iusto
-            minima necessitatibus omnis perspiciatis, quasi, quo repellendus rerum temporibus unde vel veniam. Magnam.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi cupiditate facere quae qui quia quod, rerum
-            suscipit tenetur voluptas voluptatem!
+           
         </p>
     </div>
-</div>
-<div class="newEscapeGame">
-    <h2 class="titleUnderline">The Codex</h2> <!-- Enlever la div, mettre en before ou en after le trait en dessous -->
-    <p class="descLastEscape">
+</section>
+
+<section class="newEscapeGame">
+    <h2 class="titleUnderline div1">The Codex</h2> 
+    
+    <p class="descLastEscape div2">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto consequuntur cumque
     </p>
-    <img class="imgBorder" src="img/codex.jpg" alt="codex logo">
-    <div class="linkGroup">
-        <a class="greenLink" href="index.php?action=escapegames">More informations</a>
-        <a class="greenLink" href="index.php?action=escapegames">Buy now</a>
+    <img class="imgBorder div3" src="img/escapeGames/1.jpg" alt="codex logo">
+    <div class="linkGroup div4">
+        <a class="greenLink div5" href="index.php?action=escapegames">More informations</a>
+        <a class="greenLink div6" href="index.php?action=escapegames">Buy now</a>
     </div>
-</div>
+    <div>
+
+    </div>
+</section>
+
 <h2 class="titleUnderline">Gift Cards</h2>
-<div class="divImg">
-    <img class="imgBorder" src="img/giftCards.png" alt="giftcard logo">
-</div>
-<p>Gift an adventure now !</p>
-<div class="linkGroup">
-    <a class="greenLink" href="index.php?action=giftCards">Buy now !</a>
-</div>
+
+<section class="GC">
+    <div class="divImg">
+        <img class="imgBorder" src="img/giftCards.png" alt="giftcard logo">
+    </div>
+
+    <div>
+        <p>Gift an adventure now !</p>
+        <div class="linkGroup">
+            <a class="greenLink" href="index.php?action=giftCards">Buy now !</a>
+        </div>
+    </div>
+</section>
+
 <h2 class="titleUnderline">Other escape</h2>
-<div class="contourTitleImage">
-    <div class="titleAndImage">
-        <img src="img/inVinoVeritas.jpg" alt="photo vin">
-        <p class="titleYellow">In Vino Veritas</p>
+
+<section class="Vue">
+    <div class="contourTitleImage">
+        <div class="titleAndImage">
+            <img src="img/escapeGames/2.jpg" alt="photo vin">
+            <div>
+                <h2 class="titleYellow">In Vino Veritas</h2>
+                <a href="">Discover</a> 
+            </div>
+        </div>
     </div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolore dolores doloribus fuga laboriosam
-        natus
-        quisquam, quod ratione sit, suscipit temporibus vitae, voluptas voluptatibus. Ad dignissimos doloremque sit
-        temporibus voluptatibus!</p>
-</div>
-<div class="contourTitleImage">
-    <div class="titleAndImage">
-        <img src="img/inVinoVeritas.jpg" alt="photo vin">
-        <p class="titleYellow">In Vino Veritas</p>
+
+    <div class="contourTitleImage">
+        <div class="titleAndImage">
+            <img src="img/escapeGames/3.jpg" alt="photo vin">
+            <div>
+                <h2 class="titleYellow">In Vino Veritas</h2>
+                <a href="">Discover</a> 
+            </div>   
+        </div>
     </div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolore dolores doloribus fuga laboriosam
-        natus
-        quisquam, quod ratione sit, suscipit temporibus vitae, voluptas voluptatibus. Ad dignissimos doloremque sit
-        temporibus voluptatibus!</p>
-</div>
-<div class="contourTitleImage">
-    <div class="titleAndImage">
-        <img src="img/inVinoVeritas.jpg" alt="photo vin">
-        <p class="titleYellow">In Vino Veritas</p>
+
+    <div class="contourTitleImage">
+        <div class="titleAndImage">
+            <img src="img/escapeGames/4.jpg" alt="photo vin">
+            <div>
+                <h2 class="titleYellow">In Vino Veritas</h2>
+                <a href="">Discover</a> 
+            </div>
+        </div>
     </div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolore dolores doloribus fuga laboriosam
-        natus
-        quisquam, quod ratione sit, suscipit temporibus vitae, voluptas voluptatibus. Ad dignissimos doloremque sit
-        temporibus voluptatibus!</p>
-</div>
+</section>
+
+<section class="Vue2">
+    <div>
+        <div class="Posi">
+            <div>
+                <img class="img1" src="img/escapeGames/2.jpg" alt="">
+            </div>
+            <h2>In Vinos Veritas</h2>
+            <a href="index.php?action=admin&page=escapeGame&id=1">Discover →</a>
+        </div>
+    </div>
+    <div>
+        <div class="Posi">
+            <div>
+                <img class="img2" src="img/escapeGames/3.jpg" alt="">
+            </div>
+            <h2>In Vinos Veritas</h2>
+            <a href="index.php?action=admin&page=escapeGame&id=1">Discover →</a>
+        </div>
+    </div>
+    <div>
+        <div class="Posi">
+            <div>
+                <img class="img3" src="img/escapeGames/4.jpg" alt="">
+            </div>
+            <h2>In Vinos Veritas</h2>
+            <a href="index.php?action=admin&page=escapeGame&id=1">Discover →</a>
+        </div>
+    </div>
+    <div>
+        <div class="Posi">
+            <div>
+                <img class="img4" src="img/escapeGames/5.jpg" alt="">
+            </div>
+            <h2>In Vinos Veritas</h2>
+            <a href="index.php?action=admin&page=escapeGame&id=1">Discover →</a>
+        </div>
+    </div>
+</section>
+
 <h2 class="titleUnderline">Reviews</h2>
 <div class="reviewsHome">
     <div class="aReview">

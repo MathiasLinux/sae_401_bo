@@ -5,6 +5,7 @@ require_once "controleur/ctrGiftCards.class.php";
 require_once "controleur/ctrQAndA.class.php";
 require_once "controleur/ctrJobs.class.php";
 require_once "controleur/ctrEscapeGames.class.php";
+require_once "controleur/ctrContact.class.php";
 require_once "controleur/ctrAdmin.class.php";
 require_once "controleur/ctrLogin.class.php";
 
@@ -18,6 +19,7 @@ class routeur
     private $ctrQAndA;
     private $ctrJobs;
     private $ctrEscapeGames;
+    private $ctrContact;
     private $ctrAdmin;
     private $ctrLogin;
 
@@ -28,6 +30,7 @@ class routeur
         $this->ctrQAndA = new ctrQAndA();
         $this->ctrJobs = new ctrJobs();
         $this->ctrEscapeGames = new ctrEscapeGames();
+        $this->ctrContact = new ctrContact();
         $this->ctrAdmin = new ctrAdmin();
         $this->ctrLogin = new ctrLogin();
     }
@@ -45,6 +48,20 @@ class routeur
                 case "giftCards":
                     $this->ctrGiftCards->giftCards();
                     break;
+                case "buyCard":
+                    if (isset($_SESSION["email"])) {
+                        $this->ctrGiftCards->buyCard();
+                    } else {
+                        $this->ctrLogin->login();
+                    }
+                    break;
+                case "buyCardValid":
+                    if (isset($_SESSION["email"]) and isset($_POST["cardNumber"]) and isset($_POST["cardDate"]) and isset($_POST["cardCVC"]) and isset($_POST["cardName"])) {
+                        $this->ctrGiftCards->buyCardValid();
+                    } else {
+                        $this->ctrLogin->login();
+                    }
+                    break;
                 case "qAndA":
                     $this->ctrQAndA->qAndA();
                     break;
@@ -56,6 +73,21 @@ class routeur
                     break;
                 case "escapeGames":
                     $this->ctrEscapeGames->escapeGames();
+                    break;
+                case "escapeGame":
+                    $this->ctrEscapeGames->escapeGame();
+                    break;
+                case "contact":
+                    $this->ctrContact->contact();
+                    break;
+                case "sendForm":
+                    $this->ctrContact->sendForm();
+                    break;
+                case "legal":
+                    $this->ctrPage->legalNotice();
+                    break;
+                case "privacy":
+                    $this->ctrPage->privacyPolicy();
                     break;
                 case "login":
                     $this->ctrLogin->login();
@@ -70,6 +102,7 @@ class routeur
                     $this->ctrLogin->connexion();
                     break;
                 case "admin":
+
                     if (isset($_GET["page"])) {
                         switch ($_GET["page"]) {
                             case "escapeGames":
@@ -141,22 +174,145 @@ class routeur
                                 break;
                             case "job":
                                 $this->ctrAdmin->job();
-                                break;
-
-                            case "users":
-                                $this->ctrAdmin->user();
-                                break;
-
-                            case "addJob":
-                                $this->ctrAdmin->addJob();
-                                break;
-                            default:
-                                $this->ctrPage->erreur("Page introuvable");
-                                break;
+                    // Ici on vérifie si l'utilisateur est connecté et on l'envoie sur la page admin ou sur la page de connexion si il n'est pas connecté
+                    if (isset($_SESSION["email"]) and !empty($_SESSION["rights"])) {
+                        if (isset($_GET["page"])) {
+                            switch ($_GET["page"]) {
+                                case "escapeGames":
+                                    // Ici on vérifie si l'utilisateur a les droits pour accéder à la page demandée (ici escapeGames) et on l'envoie sur la page demandée ou sur la page admin si il n'a pas les droits pour accéder à la page demandée (ici escapeGames)
+                                    if (str_contains($_SESSION["rights"], "editor") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        $this->ctrAdmin->escapeGames();
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
+                                    break;
+                                case "contactForm":
+                                    if (str_contains($_SESSION["rights"], "management") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        $this->ctrAdmin->contactForm();
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
+                                    break;
+                                case "reservations":
+                                    if (str_contains($_SESSION["rights"], "management") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        $this->ctrAdmin->reservations();
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
+                                    break;
+                                case "giftCards":
+                                    if (str_contains($_SESSION["rights"], "management") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        $this->ctrAdmin->giftCards();
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
+                                    break;
+                                case "delGiftCard":
+                                    if (str_contains($_SESSION["rights"], "management") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        if (isset($_GET["id"])) {
+                                            $this->ctrAdmin->delGiftCard();
+                                        } else {
+                                            $this->ctrAdmin->giftCards();
+                                        }
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
+                                    break;
+                                case "qAndA":
+                                    if (str_contains($_SESSION["rights"], "editor") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        $this->ctrAdmin->qAndA();
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
+                                    break;
+                                case "qAndAQuestions":
+                                    if (str_contains($_SESSION["rights"], "editor") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        $this->ctrAdmin->qAndAQuestions();
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
+                                    break;
+                                case "jobs":
+                                    if (str_contains($_SESSION["rights"], "jobs") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        $this->ctrAdmin->jobs();
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
+                                    break;
+                                case "job":
+                                    if (str_contains($_SESSION["rights"], "jobs") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        $this->ctrAdmin->job();
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
+                                    break;
+                                case "users":
+                                    if (str_contains($_SESSION["rights"], "superadmin")) {
+                                        $this->ctrAdmin->user();
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
+                                    break;
+                                case "addJob":
+                                    if (str_contains($_SESSION["rights"], "jobs")) {
+                                        $this->ctrAdmin->addJob();
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
+                                    break;
+                                case "delUser":
+                                    if (str_contains($_SESSION["rights"], "superadmin")) {
+                                        if (isset($_GET["id"])) {
+                                            $this->ctrAdmin->delUser($_GET["id"]);
+                                        } else {
+                                            $this->ctrAdmin->user();
+                                        }
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
+                                    break;
+                                case "changeUsersRights":
+                                    if (str_contains($_SESSION["rights"], "superadmin")) {
+                                        if (isset($_GET["id"])) {
+                                            $this->ctrAdmin->changeUsersRights($_GET["id"]);
+                                        } else {
+                                            $this->ctrAdmin->user();
+                                        }
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
+                                    break;
+                                default:
+                                    $this->ctrPage->erreur("Page introuvable");
+                                    break;
+                            }
+                        } else {
+                            $this->ctrAdmin->admin();
                         }
                     } else {
-                        $this->ctrAdmin->admin();
+                        $this->ctrLogin->login();
                     }
+                    break;
+                case "lang":
+                    // Ici on vérifie si l'utilisateur a cliqué sur le bouton de changement de langue et on change la langue de la session en fonction de la langue choisie
+                    if (isset($_GET["lang"])) {
+                        switch ($_GET["lang"]) {
+                            case "fr":
+                                $_SESSION["lang"] = "fr";
+                                // Redirection vers la page précédente
+                                header("Location: " . $_COOKIE["page"]);
+                                break;
+                            case "en":
+                                $_SESSION["lang"] = "en";
+                                header("Location: " . $_COOKIE["page"]);
+                                break;
+
+                        }
+                    }
+                    break;
+                default :
+                    header("Location: index.php");
+                    break;
             }
         } else {
             $this->ctrPage->accueil();

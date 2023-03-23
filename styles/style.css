@@ -7,8 +7,17 @@
     --black: #101010;
     --lightBlue: #373D50;
     --red: #fb4d3d;
-    --lightGrey: #a4a4a4
+    --lightGrey: #a4a4a4;
     --veryLightBlue: #6A7497;
+    --grey: #D9D9D9;
+}
+
+.tel {
+    display: block;
+}
+
+.pc {
+    display: none;
 }
 
 body {
@@ -18,7 +27,7 @@ body {
 }
 
 img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
 }
 
@@ -212,9 +221,7 @@ footer a {
 
 .imgBorder {
     border: var(--yellow) 3px solid;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
 }
 
 .linkGroup {
@@ -259,15 +266,16 @@ footer a {
 }
 
 .reviewsHome {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    display: block;
+
+
 }
 
 .aReview {
-    background-color: var(--green);
+    background-color: var(--yellow);
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin: 10px;
 }
 
 .leftReview {
@@ -280,6 +288,16 @@ footer a {
 .reviewName {
     font-size: 20px;
 }
+
+.Vue {
+    display: block;
+}
+
+.Vue2 {
+    display: none;
+
+}
+
 
 /* Page about us vueAboutUs.php */
 
@@ -385,7 +403,7 @@ footer a {
 
 .greenButton {
     background-color: var(--green);
-    padding: 20px;
+    padding: 20px 60px;
     margin: 30px;
     font-size: 20px;
     display: flex;
@@ -443,6 +461,38 @@ footer a {
     display: flex;
     justify-content: center;
     text-align: center;
+}
+
+#moneyCards, #escapeCards {
+    display: none;
+}
+
+#moneyCards:target, #escapeCards:target {
+    display: block;
+}
+
+.selectGiftCards {
+    background-color: var(--green);
+    border: none;
+    padding: 20px 60px;
+    color: white;
+    font-size: 20px;
+}
+
+.giftCardsForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.submitGiftCards {
+    background-color: var(--yellow);
+    border: none;
+    padding: 20px 60px;
+    color: black;
+    font-size: 20px;
+    margin-top: 20px;
 }
 
 /* Page jobs vueJobs.php */
@@ -550,6 +600,164 @@ footer a {
     font-size: 16px;
 }
 
+/* Page Escape Game vueEscapeGame.php */
+
+.escapeGameGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+}
+
+.escapeGameGrid > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+}
+
+.escapeGameGrid > div > img {
+    width: 32px;
+    height: 32px;
+}
+
+.alinea {
+    text-indent: 50px;
+}
+
+.escapeGameSlider {
+    position: relative;
+}
+
+.escapeGameF {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+}
+
+.escapeGSliderRect {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    bottom: 10px;
+    gap: 10px;
+}
+
+.escapeGSliderRect > div {
+    width: 20px;
+    height: 5px;
+    background-color: #fff;
+}
+
+.escapeGameRect {
+    opacity: 40%;
+}
+
+.escapeGameRectSelec {
+    opacity: 80%;
+}
+
+.escapeGSliderIMG {
+    display: flex;
+    height: 250px;
+    overflow: hidden;
+    align-items: center;
+}
+
+.escapeGameSCenterSelec {
+    width: 100%;
+    height: auto;
+    transition: 0.4s;
+}
+
+.escapeGameSCenter {
+    width: 0%;
+    height: auto;
+    transition: 0.4s;
+}
+
+#mapEscapeGame {
+    height: 250px;
+}
+
+.displayNone {
+    display: none;
+}
+
+.escapeGameReview {
+    background-color: var(--green);
+    display: grid;
+    color: white;
+    grid-template-columns: 2fr 3fr;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    height: 150px;
+    margin-bottom: 25px;
+}
+
+.reviewNom {
+    font-size: 16pt;
+    margin-top: 30px;
+}
+
+.reviewDesc {
+    grid-row: 1/3;
+    grid-column: 2;
+}
+
+.reviewNote {
+    margin-bottom: 30px;
+}
+
+.escapeYellowButton {
+    background-color: var(--yellow);
+    padding: 20px;
+    margin: 30px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.inputBuy {
+    width: 90%;
+    height: 40px;
+}
+
+.escapeSearchButton {
+    border-style: solid;
+    border-color: var(--green);
+    padding: 10px 20px;
+    margin: 30px 0;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+.hoursSchedules > .greenButton {
+    color: black;
+}
+
+.hoursSchedules > .occupied {
+    background-color: #01241a;
+}
+
+.possibleSchedules > .escapeYellowButton {
+    margin-top: 50px;
+}
+
 /* Page admin vueAdmin.php */
 
 .aButton {
@@ -575,6 +783,14 @@ footer a {
     font-size: 26px;
 }
 
+/* Page legal notice vueLegalNotice.php */
+
+.legalNoticeContent h3 {
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0;
+}
+
 /* Page admin vueAdminEscapeGames.php */
 
 .anEscapeGameAdmin {
@@ -596,7 +812,7 @@ footer a {
     border-spacing: 0;
     margin: 0px auto;
     text-align: center;
-    
+
 }
 
 .tg td {
@@ -679,11 +895,16 @@ footer a {
 }
 
 .tg .tg-q4wl {
-    background-color: var(--red);
     border-color: #5b5b5b;
     color: #ffffff;
     text-align: center;
     vertical-align: top
+}
+
+.tg .tg-q4wl a {
+    background-color: var(--red);
+    color: #ffffff;
+    padding: 10px 20px;
 }
 
 .newAmount > p {
@@ -728,7 +949,7 @@ footer a {
 
 /* Page admin vueAdminQAndA.php */
 
-.greenButtonEscapeGames{
+.greenButtonEscapeGames {
     border: none;
     background-color: var(--green);
 }
@@ -765,7 +986,7 @@ select.greenButtonEscapeGames>option{
     align-items: center;
     padding: 20px;
     font-size: 32px;
-    font-weight:500;
+    font-weight: 500;
 }
 
 .titleCategoryQAndA {
@@ -787,12 +1008,12 @@ select.greenButtonEscapeGames>option{
     padding-right: 30%; */
 }
 
-.buttonsQandA{
+.buttonsQandA {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
-.buttonsQandA>a{
+.buttonsQandA > a, .buttonsQandA > select {
     margin: 4%;
     font-size: 16px;
     color: black;
@@ -800,18 +1021,22 @@ select.greenButtonEscapeGames>option{
     padding: 8% 0px;
 }
 
-.buttonsQandA>.redButtonQandA, .redButtonQandA{
+.greenButtonEscapeGames {
+    background-color: var(--green);
+}
+
+.buttonsQandA > .redButtonQandA, .buttonsQandA>.redButtonQandA, .redButtonQandA {
     background-color: var(--red);
     color: white;
     border: none;
 }
 
-h3.adminQandA{
+h3.adminQandA {
     font-weight: normal;
     font-size: 24px;
 }
 
-a>button.returnAdmin{
+a > button.returnAdmin {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -822,15 +1047,15 @@ a>button.returnAdmin{
     border: none;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-textarea.addTitle{
+textarea.addTitle {
     height: 240px;
 }
 
-.listQandA{
+.listQandA {
     margin: 12% 0%;
 }
 
@@ -838,80 +1063,80 @@ textarea.addTitle{
     margin: 16% 0%;
 }
 
-.oneQandA>div>div{
+.oneQandA > div > div {
     text-align: center;
     font-size: 32px;
     color: black;
-    font-weight:500;
+    font-weight: 500;
 }
 
-.oneQandA>div>p{
+.oneQandA > div > p {
     margin: 4%;
     text-align: center;
 }
 
-.oneQ{
+.oneQ {
     border: var(--green) solid 3px;
 }
 
-.oneQ>p{
+.oneQ > p {
     font-size: 24px;
 }
 
-.oneA{
+.oneA {
     border: var(--yellow) solid 3px;
 }
 
-.oneA>p{
+.oneA > p {
     font-size: 20px;
 }
 
-.titleQ{
+.titleQ {
     background-color: var(--green);
 }
 
-.titleA{
+.titleA {
     background-color: var(--yellow);
 }
 
-.span2{
+.span2 {
     grid-column: span 2;
 }
 
-.redButtonQandA.span2{
+.redButtonQandA.span2 {
     margin: 2% 0%;
     padding: 4% 0%;
 }
 
-.buttonsQandAQuestions{
+.buttonsQandAQuestions {
     margin: 8% 0%;
     gap: 4%;
 }
 
-.buttonsQandAQuestions>a{
+.buttonsQandAQuestions > a {
     margin: 0%;
     font-size: 20px;
 }
 
-.formAdmin{
+.formAdmin {
     display: grid;
     justify-content: center;
     grid-template-columns: 1fr;
 }
 
-.formAdmin>label{
+.formAdmin > label {
     display: grid;
     grid-template-columns: 1fr;
 }
 
-.formAdmin>label>input[type=text], 
-.formAdmin>label>textarea{
+.formAdmin > label > input[type=text],
+.formAdmin > label > textarea {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     width: auto;
 }
 
-.formAdmin>input[type=submit]{
+.formAdmin > input[type=submit] {
     padding: 20px 0%;
     text-align: center;
     margin: 0% 10%;
@@ -1102,13 +1327,14 @@ textarea.addTitle{
 
 /* Vue Admin User */
 
-.marge{
+.marge {
     margin: 30px 0px;
 }
 
-.tg .pad{
+.tg .pad {
     padding: 10px 30px;
 }
+
 
 .textAreaJob {
     margin: 20px 0;
@@ -1123,6 +1349,94 @@ textarea.addTitle{
 .labelTextArea {
     font-size: 18px;
 }
+
+.Nofond {
+    border: 0px !important;
+}
+
+.Nofond > select {
+    padding: 10px 15px;
+    background-color: var(--yellow);
+    border: none;
+
+}
+
+.Nofond > select > option {
+    background-color: var(--grey);
+}
+
+.deleteUser {
+    background-color: var(--red);
+    padding: 10px 30px;
+    color: black;
+    cursor: pointer;
+}
+
+.validationDeleteUser {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--veryLightBlue);
+    padding: 20px;
+}
+
+.delUserDivButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.validationDeleteUser a {
+    text-decoration: none;
+    color: black;
+    background-color: var(--red);
+    padding: 10px 30px;
+}
+
+.noDeleteUser {
+    background-color: var(--green);
+    padding: 10px 30px;
+    color: black;
+    cursor: pointer;
+    border: none;
+}
+
+.eachCheckboxUser {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.center {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Search {
+    background-color: var(--yellow) !important;
+    border: none !important;
+    padding: 15px 50px !important;
+    font-size: 20px !important;
+    color: black !important;
+}
+
+.Save {
+    background-color: var(--green);
+    border: none;
+    padding: 15px 50px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.is-hidden {
+    display: none;
+}
+
 
 /* Page de connexion vueLogin.php */
 
@@ -1178,3 +1492,7 @@ textarea.addTitle{
     border: solid 3px #ff6161;
 }
 
+.padding {
+    padding: 0px 20px;
+
+}

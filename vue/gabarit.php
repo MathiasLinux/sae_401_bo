@@ -156,8 +156,8 @@
 <main>
     <?= $contenu ?>
 </main>
-<footer>
-    <img src="img/logo.png" alt="logo">
+<footer class="tel">
+    <img class="taille" src="img/logo.png" alt="logo">
     <div class="sectionFooter">
         <p class="titleFooter">Company</p>
         <div class="ligneFooter">
@@ -180,6 +180,34 @@
         </div>
     </div>
     <p>&copy Innovative Innovators 2023</p>
+</footer>
+<footer class="pc">
+    <div>
+        <div class="taille">
+            <img  src="img/logo.png" alt="logo">
+        </div>
+
+        <div class="CenterName">&copy Innovative Innovators 2023</div>
+    </div>
+    <div>
+        <h2 class="Yellow">Company</h2>
+        <div class="ligneFooter">
+            <div><a href="index.php?action=legal">Legal notice</a></div>
+            <div><a href="index.php?action=tAndC">T&C</a></div>
+            <div><a href="index.php?action=privacy">Privacy policy</a></div>
+            <div><a href="index.php?action=partners">Our Partners</a></div>
+
+        </div>
+    </div>
+    <div>
+        <h2 class="Yellow">Informations</h2>
+        <div class="ligneFooter">
+            <div><a href="index.php?action=jobs">Jobs</a></div>
+            <div> <a href="index.php?action=qAndA">Q&A</a></div>
+            <div><a href="index.php?action=contact">Contact US</a></div>
+        </div>
+    </div>
+    
 </footer>
 <script src="js/menu.js"></script>
 </body>

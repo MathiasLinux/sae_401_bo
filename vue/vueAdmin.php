@@ -24,4 +24,8 @@
         <img src="img/svg/briefcase.svg" alt="A briefcase">
         <p>Jobs</p>
     </a>
+    <a class="aButton" href="index.php?action=admin&page=users">
+        <img src="img/svg/group.svg" alt="A briefcase">
+        <p>Users</p>
+    </a>
 </div>

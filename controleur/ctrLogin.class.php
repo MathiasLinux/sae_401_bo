@@ -1,11 +1,13 @@
 <?php
 
 require_once "modele/login.class.php";
+require_once "modele/user.class.php";
 require_once "vue/vue.class.php";
 
 class ctrLogin
 {
     private $objLogin;
+    private $objUser;
 
     /****************
      * Constructeur
@@ -14,6 +16,7 @@ class ctrLogin
     public function __construct()
     {
         $this->objLogin = new login();
+        $this->objUser = new user();
     }
 
     /****************
@@ -89,7 +92,10 @@ class ctrLogin
             // Vérification que l'email et le mot de passe sont corrects
             if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
                 if ($this->objLogin->compareLogin($_POST["email"], $_POST["password"])) {
+                    // Création des variables de session
                     $_SESSION["email"] = $_POST["email"];
+                    $_SESSION["id"] = $this->objUser->getIdUser($_POST["email"]);
+                    $_SESSION["rights"] = $this->objUser->getUserRole($_SESSION["id"]);
                     // Redirection vers la page d'accueil
                     header("Location: index.php");
                 } else {
