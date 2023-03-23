@@ -61,8 +61,8 @@ class ctrAdmin
     public function qAndANewCat_S()
     {
         extract($_POST);
-        if(!empty($newCat)){
-            if($this->qAndAs->addQandACat($newCat))
+        if(!empty($newCat) && !empty($newCatFR)){
+            if($this->qAndAs->addQandACat($newCat, $newCatFR))
                 $this->qAndA();
             else
                 throw new Exception("An error occured during the adding process");
@@ -73,17 +73,18 @@ class ctrAdmin
 
     public function qAndAQuestions($idCat)
     {
+        $qAndAs = $this->qAndAs->getOneQandACat($idCat);
         $qAndAQs = $this->qAndAs->getQandAQuestions($idCat);
         $title = "Administration Q&A - Questions - Kaiserstuhl escape";
         $objVue = new vue("AdminQAndAQuestions");
-        $objVue->afficher(array("qAndAQs" => $qAndAQs), $title);
+        $objVue->afficher(array("qAndAQs" => $qAndAQs, "qAndAs" => $qAndAs), $title);
     }
 
     public function qAndAQuestionsAdd_S($idCat)
     {
         extract($_POST);
-        if(!empty($question) && !empty($answer)){
-            if($this->qAndAs->addQandAQuestion($question,$answer,$idCat))
+        if(!empty($question) && !empty($answer) && !empty($questionFR) && !empty($answerFR)){
+            if($this->qAndAs->addQandAQuestion($question,$answer,$questionFR,$answerFR,$idCat))
                 $this->qAndAQuestions($idCat);
             else
                 throw new Exception("An error occured during the adding process");
@@ -106,6 +107,27 @@ class ctrAdmin
             $this->qAndAQuestions($idCat);
         else
             throw new Exception("An error occured during the delete process");
+    }
+
+    public function qAndAQuestionsModify($idQ)
+    {
+        $qAndAQs = $this->qAndAs->getOneQandAQuestion($idQ);
+        $title = "Administration Q&A - Modify a Q&A - Kaiserstuhl escape";
+        $objVue = new vue("AdminQAndAQuestionsModify");
+        $objVue->afficher(array("qAndAQs" => $qAndAQs), $title);
+    }
+
+    public function qAndAQuestionsModify_S($idCat,$idQ)
+    {
+        extract($_POST);
+        if(!empty($question) && !empty($answer) && !empty($questionFR) && !empty($answerFR)){
+            if($this->qAndAs->updateQandAQuestion($question,$answer,$questionFR,$answerFR,$idQ))
+                $this->qAndAQuestions($idCat);
+            else
+                throw new Exception("An error occured during the modify process");
+        }
+        else
+            $this->qAndAQuestions($idCat);
     }
 
     public function qAndAModifyCat($idCat)

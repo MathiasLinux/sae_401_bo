@@ -2,8 +2,8 @@
 <div class="deuxTiers">
     <form class="formAdmin" action="index.php?action=admin&page=qAndAModifyCat_S&id_qAndACat=<?= $qAndAs['id_qAndACat'] ?>" method="post">
     <label>
-        <p class="titleAdminQAndA">Modify category : <br> <?= $qAndAs['title'] ?></p>
-        <input class="addTitle" type="text" name="nameCat" id="nameCat">
+        <p class="titleAdminQAndA">Modify category :</p>
+        <input class="addTitle" type="text" name="nameCat" id="nameCat" value="<?= $qAndAs['title'] ?>">
     </label>
     <input class="yellowButton" type="submit" value="Update category">
     </form>

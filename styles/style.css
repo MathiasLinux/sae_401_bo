@@ -926,6 +926,12 @@ textarea.addTitle{
     align-items: center;
 }
 
+.greenBar{
+    border: var(--green) solid 2px;
+    margin-block-start: 2em;
+    margin-block-end: 1em;
+}
+
 /* Page Admin vueAdminJobs */
 
 .adminJobs {
@@ -1171,3 +1177,4 @@ textarea.addTitle{
     text-align: center;
     border: solid 3px #ff6161;
 }
+

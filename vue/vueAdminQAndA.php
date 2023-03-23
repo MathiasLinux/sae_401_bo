@@ -5,6 +5,11 @@
         <p class="titleAdminQAndA">New category</p>
         <input class="addTitle" type="text" name="newCat" id="newCat">
     </label>
+    <div class="greenBar"></div>
+    <label>
+        <p class="titleAdminQAndA">New category FR</p>
+        <input class="addTitle" type="text" name="newCatFR" id="newCatFR">
+    </label>
     <input class="yellowButton" type="submit" value="Add new category">
 </form>
 
@@ -25,6 +30,8 @@
                 echo '</div>';
             }
         }
+        else
+            echo "No category";
     ?>
 
     <!-- <div class="oneCategorie">

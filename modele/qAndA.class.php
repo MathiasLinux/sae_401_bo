@@ -10,10 +10,10 @@ class qAndA extends bdd
         return $qAndACat;
     }
 
-    public function addQandACat($newCat)
+    public function addQandACat($newCat,$newCatFR)
     {
         $req = "INSERT INTO qAndACat(id_qAndACat,title,titleFR,id_escapeGame) VALUES (?,?,?,?)";
-        $qAndACat = $this->execReqPrep($req, array(null,$newCat,"",null));
+        $qAndACat = $this->execReqPrep($req, array(null,$newCat,$newCatFR,null));
         if ($qAndACat==1)
             return TRUE;
         else
@@ -73,10 +73,21 @@ class qAndA extends bdd
         return $qAndAQ[0];
     }
 
-    public function addQandAQuestion($question,$answer,$idCat)
+    public function addQandAQuestion($question,$answer,$questionFR,$answerFR,$idCat)
     {
         $req = "INSERT INTO qAndAQuestion(id_qAndAQuestion,title,titleFR,answer,answerFR,id_qAndACat) VALUES (?,?,?,?,?,?)";
-        $qAndAQ = $this->execReqPrep($req, array(null,$question,"",$answer,'',$idCat));
+        $qAndAQ = $this->execReqPrep($req, array(null,$question,$questionFR,$answer,$answerFR,$idCat));
+        if ($qAndAQ==1)
+            return TRUE;
+        else
+            return FALSE;
+    }
+
+    public function updateQandAQuestion($question,$answer,$questionFR,$answerFR,$idQ)
+    {
+        $req = "UPDATE qAndAQuestion SET title = ?, answer = ?, titleFR = ?, answerFR = ? WHERE id_qAndAQuestion = ?";
+        $data = array($question,$answer,$questionFR,$answerFR,$idQ);
+        $qAndAQ = $this->execReqPrep($req, $data);
         if ($qAndAQ==1)
             return TRUE;
         else

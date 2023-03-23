@@ -127,6 +127,15 @@ class routeur
                                 $idQ = $_GET['id_qAndAQ'];
                                 $this->ctrAdmin->qAndAQuestionsDelete_S($idCat,$idQ);
                                 break;
+                            case "qAndAQuestionsModify":
+                                $idQ = $_GET['id_qAndAQ'];
+                                $this->ctrAdmin->qAndAQuestionsModify($idQ);
+                                break;
+                            case "qAndAQuestionsModify_S":
+                                $idCat = $_GET['id_qAndACat'];
+                                $idQ = $_GET['id_qAndAQ'];
+                                $this->ctrAdmin->qAndAQuestionsModify_S($idCat,$idQ);
+                                break;
                             case "jobs":
                                 $this->ctrAdmin->jobs();
                                 break;

@@ -1,9 +1,9 @@
 <a href="index.php?action=admin&page=qAndA"><button class="returnAdmin"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H6M12 5l-7 7 7 7"/></svg>Return</button></a> 
-<h3 class="adminQandA"> x : list of questions</h3>
+<h3 class="adminQandA">List of questions : <br> <?= $qAndAs["title"] ?></h3>
 
 <!-- <?php var_dump($qAndAQs) ?> -->
 
-<form class="formAdmin" action="index.php?action=admin&page=qAndAQuestionsAdd_S&id_qAndACat=<?= $qAndAQs[0]['id_qAndACat'] ?>" method="post">
+<form class="formAdmin" action="index.php?action=admin&page=qAndAQuestionsAdd_S&id_qAndACat=<?= $qAndAs["id_qAndACat"] ?>" method="post">
     <label>
         <p class="titleAdminQAndA">Question</p>
         <input class="addTitle" type="text" name="question" id="question">
@@ -12,11 +12,21 @@
         <p class="titleAdminQAndA">Answer</p>
         <textarea class="addTitle" type="text" name="answer" id="answer"></textarea>
     </label>
+    <div class="greenBar"></div>
+    <label>
+        <p class="titleAdminQAndA">Question FR</p>
+        <input class="addTitle" type="text" name="questionFR" id="questionFR">
+    </label>
+    <label>
+        <p class="titleAdminQAndA">Answer FR</p>
+        <textarea class="addTitle" type="text" name="answerFR" id="answerFR"></textarea>
+    </label>
     <input class="yellowButton" type="submit" value="Add new Q&A">
 </form>
 
 <div class="listQandA">
     <?php 
+    if(!empty($qAndAQs)){
         foreach($qAndAQs as $qAndAQ){
             echo '<div class="oneQandA">';
             echo '<div class="oneQ">';
@@ -28,11 +38,14 @@
             echo '<p>'.$qAndAQ['answer'].'</p>';
             echo '</div>';
             echo '<div class="buttonsQandA buttonsQandAQuestions">';
-            echo '<a class="yellowButtonQAndA" href="#">Modify Q&A</a>';
+            echo '<a class="yellowButtonQAndA" href="index.php?action=admin&page=qAndAQuestionsModify&id_qAndAQ='.$qAndAQ['id_qAndAQuestion'].'">Modify Q&A</a>';
             echo '<a class="redButtonQandA" href="index.php?action=admin&page=qAndAQuestionsDelete&id_qAndAQ='.$qAndAQ['id_qAndAQuestion'].'">Delete</a>';
             echo '</div>';
             echo '</div>';
         }
+    }
+    else
+        echo "No Q&A"
     ?>
 </div>
 
