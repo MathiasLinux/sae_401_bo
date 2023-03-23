@@ -102,6 +102,78 @@ class routeur
                     $this->ctrLogin->connexion();
                     break;
                 case "admin":
+
+                    if (isset($_GET["page"])) {
+                        switch ($_GET["page"]) {
+                            case "escapeGames":
+                                $this->ctrAdmin->escapeGames();
+                                break;
+                            case "contactForm":
+                                $this->ctrAdmin->contactForm();
+                                break;
+                            case "reservations":
+                                $this->ctrAdmin->reservations();
+                                break;
+                            case "giftCards":
+                                $this->ctrAdmin->giftCards();
+                                break;
+                            case "qAndA":
+                                $this->ctrAdmin->qAndA();
+                                break;
+                            case "qAndANewCat_S":
+                                $this->ctrAdmin->qAndANewCat_S();
+                                break;
+                            case "qAndAModifyCat":
+                                $idCat = $_GET['id_qAndACat'];
+                                $this->ctrAdmin->qAndAModifyCat($idCat);
+                                break;
+                            case "qAndAModifyCat_S":
+                                $idCat = $_GET['id_qAndACat'];
+                                $this->ctrAdmin->qAndAModifyCat_S($idCat);
+                                break;
+                            case "qAndAModifyES":
+                                $idCat = $_GET['id_qAndACat'];
+                                $this->ctrAdmin->qAndAModifyEG($idCat);
+                                break;
+                            case "qAndADeleteCat":
+                                $idCat = $_GET['id_qAndACat'];
+                                $this->ctrAdmin->qAndADeleteCat($idCat);
+                                break;
+                            case "qAndADeleteCat_S":
+                                $idCat = $_GET['id_qAndACat'];
+                                $this->ctrAdmin->qAndADeleteCat_S($idCat);
+                                break;
+                            case "qAndAQuestions":
+                                $idCat = $_GET['id_qAndACat'];
+                                $this->ctrAdmin->qAndAQuestions($idCat);
+                                break;
+                            case "qAndAQuestionsAdd_S":
+                                $idCat = $_GET['id_qAndACat'];
+                                $this->ctrAdmin->qAndAQuestionsAdd_S($idCat);
+                                break;
+                            case "qAndAQuestionsDelete":
+                                $idQ = $_GET['id_qAndAQ'];
+                                $this->ctrAdmin->qAndAQuestionsDelete($idQ);
+                                break;
+                            case "qAndAQuestionsDelete_S":
+                                $idCat = $_GET['id_qAndACat'];
+                                $idQ = $_GET['id_qAndAQ'];
+                                $this->ctrAdmin->qAndAQuestionsDelete_S($idCat,$idQ);
+                                break;
+                            case "qAndAQuestionsModify":
+                                $idQ = $_GET['id_qAndAQ'];
+                                $this->ctrAdmin->qAndAQuestionsModify($idQ);
+                                break;
+                            case "qAndAQuestionsModify_S":
+                                $idCat = $_GET['id_qAndACat'];
+                                $idQ = $_GET['id_qAndAQ'];
+                                $this->ctrAdmin->qAndAQuestionsModify_S($idCat,$idQ);
+                                break;
+                            case "jobs":
+                                $this->ctrAdmin->jobs();
+                                break;
+                            case "job":
+                                $this->ctrAdmin->job();
                     // Ici on vérifie si l'utilisateur est connecté et on l'envoie sur la page admin ou sur la page de connexion si il n'est pas connecté
                     if (isset($_SESSION["email"]) and !empty($_SESSION["rights"])) {
                         if (isset($_GET["page"])) {
