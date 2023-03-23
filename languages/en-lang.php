@@ -161,6 +161,9 @@ const GIFT_CARDS_H2_2 = "Buy";
 const GIFT_CARDS_BUTTON_1 = "Money Cards";
 const GIFT_CARDS_BUTTON_2 = "Escape Cards";
 
+const GIFT_CARDS_MONEY_SELECT = "Select an amount";
+const GIFT_CARDS_ESCAPE_SELECT = "Select an escape game";
+
 //Jobs
 
 const JOBS_TITLE = "Team Spirit and Dynamic Team";
@@ -188,3 +191,9 @@ const JOBS_LOGO_2_4 = "Adaptable";
 const JOBS_H2_2 = "Job offers";
 
 const JOBS_H2_3 = "Contact us";
+
+//BuyCards
+
+const BUY_CARDS_TITLE = "Buy a card";
+
+const BUY_CARDS_H2_1 = "Please enter your card information";

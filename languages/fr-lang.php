@@ -153,6 +153,9 @@ const GIFT_CARDS_BUTTON_1 = "Carte d'un montant";
 
 const GIFT_CARDS_BUTTON_2 = "Carte d'un escape game";
 
+const GIFT_CARDS_MONEY_SELECT = "Selectionnez le montant";
+const GIFT_CARDS_ESCAPE_SELECT = "Selectionnez l'escape game";
+
 //Jobs
 
 const JOBS_TITLE = "Esprit d'équipe et équipe dynamique";
@@ -180,3 +183,7 @@ const JOBS_LOGO_2_4 = "Adaptable";
 const JOBS_H2_2 = "Offres d'emplois";
 
 const JOBS_H2_3 = "Contactez-nous";
+
+//BuyCards
+
+const BUY_CARDS_TITLE = "Acheter une carte cadeau";

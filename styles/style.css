@@ -403,7 +403,7 @@ footer a {
 
 .greenButton {
     background-color: var(--green);
-    padding: 20px;
+    padding: 20px 60px;
     margin: 30px;
     font-size: 20px;
     display: flex;
@@ -461,6 +461,38 @@ footer a {
     display: flex;
     justify-content: center;
     text-align: center;
+}
+
+#moneyCards, #escapeCards {
+    display: none;
+}
+
+#moneyCards:target, #escapeCards:target {
+    display: block;
+}
+
+.selectGiftCards {
+    background-color: var(--green);
+    border: none;
+    padding: 20px 60px;
+    color: white;
+    font-size: 20px;
+}
+
+.giftCardsForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.submitGiftCards {
+    background-color: var(--yellow);
+    border: none;
+    padding: 20px 60px;
+    color: black;
+    font-size: 20px;
+    margin-top: 20px;
 }
 
 /* Page jobs vueJobs.php */
@@ -863,11 +895,16 @@ footer a {
 }
 
 .tg .tg-q4wl {
-    background-color: var(--red);
     border-color: #5b5b5b;
     color: #ffffff;
     text-align: center;
     vertical-align: top
+}
+
+.tg .tg-q4wl a {
+    background-color: var(--red);
+    color: #ffffff;
+    padding: 10px 20px;
 }
 
 .newAmount > p {
@@ -1364,6 +1401,10 @@ textarea.addTitle {
     padding: 15px 50px;
     font-size: 20px;
     cursor: pointer;
+}
+
+.is-hidden {
+    display: none;
 }
 
 

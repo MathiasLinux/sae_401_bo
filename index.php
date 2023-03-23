@@ -10,7 +10,5 @@ if ($_SERVER["REQUEST_URI"] != "/index.php?lang&lang=en" && $_SERVER["REQUEST_UR
     setcookie("page", $_SERVER["REQUEST_URI"], time() + 3600, "/");
 }
 
-var_dump($_SESSION);
-
 $objRouteur = new Routeur();
 $objRouteur->routeurRequete();

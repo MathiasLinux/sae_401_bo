@@ -4,13 +4,9 @@
       method="post">
     <div class="formGroup">
         <label for="">
-            <input type="email" name="mail" id="mail">
+            <input class="searchUser" type="search" name="search" id="search">
         </label>
     </div>
-    <div class="submitAdminJob">
-        <input class="Search" type="submit" value="Search">
-    </div>
-
 </form>
 <div class="marge">
     <div class="tableContactForm">
@@ -35,7 +31,7 @@
                 <?php
                 foreach ($users as $user) {
                     ?>
-                    <tr>
+                    <tr class="searchContent">
                         <td class="tg-m5d1 pad"><?= $user['email'] ?></td>
                         <td class="tg-m5d1 pad"><?= $user['firstName'] ?></td>
                         <td class="tg-m5d1 pad"><?= $user['lastName'] ?></td>

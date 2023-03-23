@@ -2,17 +2,20 @@
 
 require_once "modele/jobs.class.php";
 require_once "modele/user.class.php";
+require_once "modele/giftCards.class.php";
 require_once "vue/vue.class.php";
 
 class ctrAdmin
 {
     public $jobs;
     public $user;
+    public $giftCards;
 
     public function __construct()
     {
         $this->jobs = new jobs();
         $this->user = new user();
+        $this->giftCards = new giftCards();
     }
 
     public function admin()
@@ -43,12 +46,20 @@ class ctrAdmin
         $objVue->afficher(array(), $title);
     }
 
+    public function delGiftCard()
+    {
+        $this->giftCards->delGiftCardAmount($_GET["id"]);
+        header("Location: index.php?action=admin&page=giftCards");
+    }
+
     public function giftCards()
     {
+        $giftCardAmount = $this->giftCards->getGiftCardAmount();
         $title = "Administration Gift Cards - Kaiserstuhl escape";
         $objVue = new vue("AdminGiftCards");
-        $objVue->afficher(array(), $title);
+        $objVue->afficher(array("giftCardAmount" => $giftCardAmount), $title);
     }
+
 
     public function qAndA()
     {
@@ -74,7 +85,7 @@ class ctrAdmin
 
     public function addJob()
     {
-        var_dump($_POST);
+        //var_dump($_POST);
         $title = $_POST["title"] ?? "";
         $titleFR = $_POST["titleFR"] ?? "";
         $position = $_POST["position"] ?? "";

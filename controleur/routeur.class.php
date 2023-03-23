@@ -48,6 +48,20 @@ class routeur
                 case "giftCards":
                     $this->ctrGiftCards->giftCards();
                     break;
+                case "buyCard":
+                    if (isset($_SESSION["email"])) {
+                        $this->ctrGiftCards->buyCard();
+                    } else {
+                        $this->ctrLogin->login();
+                    }
+                    break;
+                case "buyCardValid":
+                    if (isset($_SESSION["email"]) and isset($_POST["cardNumber"]) and isset($_POST["cardDate"]) and isset($_POST["cardCVC"]) and isset($_POST["cardName"])) {
+                        $this->ctrGiftCards->buyCardValid();
+                    } else {
+                        $this->ctrLogin->login();
+                    }
+                    break;
                 case "qAndA":
                     $this->ctrQAndA->qAndA();
                     break;
@@ -121,6 +135,17 @@ class routeur
                                         $this->ctrAdmin->admin();
                                     }
                                     break;
+                                case "delGiftCard":
+                                    if (str_contains($_SESSION["rights"], "management") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        if (isset($_GET["id"])) {
+                                            $this->ctrAdmin->delGiftCard();
+                                        } else {
+                                            $this->ctrAdmin->giftCards();
+                                        }
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
+                                    break;
                                 case "qAndA":
                                     if (str_contains($_SESSION["rights"], "editor") or str_contains($_SESSION["rights"], "superadmin")) {
                                         $this->ctrAdmin->qAndA();
@@ -167,6 +192,8 @@ class routeur
                                     if (str_contains($_SESSION["rights"], "superadmin")) {
                                         if (isset($_GET["id"])) {
                                             $this->ctrAdmin->delUser($_GET["id"]);
+                                        } else {
+                                            $this->ctrAdmin->user();
                                         }
                                     } else {
                                         $this->ctrAdmin->admin();
@@ -176,6 +203,8 @@ class routeur
                                     if (str_contains($_SESSION["rights"], "superadmin")) {
                                         if (isset($_GET["id"])) {
                                             $this->ctrAdmin->changeUsersRights($_GET["id"]);
+                                        } else {
+                                            $this->ctrAdmin->user();
                                         }
                                     } else {
                                         $this->ctrAdmin->admin();

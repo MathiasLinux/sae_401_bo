@@ -10,26 +10,18 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td class="tg-m5d1">25 €</td>
-                <td class="tg-q4wl">Delete</td>
-            </tr>
-            <tr>
-                <td class="tg-m5d1">50 €</td>
-                <td class="tg-q4wl">Delete</td>
-            </tr>
-            <tr>
-                <td class="tg-m5d1">100 €</td>
-                <td class="tg-q4wl">Delete</td>
-            </tr>
-            <tr>
-                <td class="tg-m5d1">150 €</td>
-                <td class="tg-q4wl">Delete</td>
-            </tr>
-            <tr>
-                <td class="tg-m5d1">300 €</td>
-                <td class="tg-q4wl">Delete</td>
-            </tr>
+            <?php
+            foreach ($giftCardAmount as $amount) {
+                ?>
+                <tr>
+                    <td class="tg-m5d1"><?= $amount['price'] ?> €</td>
+                    <td class="tg-q4wl"><a
+                                href="index.php?action=admin&page=delGiftCard&id=<?= $amount["id_giftCardAmount"] ?>">Delete</a>
+                    </td>
+                </tr>
+                <?php
+            }
+            ?>
             </tbody>
         </table>
     </div>
