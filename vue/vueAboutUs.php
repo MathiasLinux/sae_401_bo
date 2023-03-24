@@ -20,7 +20,7 @@
 <div class="persons">
 
     <div class="green"></div>
-    <div class="aPerson div1">
+    <div class="aPerson div7">
         
             <img src="img/team/eva.png" alt="Eva photo">
         
@@ -31,7 +31,7 @@
             <div><?= ABOUT_US_PERSON_1_POSITION ?></div>
         </div>
     </div>
-    <div class="aPerson div2">
+    <div class="aPerson div8">
         <div class="leftPerson">
             <p>Eva</p>
             <div><?= ABOUT_US_PERSON_1_ROLE ?></div>
@@ -40,7 +40,7 @@
 
         <img src="img/team/eva.png" alt="Eva photo">
     </div>
-    <div class="aPerson div3">
+    <div class="aPerson div9">
         
             <img src="img/team/eva.png" alt="Eva photo">
         
@@ -51,7 +51,7 @@
         </div>
     </div>
 
-    <div class="aPerson div4">
+    <div class="aPerson div10">
         <div class="leftPerson">
             <p>Eva</p>
             <div><?= ABOUT_US_PERSON_1_ROLE ?></div>
