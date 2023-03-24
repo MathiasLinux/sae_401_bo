@@ -24,6 +24,7 @@
             <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
     </div>
+    
     <div class="linksPC">
         <div class="linksPCDiv">
             <a href="index.php?action=escapeGames">Escape Games</a>
@@ -44,6 +45,7 @@
             </div>
             <div class="loginLinksPC">
                 <a href="index.php?action=login">
+                    
                     <svg id="Calque_2" data-name="Calque 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 470">
                         <g id="Calque_1-2" data-name="Calque 1">
                             <path d="M405.23,382.13c-41.25,47.69-102.21,77.87-170.23,77.87s-128.98-30.18-170.23-77.87c28.85-65.34,94.22-110.94,170.23-110.94s141.39,45.6,170.23,110.94Z"
@@ -53,9 +55,26 @@
                                   style="fill: none; stroke: #ffffff; stroke-miterlimit: 10; stroke-width: 20px;"></path>
                         </g>
                     </svg>
+                
                 </a>
+
+                
+            </div>
+            <div class="PCMenuDiv">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="#ffffff"
+                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </div>
+                <div>Admin Menu</div>
+                
+                    
             </div>
         </div>
+        
     </div>
     <div class="mobileMenu">
         <svg class="closeMenu" xmlns="http://www.w3.org/2000/svg" width="32.686" height="32.686"
