@@ -1,30 +1,31 @@
 <h2 class="titleUnderline"><?= BUY_CARDS_TITLE ?></h2>
 <?php
-/*echo "<br><br><strong>amount</strong><br><br>";
-var_dump($amount);
-echo "<br><br><strong>error</strong><br><br>";
+/*echo "<div style='border: solid 1px red'>";
+echo "<br><br><strong>id Escape Game</strong><br><br>";
+var_dump($idEscapeGame);
+echo "<br><br><strong>Persons</strong><br><br>";
+var_dump($persons);
+echo "<br><br><strong>Error</strong><br><br>";
 var_dump($error);
-echo "<br><br><strong>okValue</strong><br><br>";
-var_dump($okValue);*/
+echo "</div>";*/
 
 
-if (isset($amount)) {
+if (isset($nameEscapeGame) and isset($priceEscapeGame)) {
     ?>
     <div class="amount">
         <h3><?= BUY_CARDS_H3_1 ?></h3>
         <div>
             <?php
-            if (!empty($amount)) {
-                echo "<p class='amountBuy'> " . BUY_CARDS_AMOUNT . $amount . " €</p>";
-            } else {
+            if (!empty($nameEscapeGame) and !empty($priceEscapeGame)) {
+                echo "<p> " . ESCAPE_CARDS_ESCAPE_NAME . $nameEscapeGame . ESCAPE_CARDS_ESCAPE_FOR . $priceEscapeGame . "€</p>";
+            } else
                 if ($_SESSION['lang'] == 'fr')
-                    echo "<p class='errorMessageBuy'>Vous n'avez pas sélectionné de montant</p>";
+                    echo "<p class='errorMessageBuy'> Vous n'avez pas sélectionné d'escape game.</p>";
                 else
-                    echo "<p class='errorMessageBuy'>You have not selected an amount</p>";
-            }
+                    echo "<p class='errorMessageBuy'> You have not selected an escape game.</p>";
             ?>
         </div>
-        <form class="contactForm contactJobs" action="index.php?action=buyCardValid" method="post">
+        <form class="contactForm contactJobs" action="index.php?action=buyCardValidEscape" method="post">
             <div class="formGroup">
                 <label>
                     <?= BUY_CARDS_CARD_NUMBER ?> <input type="number" id="cardNumber" name="cardNumber"
@@ -111,7 +112,8 @@ if (isset($amount)) {
                     ?>
                 </div>
             </div>
-            <input type="hidden" name="amount" value="<?= $amount ?>">
+            <input type="hidden" name="amount" value="<?= $priceEscapeGame ?>">
+            <input type="hidden" name="idEscapeGame" value="<?= $idEscapeGame ?>">
             <div class="formGroup formInput">
                 <input type="submit" value="<?= BUY_CARDS_CARD_SUBMIT ?>">
             </div>

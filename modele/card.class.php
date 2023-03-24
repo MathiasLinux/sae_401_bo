@@ -4,32 +4,39 @@ require_once "vue/vue.class.php";
 
 class card extends bdd
 {
-    public function verifyCard($cardNumber, $cardDate, $cardCVC, $cardName)
-    {
-        if ($this->verifyCardNumber($cardNumber) and $this->verifyCardCVC($cardCVC) and $this->verifyCardDate($cardDate) and $this->verifyCardName($cardName)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+    /* Luhn algorithm number checker - (c) 2005-2008 shaman - www.planzero.org *
+ * This code has been released into the public domain, however please      *
+ * give credit to the original author where possible.                      */
 
-    public function verifyCardNumber($cardNumber)
+    function luhn_check($number)
     {
-        //verify the card number with the lunh algorithm
-        $cardNumber = strrev($cardNumber);
-        $sum = 0;
-        for ($i = 0; $i < strlen($cardNumber); $i++) {
-            if ($i % 2 == 0) {
-                $sum += $cardNumber[$i];
-            } else {
-                $sum += $cardNumber[$i] * 2;
+
+        // Strip any non-digits (useful for credit card numbers with spaces and hyphens)
+        $number = preg_replace('/\D/', '', $number);
+
+        // Set the string length and parity
+        $number_length = strlen($number);
+        $parity = $number_length % 2;
+
+        // Loop through each digit and do the maths
+        $total = 0;
+        for ($i = 0; $i < $number_length; $i++) {
+            $digit = $number[$i];
+            // Multiply alternate digits by two
+            if ($i % 2 == $parity) {
+                $digit *= 2;
+                // If the sum is two digits, add them together (in effect)
+                if ($digit > 9) {
+                    $digit -= 9;
+                }
             }
+            // Total up the digits
+            $total += $digit;
         }
-        if ($sum % 10 == 0) {
-            return true;
-        } else {
-            return false;
-        }
+
+        // If the total mod 10 equals 0, the number is valid
+        return ($total % 10 == 0) ? TRUE : FALSE;
+
     }
 
     public function verifyCardCVC($cardCVC)
@@ -44,6 +51,10 @@ class card extends bdd
 
     public function verifyCardDate($cardDate)
     {
+        //var_dump($cardDate);
+        if (strlen($cardDate) != 5 and strlen($cardDate) != 7) {
+            return false;
+        }
         //verify the card date
         $cardDate = explode("/", $cardDate);
         $cardDate = $cardDate[1] . $cardDate[0];

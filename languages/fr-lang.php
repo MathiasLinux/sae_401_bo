@@ -156,6 +156,10 @@ const GIFT_CARDS_BUTTON_2 = "Carte d'un escape game";
 const GIFT_CARDS_MONEY_SELECT = "Selectionnez le montant";
 const GIFT_CARDS_ESCAPE_SELECT = "Selectionnez l'escape game";
 
+const GIFT_CARDS_PERSONS_2 = "2 ou 3";
+
+const GIFT_CARDS_PERSONS_12 = "12 ou plus";
+
 //Jobs
 
 const JOBS_TITLE = "Esprit d'équipe et équipe dynamique";
@@ -187,3 +191,32 @@ const JOBS_H2_3 = "Contactez-nous";
 //BuyCards
 
 const BUY_CARDS_TITLE = "Acheter une carte cadeau";
+const BUY_CARDS_ORDER_NOW = "Commander maintenant";
+
+const BUY_CARDS_NB_PERSONS = "Nombre de personnes";
+
+const BUY_CARDS_AMOUNT = "Total : ";
+
+const BUY_CARDS_H3_1 = "Informations de paiement";
+
+const BUY_CARDS_CARD_NUMBER = "Numéro de carte";
+
+const BUY_CARDS_CARD_DATE = "Date d'expiration";
+
+const BUY_CARDS_CARD_CVC = "CVC";
+
+const BUY_CARDS_CARD_NAME = "Nom";
+
+const BUY_CARDS_CARD_SUBMIT = "Payer";
+
+//Escape Cards
+
+const ESCAPE_CARDS_ESCAPE_NAME = "Vous allez acheter une carte cadeau pour l'escape game : ";
+
+const ESCAPE_CARDS_ESCAPE_FOR = " pour ";
+
+//Success card buy page
+
+const BUY_CARDS_SUCCESS_TITLE = "Merci pour votre achat !";
+
+const BUY_CARDS_SUCCESS_BUTTON = "Retour à l'accueil";

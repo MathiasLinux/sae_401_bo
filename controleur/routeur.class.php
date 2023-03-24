@@ -62,6 +62,20 @@ class routeur
                         $this->ctrLogin->login();
                     }
                     break;
+                case "buyCardValidEscape":
+                    if (isset($_SESSION["email"]) and isset($_POST["cardNumber"]) and isset($_POST["cardDate"]) and isset($_POST["cardCVC"]) and isset($_POST["cardName"])) {
+                        $this->ctrGiftCards->buyCardValidEscape();
+                    } else {
+                        $this->ctrLogin->login();
+                    }
+                    break;
+                case "buyCardSuccess":
+                    if (isset($_SESSION["email"])) {
+                        $this->ctrGiftCards->buyCardSuccess();
+                    } else {
+                        $this->ctrLogin->login();
+                    }
+                    break;
                 case "qAndA":
                     $this->ctrQAndA->qAndA();
                     break;
