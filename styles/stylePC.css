@@ -30,6 +30,7 @@ header img {
 .linksPC {
     display: grid;
     grid-template-columns: 1fr auto;
+    gap: 20px;
 }
 
 .linksPC img {
@@ -68,6 +69,18 @@ header img {
     margin-right: 20px;
 }
 
+.PCMenuDiv{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.none{
+    display: none;
+}
 /* Footer */
 
 .tel {
@@ -316,3 +329,30 @@ header img {
 .legalNoticeContent h3 {
     font-size: 32px;
 }
+
+/* Admin Acceuil */
+
+.adminButtons{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: 20px;
+}
+
+/* Admin Escape Games */
+
+.allEscapeGamesAdmin{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: 20px;
+}
+
+.anEscapeGameAdmin{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Menu Admin */
+
