@@ -7,3 +7,4 @@
 /.idea/vcs.xml
 /.idea/webServers.xml
 controleur/routeur.class.php
+.idea/*

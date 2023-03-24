@@ -110,8 +110,8 @@
         </div>
     </div>
 </form>
-
-<h2 class="titleUnderline">Map</h2>
+</div>
+<h2 class="titleUnderline"><?= ABOUT_US_H2_3 ?></h2>
 <p>Am Krebsbach 2G, 79241 Ihringen, Germany</p>
 
 <div id="map"></div>

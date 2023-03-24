@@ -55,35 +55,35 @@ header img {
 
 /* Footer */
 
-.tel{
+.tel {
     display: none;
 }
 
-.pc{
+.pc {
     display: flex;
     justify-content: space-around;
 }
 
-.taille{
+.taille {
     width: 300px;
 }
 
-.taille>img{
+.taille > img {
     width: 100%;
 }
 
-.ligneFooter{
+.ligneFooter {
     display: block;
     text-align: center;
     gap: 10px;
 }
 
-.Yellow{
+.Yellow {
     color: var(--yellow);
     text-align: center;
 }
 
-.CenterName{
+.CenterName {
     font-size: 12pt;
     text-align: center;
 }
@@ -170,4 +170,9 @@ header img {
     bottom: 0px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    
+/* Page legal notice vueLegalNotice.php */
+
+.legalNoticeContent h3 {
+    font-size: 32px;
 }
