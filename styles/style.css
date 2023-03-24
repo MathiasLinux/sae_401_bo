@@ -113,20 +113,20 @@ main {
 
 .linksMenuAdmin a {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.loginMobileLink {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-}
-
-.loginMobileLink svg {
-    width: 40px;
+    justify-content: center;ç
+    align-items: center;ç
+    gap: 10px;ç
+}ç
+ç
+.loginMobileLink {ç
+    display: flex;ç
+    justify-content: center;ç
+    align-items: center;ç
+    font-size: 24px;ç
+}ç
+ç
+.loginMobileLink svg {ç
+    width: 40px;ç
     height: 40px;
 }
 
@@ -302,6 +302,8 @@ footer a {
 
 /* Page about us vueAboutUs.php */
 
+
+
 .aPerson {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -311,11 +313,13 @@ footer a {
     border-bottom: var(--green) 3px solid;
 }
 
+
 .leftPerson {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     padding: 10px;
     border: var(--yellow) 3px solid;
 }
