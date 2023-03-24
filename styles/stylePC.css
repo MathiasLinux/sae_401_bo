@@ -1,3 +1,18 @@
+:root {
+    --background: #1E212B;
+    --yellow: #FFAE00;
+    --green: #038C4C;
+    --black: #101010;
+    --lightBlue: #373D50;
+    --red: #fb4d3d;
+    --lightGrey: #a4a4a4
+    --veryLightBlue: #6A7497;
+    --grey: #D9D9D9;
+}
+
+
+
+
 /* Page header gabarit.php */
 header {
     grid-template-columns: auto 1fr;
@@ -105,11 +120,136 @@ header img {
 
 .newEscapeGame {
     display: grid;
-    grid-template-areas:
-    "title img"
-    "desc img"
-    "link1 img"
-    "link2 img";
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+
+.div1 { grid-area: 1 / 1 / 2 / 2; }
+.div2 { grid-area: 2 / 1 / 4 / 3; }
+.div3 { grid-area: 2 / 4 / 6 / 6; }
+.div4 { grid-area: 3 / 1 / 5 / 3;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.div5 {
+    grid-area: 1 / 1 / 2 / 2;
+    height: max-content;
+    font-size: 16pt;
+}
+.div6 {
+    grid-area: 2 / 2 / 2 / 2;
+    height: max-content;
+    font-size: 16pt;
+}
+
+
+.underline>p{
+    font-size: 16pt;
+}
+
+
+.divImg{
+    width: 500px;
+    height: 400px;
+}
+
+.GC{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 19pt;
+}
+
+.GC>div>div>a{
+    font-size: 21pt;
+}
+
+.titleAndImage>img{
+    clip-path: polygon(20% 1%, 70% 0, 70% 100%, 20% 100%);
+}
+
+.Vue{
+    display: none;
+}
+
+.Vue2{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.Posi{
+    position: relative;
+    width: 200px;
+    height: 350px;
+    transition: 0.2s;
+}
+
+.Posi:hover{
+    border: 3px solid var(--yellow);
+}
+
+.Posi>h2{
+    position: relative;
+    bottom: 20%;
+    left: 8%;
+    z-index: 3;
+}
+
+.Posi>div{
+    z-index: 3;
+    background-image: linear-gradient(90deg, black,rgba(0, 0, 0, 0));
+}
+
+.Posi>div>.img1{
+   height: 300px;
+   width: auto;
+   position: relative;
+   right: 70px;
+   clip-path: polygon(14% 0, 54% 0, 54% 100%, 14% 100%);
+}
+
+.Posi>div>.img2{
+    height: 300px;
+    width: auto;
+    position: relative;
+    right: 120px;
+    clip-path: polygon(24% 0, 64% 0, 64% 100%, 24% 100%);
+ }
+
+ .Posi>div>.img3{
+    height: 300px;
+    width: auto;
+    position: relative;
+    right: 159px;
+    clip-path: polygon(32% 0, 72% 0, 72% 100%, 32% 100%);
+ }
+
+ .Posi>div>.img4{
+    height: 300px;
+    /* width: auto; */
+    /* position: relative; */
+    /* right: 151px;
+    clip-path: polygon(30% 0, 70% 0, 70% 100%, 30% 100%); */
+ }
+.Posi>a{
+    font-size: 20pt;
+    margin: 10px 30px;
+    color: var(--yellow);
+    position: relative;
+    top: -60px;
+}
+
+.Posi>a:visited{
+    color: var(--yellow);
+}
+
+.reviewsHome{
+    display: flex;
+    justify-content: space-around;
 }
 
 /* About Us PC */
@@ -130,10 +270,10 @@ header img {
     grid-row-gap: 1px;
 }
 
-.div1 { grid-area: 1 / 1 / 2 / 2; }
-.div2 { grid-area: 1 / 2 / 2 / 3; }
-.div3 { grid-area: 2 / 2 / 3 / 3; }
-.div4 { grid-area: 2 / 1 / 3 / 2; }
+.div7 { grid-area: 1 / 1 / 2 / 2; }
+.div8 { grid-area: 1 / 2 / 2 / 3; }
+.div9 { grid-area: 2 / 2 / 3 / 3; }
+.div10 { grid-area: 2 / 1 / 3 / 2; }
 
 .aPerson{
     border: 0px solid green;
@@ -170,7 +310,7 @@ header img {
     bottom: 0px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    
+}
 /* Page legal notice vueLegalNotice.php */
 
 .legalNoticeContent h3 {
