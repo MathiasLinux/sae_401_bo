@@ -855,9 +855,19 @@ footer a {
 .tg .tg-wkfw {
     background-color: var(--yellow);
     border-color: #5b5b5b;
-    color: #ffffff;
+    color: black;
     text-align: center;
     vertical-align: top
+}
+
+.tg .tg-wkfw-delete {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.warningDelForm {
+    background-color: var(--red);
+    cursor: pointer;
+    padding: 10px;
 }
 
 .tg .tg-a43n {
@@ -897,8 +907,41 @@ footer a {
     }
 }
 
-/* Page admin vueAdminGiftCards.php */
+.messageOpenButton {
+    cursor: pointer;
+}
 
+.messageOpen {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 10%;
+    background-color: var(--lightBlue);
+    padding: 20px;
+    width: 70%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.messageOpenDisplay {
+    display: flex;
+}
+
+.messageOpen h3 {
+    margin: 0;
+}
+
+.yellowButtonAdminContact {
+    background-color: var(--yellow);
+    padding: 10px 20px;
+    font-size: 15px;
+    cursor: pointer;
+    color: black;
+    border: none
+}
+
+/* Page admin vueAdminGiftCards.php */
 .amount p {
     font-size: 20px;
 }
@@ -1387,8 +1430,9 @@ textarea.addTitle {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: var(--veryLightBlue);
+    background-color: var(--lightBlue);
     padding: 20px;
+    color: white;
 }
 
 .delUserDivButton {

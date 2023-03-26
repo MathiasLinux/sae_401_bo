@@ -229,3 +229,33 @@ const ESCAPE_CARDS_ESCAPE_FOR = " for ";
 const BUY_CARDS_SUCCESS_TITLE = "Thank you for your purchase !";
 
 const BUY_CARDS_SUCCESS_BUTTON = "Back to the home page";
+
+//Admin Contact Form page
+
+const ADMIN_CONTACT_FORM_TITLE = "Contact Form";
+
+const ADMIN_CONTACT_FORM_DATE = "Date";
+
+const ADMIN_CONTACT_FORM_FIRST_NAME = "First Name";
+
+const ADMIN_CONTACT_FORM_LAST_NAME = "Last Name";
+
+const ADMIN_CONTACT_FORM_EMAIL = "E-mail";
+
+const ADMIN_CONTACT_FORM_PHONE = "Phone Number";
+
+const ADMIN_CONTACT_FORM_MESSAGE = "Message";
+
+const ADMIN_CONTACT_FORM_ACTION = "Action";
+const ADMIN_CONTACT_FORM_DELETE = "Delete";
+
+const ADMIN_CONTACT_FORM_MESSAGE_BUTTON = "Open message";
+
+const ADMIN_CONTACT_FORM_MESSAGE_TITLE = "Message : ";
+
+const ADMIN_CONTACT_FORM_MESSAGE_CLOSE = "Close";
+
+const ADMIN_CONTACT_FROM_DELETE_VERIF = "Are you sure you want to delete this message ?";
+
+const ADMIN_CONTACT_FORM_DELETE_YES = "Yes";
+const ADMIN_CONTACT_FROM_DELETE_NO = "No";

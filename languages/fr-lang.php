@@ -220,3 +220,34 @@ const ESCAPE_CARDS_ESCAPE_FOR = " pour ";
 const BUY_CARDS_SUCCESS_TITLE = "Merci pour votre achat !";
 
 const BUY_CARDS_SUCCESS_BUTTON = "Retour à l'accueil";
+
+//Admin Contact Form page
+
+const ADMIN_CONTACT_FORM_TITLE = "Messages reçus";
+
+const ADMIN_CONTACT_FORM_DATE = "Date";
+
+const ADMIN_CONTACT_FORM_FIRST_NAME = "Prénom";
+
+const ADMIN_CONTACT_FORM_LAST_NAME = "Nom";
+
+const ADMIN_CONTACT_FORM_EMAIL = "E-mail";
+
+const ADMIN_CONTACT_FORM_PHONE = "Numéro de téléphone";
+
+const ADMIN_CONTACT_FORM_MESSAGE = "Message";
+
+const ADMIN_CONTACT_FORM_ACTION = "Action";
+
+const ADMIN_CONTACT_FORM_DELETE = "Supprimer";
+
+const ADMIN_CONTACT_FORM_MESSAGE_BUTTON = "Voir le message";
+
+const ADMIN_CONTACT_FORM_MESSAGE_TITLE = "Message :";
+
+const ADMIN_CONTACT_FORM_MESSAGE_CLOSE = "Fermer";
+
+const ADMIN_CONTACT_FROM_DELETE_VERIF = "Êtes-vous sûr de vouloir supprimer ce message ?";
+
+const ADMIN_CONTACT_FORM_DELETE_YES = "Oui";
+const ADMIN_CONTACT_FROM_DELETE_NO = "Non";
