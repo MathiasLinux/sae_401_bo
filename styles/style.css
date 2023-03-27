@@ -18,7 +18,8 @@
 }
 
 .tel {
-    display: block;
+    display: flex;
+    flex-direction: column;
 }
 
 .pc {
@@ -195,7 +196,7 @@ footer img {
 footer a {
     text-decoration: none;
     color: white;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 /* Page d'accueil vueAccueil.php */

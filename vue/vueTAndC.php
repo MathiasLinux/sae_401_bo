@@ -1,0 +1,25 @@
+<h2 class="titleUnderline"><?= TANDC_TITLE ?></h2>
+<p><?= TANDC_P_1 ?></p>
+<h3><?= TANDC_H2_1 ?></h3>
+<p><?= TANDC_P_2 ?></p>
+<h3><?= TANDC_H2_2 ?></h3>
+<p><?= TANDC_P_3 ?></p>
+<h3><?= TANDC_H2_3 ?></h3>
+<p><?= TANDC_P_4 ?></p>
+<h3><?= TANDC_H2_4 ?></h3>
+<p><?= TANDC_P_5 ?></p>
+<h3><?= TANDC_H2_5 ?></h3>
+<p><?= TANDC_P_6 ?></p>
+<h3><?= TANDC_H2_6 ?></h3>
+<p><?= TANDC_P_7 ?></p>
+<h3><?= TANDC_H2_7 ?></h3>
+<p><?= TANDC_P_8 ?></p>
+<h3><?= TANDC_H2_8 ?></h3>
+<p><?= TANDC_P_9 ?></p>
+<h3><?= TANDC_H2_9 ?></h3>
+<p><?= TANDC_P_10 ?></p>
+<h3><?= TANDC_H2_10 ?></h3>
+<p><?= TANDC_P_11 ?></p>
+<h3><?= TANDC_H2_11 ?></h3>
+<p><?= TANDC_P_12 ?></p>
+<p><?= TANDC_P_13 ?></p>

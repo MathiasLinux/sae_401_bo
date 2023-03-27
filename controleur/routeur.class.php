@@ -103,6 +103,9 @@ class routeur
                 case "privacy":
                     $this->ctrPage->privacyPolicy();
                     break;
+                case "tAndC":
+                    $this->ctrPage->tAndC();
+                    break;
                 case "login":
                     $this->ctrLogin->login();
                     break;

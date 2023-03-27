@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-    
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/stylePC.css" media="screen and (min-width: 1024px)">
@@ -24,13 +24,13 @@
             <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
     </div>
-    
+
     <div class="linksPC">
         <div class="linksPCDiv">
-            <a href="index.php?action=escapeGames">Escape Games</a>
-            <a href="index.php?action=giftCards">Gift Cards</a>
-            <a href="index.php?action=qAndA">Q&A</a>
-            <a href="index.php?action=aboutUs">About Us</a>
+            <a href="index.php?action=escapeGames"><?= MENU_ESCAPE_GAME ?></a>
+            <a href="index.php?action=giftCards"><?= MENU_GIFT_CARDS ?></a>
+            <a href="index.php?action=qAndA"><?= MENU_Q_AND_A ?></a>
+            <a href="index.php?action=aboutUs"><?= MENU_ABOUT_US ?></a>
         </div>
         <div class="endLinksPC">
             <div class="lang">
@@ -45,7 +45,7 @@
             </div>
             <div class="loginLinksPC">
                 <a href="index.php?action=login">
-                    
+
                     <svg id="Calque_2" data-name="Calque 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 470">
                         <g id="Calque_1-2" data-name="Calque 1">
                             <path d="M405.23,382.13c-41.25,47.69-102.21,77.87-170.23,77.87s-128.98-30.18-170.23-77.87c28.85-65.34,94.22-110.94,170.23-110.94s141.39,45.6,170.23,110.94Z"
@@ -55,26 +55,27 @@
                                   style="fill: none; stroke: #ffffff; stroke-miterlimit: 10; stroke-width: 20px;"></path>
                         </g>
                     </svg>
-                
+
                 </a>
 
-                
+
             </div>
             <div class="PCMenuDiv">
                 <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="#ffffff"
-                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none"
+                         stroke="#ffffff"
+                         stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="3" y1="12" x2="21" y2="12"></line>
                         <line x1="3" y1="6" x2="21" y2="6"></line>
                         <line x1="3" y1="18" x2="21" y2="18"></line>
                     </svg>
                 </div>
                 <div>Admin Menu</div>
-                
-                    
+
+
             </div>
         </div>
-        
+
     </div>
     <div class="mobileMenu">
         <svg class="closeMenu" xmlns="http://www.w3.org/2000/svg" width="32.686" height="32.686"
@@ -87,10 +88,10 @@
             </g>
         </svg>
         <div class="linksMenu">
-            <a href="index.php?action=escapeGames">Escape Games</a>
-            <a href="index.php?action=giftCards">Gift Cards</a>
-            <a href="index.php?action=qAndA">Q&A</a>
-            <a href="index.php?action=aboutUs">About Us</a>
+            <a href="index.php?action=escapeGames"><?= MENU_ESCAPE_GAME ?></a>
+            <a href="index.php?action=giftCards"><?= MENU_GIFT_CARDS ?></a>
+            <a href="index.php?action=qAndA"><?= MENU_Q_AND_A ?></a>
+            <a href="index.php?action=aboutUs"><?= MENU_ABOUT_US ?></a>
             <a class="loginMobileLink" href="index.php?action=login">
                 <svg id="Calque_2" data-name="Calque 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 470">
                     <g id="Calque_1-2" data-name="Calque 1">
@@ -101,7 +102,7 @@
                               style="fill: none; stroke: #ffffff; stroke-miterlimit: 10; stroke-width: 20px;"></path>
                     </g>
                 </svg>
-                <div>Connexion</div>
+                <div><?= MENU_CONNECTION ?></div>
             </a>
         </div>
         <div class="lang">
@@ -178,24 +179,24 @@
 <footer class="tel">
     <img class="taille" src="img/logo.png" alt="logo">
     <div class="sectionFooter">
-        <p class="titleFooter">Company</p>
+        <p class="titleFooter"><?= FOOTER_COMPAGNY ?></p>
         <div class="ligneFooter">
-            <a href="index.php?action=legal">Legal notice</a>
-            <a href="index.php?action=tAndC">T&C</a>
+            <a href="index.php?action=legal"><?= FOOTER_LEGAL_NOTICE ?></a>
+            <a href="index.php?action=tAndC"><?= FOOTER_T_AND_C ?></a>
         </div>
         <div class="ligneFooter">
-            <a href="index.php?action=privacy">Privacy policy</a>
-            <a href="index.php?action=partners">Our Partners</a>
+            <a href="index.php?action=privacy"><?= FOOTER_PRIVACY_POLICY ?></a>
+            <a href="index.php?action=partners"><?= FOOTER_PARTNERS ?></a>
         </div>
     </div>
     <div class="sectionFooter">
-        <p class="titleFooter">Informations</p>
+        <p class="titleFooter"><?= FOOTER_INFORMATIUONS ?></p>
         <div class="ligneFooter">
-            <a href="index.php?action=jobs">Jobs</a>
-            <a href="index.php?action=qAndA">Q&A</a>
+            <a href="index.php?action=jobs"><?= FOOTER_JOBS ?></a>
+            <a href="index.php?action=qAndA"><?= FOOTER_Q_AND_A ?></a>
         </div>
         <div>
-            <a href="index.php?action=contact">Contact US</a>
+            <a href="index.php?action=contact"><?= FOOTER_CONTACT ?></a>
         </div>
     </div>
     <p>&copy Innovative Innovators 2023</p>
@@ -203,30 +204,30 @@
 <footer class="pc">
     <div>
         <div class="taille">
-            <img  src="img/logo.png" alt="logo">
+            <img src="img/logo.png" alt="logo">
         </div>
 
         <div class="CenterName">&copy Innovative Innovators 2023</div>
     </div>
     <div>
-        <h2 class="Yellow">Company</h2>
+        <h2 class="Yellow"><?= FOOTER_COMPAGNY ?></h2>
         <div class="ligneFooter">
-            <div><a href="index.php?action=legal">Legal notice</a></div>
-            <div><a href="index.php?action=tAndC">T&C</a></div>
-            <div><a href="index.php?action=privacy">Privacy policy</a></div>
-            <div><a href="index.php?action=partners">Our Partners</a></div>
+            <div><a href="index.php?action=legal"><?= FOOTER_LEGAL_NOTICE ?></a></div>
+            <div><a href="index.php?action=tAndC"><?= FOOTER_T_AND_C ?></a></div>
+            <div><a href="index.php?action=privacy"><?= FOOTER_PRIVACY_POLICY ?></a></div>
+            <div><a href="index.php?action=partners"><?= FOOTER_PARTNERS ?></a></div>
 
         </div>
     </div>
     <div>
-        <h2 class="Yellow">Informations</h2>
+        <h2 class="Yellow"><?= FOOTER_INFORMATIUONS ?></h2>
         <div class="ligneFooter">
-            <div><a href="index.php?action=jobs">Jobs</a></div>
-            <div> <a href="index.php?action=qAndA">Q&A</a></div>
-            <div><a href="index.php?action=contact">Contact US</a></div>
+            <div><a href="index.php?action=jobs"><?= FOOTER_JOBS ?></a></div>
+            <div><a href="index.php?action=qAndA"><?= FOOTER_Q_AND_A ?></a></div>
+            <div><a href="index.php?action=contact"><?= FOOTER_CONTACT ?></a></div>
         </div>
     </div>
-    
+
 </footer>
 <script src="js/menu.js"></script>
 </body>
