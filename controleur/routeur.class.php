@@ -171,6 +171,13 @@ class routeur
                                         $this->ctrAdmin->admin();
                                     }
                                     break;
+                                case "addGiftCardsAmount":
+                                    if (str_contains($_SESSION["rights"], "management") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        $this->ctrAdmin->addGiftCardsAmount();
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
+                                    break;
                                 case "qAndA":
                                     if (str_contains($_SESSION["rights"], "editor") or str_contains($_SESSION["rights"], "superadmin")) {
                                         $this->ctrAdmin->qAndA();
@@ -208,8 +215,26 @@ class routeur
                                     }
                                     break;
                                 case "addJob":
-                                    if (str_contains($_SESSION["rights"], "jobs")) {
+                                    if (str_contains($_SESSION["rights"], "jobs") or str_contains($_SESSION["rights"], "superadmin")) {
                                         $this->ctrAdmin->addJob();
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
+                                    break;
+                                case "updateJob":
+                                    if (str_contains($_SESSION["rights"], "jobs") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        $this->ctrAdmin->updateJob();
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
+                                    break;
+                                case "delJob":
+                                    if (str_contains($_SESSION["rights"], "jobs") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        if (isset($_GET["id"])) {
+                                            $this->ctrAdmin->delJob($_GET["id"]);
+                                        } else {
+                                            $this->ctrAdmin->jobs();
+                                        }
                                     } else {
                                         $this->ctrAdmin->admin();
                                     }
@@ -237,49 +262,93 @@ class routeur
                                     }
                                     break;
                                 case "qAndANewCat_S":
-                                    $this->ctrAdmin->qAndANewCat_S();
+                                    if (str_contains($_SESSION["rights"], "editor") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        $this->ctrAdmin->qAndANewCat_S();
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
                                     break;
                                 case "qAndAModifyCat":
-                                    $idCat = $_GET['id_qAndACat'];
-                                    $this->ctrAdmin->qAndAModifyCat($idCat);
+                                    if (str_contains($_SESSION["rights"], "editor") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        $idCat = $_GET['id_qAndACat'];
+                                        $this->ctrAdmin->qAndAModifyCat($idCat);
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
                                     break;
                                 case "qAndAModifyCat_S":
-                                    $idCat = $_GET['id_qAndACat'];
-                                    $this->ctrAdmin->qAndAModifyCat_S($idCat);
+                                    if (str_contains($_SESSION["rights"], "editor") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        $idCat = $_GET['id_qAndACat'];
+                                        $this->ctrAdmin->qAndAModifyCat_S($idCat);
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
                                     break;
                                 case "qAndAModifyES":
-                                    $idCat = $_GET['id_qAndACat'];
-                                    $this->ctrAdmin->qAndAModifyEG($idCat);
+                                    if (str_contains($_SESSION["rights"], "editor") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        $idCat = $_GET['id_qAndACat'];
+                                        $this->ctrAdmin->qAndAModifyEG($idCat);
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
                                     break;
                                 case "qAndADeleteCat":
-                                    $idCat = $_GET['id_qAndACat'];
-                                    $this->ctrAdmin->qAndADeleteCat($idCat);
+                                    if (str_contains($_SESSION["rights"], "editor") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        $idCat = $_GET['id_qAndACat'];
+                                        $this->ctrAdmin->qAndADeleteCat($idCat);
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
                                     break;
                                 case "qAndADeleteCat_S":
-                                    $idCat = $_GET['id_qAndACat'];
-                                    $this->ctrAdmin->qAndADeleteCat_S($idCat);
+                                    if (str_contains($_SESSION["rights"], "editor") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        $idCat = $_GET['id_qAndACat'];
+                                        $this->ctrAdmin->qAndADeleteCat_S($idCat);
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
                                     break;
                                 case "qAndAQuestionsAdd_S":
-                                    $idCat = $_GET['id_qAndACat'];
-                                    $this->ctrAdmin->qAndAQuestionsAdd_S($idCat);
+                                    if (str_contains($_SESSION["rights"], "editor") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        $idCat = $_GET['id_qAndACat'];
+                                        $this->ctrAdmin->qAndAQuestionsAdd_S($idCat);
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
                                     break;
                                 case "qAndAQuestionsDelete":
-                                    $idQ = $_GET['id_qAndAQ'];
-                                    $this->ctrAdmin->qAndAQuestionsDelete($idQ);
+                                    if (str_contains($_SESSION["rights"], "editor") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        $idQ = $_GET['id_qAndAQ'];
+                                        $this->ctrAdmin->qAndAQuestionsDelete($idQ);
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
                                     break;
                                 case "qAndAQuestionsDelete_S":
-                                    $idCat = $_GET['id_qAndACat'];
-                                    $idQ = $_GET['id_qAndAQ'];
-                                    $this->ctrAdmin->qAndAQuestionsDelete_S($idCat, $idQ);
+                                    if (str_contains($_SESSION["rights"], "editor") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        $idCat = $_GET['id_qAndACat'];
+                                        $idQ = $_GET['id_qAndAQ'];
+                                        $this->ctrAdmin->qAndAQuestionsDelete_S($idCat, $idQ);
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
                                     break;
                                 case "qAndAQuestionsModify":
-                                    $idQ = $_GET['id_qAndAQ'];
-                                    $this->ctrAdmin->qAndAQuestionsModify($idQ);
+                                    if (str_contains($_SESSION["rights"], "editor") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        $idQ = $_GET['id_qAndAQ'];
+                                        $this->ctrAdmin->qAndAQuestionsModify($idQ);
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
                                     break;
                                 case "qAndAQuestionsModify_S":
-                                    $idCat = $_GET['id_qAndACat'];
-                                    $idQ = $_GET['id_qAndAQ'];
-                                    $this->ctrAdmin->qAndAQuestionsModify_S($idCat, $idQ);
+                                    if (str_contains($_SESSION["rights"], "editor") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        $idCat = $_GET['id_qAndACat'];
+                                        $idQ = $_GET['id_qAndAQ'];
+                                        $this->ctrAdmin->qAndAQuestionsModify_S($idCat, $idQ);
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
                                     break;
                                 default:
                                     $this->ctrPage->erreur("Page introuvable");

@@ -259,3 +259,105 @@ const ADMIN_CONTACT_FROM_DELETE_VERIF = "Are you sure you want to delete this me
 
 const ADMIN_CONTACT_FORM_DELETE_YES = "Yes";
 const ADMIN_CONTACT_FROM_DELETE_NO = "No";
+
+//Admin user page
+
+const ADMIN_USER_TITLE = "Users Management";
+
+const ADMIN_USER_FIRST_NAME = "First Name";
+
+const ADMIN_USER_LAST_NAME = "Last Name";
+
+const ADMIN_USER_EMAIL = "E-mail";
+
+const ADMIN_USER_RIGHTS = "Rights";
+
+const ADMIN_USER_RIGHTS_SUPERADMIN = "Super Admin";
+
+const ADMIN_USER_RIGHTS_EDITOR = "Editor";
+
+const ADMIN_USER_RIGHTS_MANAGEMENT = "Management";
+
+const ADMIN_USER_RIGHTS_JOBS = "Jobs";
+
+const ADMIN_USER_RIGHTS_SAVE = "Save";
+
+const ADMIN_USER_RIGHTS_DELETE_WARNING = "Are you sure you want to delete this user ?";
+
+//Admin Gift Cards page
+
+const ADMIN_GIFT_CARDS_TITLE = "Gift Cards Management";
+
+const ADMIN_GIFT_CARDS_P_1 = "Available amounts";
+
+const ADMIN_GIFT_CARDS_PRICE = "Price";
+
+const ADMIN_GIFT_CARDS_DELETE = "Delete ?";
+
+const ADMIN_GIFT_CARDS_DELETE_WARNING = "Are you sure you want to delete this amount ?";
+
+const ADMIN_GIFT_CARDS_P_2 = "Create a new amount";
+
+const ADMIN_GIFT_CARDS_AMOUNT = "Amount in €";
+
+const ADMIN_GIFT_CARDS_SUBMIT = "Create";
+
+const ADMIN_GIFT_CARDS_H2_2 = "Sold Money Cards";
+
+const ADMIN_GIFT_CARDS_SOLD_DATE = "Date";
+
+const ADMIN_GIFT_CARDS_SOLD_USAGE_DATE = "Usage Date";
+
+const ADMIN_GIFT_CARDS_SOLD_CODE = "Code";
+
+const ADMIN_GIFT_CARDS_SOLD_AMOUNT = "Amount";
+
+const ADMIN_GIFT_CARDS_SOLD_ESCAPEGAME = "Escape Game";
+
+const ADMIN_GIFT_CARDS_SOLD_USER_FIRST_NAME = "User First name";
+
+const ADMIN_GIFT_CARDS_SOLD_USER_LAST_NAME = "User Last name";
+
+const ADMIN_GIFT_CARDS_SOLD_USER_EMAIL = "User E-mail";
+
+const ADMIN_GIFT_CARDS_H2_3 = "Sold Escape Cards";
+
+//Admin create/modif job page
+
+const ADMIN_JOB_RETURN = "Return";
+
+const ADMIN_JOB_TITLES = "Titles";
+
+const ADMIN_JOB_TITLES_1 = "Title English";
+
+const ADMIN_JOB_TITLES_2 = "Title French";
+
+const ADMIN_JOB_INFOS = "Infos";
+
+const ADMIN_JOB_INFOS_1 = "Type of position English";
+
+const ADMIN_JOB_INFOS_2 = "Type of position French";
+
+const ADMIN_JOB_TASKS = "Tasks";
+
+const ADMIN_JOB_TASKS_1 = "Tasks English";
+
+const ADMIN_JOB_TASKS_2 = "Tasks French";
+
+const ADMIN_JOB_STRENGTHS = "Strengths";
+
+const ADMIN_JOB_STRENGTHS_1 = "Strengths English";
+
+const ADMIN_JOB_STRENGTHS_2 = "Strengths French";
+
+const ADMIN_JOB_DISPLAY = "Display";
+
+const ADMIN_JOB_DISPLAY_P = "Display the job offer for the users";
+
+const ADMIN_JOB_DISPLAY_VISIBLE = "Visible";
+
+const ADMIN_JOB_DISPLAY_SAVE = "Save";
+
+const ADMIN_JOB_DISPLAY_DELETE = "Delete";
+
+const ADMIN_JOB_DISPLAY_DELETE_WARNING = "Are you sure you want to delete this job offer ?";

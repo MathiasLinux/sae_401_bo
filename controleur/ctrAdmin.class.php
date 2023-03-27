@@ -65,12 +65,27 @@ class ctrAdmin
         header("Location: index.php?action=admin&page=giftCards");
     }
 
+    public function addGiftCardsAmount()
+    {
+        //var_dump($_POST);
+        extract($_POST);
+        if (!empty($amount)) {
+            if ($this->giftCards->addGiftCardAmount($amount))
+                header("Location: index.php?action=admin&page=giftCards");
+            else
+                throw new Exception("An error occured during the adding process");
+        } else
+            $this->giftCards();
+    }
+
     public function giftCards()
     {
         $giftCardAmount = $this->giftCards->getGiftCardAmount();
+        $moneyCards = $this->giftCards->getMoneyCards();
+        $escapeCards = $this->giftCards->getEscapeCards();
         $title = "Administration Gift Cards - Kaiserstuhl escape";
         $objVue = new vue("AdminGiftCards");
-        $objVue->afficher(array("giftCardAmount" => $giftCardAmount), $title);
+        $objVue->afficher(array("giftCardAmount" => $giftCardAmount, "moneyCards" => $moneyCards, "escapeCards" => $escapeCards), $title);
     }
 
     public function qAndANewCat_S()
@@ -196,9 +211,14 @@ class ctrAdmin
 
     public function job()
     {
+        if (isset($_GET["id"])) {
+            $job = $this->jobs->getJobsById($_GET["id"]);
+        } else {
+            $job = "";
+        }
         $title = "Administration Job - Kaiserstuhl escape";
         $objVue = new vue("AdminJob");
-        $objVue->afficher(array(), $title);
+        $objVue->afficher(array("job" => $job), $title);
     }
 
     public function addJob()
@@ -219,8 +239,35 @@ class ctrAdmin
             $visible = 0;
         }
         $this->jobs->addJobs($title, $titleFR, $position, $positionFR, $task, $taskFR, $strength, $strengthFR, $visible);
-        $this->jobs();
+        header("Location: index.php?action=admin&page=jobs");
 
+    }
+
+    public function updateJob()
+    {
+        $id = $_POST["id"] ?? "";
+        $title = $_POST["title"] ?? "";
+        $titleFR = $_POST["titleFR"] ?? "";
+        $position = $_POST["position"] ?? "";
+        $positionFR = $_POST["positionFR"] ?? "";
+        $task = $_POST["task"] ?? "";
+        $taskFR = $_POST["taskFR"] ?? "";
+        $strength = $_POST["strength"] ?? "";
+        $strengthFR = $_POST["strengthFR"] ?? "";
+
+        if (isset($_POST["visible"])) {
+            $visible = 1;
+        } else {
+            $visible = 0;
+        }
+        $this->jobs->updateJobs($id, $title, $titleFR, $position, $positionFR, $task, $taskFR, $strength, $strengthFR, $visible);
+        header("Location: index.php?action=admin&page=jobs");
+    }
+
+    public function delJob($id)
+    {
+        $this->jobs->delJobs($id);
+        header("Location: index.php?action=admin&page=jobs");
     }
 
     public function jobs()

@@ -251,3 +251,105 @@ const ADMIN_CONTACT_FROM_DELETE_VERIF = "Êtes-vous sûr de vouloir supprimer ce
 
 const ADMIN_CONTACT_FORM_DELETE_YES = "Oui";
 const ADMIN_CONTACT_FROM_DELETE_NO = "Non";
+
+//Admin user page
+
+const ADMIN_USER_TITLE = "Gestion des utilisateurs";
+
+const ADMIN_USER_FIRST_NAME = "Prénom";
+
+const ADMIN_USER_LAST_NAME = "Nom";
+
+const ADMIN_USER_EMAIL = "E-mail";
+
+const ADMIN_USER_RIGHTS = "Droits";
+
+const ADMIN_USER_RIGHTS_SUPERADMIN = "Super Admin";
+
+const ADMIN_USER_RIGHTS_EDITOR = "Editeur";
+
+const ADMIN_USER_RIGHTS_MANAGEMENT = "Gestion";
+
+const ADMIN_USER_RIGHTS_JOBS = "Emplois";
+
+const ADMIN_USER_RIGHTS_SAVE = "Sauvegarder";
+
+const ADMIN_USER_RIGHTS_DELETE_WARNING = "Êtes-vous sûr de vouloir supprimer cet utilisateur ?";
+
+//Admin Gift Cards page
+
+const ADMIN_GIFT_CARDS_TITLE = "Gestion des cartes cadeaux";
+
+const ADMIN_GIFT_CARDS_P_1 = "Montants disponibles";
+
+const ADMIN_GIFT_CARDS_PRICE = "Prix";
+
+const ADMIN_GIFT_CARDS_DELETE = "Supprimer ?";
+
+const ADMIN_GIFT_CARDS_DELETE_WARNING = "Êtes-vous sûr de vouloir supprimer ce montant ?";
+
+const ADMIN_GIFT_CARDS_P_2 = "Créer un nouveau montant";
+
+const ADMIN_GIFT_CARDS_AMOUNT = "Montant en €";
+
+const ADMIN_GIFT_CARDS_SUBMIT = "Ajouter";
+
+const ADMIN_GIFT_CARDS_H2_2 = "Cartes cadeaux d'argent vendues";
+
+const ADMIN_GIFT_CARDS_SOLD_DATE = "Date";
+
+const ADMIN_GIFT_CARDS_SOLD_USAGE_DATE = "Date d'utilisation";
+
+const ADMIN_GIFT_CARDS_SOLD_CODE = "Code";
+
+const ADMIN_GIFT_CARDS_SOLD_AMOUNT = "Montant";
+
+const ADMIN_GIFT_CARDS_SOLD_ESCAPEGAME = "Escape Game";
+
+const ADMIN_GIFT_CARDS_SOLD_USER_FIRST_NAME = "Prénom de l'utilisateur";
+
+const ADMIN_GIFT_CARDS_SOLD_USER_LAST_NAME = "Nom de l'utilisateur";
+
+const ADMIN_GIFT_CARDS_SOLD_USER_EMAIL = "E-mail de l'utilisateur";
+
+const ADMIN_GIFT_CARDS_H2_3 = "Cartes cadeaux d'escape game vendues";
+
+//Admin create/modif job page
+
+const ADMIN_JOB_RETURN = "Retour";
+
+const ADMIN_JOB_TITLES = "Titres";
+
+const ADMIN_JOB_TITLES_1 = "Titre Anglais";
+
+const ADMIN_JOB_TITLES_2 = "Titre Français";
+
+const ADMIN_JOB_INFOS = "Informations";
+
+const ADMIN_JOB_INFOS_1 = "Type de poste Anglais";
+
+const ADMIN_JOB_INFOS_2 = "Type de poste Français";
+
+const ADMIN_JOB_TASKS = "Tâches";
+
+const ADMIN_JOB_TASKS_1 = "Tâches Anglais";
+
+const ADMIN_JOB_TASKS_2 = "Tâches Français";
+
+const ADMIN_JOB_STRENGTHS = "Strengths";
+
+const ADMIN_JOB_STRENGTHS_1 = "Forces Anglais";
+
+const ADMIN_JOB_STRENGTHS_2 = "Forces Français";
+
+const ADMIN_JOB_DISPLAY = "Affichage";
+
+const ADMIN_JOB_DISPLAY_P = "Afficher l'offre d'emploi sur le site ?";
+
+const ADMIN_JOB_DISPLAY_VISIBLE = "Visible";
+
+const ADMIN_JOB_DISPLAY_SAVE = "Sauvegarder";
+
+const ADMIN_JOB_DISPLAY_DELETE = "Supprimer";
+
+const ADMIN_JOB_DISPLAY_DELETE_WARNING = "Êtes-vous sûr de vouloir supprimer cette offre d'emploi ?";

@@ -48,4 +48,25 @@ class giftCards extends bdd
         $req = "INSERT INTO giftCard (buyingDate, type, code, id_escapeGame, id_user) VALUES (?, ?, ?, ?, ?)";
         $this->execReqPrep($req, array(date("Y-m-d"), "escapeGame", $this->generateCode(), $id_escapeGame, $id_user));
     }
+
+    public function addGiftCardAmount($amount)
+    {
+        $req = "INSERT INTO giftCardAmount (price) VALUES (?)";
+        if ($this->execReqPrep($req, array($amount)))
+            return true;
+        else
+            return false;
+    }
+
+    public function getMoneyCards()
+    {
+        $req = "SELECT DATE_FORMAT(buyingDate, '%d/%m/%Y') AS buyingDate, code, DATE_FORMAT(usageDate, '%d/%m/%Y') AS usageDate, gCA.price, u.firstName, u.lastName, u.email FROM giftCard INNER JOIN giftCardAmount gCA on giftCard.id_giftCardAmount = gCA.id_giftCardAmount INNER JOIN user u on giftCard.id_user = u.id_user WHERE type = 'money';";
+        return $this->execReq($req);
+    }
+
+    public function getEscapeCards()
+    {
+        $req = "SELECT DATE_FORMAT(buyingDate, '%d/%m/%Y') AS buyingDate, code, DATE_FORMAT(usageDate, '%d/%m/%Y') AS usageDate, eG.name, u.firstName, u.lastName, u.email FROM giftCard INNER JOIN user u on giftCard.id_user = u.id_user INNER JOIN escapeGame eG on giftCard.id_escapeGame = eG.id_escapeGame WHERE type = 'escapeGame';";
+        return $this->execReq($req);
+    }
 }

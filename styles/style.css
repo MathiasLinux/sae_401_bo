@@ -1281,6 +1281,17 @@ textarea.addTitle {
     text-decoration: none;
 }
 
+.redButton {
+    background-color: var(--red);
+    padding: 20px;
+    margin: 20px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    cursor: pointer;
+}
+
 /* Page Admin vueAdminJob.php */
 
 .formAdminJob input:not([type=submit]) {
@@ -1420,7 +1431,7 @@ textarea.addTitle {
 .deleteUser {
     background-color: var(--red);
     padding: 10px 30px;
-    color: black;
+    color: white;
     cursor: pointer;
 }
 

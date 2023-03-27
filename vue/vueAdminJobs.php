@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="bottomJob">
-                <a class="yellowButtonJobs" href="index.php?action=admin&page=job&id=1">Modify</a>
+                <a class="yellowButtonJobs" href="index.php?action=admin&page=job&id=<?= $job['id_jobs'] ?>">Modify</a>
             </div>
         </div>
         <?php

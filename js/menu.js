@@ -3,7 +3,7 @@ let url = new URL(window.location.href);
 let action = url.searchParams.get("action");
 document.querySelector(".mobileMenuDiv").addEventListener("click", function () {
     if (action == "admin") {
-       console.log('welcome');
+        document.querySelector(".mobileMenuAdmin").classList.add("show");
     } else {
         document.querySelector(".mobileMenu").classList.add("show");
     }
