@@ -18,11 +18,11 @@ PHP. The web site is responsive and works on all devices.
 
 ## Technologies
 
-* HTML
-* CSS
-* JavaScript
-* PHP
-* MariaDB
+<a href="https://www.w3.org/TR/html5/" title="HTML5"><img src="https://github.com/get-icon/geticon/raw/master/icons/html-5.svg" alt="HTML5" width="64px" height="64px"></a>
+<a href="https://www.w3.org/TR/CSS/" title="CSS3"><img src="https://github.com/get-icon/geticon/raw/master/icons/css-3.svg" alt="CSS3" width="64px" height="64px"></a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="Javascript"><img src="https://github.com/get-icon/geticon/raw/master/icons/javascript.svg" alt="Javascript" width="64px" height="64px"></a>
+<a href="https://php.net/" title="PHP"><img src="https://github.com/get-icon/geticon/raw/master/icons/php.svg" alt="PHP" width="64px" height="64px"></a>
+<a href="https://mariadb.org/" title="MariaDB"><img src="https://github.com/get-icon/geticon/raw/master/icons/mariadb.svg" alt="MariaDB" width="64px" height="64px"></a>
 
 ## Setup
 
@@ -80,7 +80,11 @@ Without them, this project would not have been possible.
 
 Thanks to GitHub for creating the awesome copilot feature. It helped us a lot to create this project.
 
+<a href="https://github.com/" title="Github"><img src="https://github.com/get-icon/geticon/raw/master/icons/github-icon.svg" alt="Github" width="64px" height="64px"></a>
+
 I wanted also to thank Jetbrains for creating the awesome PHPStorm IDE. I used it to create this project.
+
+<a href="https://www.jetbrains.com/phpstorm/" title="PhpStorm"><img src="https://github.com/get-icon/geticon/raw/master/icons/phpstorm.svg" alt="PhpStorm" width="64px" height="64px"></a>
 
 Finally, I wanted to thank my team for their help and their work.
 
