@@ -1,60 +1,40 @@
-<h2 class="titleUnderline">Q&A</h2>
-<h3 class="adminQandA">List of category</h3>
+<h2 class="titleUnderline"> <?= ADMIN_QANDA_TITLE ?> </h2>
+<h3 class="adminQandA"> <?= ADMIN_QANDA_H3 ?> </h3>
 <form class="formAdmin" action="index.php?action=admin&page=qAndANewCat_S" method="post">
     <label>
-        <p class="titleAdminQAndA">New category</p>
+        <p class="titleAdminQAndA"> <?= ADMIN_QANDA_NEW_CAT ?> </p>
         <input class="addTitle" type="text" name="newCat" id="newCat">
     </label>
     <div class="greenBar"></div>
     <label>
-        <p class="titleAdminQAndA">New category FR</p>
+        <p class="titleAdminQAndA"> <?= ADMIN_QANDA_NEW_CAT_FR ?> </p>
         <input class="addTitle" type="text" name="newCatFR" id="newCatFR">
     </label>
-    <input class="yellowButton" type="submit" value="Add new category">
+    <input class="yellowButton" type="submit" value=" <?= ADMIN_QANDA_NEW_CAT_SUBMIT ?> ">
 </form>
 
-<!-- <?php var_dump($qAndAs); ?> -->
-
 <div class="categoriesQAndA">
-    <p class="categoryQAndA">Categories</p>
+    <p class="categoryQAndA"> <?= ADMIN_QANDA_CAT ?> </p>
     <?php
         if(count($qAndAs)){
             foreach ($qAndAs as $qAndA) {
                 echo '<div class="oneCategory">';
-                echo '<p class="titleCategoryQAndA">'.$qAndA['title'].'</p>';
+                echo '<p class="titleCategoryQAndA">';
+                if($_SESSION['lang']=='fr')
+                    echo $qAndA['titleFR'];
+                else
+                    echo $qAndA['title'];
+                echo '</p>';
                 echo '<div class="buttonsQandA">';
-                echo '<a class="yellowButtonQAndA" href="index.php?action=admin&page=qAndAQuestions&id_qAndACat='.$qAndA['id_qAndACat'].'">Modify questions</a>';
-                echo '<a class="yellowButtonQAndA" href="index.php?action=admin&page=qAndAModifyCat&id_qAndACat='.$qAndA['id_qAndACat'].'">Modify category</a>';
-                echo '<a class="greenButtonEscapeGames" href="index.php?action=admin&page=qAndAModifyES&id_qAndACat='.$qAndA['id_qAndACat'].'">Modify ES</a>';
-                echo '<a class="redButtonQandA" href="index.php?action=admin&page=qAndADeleteCat&id_qAndACat='.$qAndA['id_qAndACat'].'">Delete</a>';
+                echo '<a class="yellowButtonQAndA" href="index.php?action=admin&page=qAndAQuestions&id_qAndACat='.$qAndA['id_qAndACat'].'">'.ADMIN_QANDA_MOD_Q.'</a>';
+                echo '<a class="yellowButtonQAndA" href="index.php?action=admin&page=qAndAModifyCat&id_qAndACat='.$qAndA['id_qAndACat'].'">'.ADMIN_QANDA_MOD_CAT.'</a>';
+                echo '<a class="greenButtonEscapeGames" href="index.php?action=admin&page=qAndAModifyEG&id_qAndACat='.$qAndA['id_qAndACat'].'">'.ADMIN_QANDA_MOD_EG.'</a>';
+                echo '<a class="redButtonQandA" href="index.php?action=admin&page=qAndADeleteCat&id_qAndACat='.$qAndA['id_qAndACat'].'">'.ADMIN_QANDA_DELETE.'</a>';
+                echo '</div>';
                 echo '</div>';
             }
         }
         else
-            echo "No category";
+            echo ADMIN_QANDA_NO_CAT;
     ?>
-
-    <!-- <div class="oneCategorie">
-        <p class="titleCategorieQAndA">General questions</p>
-        <div class="buttonsQandA">
-            <a class="yellowButtonQAndA" href="index.php?action=admin&page=qAndAQuestions&categorie=general">Modify questions</a>
-            <a class="yellowButtonQAndA" href="#">Modify categories</a>
-            <select class="greenButtonEscapeGames" name="escapeGames" id="general" title="escapeGames">
-                <option value="general">General</option>
-            </select>
-            <a class="redButtonQandA" href="#">Delete</a>
-        </div>
-    </div>
-    <div class="oneCategorie">
-        <p class="titleCategorieQAndA">Questions about "The Codex"</p>
-        <div class="buttonsQandA">
-            <a class="yellowButtonQAndA" href="index.php?action=admin&page=qAndAQuestions&categorie=thecodex">Modify questions</a>
-            <a class="yellowButtonQAndA" href="#">Modify categories</a>
-            <select class="greenButtonEscapeGames" name="escapeGames" id="theCodex" title="escapeGames">
-                <option value="">Escape Games</option>
-                <option value="thecodex">The Codex</option>
-            </select>
-            <a class="redButtonQandA" href="#">Delete</a>
-        </div>
-    </div> -->
 </div>

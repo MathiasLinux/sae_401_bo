@@ -287,13 +287,17 @@ class routeur
                                         $this->ctrAdmin->admin();
                                     }
                                     break;
-                                case "qAndAModifyES":
+                                case "qAndAModifyEG":
                                     if (str_contains($_SESSION["rights"], "editor") or str_contains($_SESSION["rights"], "superadmin")) {
                                         $idCat = $_GET['id_qAndACat'];
                                         $this->ctrAdmin->qAndAModifyEG($idCat);
                                     } else {
                                         $this->ctrAdmin->admin();
                                     }
+                                    break;
+                                case "qAndAModifyEG_S":
+                                    $idCat = $_GET['id_qAndACat'];
+                                    $this->ctrAdmin->qAndAModifyEG_S($idCat);
                                     break;
                                 case "qAndADeleteCat":
                                     if (str_contains($_SESSION["rights"], "editor") or str_contains($_SESSION["rights"], "superadmin")) {

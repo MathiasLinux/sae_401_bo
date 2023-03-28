@@ -28,11 +28,13 @@ class qAndA extends bdd
             $req = "UPDATE qAndACat SET title = ? WHERE id_qAndACat = ?";
             $data = array($nameCat, $idCat);
             $qAndACat = $this->execReqPrep($req, $data);
+            if ($qAndACat == 1)
+                return TRUE;
+            else
+                return FALSE;
         }
-        if ($qAndACat == 1)
-            return TRUE;
         else
-            return FALSE;
+            return TRUE;
     }
 
     public function getOneQandACat($idCat)
@@ -52,6 +54,24 @@ class qAndA extends bdd
             return TRUE;
         else
             return FALSE;
+    }
+
+    public function updateQAndAEG($idEG,$idCat){
+        if($idEG==0)
+            $idEG = NULL;
+        $actualIdEG = $this->getOneQandACat($idCat);
+        if($actualIdEG["id_escapeGame"]!==$idEG){
+            $req ="UPDATE qAndACat SET id_escapeGame = ? WHERE id_qAndACat = ?";
+            $data = array($idEG,$idCat);
+            $qAndACat = $this->execReqPrep($req, $data);
+            if ($qAndACat == 1)
+                return TRUE;
+            else
+                return FALSE;
+        }
+        else
+            return TRUE;
+
     }
 
     public function getAllQandAQuestions()

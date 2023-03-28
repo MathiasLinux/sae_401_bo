@@ -296,6 +296,8 @@ const JOBS_H2_3 = "Contact us";
 
 const BUY_CARDS_TITLE = "Buy a card";
 
+const BUY_CARDS_H2_1 = "Please enter your card information";
+
 const BUY_CARDS_ORDER_NOW = "Order now";
 
 const BUY_CARDS_NB_PERSONS = "Number of persons";
@@ -313,6 +315,43 @@ const BUY_CARDS_CARD_CVC = "CVC";
 const BUY_CARDS_CARD_NAME = "Name";
 
 const BUY_CARDS_CARD_SUBMIT = "Pay";
+
+//Admin : Q&A
+
+const ADMIN_QANDA_TITLE = "Q&A";
+const ADMIN_QANDA_RETURN = "Return";
+const ADMIN_QANDA_H3 = "List of categories";
+const ADMIN_QANDA_NEW_CAT = "New category";
+const ADMIN_QANDA_NEW_CAT_FR = "New category FR";
+const ADMIN_QANDA_NEW_CAT_SUBMIT = "Add new category";
+const ADMIN_QANDA_CAT = "Categories";
+const ADMIN_QANDA_MOD_Q = "Modify questions";
+const ADMIN_QANDA_MOD_CAT = "Modify category";
+const ADMIN_QANDA_MOD_CAT_SUBMIT = "Update category";
+const ADMIN_QANDA_MOD_EG = "Modify EG";
+const ADMIN_QANDA_MOD_EG_TITLE = "Modify escape game associate with";
+const ADMIN_QANDA_MOD_EG_SUBMIT = "Update association";
+const ADMIN_QANDA_DELETE = "Delete";
+const ADMIN_QANDA_DELETE_CAT = "Are you sure to delete this category";
+const ADMIN_QANDA_DELETE_CAT_SUBMIT = "Delete category";
+const ADMIN_QANDA_DELETE_Q = "Are you sure to delete this Q&A";
+const ADMIN_QANDA_DELETE_Q_SUBMIT = "Delete this Q&A";
+const ADMIN_QANDA_NO_CAT = "No category";
+const ADMIN_QANDA_Q_H3 = "List of questions";
+const ADMIN_QANDA_FORM_Q = "Question";
+const ADMIN_QANDA_FORM_A = "Answer";
+const ADMIN_QANDA_FORM_Q_FR = "Question FR";
+const ADMIN_QANDA_FORM_A_FR = "Answer FR";
+const ADMIN_QANDA_NEW_QANDA_SUBMIT = "Add new Q&A";
+const ADMIN_QANDA_TITLE_Q = "Question";
+const ADMIN_QANDA_TITLE_A = "Answer";
+const ADMIN_QANDA_MOD_QANDA = "Modify Q&A";
+const ADMIN_QANDA_MOD_QANDA_Q = "Modify question";
+const ADMIN_QANDA_MOD_QANDA_A = "Modify answer";
+const ADMIN_QANDA_MOD_QANDA_Q_FR = "Modify question FR";
+const ADMIN_QANDA_MOD_QANDA_A_FR = "Modify answer FR";
+const ADMIN_QANDA_MOD_QANDA_SUBMIT = "Modify Q&A";
+const ADMIN_QANDA_NO_QANDA = "No Q&A";
 
 //Escape Cards
 

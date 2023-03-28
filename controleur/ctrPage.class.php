@@ -48,6 +48,7 @@ class ctrPage
 
     public function erreur($message)
     {
+        $title = "Page d'erreur - Kaiserstuhl escape";
         $objVue = new vue("Erreur");
         $objVue->afficher(array("message" => $message), $title);
     }
