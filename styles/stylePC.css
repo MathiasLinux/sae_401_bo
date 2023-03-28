@@ -374,3 +374,89 @@ header img {
     width: 60%;
     height: 20%;
 }
+
+/* Page admin vueAdminQAndA.php et liées */
+
+.oneCategory{
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+
+.buttonsQandA{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+}
+
+h3.adminQandA{
+    font-size: 32px;
+    display: flex;
+    gap: 8px;
+}
+
+.buttonsQandA > a, .buttonsQandA > select{
+    font-size: 18px;
+}
+
+.titleAdminQAndA{
+    font-size: 24px;
+}
+
+.formAdmin > input[type=submit]{
+    /* margin: 0% 40%; */
+    margin: 0% 0% 0% 80%;
+    margin-top: 30px;
+}
+
+.formAdmin > label > input[type=text], .formAdmin > label > textarea{
+    font-size: 18px;
+}
+
+a > button.returnAdmin{
+    padding: 1% 2%;
+}
+
+.greenBar{
+    margin-block-end:0;
+}
+
+.listQandA{
+    margin: 6% 0;
+}
+
+.oneQandA{
+    margin: 4% 0%;
+}
+
+.oneQ, .oneA{
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+.titleA, .titleQ{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.oneQandA > div > p{
+    margin: 2%;
+}
+
+.buttonsQandAQuestions{
+    margin: 2% 0%;
+    margin-left: 60%;
+    grid-template-columns: 1fr 1fr;
+}
+
+h3.titleAdminQAndA{
+    font-size: 24px;
+}
+
+.formAdmin > input[type=submit].redButtonQandA{
+    margin: 0% 40%;
+    margin-top: 30px;
+}
+
+label.center>h3{
+    justify-content: center;
+}
