@@ -42,18 +42,26 @@ class qAndA extends bdd
         $req = "SELECT * FROM qAndACat WHERE id_qAndACat = ?";
         $data = array($idCat);
         $qAndACat = $this->execReqPrep($req, $data);
-        return $qAndACat[0];
+        if($qAndACat!=null)
+            return $qAndACat[0];
+        else
+            return $qAndACat;
     }
 
     public function deleteQandACat($idCat)
     {
-        $req = "DELETE FROM qAndACat WHERE id_qAndACat = ?";
-        $data = array($idCat);
-        $qAndACat = $this->execReqPrep($req, $data);
-        if ($qAndACat == 1)
-            return TRUE;
+        $actualIdCat = $this->getOneQandACat($idCat);
+        if($actualIdCat!=null){
+            $req = "DELETE FROM qAndACat WHERE id_qAndACat = ?";
+            $data = array($idCat);
+            $qAndACat = $this->execReqPrep($req, $data);
+            if ($qAndACat == 1)
+                return TRUE;
+            else
+                return FALSE;
+        }
         else
-            return FALSE;
+            return TRUE;
     }
 
     public function updateQAndAEG($idEG,$idCat){
@@ -94,7 +102,10 @@ class qAndA extends bdd
         $req = "SELECT * FROM qAndAQuestion WHERE id_qAndAQuestion = ?";
         $data = array($idQ);
         $qAndAQ = $this->execReqPrep($req, $data);
-        return $qAndAQ[0];
+        if($qAndAQ!=null)
+            return $qAndAQ[0];
+        else
+            return $qAndAQ;
     }
 
     public function addQandAQuestion($question, $answer, $questionFR, $answerFR, $idCat)
@@ -109,23 +120,33 @@ class qAndA extends bdd
 
     public function updateQandAQuestion($question, $answer, $questionFR, $answerFR, $idQ)
     {
-        $req = "UPDATE qAndAQuestion SET title = ?, answer = ?, titleFR = ?, answerFR = ? WHERE id_qAndAQuestion = ?";
-        $data = array($question, $answer, $questionFR, $answerFR, $idQ);
-        $qAndAQ = $this->execReqPrep($req, $data);
-        if ($qAndAQ == 1)
-            return TRUE;
+        $actualQAndAQ = $this->getOneQandAQuestion($idQ);
+        if($actualQAndAQ['title']!==$question || $actualQAndAQ['answer']!==$answer || $actualQAndAQ['titleFR']!==$questionFR || $actualQAndAQ['answerFR']!==$answerFR){
+            $req = "UPDATE qAndAQuestion SET title = ?, answer = ?, titleFR = ?, answerFR = ? WHERE id_qAndAQuestion = ?";
+            $data = array($question, $answer, $questionFR, $answerFR, $idQ);
+            $qAndAQ = $this->execReqPrep($req, $data);
+            if ($qAndAQ == 1)
+                return TRUE;
+            else
+                return FALSE;
+        }
         else
-            return FALSE;
+            return TRUE;
     }
 
     public function deleteQandAQuestion($idQ)
     {
-        $req = "DELETE FROM qAndAQuestion WHERE id_qAndAQuestion = ?";
-        $data = array($idQ);
-        $qAndACat = $this->execReqPrep($req, $data);
-        if ($qAndACat == 1)
-            return TRUE;
+        $actualQAndAQ = $this->getOneQandAQuestion($idQ);
+        if($actualQAndAQ!=null){
+            $req = "DELETE FROM qAndAQuestion WHERE id_qAndAQuestion = ?";
+            $data = array($idQ);
+            $qAndACat = $this->execReqPrep($req, $data);
+            if ($qAndACat == 1)
+                return TRUE;
+            else
+                return FALSE;
+        }
         else
-            return FALSE;
+            return TRUE;
     }
 }
