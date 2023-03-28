@@ -44,7 +44,7 @@ img {
     height: auto;
 }
 
-.input[type="submit"] {
+input[type="submit"]{
     cursor: pointer;
 }
 
@@ -1011,7 +1011,7 @@ footer a {
     font-size: 20px;
 }
 
-/* Page admin vueAdminQAndA.php */
+/* Page admin vueAdminQAndA.php et liées */
 
 .greenButtonEscapeGames {
     border: none;
@@ -1218,7 +1218,16 @@ textarea.addTitle {
 .greenBar {
     border: var(--green) solid 2px;
     margin-block-start: 2em;
+    margin-block-end: 0.5em;
+}
+
+h3.titleAdminQAndA{
+    font-size: 20px;
+    display: block;
+    margin-block-start: 1em;
     margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 }
 
 /* Page Admin vueAdminJobs */

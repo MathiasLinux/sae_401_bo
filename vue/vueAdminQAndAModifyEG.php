@@ -2,15 +2,16 @@
 <div class="deuxTiers">
     <form class="formAdmin" action="index.php?action=admin&page=qAndAModifyEG_S&id_qAndACat=<?= $qAndAs['id_qAndACat'] ?>" method="post">
     <label>
-        <p class="titleAdminQAndA">
+        <h3 class="adminQandA titleAdminQAndA">
             <?php
-                echo ADMIN_QANDA_MOD_EG_TITLE.": <br>";
+                echo ADMIN_QANDA_MOD_EG_TITLE.": <div>";
                 if($_SESSION['lang']=='fr')
                     echo $qAndAs['titleFR'];
                 else
                     echo $qAndAs['title'];
+                echo "</div>";
             ?>
-        </p>
+        </h3>
         <select class="greenButtonEscapeGames" name="escapeGames" title="escapeGames">
             <option value=""></option>
             <?php
