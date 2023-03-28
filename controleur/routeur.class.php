@@ -222,9 +222,13 @@ class routeur
                                     $idCat = $_GET['id_qAndACat'];
                                     $this->ctrAdmin->qAndAModifyCat_S($idCat);
                                     break;
-                                case "qAndAModifyES":
+                                case "qAndAModifyEG":
                                     $idCat = $_GET['id_qAndACat'];
                                     $this->ctrAdmin->qAndAModifyEG($idCat);
+                                    break;
+                                case "qAndAModifyEG_S":
+                                    $idCat = $_GET['id_qAndACat'];
+                                    $this->ctrAdmin->qAndAModifyEG_S($idCat);
                                     break;
                                 case "qAndADeleteCat":
                                     $idCat = $_GET['id_qAndACat'];

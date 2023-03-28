@@ -187,3 +187,40 @@ const JOBS_H2_3 = "Contactez-nous";
 //BuyCards
 
 const BUY_CARDS_TITLE = "Acheter une carte cadeau";
+
+//Admin : Q&A
+
+const ADMIN_QANDA_TITLE = "FAQ";
+const ADMIN_QANDA_RETURN = "Retour";
+const ADMIN_QANDA_H3 = "Liste des catégories";
+const ADMIN_QANDA_NEW_CAT = "Nouvelle catégorie EN";
+const ADMIN_QANDA_NEW_CAT_FR = "Nouvelle catégorie";
+const ADMIN_QANDA_NEW_CAT_SUBMIT = "Ajouter une catégorie";
+const ADMIN_QANDA_CAT = "Catégories";
+const ADMIN_QANDA_MOD_Q = "Modifier questions";
+const ADMIN_QANDA_MOD_CAT = "Modifier catégorie ";
+const ADMIN_QANDA_MOD_CAT_SUBMIT = "Actualiser catégorie";
+const ADMIN_QANDA_MOD_EG = "Modifier EG";
+const ADMIN_QANDA_MOD_EG_TITLE = "Modifier l'escape game associé à ";
+const ADMIN_QANDA_MOD_EG_SUBMIT = "Actualiser l'association";
+const ADMIN_QANDA_DELETE = "Supprimer";
+const ADMIN_QANDA_DELETE_CAT = "Êtes vous sûr de vouloir supprimer cette catégorie ";
+const ADMIN_QANDA_DELETE_CAT_SUBMIT = "Supprimer catégorie";
+const ADMIN_QANDA_DELETE_Q = "Êtes vous sûr de vouloir supprimer cette question ";
+const ADMIN_QANDA_DELETE_Q_SUBMIT = "Supprimer question";
+const ADMIN_QANDA_NO_CAT = "Aucune catégorie";
+const ADMIN_QANDA_Q_H3 = "Liste des questions";
+const ADMIN_QANDA_FORM_Q = "Question EN";
+const ADMIN_QANDA_FORM_A = "Réponse EN";
+const ADMIN_QANDA_FORM_Q_FR = "Question";
+const ADMIN_QANDA_FORM_A_FR = "Réponse";
+const ADMIN_QANDA_NEW_QANDA_SUBMIT = "Ajouter question";
+const ADMIN_QANDA_TITLE_Q = "Question";
+const ADMIN_QANDA_TITLE_A = "Réponse";
+const ADMIN_QANDA_MOD_QANDA = "Modifier qes/rep";
+const ADMIN_QANDA_MOD_QANDA_Q = "Modifier question EN ";
+const ADMIN_QANDA_MOD_QANDA_A = "Modifier réponse EN ";
+const ADMIN_QANDA_MOD_QANDA_Q_FR = "Modifier question ";
+const ADMIN_QANDA_MOD_QANDA_A_FR = "Modifier réponse ";
+const ADMIN_QANDA_MOD_QANDA_SUBMIT = "Modifier qes/rep ";
+const ADMIN_QANDA_NO_QANDA = "Aucune question";

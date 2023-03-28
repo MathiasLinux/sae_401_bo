@@ -4,6 +4,7 @@ require_once "modele/jobs.class.php";
 require_once "modele/qAndA.class.php";
 require_once "modele/user.class.php";
 require_once "modele/giftCards.class.php";
+require_once "modele/escapeGame.class.php";
 require_once "vue/vue.class.php";
 
 class ctrAdmin
@@ -12,6 +13,7 @@ class ctrAdmin
     public $qAndAs;
     public $user;
     public $giftCards;
+    public $EG;
 
     public function __construct()
     {
@@ -19,6 +21,7 @@ class ctrAdmin
         $this->qAndAs = new qAndA();
         $this->user = new user();
         $this->giftCards = new giftCards();
+        $this->EG = new escapeGame();
     }
 
     public function admin()
@@ -167,10 +170,20 @@ class ctrAdmin
 
     public function qAndAModifyEG($idCat)
     {
+        $EGs = $this->EG->getEscapeGames();
         $qAndAs = $this->qAndAs->getOneQandACat($idCat);
         $title = "Administration Q&A - Modify escape game - Kaiserstuhl escape";
         $objVue = new vue("AdminQAndAModifyEG");
-        $objVue->afficher(array("qAndAs" => $qAndAs), $title);
+        $objVue->afficher(array("qAndAs" => $qAndAs, "EGs" => $EGs), $title);
+    }
+
+    public function qAndAModifyEG_S($idCat)
+    {
+        $idEG = (int)array_values($_POST)[0];
+        if($this->qAndAs->updateQAndAEG($idEG,$idCat))
+            $this->qAndA();
+        else
+            throw new Exception("An error occured during the update process");
     }
 
     public function qAndADeleteCat($idCat)

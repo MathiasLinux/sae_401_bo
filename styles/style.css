@@ -848,7 +848,7 @@ footer a {
     border-color: #5b5b5b;
     color: #ffffff;
     text-align: center;
-    vertical-align: top
+    vertical-align: top;
 }
 
 .tg .tg-a43n {
@@ -861,7 +861,7 @@ footer a {
     text-align: center;
     top: -1px;
     vertical-align: top;
-    will-change: transform
+    will-change: transform;
 }
 
 .tg .tg-i7qu {
@@ -869,7 +869,7 @@ footer a {
     border-color: #5b5b5b;
     color: #ffffff;
     text-align: left;
-    vertical-align: top
+    vertical-align: top;
 }
 
 @media screen and (max-width: 767px) {
@@ -1019,10 +1019,6 @@ select.greenButtonEscapeGames>option{
     color: black;
     text-align: center;
     padding: 8% 0px;
-}
-
-.greenButtonEscapeGames {
-    background-color: var(--green);
 }
 
 .buttonsQandA > .redButtonQandA, .buttonsQandA>.redButtonQandA, .redButtonQandA {
