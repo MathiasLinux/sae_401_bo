@@ -374,3 +374,88 @@ header img {
     width: 60%;
     height: 20%;
 }
+
+/* Page admin vueAdminGiftCards.php */
+
+.newAmount input[type="number"] {
+    margin-top: 0;
+}
+
+.newAmount label > p {
+    transform: translate(1%, 210%)
+}
+
+.newAmount form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+}
+
+.gridAdminGiftCards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Page admin vueAdminJobs.php */
+
+.jobDescription {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* Page admin vueAdminJob.php */
+
+.formAdminJob {
+    display: grid;
+    grid-template-areas:
+    "titles display"
+    "infos display" "tasks tasks"
+    "strenghts strenghts"
+    "submit submit";
+
+}
+
+.jobTitles {
+    grid-area: titles;
+}
+
+.displayJob {
+    grid-area: display;
+    align-self: center;
+    justify-self: center;
+}
+
+.jobInfos {
+    grid-area: infos;
+}
+
+.jobTasks {
+    grid-area: tasks;
+}
+
+.jobStrenghts {
+    grid-area: strenghts;
+}
+
+.submitAdminJob {
+    grid-area: submit;
+    justify-self: center;
+}
+
+.newAmount input[type="submit"], .yellowButton {
+    padding: 20px 60px;
+}
+
+.yellowReturn {
+    justify-items: start;
+}
+
+.textAreaJob {
+    display: flex;
+    flex-direction: column;
+}
