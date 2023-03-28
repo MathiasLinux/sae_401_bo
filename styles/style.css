@@ -44,7 +44,7 @@ img {
     height: auto;
 }
 
-input[type="submit"], button{
+input[type="submit"], button {
     cursor: pointer;
 }
 
@@ -68,6 +68,10 @@ main {
 }
 
 .linksPC {
+    display: none;
+}
+
+.hoverLoginPC {
     display: none;
 }
 
@@ -313,6 +317,35 @@ footer a {
 .Vue2 {
     display: none;
 
+}
+
+/* Page account vueAccount.php */
+
+.welcomeBack {
+    font-size: 24px;
+}
+
+.accountTables {
+    white-space: nowrap;
+}
+
+.divYellowButtonAccount {
+    display: flex;
+    justify-content: center;
+}
+
+.yellowButtonAccount {
+    display: block;
+}
+
+/* Page account change infos vueAccountChangeInfos.php */
+
+.changeInfosForm input:not([type="submit"]) {
+    width: 80%;
+}
+
+.accountInfoError {
+    text-align: left !important;
 }
 
 
@@ -1221,7 +1254,7 @@ textarea.addTitle {
     margin-block-end: 0.5em;
 }
 
-h3.titleAdminQAndA{
+h3.titleAdminQAndA {
     font-size: 20px;
     display: block;
     margin-block-start: 1em;

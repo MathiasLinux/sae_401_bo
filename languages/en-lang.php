@@ -32,6 +32,78 @@ const FOOTER_Q_AND_A = "Q&A";
 
 const FOOTER_CONTACT = "Contact Us";
 
+//Account Hover
+
+const ACCOUNT_HOVER_SETTINGS = "Account settings";
+
+const ACCOUNT_HOVER_LOGOUT = "Logout";
+
+const ACCOUNT_HOVER_LOGIN = "Login";
+
+const ACCOUNT_HOVER_SIGNUP = "Sign up";
+
+//Account page
+
+const ACCOUNT_TITLE = "My Account";
+
+const ACCOUNT_WELCOME = "Welcome back ";
+
+const ACCOUNT_EMAIL = "Your email address : ";
+
+const ACCOUNT_FIRST_NAME = "Your first name : ";
+
+const ACCOUNT_LAST_NAME = "Your last name : ";
+
+const ACCOUNT_CHANGE_INFOS = "Change your infos";
+
+const ACCOUNT_PURCHASES = "Your purchases";
+
+const ACCOUNT_GIFT_CARDS_MONEY = "Money Gift Cards";
+
+const ACCOUNT_GIFT_CARDS_ESCAPE_GAME = "Escape Game Gift Cards";
+
+const ACCOUNT_ESCAPE_GAME = "Escape Games Reservations";
+
+const ACCOUNT_ESCAPE_GAME_NAME = "Name of the escape game";
+
+const ACCOUNT_ESCAPE_GAME_DATE = "Game date";
+
+const ACCOUNT_ESCAPE_GAME_NB_PLAYERS = "Number of players";
+
+const ACCOUNT_ESCAPE_GAME_BUYERS_FIRST_NAME = "Player's first name";
+
+const ACCOUNT_ESCAPE_GAME_BUYERS_LAST_NAME = "Player's last name";
+
+//Change account infos page
+
+const CHANGE_ACCOUNT_INFOS_TITLE = "Change your infos";
+
+const CHANGE_ACCOUNT_INFOS_EMAIL = "Your email address :";
+
+const CHANGE_ACCOUNT_INFOS_FIRST_NAME = "Your first name :";
+
+const CHANGE_ACCOUNT_INFOS_LAST_NAME = "Your last name :";
+
+const CHANGE_ACCOUNT_INFOS_PASSWORD = "Your actual password :";
+
+const CHANGE_ACCOUNT_INFOS_NEW_PASSWORD = "Your new password :";
+
+const CHANGE_ACCOUNT_INFOS_NEW_PASSWORD_CONFIRM = "Confirm your new password :";
+
+const CHANGE_ACCOUNT_INFOS_SUBMIT = "Change";
+
+const CHANGE_ACCOUNT_INFOS_EMAIL_ALREADY_USED = "This email address is already used";
+
+const CHANGE_ACCOUNT_INFOS_EMAIL_INVALID = "This email address is invalid";
+
+const CHANGE_ACCOUNT_INFOS_FIRST_NAME_INVALID = "This first name is invalid";
+
+const CHANGE_ACCOUNT_INFOS_LAST_NAME_INVALID = "This last name is invalid";
+
+const CHANGE_ACCOUNT_INFOS_ACTUAL_PASSWORD_INVALID = "The current password is false";
+
+const CHANGE_ACCOUNT_INFOS_NEW_PASSWORDS_NOT_IDENTICAL = "The new passwords are not identical";
+
 //About us page
 
 const ABOUT_US_TITLE = "About us";

@@ -69,4 +69,16 @@ class giftCards extends bdd
         $req = "SELECT DATE_FORMAT(buyingDate, '%d/%m/%Y') AS buyingDate, code, DATE_FORMAT(usageDate, '%d/%m/%Y') AS usageDate, eG.name, u.firstName, u.lastName, u.email FROM giftCard INNER JOIN user u on giftCard.id_user = u.id_user INNER JOIN escapeGame eG on giftCard.id_escapeGame = eG.id_escapeGame WHERE type = 'escapeGame';";
         return $this->execReq($req);
     }
+
+    public function getMoneyCardsUser($id)
+    {
+        $req = "SELECT DATE_FORMAT(buyingDate, '%d/%m/%Y') AS buyingDate, code, gCA.price FROM giftCard INNER JOIN giftCardAmount gCA on giftCard.id_giftCardAmount = gCA.id_giftCardAmount WHERE type = 'money' AND giftCard.id_user = ? AND ISNULL(usageDate);";
+        return $this->execReqPrep($req, array($id));
+    }
+
+    public function getEscapeCardsUser($id)
+    {
+        $req = "SELECT DATE_FORMAT(buyingDate, '%d/%m/%Y') AS buyingDate, code, eG.name, eG.nameFR FROM giftCard INNER JOIN escapeGame eG on giftCard.id_escapeGame = eG.id_escapeGame WHERE type = 'escapeGame' AND giftCard.id_user = ? AND ISNULL(usageDate);";
+        return $this->execReqPrep($req, array($id));
+    }
 }

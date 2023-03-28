@@ -109,6 +109,9 @@ class routeur
                 case "login":
                     $this->ctrLogin->login();
                     break;
+                case "logout":
+                    $this->ctrLogin->logout();
+                    break;
                 case "signUp":
                     $this->ctrLogin->signUp();
                     break;
@@ -117,6 +120,27 @@ class routeur
                     break;
                 case "connexion":
                     $this->ctrLogin->connexion();
+                    break;
+                case "account":
+                    if (isset($_SESSION["email"])) {
+                        $this->ctrLogin->account();
+                    } else {
+                        $this->ctrLogin->login();
+                    }
+                    break;
+                case "accountChangeInfos":
+                    if (isset($_SESSION["email"])) {
+                        $this->ctrLogin->accountChangeInfos();
+                    } else {
+                        $this->ctrLogin->login();
+                    }
+                    break;
+                case "accountUpdateInfos":
+                    if (isset($_SESSION["email"])) {
+                        $this->ctrLogin->accountUpdateInfos();
+                    } else {
+                        $this->ctrLogin->login();
+                    }
                     break;
                 case "admin":
                     // Ici on vérifie si l'utilisateur est connecté et on l'envoie sur la page admin ou sur la page de connexion si il n'est pas connecté

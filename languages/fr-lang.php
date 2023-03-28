@@ -94,6 +94,77 @@ const FOOTER_Q_AND_A = "FAQ";
 
 const FOOTER_CONTACT = "Nous contacter";
 
+//Account Hover
+
+const ACCOUNT_HOVER_SETTINGS = "Paramètres du compte";
+
+const ACCOUNT_HOVER_LOGOUT = "Déconnexion";
+
+const ACCOUNT_HOVER_LOGIN = "Connexion";
+
+const ACCOUNT_HOVER_SIGNUP = "Créer un compte";
+
+//Acount page
+
+const ACCOUNT_TITLE = "Mon compte";
+
+const ACCOUNT_WELCOME = "Bienvenue ";
+
+const ACCOUNT_EMAIL = "Votre adresse e-mail : ";
+
+const ACCOUNT_FIRST_NAME = "Votre prénom : ";
+
+const ACCOUNT_LAST_NAME = "Votre nom : ";
+
+const ACCOUNT_CHANGE_INFOS = "Modifier mes informations";
+
+const ACCOUNT_PURCHASES = "Mes achats";
+
+const ACCOUNT_GIFT_CARDS_MONEY = "Cartes cadeaux d'argent";
+
+const ACCOUNT_GIFT_CARDS_ESCAPE_GAME = "Cartes cadeaux d'escape game";
+
+const ACCOUNT_ESCAPE_GAME = "Escape games réservés";
+
+const ACCOUNT_ESCAPE_GAME_NAME = "Nom de l'escape game";
+
+const ACCOUNT_ESCAPE_GAME_DATE = "Date de l'escape game";
+
+const ACCOUNT_ESCAPE_GAME_NB_PLAYERS = "Nombre de joueurs";
+
+const ACCOUNT_ESCAPE_GAME_BUYERS_FIRST_NAME = "Prénom du joueur";
+
+const ACCOUNT_ESCAPE_GAME_BUYERS_LAST_NAME = "Nom du joueur";
+
+//Change account infos page
+
+const CHANGE_ACCOUNT_INFOS_TITLE = "Modifier mes infos";
+
+const CHANGE_ACCOUNT_INFOS_EMAIL = "Votre adresse e-mail :";
+
+const CHANGE_ACCOUNT_INFOS_FIRST_NAME = "Votre prénom :";
+
+const CHANGE_ACCOUNT_INFOS_LAST_NAME = "Votre nom :";
+
+const CHANGE_ACCOUNT_INFOS_PASSWORD = "Votre mot de passe :";
+
+const CHANGE_ACCOUNT_INFOS_PASSWORD_CONFIRM = "Confirmez votre mot de passe :";
+
+const CHANGE_ACCOUNT_INFOS_SUBMIT = "Modifier";
+
+const CHANGE_ACCOUNT_INFOS_EMAIL_ALREADY_USED = "Cette adresse e-mail est déjà utilisée";
+
+const CHANGE_ACCOUNT_INFOS_EMAIL_INVALID = "Cette adresse e-mail est invalide";
+
+const CHANGE_ACCOUNT_INFOS_FIRST_NAME_INVALID = "Ce prénom est invalide";
+
+const CHANGE_ACCOUNT_INFOS_LAST_NAME_INVALID = "Ce nom est invalide";
+
+const CHANGE_ACCOUNT_INFOS_ACTUAL_PASSWORD_INVALID = "Le mot de passe actuel est invalide";
+
+const CHANGE_ACCOUNT_INFOS_NEW_PASSWORDS_NOT_IDENTICAL = "Les nouveaux mots de passe ne sont pas identiques";
+
+
 //About us page
 
 const ABOUT_US_TITLE = "A propos";
