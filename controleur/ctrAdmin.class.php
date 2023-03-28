@@ -99,7 +99,8 @@ class ctrAdmin
                 $this->qAndA();
             else
                 throw new Exception("An error occured during the adding process");
-        } else
+        } 
+        else
             $this->qAndA();
     }
 
@@ -199,11 +200,15 @@ class ctrAdmin
 
     public function qAndAModifyEG_S($idCat)
     {
-        $idEG = (int)array_values($_POST)[0];
-        if($this->qAndAs->updateQAndAEG($idEG,$idCat))
-            $this->qAndA();
+        if(!empty($_POST)){
+            $idEG = (int)array_values($_POST)[0];
+            if($this->qAndAs->updateQAndAEG($idEG,$idCat))
+                $this->qAndA();
+            else
+                throw new Exception("An error occured during the update process");
+        }
         else
-            throw new Exception("An error occured during the update process");
+            $this->qAndA();
     }
 
     public function qAndADeleteCat($idCat)
