@@ -34,41 +34,49 @@ if (isset($_GET["id"])) {
 }
 ?>
 <form class="formAdminJob" action="index.php?action=admin&page=<?= $action ?>" method="post">
-    <h2 class="titleUnderline"><?= ADMIN_JOB_TITLES ?></h2>
-    <label>
-        <p><?= ADMIN_JOB_TITLES_1 ?></p>
-        <input type="text" name="title" id="title" value="<?= $title ?>">
-    </label>
-    <label>
-        <p><?= ADMIN_JOB_TITLES_2 ?></p>
-        <input type="text" name="titleFR" id="titleFR" value="<?= $titleFR ?>">
-    </label>
-    <h2 class="titleUnderline"><?= ADMIN_JOB_INFOS ?></h2>
-    <label>
-        <p><?= ADMIN_JOB_INFOS_1 ?></p>
-        <input type="text" name="position" id="position" value="<?= $position ?>">
-    </label>
-    <label>
-        <p><?= ADMIN_JOB_INFOS_2 ?></p>
-        <input type="text" name="positionFR" id="positionFR" value="<?= $positionFR ?>">
-    </label>
-    <h2 class="titleUnderline"><?= ADMIN_JOB_TASKS ?></h2>
-    <div class="textAreaJob">
-        <label class="labelTextArea" for="task"><?= ADMIN_JOB_TASKS_1 ?></label>
-        <textarea name="task" id="task" cols="24" rows="10"><?= $task ?></textarea>
+    <div class="adminJobSection jobTitles">
+        <h2 class="titleUnderline"><?= ADMIN_JOB_TITLES ?></h2>
+        <label>
+            <p><?= ADMIN_JOB_TITLES_1 ?></p>
+            <input type="text" name="title" id="title" value="<?= $title ?>">
+        </label>
+        <label>
+            <p><?= ADMIN_JOB_TITLES_2 ?></p>
+            <input type="text" name="titleFR" id="titleFR" value="<?= $titleFR ?>">
+        </label>
     </div>
-    <div class="textAreaJob">
-        <label class="labelTextArea" for="taskFR"><?= ADMIN_JOB_TASKS_2 ?></label>
-        <textarea name="taskFR" id="taskFR" cols="24" rows="10"><?= $taskFR ?></textarea>
+    <div class="adminJobSection jobInfos">
+        <h2 class="titleUnderline"><?= ADMIN_JOB_INFOS ?></h2>
+        <label>
+            <p><?= ADMIN_JOB_INFOS_1 ?></p>
+            <input type="text" name="position" id="position" value="<?= $position ?>">
+        </label>
+        <label>
+            <p><?= ADMIN_JOB_INFOS_2 ?></p>
+            <input type="text" name="positionFR" id="positionFR" value="<?= $positionFR ?>">
+        </label>
     </div>
-    <h2 class="titleUnderline"><?= ADMIN_JOB_STRENGTHS ?></h2>
-    <div class="textAreaJob">
-        <label class="labelTextArea" for="strength"><?= ADMIN_JOB_STRENGTHS_1 ?></label>
-        <textarea name="strength" id="strength" cols="24" rows="10"><?= $strength ?></textarea>
+    <div class="adminJobSection jobTasks">
+        <h2 class="titleUnderline"><?= ADMIN_JOB_TASKS ?></h2>
+        <div class="textAreaJob">
+            <label class="labelTextArea" for="task"><?= ADMIN_JOB_TASKS_1 ?></label>
+            <textarea name="task" id="task" cols="24" rows="10"><?= $task ?></textarea>
+        </div>
+        <div class="textAreaJob">
+            <label class="labelTextArea" for="taskFR"><?= ADMIN_JOB_TASKS_2 ?></label>
+            <textarea name="taskFR" id="taskFR" cols="24" rows="10"><?= $taskFR ?></textarea>
+        </div>
     </div>
-    <div class="textAreaJob">
-        <label class="labelTextArea" for="strengthFR"><?= ADMIN_JOB_STRENGTHS_2 ?></label>
-        <textarea name="strengthFR" id="strengthFR" cols="24" rows="10"><?= $strengthFR ?></textarea>
+    <div class="adminJobSection jobStrenghts">
+        <h2 class="titleUnderline"><?= ADMIN_JOB_STRENGTHS ?></h2>
+        <div class="textAreaJob">
+            <label class="labelTextArea" for="strength"><?= ADMIN_JOB_STRENGTHS_1 ?></label>
+            <textarea name="strength" id="strength" cols="24" rows="10"><?= $strength ?></textarea>
+        </div>
+        <div class="textAreaJob">
+            <label class="labelTextArea" for="strengthFR"><?= ADMIN_JOB_STRENGTHS_2 ?></label>
+            <textarea name="strengthFR" id="strengthFR" cols="24" rows="10"><?= $strengthFR ?></textarea>
+        </div>
     </div>
     <div class="displayJob">
         <p class="firstTitleDisplay"><?= ADMIN_JOB_DISPLAY ?></p>

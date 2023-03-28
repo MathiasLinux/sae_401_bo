@@ -26,10 +26,17 @@
     display: none;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     margin: 0;
     background-color: var(--background);
     font-family: 'Roboto', sans-serif;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
 }
 
 img {
@@ -1477,7 +1484,7 @@ h3.titleAdminQAndA{
 .noDeleteUser {
     background-color: var(--green);
     padding: 10px 30px;
-    color: black;
+    color: white;
     cursor: pointer;
     border: none;
 }
