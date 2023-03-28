@@ -1,5 +1,5 @@
 <?php //var_dump($users); ?>
-<h2>Right Managenement</h2>
+<h2><?= ADMIN_USER_TITLE ?></h2>
 <form class="contactForm contactJobs" style="margin-bottom: 12px" action="#"
       method="post">
     <div class="formGroup">
@@ -15,10 +15,10 @@
             <table class="tg">
                 <thead>
                 <tr>
-                    <th class="tg-a43n">E-mail</th>
-                    <th class="tg-a43n">First Name</th>
-                    <th class="tg-a43n">Last Name</th>
-                    <th class="tg-a43n">Rights<br></th>
+                    <th class="tg-a43n"><?= ADMIN_USER_EMAIL ?></th>
+                    <th class="tg-a43n"><?= ADMIN_USER_FIRST_NAME ?></th>
+                    <th class="tg-a43n"><?= ADMIN_USER_LAST_NAME ?></th>
+                    <th class="tg-a43n"><?= ADMIN_USER_RIGHTS ?></th>
                     <div>
 
                     </div>
@@ -39,7 +39,7 @@
                             <form action="index.php?action=admin&page=changeUsersRights&id=<?= $user["id_user"] ?>"
                                   method="post">
                                 <div class="eachCheckboxUser">
-                                    <label for="superadmin">Superadmin</label>
+                                    <label for="superadmin"><?= ADMIN_USER_RIGHTS_SUPERADMIN ?></label>
                                     <input type="checkbox" name="superadmin" id="superadmin" <?php
                                     //if a string contain superadmin, it will be checked
                                     if (strpos($user['rights'], 'superadmin') !== false) {
@@ -49,7 +49,7 @@
                                     >
                                 </div>
                                 <div class="eachCheckboxUser">
-                                    <label for="editor">Editor</label>
+                                    <label for="editor"><?= ADMIN_USER_RIGHTS_EDITOR ?></label>
                                     <input type="checkbox" name="editor" id="editor"
                                         <?php
                                         //if a string contain editor, it will be checked
@@ -60,7 +60,7 @@
                                     >
                                 </div>
                                 <div class="eachCheckboxUser">
-                                    <label for="management">Management</label>
+                                    <label for="management"><?= ADMIN_USER_RIGHTS_MANAGEMENT ?></label>
                                     <input type="checkbox" name="management" id="management"
                                         <?php
                                         //if a string contain management, it will be checked
@@ -71,7 +71,7 @@
                                     >
                                 </div>
                                 <div class="eachCheckboxUser">
-                                    <label for="jobs">Jobs</label>
+                                    <label for="jobs"><?= ADMIN_USER_RIGHTS_JOBS ?></label>
                                     <input type="checkbox" name="jobs" id="jobs"
                                         <?php
                                         //if a string contain jobs, it will be checked
@@ -82,17 +82,17 @@
                                     >
                                 </div>
                                 <div class="center">
-                                    <input class="Save" type="submit" value="Save">
+                                    <input class="Save" type="submit" value="<?= ADMIN_USER_RIGHTS_SAVE ?>">
                                 </div>
                             </form>
                         </td>
                         <td class="Nofond">
-                            <div class="deleteUser">Delete</div>
+                            <div class="deleteUser"><?= ADMIN_CONTACT_FORM_DELETE ?></div>
                             <div class="validationDeleteUser">
-                                <h3>Are you sure you want to delete this user ?</h3>
+                                <h3><?= ADMIN_USER_RIGHTS_DELETE_WARNING ?></h3>
                                 <div class="delUserDivButton">
-                                    <a href="index.php?action=admin&page=delUser&id=<?= $user["id_user"] ?>">Yes</a>
-                                    <div class="noDeleteUser">No</div>
+                                    <a href="index.php?action=admin&page=delUser&id=<?= $user["id_user"] ?>"><?= ADMIN_CONTACT_FORM_DELETE_YES ?></a>
+                                    <div class="noDeleteUser"><?= ADMIN_CONTACT_FROM_DELETE_NO ?></div>
                                 </div>
                             </div>
                         </td>

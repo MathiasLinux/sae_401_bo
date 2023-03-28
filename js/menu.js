@@ -9,6 +9,19 @@ document.querySelector(".mobileMenuDiv").addEventListener("click", function () {
     }
 });
 
+// if (action == "admin") {
+//     document.querySelector(".mobileMenuAdmin").classList.add("show");
+// } else {
+//     document.querySelector(".PCMenuDiv").classList.add("none");}
+
+document.querySelector(".PCMenuDiv").addEventListener("click", function () {
+    if (action == "admin") {
+        document.querySelector(".mobileMenuAdmin").classList.add("show");
+    } else {
+        document.querySelector(".PCMenuDiv").classList.add("none");
+    }
+});
+
 document.querySelector(".closeMenu").addEventListener("click", function () {
     document.querySelector(".mobileMenu").classList.remove("show");
 });

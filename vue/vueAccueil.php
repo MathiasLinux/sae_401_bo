@@ -13,14 +13,14 @@
             repellendus repudiandae tempora. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto
             deleniti illo minima officiis quas repudiandae soluta suscipit. Accusantium at cum ducimus eius et molestiae
             nulla quaerat sed. Consequatur, delectus dolore. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-           
+
         </p>
     </div>
 </section>
 
 <section class="newEscapeGame">
-    <h2 class="titleUnderline div1">The Codex</h2> 
-    
+    <h2 class="titleUnderline div1">The Codex</h2>
+
     <p class="descLastEscape div2">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto consequuntur cumque
     </p>
@@ -57,7 +57,7 @@
             <img src="img/escapeGames/2.jpg" alt="photo vin">
             <div>
                 <h2 class="titleYellow">In Vino Veritas</h2>
-                <a href="">Discover</a> 
+                <a href="">Discover</a>
             </div>
         </div>
     </div>
@@ -67,8 +67,8 @@
             <img src="img/escapeGames/3.jpg" alt="photo vin">
             <div>
                 <h2 class="titleYellow">In Vino Veritas</h2>
-                <a href="">Discover</a> 
-            </div>   
+                <a href="">Discover</a>
+            </div>
         </div>
     </div>
 
@@ -77,7 +77,7 @@
             <img src="img/escapeGames/4.jpg" alt="photo vin">
             <div>
                 <h2 class="titleYellow">In Vino Veritas</h2>
-                <a href="">Discover</a> 
+                <a href="">Discover</a>
             </div>
         </div>
     </div>

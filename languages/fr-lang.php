@@ -1,5 +1,99 @@
 <?php
 
+//T&C
+
+const TANDC_TITLE = "Conditions Générales d'utilisation";
+
+const TANDC_P_1 = "Les présentes conditions générales (« Conditions ») régissent votre utilisation du site web Kaiserstuhl Escape (le « Site »), qui est
+détenu et exploité par Kaiserstuhl Escape (« nous », « notre », ou « nos »), dont le siège social est situé à Am Krebsbach
+2G, 79241 Ihringen, Allemagne. En utilisant le Site, vous acceptez d'être lié par ces Conditions. Veuillez les lire attentivement.";
+
+const TANDC_H2_1 = "1. Acceptation des Conditions";
+const TANDC_P_2 = "En utilisant le Site, vous acceptez d'être lié par ces Conditions. Si vous n'acceptez pas ces Conditions, vous ne pouvez pas utiliser le Site.";
+
+const TANDC_H2_2 = "2. Utilisation du Site";
+
+const TANDC_P_3 = "Vous ne pouvez utiliser le Site que pour des fins légales. Vous acceptez de ne pas utiliser le Site de quelque manière que ce soit qui pourrait endommager, désactiver ou entraver le Site, ou interférer avec l'utilisation du Site par tout autre utilisateur.";
+
+const TANDC_H2_3 = "3. Propriété Intellectuelle";
+
+const TANDC_P_4 = "Le contenu du Site, y compris, sans limitation, le texte, les graphiques, les images, les logiciels et tous les autres matériaux sur le Site, est la propriété de nous ou de nos concédants de licence et est protégé par le droit d'auteur et d'autres lois sur la propriété intellectuelle.";
+
+const TANDC_H2_4 = "4. Réservation et Paiement";
+
+const TANDC_P_5 = "En utilisant le Site pour réserver une partie d'escape game, vous acceptez de payer le montant de la réservation en totalité au moment de la réservation. Le paiement doit être effectué par le moyen de paiement fourni sur le Site. Les frais de réservation ne sont ni remboursables ni transférables.";
+
+const TANDC_H2_5 = "5. Politique d'annulation";
+
+const TANDC_P_6 = "Si vous devez annuler votre réservation, vous devez nous contacter au moins 48 heures avant l'heure de début prévue. Les annulations effectuées dans les 48 heures précédant l'heure de début prévue ne sont pas remboursables.";
+
+const TANDC_H2_6 = "6. Restrictions d'âge";
+
+const TANDC_P_7 = "Les participants doivent avoir au moins 16 ans pour participer au jeu d'escape. Les participants de moins de 16 ans doivent être accompagnés d'un adulte.";
+
+const TANDC_H2_7 = "7. Responsabilité";
+
+const TANDC_P_8 = "Nous ne serons pas responsables de toute perte ou dommage, y compris, sans limitation, perte ou dommage indirect ou consécutif, ou toute perte ou dommage découlant de l'utilisation du Site ou du jeu d'escape.";
+
+const TANDC_H2_8 = "8. Modification des Conditions";
+
+const TANDC_P_9 = "Nous nous réservons le droit de modifier ces Conditions à tout moment. Votre utilisation continue du Site après tout changement apporté à ces Conditions constitue votre acceptation des nouvelles Conditions.";
+
+const TANDC_H2_9 = "9. Loi applicable";
+
+const TANDC_P_10 = "Ces Conditions sont régies par les lois de l'Allemagne et interprétées conformément à celles-ci. Tout litige découlant de ces Conditions ou s'y rapportant sera soumis à la compétence exclusive des tribunaux de l'Allemagne.";
+
+const TANDC_H2_10 = "10. Création de compte";
+
+const TANDC_P_11 = "Vous pouvez créer un compte sur le Site en fournissant vos informations personnelles, y compris votre nom, votre adresse e-mail et votre mot de passe. Vous acceptez de fournir des informations exactes, actuelles et complètes lors du processus d'inscription au compte et de maintenir vos informations à jour.<br>
+Vous êtes responsable de maintenir la confidentialité de votre compte et de votre mot de passe, ainsi que de limiter l'accès à votre ordinateur ou appareil. Vous acceptez d'assumer la responsabilité de toutes les activités qui se produisent sous votre compte ou mot de passe.<br>
+Nous nous réservons le droit de résilier ou de suspendre votre compte à tout moment, pour quelque raison que ce soit, y compris, sans limitation, si nous estimons que vous avez enfreint ces Conditions.";
+
+const TANDC_H2_11 = "11. Politique de confidentialité";
+
+const TANDC_P_12 = "Nous prenons votre vie privée au sérieux et avons une politique de confidentialité distincte qui régit notre utilisation de vos informations personnelles. Veuillez consulter notre politique de confidentialité avant de créer un compte sur le Site ou d'utiliser le Site de quelque manière que ce soit. En utilisant le Site, vous acceptez d'être lié par notre politique de confidentialité.";
+
+const TANDC_P_13 = "Si vous avez des questions sur ces Conditions, veuillez nous contacter à l'adresse suivante : <a href='mailto:info@kaiserstuhle-escape.com'>info@kaiserstuhle-escape.com</a>.";
+
+
+//Partners
+
+const PARTNERS_TITLE = "Nos partenaires";
+
+const PARTNERS_P_1 = "Un réseau régional avec des connexions sur plusieurs niveaux. Nous sommes prêt à avoir de nouveaux partenaires.";
+
+//Menu
+
+const MENU_ESCAPE_GAME = "Escape Game";
+
+const MENU_GIFT_CARDS = "Cartes cadeaux";
+
+const MENU_Q_AND_A = "FAQ";
+
+const MENU_ABOUT_US = "A propos";
+
+const MENU_CONNECTION = "Connexion";
+
+//Footer
+
+const FOOTER_COMPAGNY = "Entreprise";
+
+const FOOTER_LEGAL_NOTICE = "Mentions légales";
+
+const FOOTER_PRIVACY_POLICY = "Politique de confidentialité";
+
+const FOOTER_T_AND_C = "Conditions d'utilisation";
+
+const FOOTER_PARTNERS = "Partenaires";
+
+const FOOTER_INFORMATIUONS = "Informations";
+
+const FOOTER_JOBS = "Offres d'emploi";
+
+const FOOTER_Q_AND_A = "FAQ";
+
+const FOOTER_CONTACT = "Nous contacter";
+
 //About us page
 
 const ABOUT_US_TITLE = "A propos";
@@ -120,14 +214,14 @@ En aucun cas les engagements définis au point ci-dessus relatifs à la notifica
 const PRIVACY_POLICY_H3_14 = "13-	Transfert des données personnelles à l'étranger";
 const PRIVACY_POLICY_P_14 = "<strong>Pas de transfert en dehors de l'Union européenne</strong><br>
 L'Éditeur s'engage à ne pas transférer les données personnelles de ses Utilisateurs en dehors de l'Union européenne.
-<a href='https://www.cnil.fr/fr/la-protection-des-donnees-dans-le-monde'>https://www.cnil.fr/fr/la-protection-des-donnees-dans-le-monde/a>
+<a href='https://www.cnil.fr/fr/la-protection-des-donnees-dans-le-monde'>https://www.cnil.fr/fr/la-protection-des-donnees-dans-le-monde</a>
 ";
 const PRIVACY_POLICY_H3_15 = "14-	Modification de la politique de confidentialité";
 const PRIVACY_POLICY_P_15 = "<strong>En cas de modification de la présente Politique de Confidentialité, engagement de ne pas baisser le niveau de confidentialité de manière substantielle sans l'information préalable des personnes concernées</strong><br>
 Nous nous engageons à vous informer en cas de modification substantielle de la présente Politique de Confidentialité, et à ne pas baisser le niveau de confidentialité de vos données de manière substantielle sans vous en informer et obtenir votre consentement.
 ";
 const PRIVACY_POLICY_H3_16 = "15-	Droit applicable et modalités de recours";
-const PRIVACY_POLICY_P_16 = "<strong>Clause d'arbitrage<strong><br>
+const PRIVACY_POLICY_P_16 = "<strong>Clause d'arbitrage</strong><br>
 Vous acceptez expressément que tout litige susceptible de naître du fait de la présente Politique de Confidentialité, notamment de son interprétation ou de son exécution, relèvera d'une procédure d'arbitrage soumise au règlement de la plateforme d'arbitrage choisie d'un commun accord, auquel vous adhérerez sans réserve.
 ";
 
@@ -155,6 +249,10 @@ const GIFT_CARDS_BUTTON_2 = "Carte d'un escape game";
 
 const GIFT_CARDS_MONEY_SELECT = "Selectionnez le montant";
 const GIFT_CARDS_ESCAPE_SELECT = "Selectionnez l'escape game";
+
+const GIFT_CARDS_PERSONS_2 = "2 ou 3";
+
+const GIFT_CARDS_PERSONS_12 = "12 ou plus";
 
 //Jobs
 
@@ -187,6 +285,24 @@ const JOBS_H2_3 = "Contactez-nous";
 //BuyCards
 
 const BUY_CARDS_TITLE = "Acheter une carte cadeau";
+
+const BUY_CARDS_ORDER_NOW = "Commander maintenant";
+
+const BUY_CARDS_NB_PERSONS = "Nombre de personnes";
+
+const BUY_CARDS_AMOUNT = "Total : ";
+
+const BUY_CARDS_H3_1 = "Informations de paiement";
+
+const BUY_CARDS_CARD_NUMBER = "Numéro de carte";
+
+const BUY_CARDS_CARD_DATE = "Date d'expiration";
+
+const BUY_CARDS_CARD_CVC = "CVC";
+
+const BUY_CARDS_CARD_NAME = "Nom";
+
+const BUY_CARDS_CARD_SUBMIT = "Payer";
 
 //Admin : Q&A
 
@@ -224,3 +340,148 @@ const ADMIN_QANDA_MOD_QANDA_Q_FR = "Modifier question ";
 const ADMIN_QANDA_MOD_QANDA_A_FR = "Modifier réponse ";
 const ADMIN_QANDA_MOD_QANDA_SUBMIT = "Modifier qes/rep ";
 const ADMIN_QANDA_NO_QANDA = "Aucune question";
+
+//Escape Cards
+
+const ESCAPE_CARDS_ESCAPE_NAME = "Vous allez acheter une carte cadeau pour l'escape game : ";
+
+const ESCAPE_CARDS_ESCAPE_FOR = " pour ";
+
+//Success card buy page
+
+const BUY_CARDS_SUCCESS_TITLE = "Merci pour votre achat !";
+
+const BUY_CARDS_SUCCESS_BUTTON = "Retour à l'accueil";
+
+//Admin Contact Form page
+
+const ADMIN_CONTACT_FORM_TITLE = "Messages reçus";
+
+const ADMIN_CONTACT_FORM_DATE = "Date";
+
+const ADMIN_CONTACT_FORM_FIRST_NAME = "Prénom";
+
+const ADMIN_CONTACT_FORM_LAST_NAME = "Nom";
+
+const ADMIN_CONTACT_FORM_EMAIL = "E-mail";
+
+const ADMIN_CONTACT_FORM_PHONE = "Numéro de téléphone";
+
+const ADMIN_CONTACT_FORM_MESSAGE = "Message";
+
+const ADMIN_CONTACT_FORM_ACTION = "Action";
+
+const ADMIN_CONTACT_FORM_DELETE = "Supprimer";
+
+const ADMIN_CONTACT_FORM_MESSAGE_BUTTON = "Voir le message";
+
+const ADMIN_CONTACT_FORM_MESSAGE_TITLE = "Message :";
+
+const ADMIN_CONTACT_FORM_MESSAGE_CLOSE = "Fermer";
+
+const ADMIN_CONTACT_FROM_DELETE_VERIF = "Êtes-vous sûr de vouloir supprimer ce message ?";
+
+const ADMIN_CONTACT_FORM_DELETE_YES = "Oui";
+const ADMIN_CONTACT_FROM_DELETE_NO = "Non";
+
+//Admin user page
+
+const ADMIN_USER_TITLE = "Gestion des utilisateurs";
+
+const ADMIN_USER_FIRST_NAME = "Prénom";
+
+const ADMIN_USER_LAST_NAME = "Nom";
+
+const ADMIN_USER_EMAIL = "E-mail";
+
+const ADMIN_USER_RIGHTS = "Droits";
+
+const ADMIN_USER_RIGHTS_SUPERADMIN = "Super Admin";
+
+const ADMIN_USER_RIGHTS_EDITOR = "Editeur";
+
+const ADMIN_USER_RIGHTS_MANAGEMENT = "Gestion";
+
+const ADMIN_USER_RIGHTS_JOBS = "Emplois";
+
+const ADMIN_USER_RIGHTS_SAVE = "Sauvegarder";
+
+const ADMIN_USER_RIGHTS_DELETE_WARNING = "Êtes-vous sûr de vouloir supprimer cet utilisateur ?";
+
+//Admin Gift Cards page
+
+const ADMIN_GIFT_CARDS_TITLE = "Gestion des cartes cadeaux";
+
+const ADMIN_GIFT_CARDS_P_1 = "Montants disponibles";
+
+const ADMIN_GIFT_CARDS_PRICE = "Prix";
+
+const ADMIN_GIFT_CARDS_DELETE = "Supprimer ?";
+
+const ADMIN_GIFT_CARDS_DELETE_WARNING = "Êtes-vous sûr de vouloir supprimer ce montant ?";
+
+const ADMIN_GIFT_CARDS_P_2 = "Créer un nouveau montant";
+
+const ADMIN_GIFT_CARDS_AMOUNT = "Montant en €";
+
+const ADMIN_GIFT_CARDS_SUBMIT = "Ajouter";
+
+const ADMIN_GIFT_CARDS_H2_2 = "Cartes cadeaux d'argent vendues";
+
+const ADMIN_GIFT_CARDS_SOLD_DATE = "Date";
+
+const ADMIN_GIFT_CARDS_SOLD_USAGE_DATE = "Date d'utilisation";
+
+const ADMIN_GIFT_CARDS_SOLD_CODE = "Code";
+
+const ADMIN_GIFT_CARDS_SOLD_AMOUNT = "Montant";
+
+const ADMIN_GIFT_CARDS_SOLD_ESCAPEGAME = "Escape Game";
+
+const ADMIN_GIFT_CARDS_SOLD_USER_FIRST_NAME = "Prénom de l'utilisateur";
+
+const ADMIN_GIFT_CARDS_SOLD_USER_LAST_NAME = "Nom de l'utilisateur";
+
+const ADMIN_GIFT_CARDS_SOLD_USER_EMAIL = "E-mail de l'utilisateur";
+
+const ADMIN_GIFT_CARDS_H2_3 = "Cartes cadeaux d'escape game vendues";
+
+//Admin create/modif job page
+
+const ADMIN_JOB_RETURN = "Retour";
+
+const ADMIN_JOB_TITLES = "Titres";
+
+const ADMIN_JOB_TITLES_1 = "Titre Anglais";
+
+const ADMIN_JOB_TITLES_2 = "Titre Français";
+
+const ADMIN_JOB_INFOS = "Informations";
+
+const ADMIN_JOB_INFOS_1 = "Type de poste Anglais";
+
+const ADMIN_JOB_INFOS_2 = "Type de poste Français";
+
+const ADMIN_JOB_TASKS = "Tâches";
+
+const ADMIN_JOB_TASKS_1 = "Tâches Anglais";
+
+const ADMIN_JOB_TASKS_2 = "Tâches Français";
+
+const ADMIN_JOB_STRENGTHS = "Strengths";
+
+const ADMIN_JOB_STRENGTHS_1 = "Forces Anglais";
+
+const ADMIN_JOB_STRENGTHS_2 = "Forces Français";
+
+const ADMIN_JOB_DISPLAY = "Affichage";
+
+const ADMIN_JOB_DISPLAY_P = "Afficher l'offre d'emploi sur le site ?";
+
+const ADMIN_JOB_DISPLAY_VISIBLE = "Visible";
+
+const ADMIN_JOB_DISPLAY_SAVE = "Sauvegarder";
+
+const ADMIN_JOB_DISPLAY_DELETE = "Supprimer";
+
+const ADMIN_JOB_DISPLAY_DELETE_WARNING = "Êtes-vous sûr de vouloir supprimer cette offre d'emploi ?";

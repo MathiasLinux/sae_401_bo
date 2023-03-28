@@ -1,5 +1,37 @@
 <?php
 
+//Menu
+
+const MENU_ESCAPE_GAME = "Escape Game";
+
+const MENU_GIFT_CARDS = "Gift Cards";
+
+const MENU_Q_AND_A = "Q&A";
+
+const MENU_ABOUT_US = "About us";
+
+const MENU_CONNECTION = "Connection";
+
+//Footer
+
+const FOOTER_COMPAGNY = "Compagny";
+
+const FOOTER_LEGAL_NOTICE = "Legal Notice";
+
+const FOOTER_PRIVACY_POLICY = "Privacy Policy";
+
+const FOOTER_T_AND_C = "T&C";
+
+const FOOTER_PARTNERS = "Our Partners";
+
+const FOOTER_INFORMATIUONS = "Informations";
+
+const FOOTER_JOBS = "Jobs";
+
+const FOOTER_Q_AND_A = "Q&A";
+
+const FOOTER_CONTACT = "Contact Us";
+
 //About us page
 
 const ABOUT_US_TITLE = "About us";
@@ -140,6 +172,70 @@ const PRIVACY_POLICY_P_16 = "<strong>Arbitration clause</strong><br>
 You expressly agree that any dispute that may arise from this Privacy Policy, including its interpretation or execution, shall be subject to an arbitration procedure under the regulation of the arbitration platform chosen jointly, to which you will adhere without reserve.
 ";
 
+//T&C
+
+const TANDC_TITLE = "Terms and Conditions";
+
+const TANDC_P_1 = "The following terms and conditions (\"Terms\") govern your use of the Kaiserstuhl Escape website (the \"Site\"), which is
+    owned and operated by Kaiserstuhl Escape (\"we,\" \"us,\" or \"our\"), with a registered office located at Am Krebsbach
+    2G, 79241 Ihringen, Germany. By using the Site, you agree to be bound by these Terms. Please read them
+    carefully.";
+
+const TANDC_H2_1 = "1. Acceptance of Terms";
+const TANDC_P_2 = "By using the Site, you agree to be bound by these Terms. If you do not agree to these Terms, you may not use the Site.";
+
+const TANDC_H2_2 = "2. Use of Site";
+
+const TANDC_P_3 = "You may use the Site for lawful purposes only. You agree not to use the Site in any way that may damage, disable, or impair the Site, or interfere with any other user's use of the Site.";
+
+const TANDC_H2_3 = "3. Intellectual Property";
+
+const TANDC_P_4 = "The content on the Site, including without limitation, text, graphics, images, software, and all other materials on the Site, is owned by us or our licensors and is protected by copyright and other intellectual property laws.";
+
+const TANDC_H2_4 = "4. Booking and Payment";
+
+const TANDC_P_5 = "By using the Site to book an escape room game, you agree to pay the booking fee in full at the time of booking. The payment must be made through the payment gateway provided on the Site. The booking fee is non-refundable and non-transferable.";
+
+const TANDC_H2_5 = "5. Cancellation Policy";
+
+const TANDC_P_6 = "If you need to cancel your booking, you must contact us at least 48 hours before the scheduled start time. Cancellations made within 48 hours of the scheduled start time are non-refundable.";
+
+const TANDC_H2_6 = "6. Age Restrictions";
+
+const TANDC_P_7 = "Participants must be at least 16 years old to participate in the escape room game. Participants under 16 years of age must be accompanied by an adult.";
+
+const TANDC_H2_7 = "7. Liability";
+
+const TANDC_P_8 = "We will not be liable for any loss or damage, including without limitation, indirect or consequential loss or damage, or any loss or damage whatsoever arising from the use of the Site or the escape room game.";
+
+const TANDC_H2_8 = "8. Modification of Terms";
+
+const TANDC_P_9 = "We reserve the right to modify these Terms at any time. Your continued use of the Site after any changes to these Terms constitutes your acceptance of the new Terms.";
+
+const TANDC_H2_9 = "9. Governing Law";
+
+const TANDC_P_10 = "These Terms are governed by and construed in accordance with the laws of Germany. Any dispute arising out of or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts of Germany.";
+
+const TANDC_H2_10 = "10. Account Creation";
+
+const TANDC_P_11 = "You may create an account on the Site by providing your personal information, including your name, email address, and password. You agree to provide accurate, current, and complete information during the account registration process and to keep your information up to date.<br>
+You are responsible for maintaining the confidentiality of your account and password and for restricting access to your computer or device. You agree to accept responsibility for all activities that occur under your account or password.<br>
+We reserve the right to terminate or suspend your account at any time for any reason, including without limitation, if we believe that you have violated these Terms.
+";
+
+const TANDC_H2_11 = "11. Privacy Policy";
+
+const TANDC_P_12 = "We take your privacy seriously and have a separate Privacy Policy that governs our use of your personal information. Please review our Privacy Policy before creating an account on the Site or using the Site in any way. By using the Site, you agree to be bound by our Privacy Policy.";
+
+const TANDC_P_13 = "If you have any questions about these Terms, please contact us at <a href='mailto:info@kaiserstuhle-escape.com'>info@kaiserstuhle-escape.com</a>.";
+
+//Partners
+
+const PARTNERS_TITLE = "Our Partners";
+
+const PARTNERS_P_1 = "A regional NETWORK - connection on many levels.
+    We look forward to further steps together.";
+
 //Q&A
 const QANDA_LINE_1 = "You have not find the answer to you question ?";
 
@@ -163,6 +259,10 @@ const GIFT_CARDS_BUTTON_2 = "Escape Cards";
 
 const GIFT_CARDS_MONEY_SELECT = "Select an amount";
 const GIFT_CARDS_ESCAPE_SELECT = "Select an escape game";
+
+const GIFT_CARDS_PERSONS_2 = "2 or 3";
+
+const GIFT_CARDS_PERSONS_12 = "12 or more";
 
 //Jobs
 
@@ -197,6 +297,24 @@ const JOBS_H2_3 = "Contact us";
 const BUY_CARDS_TITLE = "Buy a card";
 
 const BUY_CARDS_H2_1 = "Please enter your card information";
+
+const BUY_CARDS_ORDER_NOW = "Order now";
+
+const BUY_CARDS_NB_PERSONS = "Number of persons";
+
+const BUY_CARDS_AMOUNT = "Total : ";
+
+const BUY_CARDS_H3_1 = "Please enter your card information";
+
+const BUY_CARDS_CARD_NUMBER = "Card number";
+
+const BUY_CARDS_CARD_DATE = "Expiration date";
+
+const BUY_CARDS_CARD_CVC = "CVC";
+
+const BUY_CARDS_CARD_NAME = "Name";
+
+const BUY_CARDS_CARD_SUBMIT = "Pay";
 
 //Admin : Q&A
 
@@ -234,3 +352,147 @@ const ADMIN_QANDA_MOD_QANDA_Q_FR = "Modify question FR";
 const ADMIN_QANDA_MOD_QANDA_A_FR = "Modify answer FR";
 const ADMIN_QANDA_MOD_QANDA_SUBMIT = "Modify Q&A";
 const ADMIN_QANDA_NO_QANDA = "No Q&A";
+
+//Escape Cards
+
+const ESCAPE_CARDS_ESCAPE_NAME = "Your are buying a card for the escape game : ";
+
+const ESCAPE_CARDS_ESCAPE_FOR = " for ";
+
+//Success card buy page
+
+const BUY_CARDS_SUCCESS_TITLE = "Thank you for your purchase !";
+
+const BUY_CARDS_SUCCESS_BUTTON = "Back to the home page";
+
+//Admin Contact Form page
+
+const ADMIN_CONTACT_FORM_TITLE = "Contact Form";
+
+const ADMIN_CONTACT_FORM_DATE = "Date";
+
+const ADMIN_CONTACT_FORM_FIRST_NAME = "First Name";
+
+const ADMIN_CONTACT_FORM_LAST_NAME = "Last Name";
+
+const ADMIN_CONTACT_FORM_EMAIL = "E-mail";
+
+const ADMIN_CONTACT_FORM_PHONE = "Phone Number";
+
+const ADMIN_CONTACT_FORM_MESSAGE = "Message";
+
+const ADMIN_CONTACT_FORM_ACTION = "Action";
+const ADMIN_CONTACT_FORM_DELETE = "Delete";
+
+const ADMIN_CONTACT_FORM_MESSAGE_BUTTON = "Open message";
+
+const ADMIN_CONTACT_FORM_MESSAGE_TITLE = "Message : ";
+
+const ADMIN_CONTACT_FORM_MESSAGE_CLOSE = "Close";
+
+const ADMIN_CONTACT_FROM_DELETE_VERIF = "Are you sure you want to delete this message ?";
+
+const ADMIN_CONTACT_FORM_DELETE_YES = "Yes";
+const ADMIN_CONTACT_FROM_DELETE_NO = "No";
+
+//Admin user page
+
+const ADMIN_USER_TITLE = "Users Management";
+
+const ADMIN_USER_FIRST_NAME = "First Name";
+
+const ADMIN_USER_LAST_NAME = "Last Name";
+
+const ADMIN_USER_EMAIL = "E-mail";
+
+const ADMIN_USER_RIGHTS = "Rights";
+
+const ADMIN_USER_RIGHTS_SUPERADMIN = "Super Admin";
+
+const ADMIN_USER_RIGHTS_EDITOR = "Editor";
+
+const ADMIN_USER_RIGHTS_MANAGEMENT = "Management";
+
+const ADMIN_USER_RIGHTS_JOBS = "Jobs";
+
+const ADMIN_USER_RIGHTS_SAVE = "Save";
+
+const ADMIN_USER_RIGHTS_DELETE_WARNING = "Are you sure you want to delete this user ?";
+
+//Admin Gift Cards page
+
+const ADMIN_GIFT_CARDS_TITLE = "Gift Cards Management";
+
+const ADMIN_GIFT_CARDS_P_1 = "Available amounts";
+
+const ADMIN_GIFT_CARDS_PRICE = "Price";
+
+const ADMIN_GIFT_CARDS_DELETE = "Delete ?";
+
+const ADMIN_GIFT_CARDS_DELETE_WARNING = "Are you sure you want to delete this amount ?";
+
+const ADMIN_GIFT_CARDS_P_2 = "Create a new amount";
+
+const ADMIN_GIFT_CARDS_AMOUNT = "Amount in €";
+
+const ADMIN_GIFT_CARDS_SUBMIT = "Create";
+
+const ADMIN_GIFT_CARDS_H2_2 = "Sold Money Cards";
+
+const ADMIN_GIFT_CARDS_SOLD_DATE = "Date";
+
+const ADMIN_GIFT_CARDS_SOLD_USAGE_DATE = "Usage Date";
+
+const ADMIN_GIFT_CARDS_SOLD_CODE = "Code";
+
+const ADMIN_GIFT_CARDS_SOLD_AMOUNT = "Amount";
+
+const ADMIN_GIFT_CARDS_SOLD_ESCAPEGAME = "Escape Game";
+
+const ADMIN_GIFT_CARDS_SOLD_USER_FIRST_NAME = "User First name";
+
+const ADMIN_GIFT_CARDS_SOLD_USER_LAST_NAME = "User Last name";
+
+const ADMIN_GIFT_CARDS_SOLD_USER_EMAIL = "User E-mail";
+
+const ADMIN_GIFT_CARDS_H2_3 = "Sold Escape Cards";
+
+//Admin create/modif job page
+
+const ADMIN_JOB_RETURN = "Return";
+
+const ADMIN_JOB_TITLES = "Titles";
+
+const ADMIN_JOB_TITLES_1 = "Title English";
+
+const ADMIN_JOB_TITLES_2 = "Title French";
+
+const ADMIN_JOB_INFOS = "Infos";
+
+const ADMIN_JOB_INFOS_1 = "Type of position English";
+
+const ADMIN_JOB_INFOS_2 = "Type of position French";
+
+const ADMIN_JOB_TASKS = "Tasks";
+
+const ADMIN_JOB_TASKS_1 = "Tasks English";
+
+const ADMIN_JOB_TASKS_2 = "Tasks French";
+
+const ADMIN_JOB_STRENGTHS = "Strengths";
+
+const ADMIN_JOB_STRENGTHS_1 = "Strengths English";
+
+const ADMIN_JOB_STRENGTHS_2 = "Strengths French";
+
+const ADMIN_JOB_DISPLAY = "Display";
+
+const ADMIN_JOB_DISPLAY_P = "Display the job offer for the users";
+
+const ADMIN_JOB_DISPLAY_VISIBLE = "Visible";
+
+const ADMIN_JOB_DISPLAY_SAVE = "Save";
+
+const ADMIN_JOB_DISPLAY_DELETE = "Delete";
+
+const ADMIN_JOB_DISPLAY_DELETE_WARNING = "Are you sure you want to delete this job offer ?";

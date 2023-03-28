@@ -5,6 +5,7 @@ require_once "modele/qAndA.class.php";
 require_once "modele/user.class.php";
 require_once "modele/giftCards.class.php";
 require_once "modele/escapeGame.class.php";
+require_once "modele/contact.class.php";
 require_once "vue/vue.class.php";
 
 class ctrAdmin
@@ -14,6 +15,7 @@ class ctrAdmin
     public $user;
     public $giftCards;
     public $EG;
+    public $contact;
 
     public function __construct()
     {
@@ -22,6 +24,7 @@ class ctrAdmin
         $this->user = new user();
         $this->giftCards = new giftCards();
         $this->EG = new escapeGame();
+        $this->contact = new contact();
     }
 
     public function admin()
@@ -40,9 +43,16 @@ class ctrAdmin
 
     public function contactForm()
     {
+        $contactInfos = $this->contact->getContactInfos();
         $title = "Administration Contact Form - Kaiserstuhl escape";
         $objVue = new vue("AdminContactForm");
-        $objVue->afficher(array(), $title);
+        $objVue->afficher(array("contacts" => $contactInfos), $title);
+    }
+
+    public function delContactForm($id)
+    {
+        $this->contact->delContactInfos($id);
+        header("Location: index.php?action=admin&page=contactForm");
     }
 
     public function reservations()
@@ -58,14 +68,40 @@ class ctrAdmin
         header("Location: index.php?action=admin&page=giftCards");
     }
 
+    public function addGiftCardsAmount()
+    {
+        //var_dump($_POST);
+        extract($_POST);
+        if (!empty($amount)) {
+            if ($this->giftCards->addGiftCardAmount($amount))
+                header("Location: index.php?action=admin&page=giftCards");
+            else
+                throw new Exception("An error occured during the adding process");
+        } else
+            $this->giftCards();
+    }
+
     public function giftCards()
     {
         $giftCardAmount = $this->giftCards->getGiftCardAmount();
+        $moneyCards = $this->giftCards->getMoneyCards();
+        $escapeCards = $this->giftCards->getEscapeCards();
         $title = "Administration Gift Cards - Kaiserstuhl escape";
         $objVue = new vue("AdminGiftCards");
-        $objVue->afficher(array("giftCardAmount" => $giftCardAmount), $title);
+        $objVue->afficher(array("giftCardAmount" => $giftCardAmount, "moneyCards" => $moneyCards, "escapeCards" => $escapeCards), $title);
     }
 
+    public function qAndANewCat_S()
+    {
+        extract($_POST);
+        if (!empty($newCat) && !empty($newCatFR)) {
+            if ($this->qAndAs->addQandACat($newCat, $newCatFR))
+                $this->qAndA();
+            else
+                throw new Exception("An error occured during the adding process");
+        } else
+            $this->qAndA();
+    }
 
     public function qAndA()
     {
@@ -75,17 +111,16 @@ class ctrAdmin
         $objVue->afficher(array("qAndAs" => $qAndAs), $title);
     }
 
-    public function qAndANewCat_S()
+    public function qAndAQuestionsAdd_S($idCat)
     {
         extract($_POST);
-        if(!empty($newCat) && !empty($newCatFR)){
-            if($this->qAndAs->addQandACat($newCat, $newCatFR))
-                $this->qAndA();
+        if (!empty($question) && !empty($answer) && !empty($questionFR) && !empty($answerFR)) {
+            if ($this->qAndAs->addQandAQuestion($question, $answer, $questionFR, $answerFR, $idCat))
+                $this->qAndAQuestions($idCat);
             else
                 throw new Exception("An error occured during the adding process");
-        }
-        else
-            $this->qAndA();
+        } else
+            $this->qAndAQuestions($idCat);
     }
 
     public function qAndAQuestions($idCat)
@@ -97,19 +132,6 @@ class ctrAdmin
         $objVue->afficher(array("qAndAQs" => $qAndAQs, "qAndAs" => $qAndAs), $title);
     }
 
-    public function qAndAQuestionsAdd_S($idCat)
-    {
-        extract($_POST);
-        if(!empty($question) && !empty($answer) && !empty($questionFR) && !empty($answerFR)){
-            if($this->qAndAs->addQandAQuestion($question,$answer,$questionFR,$answerFR,$idCat))
-                $this->qAndAQuestions($idCat);
-            else
-                throw new Exception("An error occured during the adding process");
-        }
-        else
-            $this->qAndAQuestions($idCat);
-    }
-
     public function qAndAQuestionsDelete($idQ)
     {
         $qAndAQs = $this->qAndAs->getOneQandAQuestion($idQ);
@@ -118,9 +140,9 @@ class ctrAdmin
         $objVue->afficher(array("qAndAQs" => $qAndAQs), $title);
     }
 
-    public function qAndAQuestionsDelete_S($idCat,$idQ)
+    public function qAndAQuestionsDelete_S($idCat, $idQ)
     {
-        if($this->qAndAs->deleteQandAQuestion($idQ))
+        if ($this->qAndAs->deleteQandAQuestion($idQ))
             $this->qAndAQuestions($idCat);
         else
             throw new Exception("An error occured during the delete process");
@@ -134,17 +156,28 @@ class ctrAdmin
         $objVue->afficher(array("qAndAQs" => $qAndAQs), $title);
     }
 
-    public function qAndAQuestionsModify_S($idCat,$idQ)
+    public function qAndAQuestionsModify_S($idCat, $idQ)
     {
         extract($_POST);
-        if(!empty($question) && !empty($answer) && !empty($questionFR) && !empty($answerFR)){
-            if($this->qAndAs->updateQandAQuestion($question,$answer,$questionFR,$answerFR,$idQ))
+        if (!empty($question) && !empty($answer) && !empty($questionFR) && !empty($answerFR)) {
+            if ($this->qAndAs->updateQandAQuestion($question, $answer, $questionFR, $answerFR, $idQ))
                 $this->qAndAQuestions($idCat);
             else
                 throw new Exception("An error occured during the modify process");
-        }
-        else
+        } else
             $this->qAndAQuestions($idCat);
+    }
+
+    public function qAndAModifyCat_S($idCat)
+    {
+        extract($_POST);
+        if (!empty($nameCat)) {
+            if ($this->qAndAs->updateQandACat($nameCat, $idCat))
+                $this->qAndA();
+            else
+                throw new Exception("An error occured during the update process");
+        } else
+            $this->qAndAModifyCat($idCat);
     }
 
     public function qAndAModifyCat($idCat)
@@ -153,19 +186,6 @@ class ctrAdmin
         $title = "Administration Q&A - Modify category - Kaiserstuhl escape";
         $objVue = new vue("AdminQAndAModifyCat");
         $objVue->afficher(array("qAndAs" => $qAndAs), $title);
-    }
-
-    public function qAndAModifyCat_S($idCat)
-    {
-        extract($_POST);
-        if(!empty($nameCat)){
-            if($this->qAndAs->updateQandACat($nameCat,$idCat))
-                $this->qAndA();
-            else
-                throw new Exception("An error occured during the update process");
-        }
-        else
-            $this->qAndAModifyCat($idCat);
     }
 
     public function qAndAModifyEG($idCat)
@@ -196,7 +216,7 @@ class ctrAdmin
 
     public function qAndADeleteCat_S($idCat)
     {
-        if($this->qAndAs->deleteQandACat($idCat))
+        if ($this->qAndAs->deleteQandACat($idCat))
             $this->qAndA();
         else
             throw new Exception("An error occured during the delete process");
@@ -204,9 +224,14 @@ class ctrAdmin
 
     public function job()
     {
+        if (isset($_GET["id"])) {
+            $job = $this->jobs->getJobsById($_GET["id"]);
+        } else {
+            $job = "";
+        }
         $title = "Administration Job - Kaiserstuhl escape";
         $objVue = new vue("AdminJob");
-        $objVue->afficher(array(), $title);
+        $objVue->afficher(array("job" => $job), $title);
     }
 
     public function addJob()
@@ -227,8 +252,35 @@ class ctrAdmin
             $visible = 0;
         }
         $this->jobs->addJobs($title, $titleFR, $position, $positionFR, $task, $taskFR, $strength, $strengthFR, $visible);
-        $this->jobs();
+        header("Location: index.php?action=admin&page=jobs");
 
+    }
+
+    public function updateJob()
+    {
+        $id = $_POST["id"] ?? "";
+        $title = $_POST["title"] ?? "";
+        $titleFR = $_POST["titleFR"] ?? "";
+        $position = $_POST["position"] ?? "";
+        $positionFR = $_POST["positionFR"] ?? "";
+        $task = $_POST["task"] ?? "";
+        $taskFR = $_POST["taskFR"] ?? "";
+        $strength = $_POST["strength"] ?? "";
+        $strengthFR = $_POST["strengthFR"] ?? "";
+
+        if (isset($_POST["visible"])) {
+            $visible = 1;
+        } else {
+            $visible = 0;
+        }
+        $this->jobs->updateJobs($id, $title, $titleFR, $position, $positionFR, $task, $taskFR, $strength, $strengthFR, $visible);
+        header("Location: index.php?action=admin&page=jobs");
+    }
+
+    public function delJob($id)
+    {
+        $this->jobs->delJobs($id);
+        header("Location: index.php?action=admin&page=jobs");
     }
 
     public function jobs()

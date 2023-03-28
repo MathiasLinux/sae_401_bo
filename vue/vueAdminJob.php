@@ -4,48 +4,75 @@
              stroke-width="1.5" stroke-linecap="butt" stroke-linejoin="round">
             <path d="M19 12H6M12 5l-7 7 7 7"/>
         </svg>
-        Return</a>
+        <?= ADMIN_JOB_RETURN ?></a>
 </div>
-<form class="formAdminJob" action="index.php?action=admin&page=addJob" method="post">
-    <h2 class="titleUnderline">Titles</h2>
+<?php
+if (isset($_GET["id"])) {
+    //var_dump($job);
+    $id = $job["id_jobs"];
+    $title = $job["title"];
+    $titleFR = $job["titleFR"];
+    $position = $job["position"];
+    $positionFR = $job["positionFR"];
+    $task = $job["task"];
+    $taskFR = $job["taskFR"];
+    $strength = $job["strength"];
+    $strengthFR = $job["strengthFR"];
+    $visible = $job["visible"];
+    $action = "updateJob";
+} else {
+    $title = "";
+    $titleFR = "";
+    $position = "";
+    $positionFR = "";
+    $task = "";
+    $taskFR = "";
+    $strength = "";
+    $strengthFR = "";
+    $visible = "";
+    $action = "addJob";
+}
+?>
+<form class="formAdminJob" action="index.php?action=admin&page=<?= $action ?>" method="post">
+    <h2 class="titleUnderline"><?= ADMIN_JOB_TITLES ?></h2>
     <label>
-        <p>Title English</p>
-        <input type="text" name="title" id="title">
+        <p><?= ADMIN_JOB_TITLES_1 ?></p>
+        <input type="text" name="title" id="title" value="<?= $title ?>">
     </label>
     <label>
-        <p>Title French</p>
-        <input type="text" name="titleFR" id="titleFR">
+        <p><?= ADMIN_JOB_TITLES_2 ?></p>
+        <input type="text" name="titleFR" id="titleFR" value="<?= $titleFR ?>">
     </label>
-    <h2 class="titleUnderline">Infos</h2>
+    <h2 class="titleUnderline"><?= ADMIN_JOB_INFOS ?></h2>
     <label>
-        <p>Type of position English</p>
-        <input type="text" name="position" id="position">
+        <p><?= ADMIN_JOB_INFOS_1 ?></p>
+        <input type="text" name="position" id="position" value="<?= $position ?>">
     </label>
     <label>
-        <p>Type of position French</p>
-        <input type="text" name="positionFR" id="positionFR">
+        <p><?= ADMIN_JOB_INFOS_2 ?></p>
+        <input type="text" name="positionFR" id="positionFR" value="<?= $positionFR ?>">
     </label>
-    <h2 class="titleUnderline">Tasks</h2>
+    <h2 class="titleUnderline"><?= ADMIN_JOB_TASKS ?></h2>
     <div class="textAreaJob">
-        <label class="labelTextArea" for="task">Task English</label>
-        <textarea name="task" id="task" cols="24" rows="10"></textarea>
+        <label class="labelTextArea" for="task"><?= ADMIN_JOB_TASKS_1 ?></label>
+        <textarea name="task" id="task" cols="24" rows="10"><?= $task ?></textarea>
     </div>
     <div class="textAreaJob">
-        <label class="labelTextArea" for="taskFR">Task French</label>
-        <textarea name="taskFR" id="taskFR" cols="24" rows="10"></textarea>
+        <label class="labelTextArea" for="taskFR"><?= ADMIN_JOB_TASKS_2 ?></label>
+        <textarea name="taskFR" id="taskFR" cols="24" rows="10"><?= $taskFR ?></textarea>
     </div>
-    <h2 class="titleUnderline">Strength</h2>
+    <h2 class="titleUnderline"><?= ADMIN_JOB_STRENGTHS ?></h2>
     <div class="textAreaJob">
-        <label class="labelTextArea" for="strength">Strength English</label>
-        <textarea name="strength" id="strength" cols="24" rows="10"></textarea>
+        <label class="labelTextArea" for="strength"><?= ADMIN_JOB_STRENGTHS_1 ?></label>
+        <textarea name="strength" id="strength" cols="24" rows="10"><?= $strength ?></textarea>
     </div>
     <div class="textAreaJob">
-        <label class="labelTextArea" for="strengthFR">Strength French</label>
-        <textarea name="strengthFR" id="strengthFR" cols="24" rows="10"></textarea>
+        <label class="labelTextArea" for="strengthFR"><?= ADMIN_JOB_STRENGTHS_2 ?></label>
+        <textarea name="strengthFR" id="strengthFR" cols="24" rows="10"><?= $strengthFR ?></textarea>
     </div>
     <div class="displayJob">
-        <p class="firstTitleDisplay">Display</p>
-        <p class="secondTitleDisplay">Display the job offer for the user</p>
+        <p class="firstTitleDisplay"><?= ADMIN_JOB_DISPLAY ?></p>
+        <p class="secondTitleDisplay"><?= ADMIN_JOB_DISPLAY_P ?></p>
         <div class="divVisibleDisplay">
             <svg xmlns="http://www.w3.org/2000/svg" width="41.3" height="30.854" viewBox="0 0 41.3 30.854" fill="white">
                 <g id="Groupe_5" data-name="Groupe 5" transform="translate(0.5 -2.5)">
@@ -57,11 +84,44 @@
                           transform="translate(15 13)"></path>
                 </g>
             </svg>
-            <p>Visible</p>
-            <input type="checkbox" name="visible" id="visible">
+            <p><?= ADMIN_JOB_DISPLAY_VISIBLE ?></p>
+            <input type="checkbox" name="visible" id="visible" <?php
+            if ($visible == 1) {
+                echo "checked";
+            } elseif ($visible == 0) {
+                echo "";
+            } else {
+                echo "checked";
+            }
+            ?>>
         </div>
     </div>
+    <?php
+    if (isset($id)) {
+        ?>
+        <input type="hidden" name="id" value="<?= $id ?>">
+        <?php
+    }
+    ?>
     <div class="submitAdminJob">
-        <input class="yellowButton" type="submit" value="Save">
+        <input class="yellowButton" type="submit" value="<?= ADMIN_JOB_DISPLAY_SAVE ?>">
     </div>
 </form>
+<?php
+if (isset($id)) {
+    ?>
+    <div class="redButton">
+        <?= ADMIN_JOB_DISPLAY_DELETE ?>
+    </div>
+    <div class="validationDeleteUser">
+        <h3><?= ADMIN_JOB_DISPLAY_DELETE_WARNING ?></h3>
+        <div class="delUserDivButton">
+            <a href="index.php?action=admin&page=delJob&id=<?= $job["id_jobs"] ?>"><?= ADMIN_CONTACT_FORM_DELETE_YES ?></a>
+            <div class="noDeleteUser"><?= ADMIN_CONTACT_FROM_DELETE_NO ?></div>
+        </div>
+    </div>
+    <?php
+}
+?>
+
+<script src="js/adminJob.js"></script>

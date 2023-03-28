@@ -39,6 +39,13 @@ class ctrPage
         $objVue->afficher(array(), $title);
     }
 
+    public function tAndC()
+    {
+        $title = "Terms and Conditions - Kaiserstuhl escape";
+        $objVue = new vue("TAndC");
+        $objVue->afficher(array(), $title);
+    }
+
     public function erreur($message)
     {
         $title = "Page d'erreur - Kaiserstuhl escape";

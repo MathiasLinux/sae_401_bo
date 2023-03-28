@@ -11,8 +11,7 @@ foreach ($escapeGames as $escapeGame) {
         <img class="imgBorder" src="../img/escapeGames/<?php echo $escapeGame['id_escapeGame']; ?>.jpg"
              alt="<?php echo $escapeGame['name']; ?>">
         <p><?php echo $escapeGame['description']; ?></p>
-        <a class="greenLink" href="index.php?action=escapeGame&escapeGame=<?php echo $escapeGame['id_escapeGame']; ?>">Go
-            the
+        <a class="greenLink" href="index.php?action=escapeGame&escapeGame=<?php echo $escapeGame['id_escapeGame']; ?>">Go the
             escape game page</a>
     </div>
     <div class="contourTitleImage" style="padding-bottom: 50px; margin-bottom: 50px;"></div>
