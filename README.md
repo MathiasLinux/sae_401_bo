@@ -70,9 +70,9 @@ This project is licensed under the GNU Gebneral Public License v2.0 - see the LI
 
 Thanks to the following people who have contributed to this project:
 
-* [@XemWebs]
-* [@Benvalda]
-* [@CLAVURE]
+* @XemWebs
+* @Benvalda
+* @CLAVURE
 
 Without them, this project would not have been possible.
 
