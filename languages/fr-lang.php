@@ -304,6 +304,17 @@ const BUY_CARDS_CARD_NAME = "Nom";
 
 const BUY_CARDS_CARD_SUBMIT = "Payer";
 
+//Admin : Home Page
+
+const ADMIN_HOME_PAGE_H2 = "Administration";
+const ADMIN_HOME_PAGE_EG = "Escape Games";
+const ADMIN_HOME_PAGE_CONTACT = "Formulaire de contacts";
+const ADMIN_HOME_PAGE_RESERVATION = "Réservations";
+const ADMIN_HOME_PAGE_GIFT_CARD = "Carte cadeaux";
+const ADMIN_HOME_PAGE_QANDA = "FAQ";
+const ADMIN_HOME_PAGE_JOB = "Emplois";
+const ADMIN_HOME_PAGE_USER = "Utilisateurs";
+
 //Admin : Q&A
 
 const ADMIN_QANDA_TITLE = "FAQ";

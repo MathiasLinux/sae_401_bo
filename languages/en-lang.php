@@ -316,6 +316,17 @@ const BUY_CARDS_CARD_NAME = "Name";
 
 const BUY_CARDS_CARD_SUBMIT = "Pay";
 
+//Admin : Home Page
+
+const ADMIN_HOME_PAGE_H2 = "Administration";
+const ADMIN_HOME_PAGE_EG = "Escape Games";
+const ADMIN_HOME_PAGE_CONTACT = "Contact Form";
+const ADMIN_HOME_PAGE_RESERVATION = "Reservations";
+const ADMIN_HOME_PAGE_GIFT_CARD = "Gift Cards";
+const ADMIN_HOME_PAGE_QANDA = "Q&A";
+const ADMIN_HOME_PAGE_JOB = "Jobs";
+const ADMIN_HOME_PAGE_USER = "Users";
+
 //Admin : Q&A
 
 const ADMIN_QANDA_TITLE = "Q&A";
