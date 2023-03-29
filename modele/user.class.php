@@ -44,6 +44,20 @@ class user extends bdd
         return $user[0]["id_user"];
     }
 
+    public function getIdUserFromToken($token)
+    {
+        $req = "SELECT id_user FROM user WHERE token = ?";
+        $user = $this->execReqPrep($req, array($token));
+        return $user[0]["id_user"];
+    }
+
+    public function getUserEmail($id)
+    {
+        $req = "SELECT email FROM user WHERE id_user = ?";
+        $user = $this->execReqPrep($req, array($id));
+        return $user[0]["email"];
+    }
+
     public function getReservationUser($id)
     {
         $req = "SELECT eG.name, eG.nameFR, DATE_FORMAT(gameDate, '%d/%m/%Y') AS gameDateDisplay, nbPlayers, buyersFirstName, buyersLastName FROM buying INNER JOIN escapeGame eG on buying.id_escapeGame = eG.id_escapeGame WHERE id_user = ? AND gameDate > CURDATE();";

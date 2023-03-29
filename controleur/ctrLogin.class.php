@@ -33,22 +33,15 @@ class ctrLogin
     }
 
     /****************
-     * Fonction qui affiche la page d'inscription
-     ***************/
-    public function signUp()
-    {
-        $title = "Sign up - Kaiserstuhl escape";
-        $objVue = new vue("SignUp");
-        $objVue->afficher(array(), $title);
-    }
-
-    /****************
      * Fonction qui crée un compte
      ***************/
     public function createAccount()
     {
+        // Création du tableau d'erreurs
+        $error = array();
+        $ok = array();
         // Vérification des données
-        if (isset($_POST["email"]) and isset($_POST["password"]) and isset($_POST["password1"]) and isset($_POST["firstName"]) and isset($_POST["lastName"])) {
+        /*if (isset($_POST["email"]) and isset($_POST["password"]) and isset($_POST["password1"]) and isset($_POST["firstName"]) and isset($_POST["lastName"])) {
             if (!empty($_POST["email"]) and !empty($_POST["password"]) and !empty($_POST["password1"]) and !empty($_POST["firstName"]) and !empty($_POST["lastName"])) {
                 // Vérification de l'email
                 if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
@@ -64,25 +57,87 @@ class ctrLogin
                                 header("Location: index.php?action=login");
                             } else {
                                 // Les mots de passe ne sont pas identiques
-                                header("Location: index.php?action=signUp&error=1");
+                                $error[] = 1;
+                                //header("Location: index.php?action=signUp&error=1");
                             }
                         } else {
                             // Le nom ou le prénom contient des caractères non autorisés
-                            header("Location: index.php?action=signUp&error=4");
+                            $error[] = 4;
+                            //header("Location: index.php?action=signUp&error=4");
                         }
                     } else {
                         // L'email est déjà utilisé
-                        header("Location: index.php?action=signUp&error=5");
+                        $error[] = 5;
+                        //header("Location: index.php?action=signUp&error=5");
                     }
                 } else {
                     // L'email n'est pas valide
-                    header("Location: index.php?action=signUp&error=2");
+                    $error[] = 2;
+                    //header("Location: index.php?action=signUp&error=2");
                 }
             } else {
                 // Un des champs est vide
-                header("Location: index.php?action=signUp&error=3");
+                $error[] = 3;
+                //header("Location: index.php?action=signUp&error=3");
             }
+        }*/
+        if (!(isset($_POST["email"]) and isset($_POST["password"]) and isset($_POST["password1"]) and isset($_POST["firstName"]) and isset($_POST["lastName"]))) {
+            $error[] = 3; // Un des champs est vide
         }
+        if (empty($_POST["email"]) or empty($_POST["password"]) or empty($_POST["password1"]) or empty($_POST["firstName"]) or empty($_POST["lastName"])) {
+            $error[] = 3; // Un des champs est vide
+        }
+        if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+            $error[] = 2; // L'email n'est pas valide
+        }
+        if ($this->objLogin->emailAlreadyUsed($_POST["email"])) {
+            $error[] = 5; // L'email est déjà utilisé
+        }
+        if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) and !($this->objLogin->emailAlreadyUsed($_POST["email"]))) {
+            $ok["email"] = $_POST["email"];
+        }
+        if (!preg_match("/^[a-zA-Z]+$/", $_POST["firstName"])) {
+            $error[] = 4; // Le prénom contient des caractères non autorisés
+        } else {
+            $ok["firstName"] = $_POST["firstName"];
+        }
+        if (!preg_match("/^[a-zA-Z]+$/", $_POST["lastName"])) {
+            $error[] = 6; // Le nom contient des caractères non autorisés
+        } else {
+            $ok["lastName"] = $_POST["lastName"];
+        }
+        if ($_POST["password"] != $_POST["password1"]) {
+            $error[] = 1; // Les mots de passe ne sont pas identiques
+        }
+        //Create a regex expression to check the password strength with the following rules:
+        //1. At least one uppercase letter
+        //2. At least one lowercase letter
+        //3. At least one digit
+        //4. At least one special character (e.g. !@#$%^&*()_+)
+        //5. Minimum 8 characters
+        //add more special characters into the expression
+        $regex = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/";
+        if (!preg_match($regex, $_POST["password"])) {
+            $error[] = 7; // Le mot de passe n'est pas assez fort
+        }
+        if (empty($error)) {
+            // Ajout de l'utilisateur
+            $this->objLogin->addNormalUser($_POST["email"], $_POST["password"], $_POST["firstName"], $_POST["lastName"]);
+            // Connexion de l'utilisateur
+            header("Location: index.php?action=login");
+        } else {
+            $this->signUp($error, $ok);
+        }
+    }
+
+    /****************
+     * Fonction qui affiche la page d'inscription
+     ***************/
+    public function signUp($error = array(), $ok = array())
+    {
+        $title = "Sign up - Kaiserstuhl escape";
+        $objVue = new vue("SignUp");
+        $objVue->afficher(array("error" => $error, "ok" => $ok), $title);
     }
 
     /****************
@@ -99,6 +154,14 @@ class ctrLogin
                     $_SESSION["email"] = $_POST["email"];
                     $_SESSION["id"] = $this->objUser->getIdUser($_POST["email"]);
                     $_SESSION["rights"] = $this->objUser->getUserRole($_SESSION["id"]);
+                    // Vérification de la case "Se souvenir de moi"
+                    if (isset($_POST["keepSignIn"])) {
+                        // Récupération du token
+                        $token = $this->objLogin->getToken($_SESSION["id"]);
+                        var_dump($token);
+                        // Création du cookie de connexion automatique
+                        setcookie("token", $token, time() + 30 * 24 * 3600, "/", null, false, true);
+                    }
                     // Redirection vers la page d'accueil
                     header("Location: index.php");
                 } else {
@@ -188,6 +251,7 @@ class ctrLogin
     {
         session_destroy();
         setcookie("PHPSESSID", "", 0, "/");
+        setcookie("token", "", 0, "/");
         header("Location: index.php");
     }
 }

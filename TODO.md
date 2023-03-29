@@ -27,8 +27,6 @@
     - Number of players
     
     - Buyers First and Last Name
-      
-      
 
 ## Reviews creations
 

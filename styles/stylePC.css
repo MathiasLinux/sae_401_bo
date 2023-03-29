@@ -365,6 +365,19 @@ header img {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+/* Page de connexion vueLogin.php */
+
+.signInForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.signInForm input[type="password"], .signInForm input[type="email"] {
+    width: 300px;
+}
+
 /* Page legal notice vueLegalNotice.php */
 
 .legalNoticeContent h3 {

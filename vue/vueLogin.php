@@ -1,38 +1,38 @@
-<h2 class="titleUnderline">Welcome</h2>
+<h2 class="titleUnderline"><?= LOGIN_TITLE ?></h2>
 <?php
 if (isset($_GET["error"])) {
     if ($_GET["error"] == 1) {
-        echo "<p class='errorSignUp'>The email or the password is incorrect</p>";
+        echo "<p class='errorSignUp'>" . LOGIN_ERROR_1 . "</p>";
     } elseif ($_GET["error"] == 2) {
-        echo "<p class='errorSignUp'>Please fill all the fields</p>";
+        echo "<p class='errorSignUp'>" . LOGIN_ERROR_2 . "</p>";
     }
 }
 ?>
-<form class="contactForm" action="index.php?action=connexion" method="post">
+<form class="contactForm signInForm" action="index.php?action=connexion" method="post">
     <div class="formGroup">
         <label>
-            E-mail address
+            <?= LOGIN_EMAIL ?>
             <input type="email" id="email" name="email" required>
         </label>
     </div>
     <div class="formGroup">
         <label>
-            Password
+            <?= LOGIN_PASSWORD ?>
             <input type="password" id="password" name="password" required>
         </label>
     </div>
     <div class="formGroup">
         <label class="labelCheckbox">
             <input type="checkbox" name="keepSignIn" id="keepSignIn">
-            <div>Keep me signed in</div>
+            <div><?= LOGIN_REMEMBER_ME ?></div>
         </label>
     </div>
     <div class="formGroup formInput loginSubmit">
-        <input type="submit" value="Sign in">
+        <input type="submit" value="<?= LOGIN_SIGN_IN ?>">
     </div>
 </form>
 <div class="toSignUp">
     <div class="greenLigne"></div>
-    <p>Don't have an account ?</p>
-    <a class="yellowLinkSignUp" href="index.php?action=signUp">Sign up</a>
+    <p><?= LOGIN_DONT_HAVE_ACCOUNT ?></p>
+    <a class="yellowLinkSignUp" href="index.php?action=signUp"><?= LOGIN_SIGN_UP ?></a>
 </div>

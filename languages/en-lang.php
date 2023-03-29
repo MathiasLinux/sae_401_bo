@@ -32,6 +32,51 @@ const FOOTER_Q_AND_A = "Q&A";
 
 const FOOTER_CONTACT = "Contact Us";
 
+//Login page
+
+const LOGIN_TITLE = "Welcome back";
+
+const LOGIN_EMAIL = "Email address";
+
+const LOGIN_PASSWORD = "Password";
+
+const LOGIN_REMEMBER_ME = "Keep me signed in";
+
+const LOGIN_SIGN_IN = "Sign in";
+
+const LOGIN_DONT_HAVE_ACCOUNT = "Don't have an account ?";
+const LOGIN_SIGN_UP = "Sign up";
+
+const LOGIN_ERROR_1 = "The email or the password is incorrect";
+
+const LOGIN_ERROR_2 = "Please fill all the fields";
+
+//Sign up page
+
+const SIGNUP_CREATE_ACCOUNT = "Create an account";
+
+const SIGNUP_EMAIL = "Email address";
+
+const SIGNUP_PASSWORD = "Password";
+
+const SIGNUP_CONFIRM_PASSWORD = "Re-enter your password";
+
+const SIGNUP_FIRST_NAME = "First name";
+
+const SIGNUP_LAST_NAME = "Last name";
+
+const SIGNUP_ERROR_1 = "The passwords don't match";
+
+const SIGNUP_ERROR_2 = "The email is not valid";
+
+const SIGNUP_ERROR_3 = "Please fill all the fields";
+
+const SIGNUP_ERROR_4 = "The first name is not valid";
+
+const SIGNUP_ERROR_5 = "The email is already used";
+const SIGNUP_ERROR_6 = "The last name is not valid";
+const SIGNUP_ERROR_7 = "The password must contain at least 8 characters, 1 uppercase, 1 lowercase, 1 number and 1 special character";
+
 //Account Hover
 
 const ACCOUNT_HOVER_SETTINGS = "Account settings";
@@ -73,6 +118,8 @@ const ACCOUNT_ESCAPE_GAME_NB_PLAYERS = "Number of players";
 const ACCOUNT_ESCAPE_GAME_BUYERS_FIRST_NAME = "Player's first name";
 
 const ACCOUNT_ESCAPE_GAME_BUYERS_LAST_NAME = "Player's last name";
+
+const ACCOUNT_NO_PURCHASES = "You have no purchases";
 
 //Change account infos page
 

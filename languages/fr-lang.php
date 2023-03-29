@@ -104,7 +104,53 @@ const ACCOUNT_HOVER_LOGIN = "Connexion";
 
 const ACCOUNT_HOVER_SIGNUP = "Créer un compte";
 
-//Acount page
+//Login page
+
+const LOGIN_TITLE = "Heureux de vous revoir !";
+
+const LOGIN_EMAIL = "Adresse e-mail";
+
+const LOGIN_PASSWORD = "Mot de passe";
+
+const LOGIN_REMEMBER_ME = "Se souvenir de moi";
+
+const LOGIN_SIGN_IN = "Se connecter";
+
+const LOGIN_DONT_HAVE_ACCOUNT = "Vous n'avez pas de compte ?";
+const LOGIN_SIGN_UP = "Créer un compte";
+
+const LOGIN_ERROR_1 = "L'adresse e-mail ou le mot de passe est incorrect";
+
+const LOGIN_ERROR_2 = "Veuillez remplir tous les champs";
+
+//Sign up page
+
+const SIGNUP_CREATE_ACCOUNT = "Créer un compte";
+
+const SIGNUP_EMAIL = "Adresse e-mail";
+
+const SIGNUP_PASSWORD = "Mot de passe";
+
+const SIGNUP_CONFIRM_PASSWORD = "Confirmer le mot de passe";
+
+const SIGNUP_FIRST_NAME = "Prénom";
+
+const SIGNUP_LAST_NAME = "Nom";
+
+const SIGNUP_ERROR_1 = "Les mots de passe ne correspondent pas";
+
+const SIGNUP_ERROR_2 = "L'adresse e-mail n'est pas valide";
+
+const SIGNUP_ERROR_3 = "Veuillez remplir tous les champs";
+
+const SIGNUP_ERROR_4 = "Le prénom n'est pas valide";
+
+const SIGNUP_ERROR_5 = "L'adresse e-mail est déjà utilisée";
+
+const SIGNUP_ERROR_6 = "Le nom n'est pas valide";
+const SIGNUP_ERROR_7 = "Le mot de passe doit contenir au moins 8 caractères dont une majuscule, une minuscule, un chiffre et un caractère spécial";
+
+//Account page
 
 const ACCOUNT_TITLE = "Mon compte";
 
@@ -135,6 +181,7 @@ const ACCOUNT_ESCAPE_GAME_NB_PLAYERS = "Nombre de joueurs";
 const ACCOUNT_ESCAPE_GAME_BUYERS_FIRST_NAME = "Prénom du joueur";
 
 const ACCOUNT_ESCAPE_GAME_BUYERS_LAST_NAME = "Nom du joueur";
+const ACCOUNT_NO_PURCHASES = "Vous n'avez pas encore d'achats";
 
 //Change account infos page
 

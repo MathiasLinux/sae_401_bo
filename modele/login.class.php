@@ -46,8 +46,22 @@ class login extends bdd
     public function addNormalUser($email, $password, $firstName, $lastName)
     {
         if (isset($email) and isset($password) and isset($firstName) and isset($lastName)) { // Vérifie que les variables existent
-            $req = "INSERT INTO user (email, password, firstName, lastName) VALUES (?, ?, ?, ?)"; // Envoie de la requête SQL
-            $this->execReqPrep($req, array($email, password_hash($password, PASSWORD_DEFAULT), $firstName, $lastName)); // Exécute la requête
+            $req = "INSERT INTO user (email, password, firstName, lastName, token) VALUES (?, ?, ?, ?, ?)"; // Envoie de la requête SQL
+            $token = base64_encode(random_bytes(120)); // Génère un token aléatoire
+            // Vérifie que le token n'est pas déjà utilisé
+            while ($this->execReqPrep("SELECT * FROM user WHERE token = ?", array($token))) {
+                $token = base64_encode(random_bytes(120)); // Génère un nouveau token
+            }
+            $this->execReqPrep($req, array($email, password_hash($password, PASSWORD_DEFAULT), $firstName, $lastName, $token)); // Exécute la requête
         }
+    }
+
+    public function getToken($id)
+    {
+        $req = "SELECT token FROM user WHERE id_user = ?"; // Envoie de la requête SQL
+
+        $token = $this->execReqPrep($req, array($id));
+
+        return $token[0]["token"];
     }
 }

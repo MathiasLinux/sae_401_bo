@@ -39,6 +39,13 @@ class giftCards extends bdd
         for ($i = 0; $i < 13; $i++) {
             $code .= rand(0, 9);
         }
+
+        while ($this->execReqPrep("SELECT * FROM giftCard WHERE code = ?", array($code))) {
+            $code = "";
+            for ($i = 0; $i < 13; $i++) {
+                $code .= rand(0, 9);
+            }
+        }
         return $code;
     }
 

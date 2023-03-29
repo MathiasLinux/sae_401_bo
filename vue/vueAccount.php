@@ -22,12 +22,20 @@ echo "<h3 class='welcomeBack'>" . ACCOUNT_WELCOME . " " . $user["firstName"] . "
         </thead>
         <tbody>
         <?php
-        foreach ($moneyCards as $card) {
+        if (isset($moneyCards) and !empty($moneyCards)) {
+            foreach ($moneyCards as $card) {
+                ?>
+                <tr class="searchContent">
+                    <td class="tg-m5d1 pad"><?= $card['buyingDate'] ?></td>
+                    <td class="tg-m5d1 pad"><?= $card['code'] ?></td>
+                    <td class="tg-m5d1 pad"><?= $card['price'] ?> €</td>
+                </tr>
+                <?php
+            }
+        } else {
             ?>
             <tr class="searchContent">
-                <td class="tg-m5d1 pad"><?= $card['buyingDate'] ?></td>
-                <td class="tg-m5d1 pad"><?= $card['code'] ?></td>
-                <td class="tg-m5d1 pad"><?= $card['price'] ?> €</td>
+                <td class="tg-m5d1 pad" colspan="3"><?= ACCOUNT_NO_PURCHASES ?></td>
             </tr>
             <?php
         }
@@ -47,26 +55,20 @@ echo "<h3 class='welcomeBack'>" . ACCOUNT_WELCOME . " " . $user["firstName"] . "
         </thead>
         <tbody>
         <?php
-        foreach ($escapeCards as $card) {
+        if (isset($escapeCards) and !empty($escapeCards)) {
+            foreach ($escapeCards as $card) {
+                ?>
+                <tr class="searchContent">
+                    <td class="tg-m5d1 pad"><?= $card['buyingDate'] ?></td>
+                    <td class="tg-m5d1 pad"><?= $card['code'] ?></td>
+                    <td class="tg-m5d1 pad"><?= $card['price'] ?> €</td>
+                </tr>
+                <?php
+            }
+        } else {
             ?>
             <tr class="searchContent">
-                <td class="tg-m5d1 pad"><?= $card['buyingDate'] ?></td>
-                <td class="tg-m5d1 pad"><?= $card['code'] ?></td>
-                <?php
-                if ($_SESSION["lang"] == "en") {
-                    ?>
-                    <td class="tg-m5d1 pad"><?= $card['name'] ?></td>
-                    <?php
-                } elseif ($_SESSION["lang"] == "fr") {
-                    ?>
-                    <td class="tg-m5d1 pad"><?= $card['nameFR'] ?></td>
-                    <?php
-                } else {
-                    ?>
-                    <td class="tg-m5d1 pad"><?= $card['name'] ?></td>
-                    <?php
-                }
-                ?>
+                <td class="tg-m5d1 pad" colspan="3"><?= ACCOUNT_NO_PURCHASES ?></td>
             </tr>
             <?php
         }
@@ -88,28 +90,36 @@ echo "<h3 class='welcomeBack'>" . ACCOUNT_WELCOME . " " . $user["firstName"] . "
         </thead>
         <tbody>
         <?php
-        foreach ($reservation as $res) {
+        if (isset($reservation) and !empty($reservation)) {
+            foreach ($reservation as $res) {
+                ?>
+                <tr class="searchContent">
+                    <?php
+                    if ($_SESSION["lang"] == "en") {
+                        ?>
+                        <td class="tg-m5d1 pad"><?= $res['name'] ?></td>
+                        <?php
+                    } elseif ($_SESSION["lang"] == "fr") {
+                        ?>
+                        <td class="tg-m5d1 pad"><?= $res['nameFR'] ?></td>
+                        <?php
+                    } else {
+                        ?>
+                        <td class="tg-m5d1 pad"><?= $res['name'] ?></td>
+                        <?php
+                    }
+                    ?>
+                    <td class="tg-m5d1 pad"><?= $res['gameDateDisplay'] ?></td>
+                    <td class="tg-m5d1 pad"><?= $res['nbPlayers'] ?></td>
+                    <td class="tg-m5d1 pad"><?= $res['buyersFirstName'] ?></td>
+                    <td class="tg-m5d1 pad"><?= $res['buyersLastName'] ?></td>
+                </tr>
+                <?php
+            }
+        } else {
             ?>
             <tr class="searchContent">
-                <?php
-                if ($_SESSION["lang"] == "en") {
-                    ?>
-                    <td class="tg-m5d1 pad"><?= $res['name'] ?></td>
-                    <?php
-                } elseif ($_SESSION["lang"] == "fr") {
-                    ?>
-                    <td class="tg-m5d1 pad"><?= $res['nameFR'] ?></td>
-                    <?php
-                } else {
-                    ?>
-                    <td class="tg-m5d1 pad"><?= $res['name'] ?></td>
-                    <?php
-                }
-                ?>
-                <td class="tg-m5d1 pad"><?= $res['gameDateDisplay'] ?></td>
-                <td class="tg-m5d1 pad"><?= $res['nbPlayers'] ?></td>
-                <td class="tg-m5d1 pad"><?= $res['buyersFirstName'] ?></td>
-                <td class="tg-m5d1 pad"><?= $res['buyersLastName'] ?></td>
+                <td class="tg-m5d1 pad" colspan="5"><?= ACCOUNT_NO_PURCHASES ?></td>
             </tr>
             <?php
         }

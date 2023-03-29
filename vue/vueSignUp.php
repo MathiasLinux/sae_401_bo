@@ -6,54 +6,76 @@
 //Error 5 is when the email is already used
 ?>
 
-<h2 class="titleUnderline">Create an account</h2>
+<h2 class="titleUnderline"><?= SIGNUP_CREATE_ACCOUNT ?></h2>
 <?php
-if (isset($_GET["error"])) {
-    if ($_GET["error"] == 1) {
-        echo "<p class='errorSignUp'>The passwords don't match</p>";
-    } elseif ($_GET["error"] == 2) {
-        echo "<p class='errorSignUp'>The email is not valid</p>";
-    } elseif ($_GET["error"] == 3) {
-        echo "<p class='errorSignUp'>Please fill all the fields</p>";
-    } elseif ($_GET["error"] == 4) {
-        echo "<p class='errorSignUp'>The first name or last name is not valid</p>";
-    } elseif ($_GET["error"] == 5) {
-        echo "<p class='errorSignUp'>The email is already used</p>";
+if (isset($error) and !empty($error)) {
+    if (in_array(1, $error)) {
+        echo "<p class='errorSignUp'>" . SIGNUP_ERROR_1 . "</p>";
+    }
+    if (in_array(7, $error)) {
+        echo "<p class='errorSignUp'>" . SIGNUP_ERROR_7 . "</p>";
+    }
+    if (in_array(2, $error)) {
+        echo "<p class='errorSignUp'>" . SIGNUP_ERROR_2 . "</p>";
+    }
+    if (in_array(3, $error)) {
+        echo "<p class='errorSignUp'>" . SIGNUP_ERROR_3 . "</p>";
+    }
+    if (in_array(4, $error)) {
+        echo "<p class='errorSignUp'>" . SIGNUP_ERROR_4 . "</p>";
+    }
+    if (in_array(5, $error)) {
+        echo "<p class='errorSignUp'>" . SIGNUP_ERROR_5 . "</p>";
+    }
+    if (in_array(6, $error)) {
+        echo "<p class='errorSignUp'>" . SIGNUP_ERROR_6 . "</p>";
     }
 }
 ?>
 <form class="contactForm" action="index.php?action=createAccount" method="post">
     <div class="formGroup">
         <label>
-            E-mail address
-            <input type="email" id="email" name="email" required>
+            <?= SIGNUP_EMAIL ?>
+            <input type="email" id="email" name="email" value="<?php
+            if (isset($ok["email"])) {
+                echo $ok["email"];
+            }
+            ?>" required>
         </label>
     </div>
     <div class="formGroup">
         <label>
-            First name
-            <input type="text" id="firstName" name="firstName" required>
+            <?= SIGNUP_FIRST_NAME ?>
+            <input type="text" id="firstName" name="firstName" value="<?php
+            if (isset($ok["firstName"])) {
+                echo $ok["firstName"];
+            }
+            ?>" required>
         </label>
     </div>
     <div class="formGroup">
         <label>
-            Last name
-            <input type="text" id="lastName" name="lastName" required>
+            <?= SIGNUP_LAST_NAME ?>
+            <input type="text" id="lastName" name="lastName" value="<?php
+            if (isset($ok["lastName"])) {
+                echo $ok["lastName"];
+            }
+            ?>" required>
         </label>
     </div>
     <div class="formGroup">
         <label>
-            Password
+            <?= SIGNUP_PASSWORD ?>
             <input type="password" id="password" name="password" required>
         </label>
     </div>
     <div class="formGroup">
         <label>
-            Re-enter password
+            <?= SIGNUP_CONFIRM_PASSWORD ?>
             <input type="password" id="password1" name="password1" required>
         </label>
     </div>
     <div class="formGroup formInput">
-        <input type="submit" value="Sign up">
+        <input type="submit" value="<?= LOGIN_SIGN_UP ?>">
     </div>
 </form>
