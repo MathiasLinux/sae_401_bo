@@ -44,14 +44,6 @@
                 </a>
             </div>
             <div class="loginLinksPC">
-                <?php
-                if (isset($_SESSION["email"])) {
-                    echo "<a href='index.php?action=account'>";
-                } else {
-                    echo "<a href='index.php?action=login'>";
-                }
-                ?>
-
                 <svg id="Calque_2" data-name="Calque 2" xmlns="http://www.w3.org/2000/svg"
                      viewBox="0 0 470 470">
                     <g id="Calque_1-2" data-name="Calque 1">

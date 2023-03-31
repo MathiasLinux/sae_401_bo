@@ -32,3 +32,12 @@ document.querySelector(".closeMenu").addEventListener("click", function () {
 document.querySelector(".closeMenuAdmin").addEventListener("click", function () {
     document.querySelector(".mobileMenuAdmin").classList.remove("show");
 });
+
+
+document.querySelector(".linksPC>.endLinksPC>.loginLinksPC").addEventListener("click", open);
+
+function open(){
+    document.querySelector(".hoverLoginPC").classList.toggle("open");
+}
+
+document.querySelector(".hoverLoginPC").addEventListener("click", open);
