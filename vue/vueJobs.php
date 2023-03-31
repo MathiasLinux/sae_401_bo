@@ -58,8 +58,8 @@
     <?php
     foreach ($jobs as $job) {
         ?>
-        <div class="aJobOffer">
-            <div class="titleJobOffer">
+        <div class="topJob">
+            <div class="titleJob">
                 <?php
                 if ($_SESSION['lang'] == "fr") {
                     $jobTitle = $job['titleFR'];

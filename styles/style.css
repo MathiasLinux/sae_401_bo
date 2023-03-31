@@ -619,12 +619,11 @@ footer a {
 
 /* Page Partners vuePartners.php */
 
-.partnersLigne {
+.partners{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    justify-items: center;
-    align-items: center;
-    margin-bottom: 20px;
+    grid-template-rows: repeat(6, 1fr);
+    grid-gap: 20px;
 }
 
 .textPartners {
@@ -1294,6 +1293,7 @@ h3.titleAdminQAndA {
 
 .topJob {
     border: var(--yellow) 3px solid;
+    margin-bottom: 20px;
 }
 
 .titleJob {
@@ -1304,6 +1304,7 @@ h3.titleAdminQAndA {
     justify-content: center;
     align-items: center;
     padding: 20px;
+    font-size: 19pt;
 }
 
 .titleJob p {
