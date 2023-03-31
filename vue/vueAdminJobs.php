@@ -1,3 +1,4 @@
+<h2 class="titleUnderline"> <?= ADMIN_JOBS_TITLE ?> </h2>
 <div class="adminJobs">
     <div class="topAdminJob">
         <a class="yellowButtonAddAdmin" href="index.php?action=admin&page=job"><?= ADMIN_JOBS_ADD_JOB ?></a>
@@ -26,7 +27,7 @@
                     </p>
                 </div>
                 <div class="jobDescription">
-                    <div class="jobTask">
+                    <div>
                         <p class="secondTitleJob"><?= ADMIN_JOBS_TASKS?>:</p>
                         <ul>
                             <?php
@@ -38,7 +39,7 @@
                             ?>
                         </ul>
                     </div>
-                    <div class="jobStrenghts">
+                    <div >
                         <p class="secondTitleJob"><?= ADMIN_JOBS_STRENGTHS?>:</p>
                         <ul>
                             <?php
