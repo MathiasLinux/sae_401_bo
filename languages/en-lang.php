@@ -589,6 +589,7 @@ const ADMIN_GIFT_CARDS_H2_3 = "Sold Escape Cards";
 
 //Admin Jobs
 
+const ADMIN_JOBS_TITLE = "Jobs";
 const ADMIN_JOBS_ADD_JOB = "Create a new job";
 const ADMIN_JOBS_TASKS = "Your Tasks";
 const ADMIN_JOBS_STRENGTHS = "Your Strengths";

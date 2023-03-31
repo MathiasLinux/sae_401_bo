@@ -577,6 +577,7 @@ const ADMIN_GIFT_CARDS_H2_3 = "Cartes cadeaux d'escape game vendues";
 
 //Admin Jobs
 
+const ADMIN_JOBS_TITLE = "Offres d'emploi";
 const ADMIN_JOBS_ADD_JOB = "Créer une offre d'emploi";
 const ADMIN_JOBS_TASKS = "Vos tâches ";
 const ADMIN_JOBS_STRENGTHS = "Vos forces ";
