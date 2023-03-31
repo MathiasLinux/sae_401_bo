@@ -529,6 +529,8 @@ const ADMIN_CONTACT_FROM_DELETE_NO = "No";
 
 const ADMIN_USER_TITLE = "Users Management";
 
+const ADMIN_USER_SEARCH = "Search a user";
+
 const ADMIN_USER_FIRST_NAME = "First Name";
 
 const ADMIN_USER_LAST_NAME = "Last Name";

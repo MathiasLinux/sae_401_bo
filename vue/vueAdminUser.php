@@ -1,9 +1,10 @@
 <?php //var_dump($users); ?>
-<h2><?= ADMIN_USER_TITLE ?></h2>
+<h2 class="titleUnderline"><?= ADMIN_USER_TITLE ?></h2>
 <form class="contactForm contactJobs" style="margin-bottom: 12px" action="#"
       method="post">
     <div class="formGroup">
-        <label for="">
+        <label>
+        <p class="titleAdminQAndA"> <?= ADMIN_USER_SEARCH ?> </p>
             <input class="searchUser" type="search" name="search" id="search">
         </label>
     </div>

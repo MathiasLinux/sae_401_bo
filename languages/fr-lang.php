@@ -517,6 +517,8 @@ const ADMIN_CONTACT_FROM_DELETE_NO = "Non";
 
 const ADMIN_USER_TITLE = "Gestion des utilisateurs";
 
+const ADMIN_USER_SEARCH = "Chercher un utilisateur";
+
 const ADMIN_USER_FIRST_NAME = "Prénom";
 
 const ADMIN_USER_LAST_NAME = "Nom";
