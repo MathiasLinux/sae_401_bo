@@ -468,6 +468,13 @@ const ADMIN_GIFT_CARDS_SOLD_USER_EMAIL = "User E-mail";
 
 const ADMIN_GIFT_CARDS_H2_3 = "Sold Escape Cards";
 
+//Admin Jobs
+
+const ADMIN_JOBS_ADD_JOB = "Create a new job";
+const ADMIN_JOBS_TASKS = "Your Tasks";
+const ADMIN_JOBS_STRENGTHS = "Your Strengths";
+const ADMIN_JOBS_MOD_JOB = "Modify Job";
+
 //Admin create/modif job page
 
 const ADMIN_JOB_RETURN = "Return";

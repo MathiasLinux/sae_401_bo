@@ -457,6 +457,13 @@ const ADMIN_GIFT_CARDS_SOLD_USER_EMAIL = "E-mail de l'utilisateur";
 
 const ADMIN_GIFT_CARDS_H2_3 = "Cartes cadeaux d'escape game vendues";
 
+//Admin Jobs
+
+const ADMIN_JOBS_ADD_JOB = "Créer une offre d'emploi";
+const ADMIN_JOBS_TASKS = "Vos tâches ";
+const ADMIN_JOBS_STRENGTHS = "Vos forces ";
+const ADMIN_JOBS_MOD_JOB = "Modifier offre";
+
 //Admin create/modif job page
 
 const ADMIN_JOB_RETURN = "Retour";
@@ -479,7 +486,7 @@ const ADMIN_JOB_TASKS_1 = "Tâches Anglais";
 
 const ADMIN_JOB_TASKS_2 = "Tâches Français";
 
-const ADMIN_JOB_STRENGTHS = "Strengths";
+const ADMIN_JOB_STRENGTHS = "Forces";
 
 const ADMIN_JOB_STRENGTHS_1 = "Forces Anglais";
 
