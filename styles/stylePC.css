@@ -4,6 +4,11 @@ header {
 
 }
 
+body{
+    margin: 0;
+    overflow-x: hidden;
+}
+
 header img {
     width: 150px;
 }
@@ -222,6 +227,7 @@ header img {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin: 10px;
 }
 
 .Posi {
@@ -233,6 +239,7 @@ header img {
 
 .Posi:hover {
     border: 3px solid var(--yellow);
+    transition: 0.2s;
 }
 
 .Posi > h2 {
@@ -273,10 +280,10 @@ header img {
 
 .Posi > div > .img4 {
     height: 300px;
-    /* width: auto; */
-    /* position: relative; */
-    /* right: 151px;
-    clip-path: polygon(30% 0, 70% 0, 70% 100%, 30% 100%); */
+    width: auto; 
+    position: relative;
+    right: 151px;
+    clip-path: polygon(30% 0, 70% 0, 70% 100%, 30% 100%);
 }
 
 .Posi > a {
@@ -591,4 +598,19 @@ label.center > h3 {
     display: flex;
     flex-direction: column;
 
+}
+
+/* Partner */
+
+.partners>div{
+    width: 200px;
+    height: 145px;
+}
+
+.partners{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+
+    margin-left: 160px;
 }
