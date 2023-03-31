@@ -22,6 +22,10 @@ document.querySelector(".PCMenuDiv").addEventListener("click", function () {
     }
 });
 
+if (action !== "admin") {
+    document.querySelector(".PCMenuDiv").classList.add("none");
+}
+
 document.querySelector(".closeMenu").addEventListener("click", function () {
     document.querySelector(".mobileMenu").classList.remove("show");
 });

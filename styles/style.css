@@ -81,6 +81,10 @@ main {
     left: 0 !important;
 }
 
+.none {
+    display: none;
+}
+
 .mobileMenu, .mobileMenuAdmin {
     position: fixed;
     top: 0;
