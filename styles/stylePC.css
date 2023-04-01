@@ -293,7 +293,20 @@ header img {
     justify-content: space-around;
 }
 
-/* Jobs */
+/* Page Gift Cards */
+
+.flexCardsPC {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.ligneOneGiftCards {
+    grid-gap: 50px;
+}
+
+/* Page Jobs */
 
 .jobsFirstIcons {
     display: grid;
