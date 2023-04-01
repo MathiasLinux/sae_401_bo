@@ -624,3 +624,23 @@ const ADMIN_JOB_DISPLAY_SAVE = "Sauvegarder";
 const ADMIN_JOB_DISPLAY_DELETE = "Supprimer";
 
 const ADMIN_JOB_DISPLAY_DELETE_WARNING = "Êtes-vous sûr de vouloir supprimer cette offre d'emploi ?";
+
+//Home page
+
+const HOME_FIRST_DESCRIPTION = "Bienvenue chez Kaiserstuhl Escape, la destination ultime pour les passionnés d'escape games ! Nos escape games immersifs mettent au défi votre esprit et votre créativité, alors que vous travaillez en équipe pour résoudre des énigmes, déchiffrer des codes et élucider des mystères. Avec plusieurs salles à thème au choix, chacune avec sa propre histoire et ses propres défis, vous êtes sûr de vivre une expérience inoubliable. Que vous prévoyiez une soirée amusante avec des amis ou une activité de renforcement d'équipe pour votre entreprise, Kaiserstuhl Escape offre le mélange parfait de divertissement et d'aventure. Réservez votre aventure en salle d'évasion dès aujourd'hui et voyez si vous avez ce qu'il faut pour vous échapper à temps !";
+
+const HOME_MORE_INFO = "Plus d'informations";
+
+const HOME_BUY = "Acheter !";
+
+const HOME_GIFT_CARD_TITLE = "Cartes cadeaux";
+
+const HOME_GIFT_CARD_P = "Offrez une aventure maintenant !";
+
+const HOME_OTHER_ESCAPE_TITLE = "Autres escape games";
+
+const HOME_OTHER_ESCAPE_LINK = "Découvrez →";
+
+const HOME_REVIEW_TITLE = "Avis";
+
+

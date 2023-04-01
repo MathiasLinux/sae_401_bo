@@ -1,14 +1,28 @@
 <?php
 
+require_once "modele/escapeGame.class.php";
+require_once "modele/reviews.class.php";
 require_once "vue/vue.class.php";
 
 class ctrPage
 {
+    public $objEscapeGame;
+    public $objReview;
+
+    public function __construct()
+    {
+        $this->objEscapeGame = new escapeGame();
+        $this->objReview = new review();
+    }
+
     public function accueil()
     {
+        $frontEscape = $this->objEscapeGame->getFrontEscapeGames();
+        $escapeGames = $this->objEscapeGame->getEscapeGamesWithoutFront();
+        $reviews = $this->objReview->getReviews();
         $title = "Home - Kaiserstuhl escape";
         $objVue = new vue("Accueil");
-        $objVue->afficher(array(), $title);
+        $objVue->afficher(array("frontEscape" => $frontEscape, "escapeGames" => $escapeGames, "reviews" => $reviews), $title);
     }
 
     public function aboutUs()

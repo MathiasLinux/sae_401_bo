@@ -4,11 +4,6 @@ header {
 
 }
 
-body{
-    margin: 0;
-    overflow-x: hidden;
-}
-
 header img {
     width: 150px;
 }
@@ -77,8 +72,6 @@ header img {
 }
 
 
-
-
 .hoverLoginPC {
     display: flex;
     position: absolute;
@@ -95,10 +88,11 @@ header img {
 }
 
 
-.open{
+.open {
     transform: translateY(0);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
+
 .hoverLoginPC > a {
     text-decoration: none;
     color: white;
@@ -152,7 +146,7 @@ header img {
 }
 
 .descLastEscape {
-    font-size: 36px;
+    font-size: 20px;
 }
 
 .newEscapeGame {
@@ -227,7 +221,6 @@ header img {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 10px;
 }
 
 .Posi {
@@ -239,14 +232,15 @@ header img {
 
 .Posi:hover {
     border: 3px solid var(--yellow);
-    transition: 0.2s;
 }
 
 .Posi > h2 {
     position: relative;
-    bottom: 20%;
-    left: 8%;
+    bottom: 25%;
     z-index: 3;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 .Posi > div {
@@ -255,11 +249,7 @@ header img {
 }
 
 .Posi > div > .img1 {
-    height: 300px;
-    width: auto;
-    position: relative;
-    right: 70px;
-    clip-path: polygon(14% 0, 54% 0, 54% 100%, 14% 100%);
+    /*clip-path: polygon(14% 0, 54% 0, 54% 100%, 14% 100%);*/
 }
 
 .Posi > div > .img2 {
@@ -280,10 +270,10 @@ header img {
 
 .Posi > div > .img4 {
     height: 300px;
-    width: auto; 
-    position: relative;
-    right: 151px;
-    clip-path: polygon(30% 0, 70% 0, 70% 100%, 30% 100%);
+    /* width: auto; */
+    /* position: relative; */
+    /* right: 151px;
+    clip-path: polygon(30% 0, 70% 0, 70% 100%, 30% 100%); */
 }
 
 .Posi > a {
@@ -602,12 +592,12 @@ label.center > h3 {
 
 /* Partner */
 
-.partners>div{
+.partners > div {
     width: 200px;
     height: 145px;
 }
 
-.partners{
+.partners {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(6, 1fr);

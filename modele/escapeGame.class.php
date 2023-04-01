@@ -1,5 +1,6 @@
 <?php
 
+require_once "modele/bdd.class.php";
 require_once "vue/vue.class.php";
 
 class escapeGame extends bdd
@@ -7,8 +8,7 @@ class escapeGame extends bdd
     public function getEscapeGames()
     {
         $req = "SELECT * FROM escapeGame";
-        $escapeGames = $this->execReq($req);
-        return $escapeGames;
+        return $this->execReq($req);
     }
 
     public function getEscapeGame($id)
@@ -48,6 +48,20 @@ class escapeGame extends bdd
         $req = "SELECT $ligne FROM escapeGame WHERE id_escapeGame = ?";
         $escapeGame = $this->execReqPrep($req, array($id));
         return $escapeGame[0][$ligne];
+    }
+
+    public function getFrontEscapeGames()
+    {
+        $req = "SELECT * FROM escapeGame WHERE onFront = 1";
+        $escapeGames = $this->execReq($req);
+        return $escapeGames[0];
+    }
+
+    public function getEscapeGamesWithoutFront()
+    {
+        $req = "SELECT * FROM escapeGame WHERE onFront = 0";
+        $escapeGames = $this->execReq($req);
+        return $escapeGames;
     }
 
 }

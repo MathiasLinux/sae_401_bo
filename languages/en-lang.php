@@ -636,3 +636,20 @@ const ADMIN_JOB_DISPLAY_SAVE = "Save";
 const ADMIN_JOB_DISPLAY_DELETE = "Delete";
 
 const ADMIN_JOB_DISPLAY_DELETE_WARNING = "Are you sure you want to delete this job offer ?";
+
+//Home page
+
+const HOME_FIRST_DESCRIPTION = "Welcome to Kaiserstuhl Escape, the ultimate destination for escape room enthusiasts! Our immersive escape games challenge your mind and creativity, as you work together with your team to solve puzzles, crack codes, and unravel mysteries. With multiple themed rooms to choose from, each with its own unique storyline and set of challenges, you're sure to have an unforgettable experience. Whether you're planning a fun night out with friends or a team building activity for your company, Kaiserstuhl Escape offers the perfect blend of entertainment and adventure. Book your escape room adventure today and see if you have what it takes to escape in time!";
+
+const HOME_MORE_INFO = "More information";
+
+const HOME_BUY = "Buy now !";
+
+const HOME_GIFT_CARD_TITLE = "Gift Cards";
+
+const HOME_GIFT_CARD_P = "Gift an adventure now !";
+
+const HOME_OTHER_ESCAPE_TITLE = "Other Escape Games";
+const HOME_OTHER_ESCAPE_LINK = "Discover →";
+
+const HOME_REVIEW_TITLE = "Reviews";
