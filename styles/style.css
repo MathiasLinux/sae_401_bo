@@ -1299,7 +1299,7 @@ h3.titleAdminQAndA {
 
 .topJob {
     border: var(--yellow) 3px solid;
-    argin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .titleJob {
@@ -1309,6 +1309,7 @@ h3.titleAdminQAndA {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     padding: 20px;
     font-size: 19pt;
 }

@@ -293,8 +293,24 @@ header img {
     justify-content: space-around;
 }
 
-/* About Us PC */
+/* Jobs */
 
+.jobsFirstIcons {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+}
+
+.infosJobs {
+    position: initial !important;
+}
+
+.gridJobContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+/* About Us PC */
 .Flexy {
     display: flex;
     justify-content: space-around;
