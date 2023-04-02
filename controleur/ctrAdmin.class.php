@@ -73,10 +73,26 @@ class ctrAdmin
         //var_dump($_POST);
         extract($_POST);
         if (!empty($amount)) {
-            if ($this->giftCards->addGiftCardAmount($amount))
+            //check if the amount is already in the database
+            $giftCardAmount = $this->giftCards->getAllGiftCardsAmount();
+            $alreadyIn = false;
+            $giftCardAmountID = 0;
+            foreach ($giftCardAmount as $value) {
+                if ($value["price"] == $amount) {
+                    $alreadyIn = true;
+                    $giftCardAmountID = $value["id_giftCardAmount"];
+                    break;
+                }
+            }
+            if ($alreadyIn) {
+                $this->giftCards->reAddGiftCardAmount($giftCardAmountID);
                 header("Location: index.php?action=admin&page=giftCards");
-            else
-                throw new Exception("An error occured during the adding process");
+            } else {
+                if ($this->giftCards->addGiftCardAmount($amount))
+                    header("Location: index.php?action=admin&page=giftCards");
+                else
+                    throw new Exception("An error occured during the adding process");
+            }
         } else
             $this->giftCards();
     }
@@ -99,8 +115,7 @@ class ctrAdmin
                 $this->qAndA();
             else
                 throw new Exception("An error occured during the adding process");
-        } 
-        else
+        } else
             $this->qAndA();
     }
 
@@ -200,14 +215,13 @@ class ctrAdmin
 
     public function qAndAModifyEG_S($idCat)
     {
-        if(!empty($_POST)){
+        if (!empty($_POST)) {
             $idEG = (int)array_values($_POST)[0];
-            if($this->qAndAs->updateQAndAEG($idEG,$idCat))
+            if ($this->qAndAs->updateQAndAEG($idEG, $idCat))
                 $this->qAndA();
             else
                 throw new Exception("An error occured during the update process");
-        }
-        else
+        } else
             $this->qAndA();
     }
 

@@ -6,15 +6,29 @@ class giftCards extends bdd
 {
     public function getGiftCardAmount()
     {
-        $req = "SELECT * FROM giftCardAmount";
+        $req = "SELECT * FROM giftCardAmount WHERE deleted = 0";
         $giftCardsAmount = $this->execReq($req);
         return $giftCardsAmount;
     }
 
+    public function getAllGiftCardsAmount()
+    {
+        $req = "SELECT * FROM giftCardAmount";
+        $giftCards = $this->execReq($req);
+        return $giftCards;
+    }
+
     public function delGiftCardAmount($id)
     {
-        echo "id = " . $id;
-        $req = "DELETE FROM giftCardAmount WHERE id_giftCardAmount = ?";
+        //echo "id = " . $id;
+        //$req = "DELETE FROM giftCardAmount WHERE id_giftCardAmount = ?";
+        $req = "UPDATE giftCardAmount SET deleted = 1 WHERE id_giftCardAmount = ?";
+        $this->execReqPrep($req, array($id));
+    }
+
+    public function reAddGiftCardAmount($id)
+    {
+        $req = "UPDATE giftCardAmount SET deleted = 0 WHERE id_giftCardAmount = ?";
         $this->execReqPrep($req, array($id));
     }
 
