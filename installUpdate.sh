@@ -161,7 +161,7 @@ fi
 # Change the directory
 cd "$directory" || exit
 # Download the web site
-git clone https://github.com/MathiasLinux/sae_401_bo.git
+$SUDO git clone https://github.com/MathiasLinux/sae_401_bo.git
 # Change the directory
 cd sae_401_bo || exit
 # Move the content of the web site to the directory
