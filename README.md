@@ -5,6 +5,8 @@
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Setup](#setup)
+    * [Requirements](#requirements)
+    * [Installation](#installation)
 * [Features](#features)
 * [Status](#status)
 * [License](#license)
@@ -23,10 +25,52 @@ PHP. The web site is responsive and works on all devices.
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="Javascript"><img src="https://github.com/get-icon/geticon/raw/master/icons/javascript.svg" alt="Javascript" width="64px" height="64px"></a>
 <a href="https://php.net/" title="PHP"><img src="https://github.com/get-icon/geticon/raw/master/icons/php.svg" alt="PHP" width="64px" height="64px"></a>
 <a href="https://mariadb.org/" title="MariaDB"><img src="https://github.com/get-icon/geticon/raw/master/icons/mariadb.svg" alt="MariaDB" width="64px" height="64px"></a>
+<a href="https://www.linuxfoundation.org/" title="Linux"><img src="https://github.com/get-icon/geticon/raw/master/icons/linux-tux.svg" alt="Linux" width="64px" height="64px"></a>
 
 ## Setup
 
-This section will be updated when the web site is finished.
+The site has an automatic install script for Linux.
+
+### Requirements
+
+* A Linux server
+    * RHEL 8 or later (Any clone of RHEL should work)
+    * Ubuntu 22.04 or later
+    * Fedora 36 or later
+    * Debian 11 can work if you add an extra repository for PHP 8.0 like https://deb.sury.org
+* PHP 8.0 or later
+* MariaDB
+* Apache 2.4
+
+### Installation
+
+The install script will install all the requirements and the web site. It will also create a database and a user for the
+web site. It will also create a user for the admin panel.
+
+The default admin username is `admin@admin.fr` and the default password is `Admin#1234`. Please change it after the
+installation, for security reasons.
+
+1. Get the install script
+
+```bash
+wget https://raw.githubusercontent.com/MathiasLinux/sae_401_bo/main/installUpdate.sh
+```
+
+2. Make the script executable
+
+```bash
+chmod +x installUpdate.sh
+```
+
+3. Run the script as root
+
+```bash
+sudo bash installUpdate.sh
+```
+
+4. Follow the instructions
+5. Enjoy your new website !
+6. If you want to update the web ite, just run the script again and choose the update option.
 
 ## Features
 
