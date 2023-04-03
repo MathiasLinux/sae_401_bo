@@ -276,18 +276,15 @@ footer a {
     font-size: 24px;
 }
 
-.titleAndImage img {
-    width: 45%;
-    margin-right: 5%;
-}
-
 .contourTitleImage {
     border-bottom: var(--green) 3px solid;
 }
 
 .titleAndImage {
-    display: flex;
-    margin-top: 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    margin: 5% 0 5% 0
 }
 
 .reviewsHome {
@@ -301,6 +298,8 @@ footer a {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 10px;
+    padding: 20px;
+    color: black;
 }
 
 .leftReview {
@@ -321,6 +320,13 @@ footer a {
 .Vue2 {
     display: none;
 
+}
+
+.yellowLinkHomeEscapeMobile {
+    background-color: var(--yellow);
+    color: black;
+    text-decoration: none;
+    padding: 10px;
 }
 
 /* Page account vueAccount.php */
@@ -616,7 +622,7 @@ footer a {
 
 /* Page Partners vuePartners.php */
 
-.partners{
+.partners {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(6, 1fr);
@@ -1300,6 +1306,7 @@ h3.titleAdminQAndA {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     padding: 20px;
     font-size: 19pt;
 }
@@ -1310,6 +1317,7 @@ h3.titleAdminQAndA {
 
 .firstTitleJob {
     font-size: 32px;
+    text-align: center;
 }
 
 .secondTitleJob {

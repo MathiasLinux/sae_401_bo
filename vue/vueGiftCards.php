@@ -1,5 +1,5 @@
 <h2 class="titleUnderline"><?= GIFT_CARDS_TITLE ?></h2>
-<div class="giftCardsIcons">
+<div class="giftCardsIcons flexCardsPC">
     <div class="ligneOneGiftCards">
         <div class="giftCardsIcon">
             <img src="img/svg/dollar.svg" alt="Logo dollar">

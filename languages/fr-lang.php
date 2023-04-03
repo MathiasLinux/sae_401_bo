@@ -517,6 +517,8 @@ const ADMIN_CONTACT_FROM_DELETE_NO = "Non";
 
 const ADMIN_USER_TITLE = "Gestion des utilisateurs";
 
+const ADMIN_USER_SEARCH = "Chercher un utilisateur";
+
 const ADMIN_USER_FIRST_NAME = "Prénom";
 
 const ADMIN_USER_LAST_NAME = "Nom";
@@ -575,6 +577,14 @@ const ADMIN_GIFT_CARDS_SOLD_USER_EMAIL = "E-mail de l'utilisateur";
 
 const ADMIN_GIFT_CARDS_H2_3 = "Cartes cadeaux d'escape game vendues";
 
+//Admin Jobs
+
+const ADMIN_JOBS_TITLE = "Offres d'emploi";
+const ADMIN_JOBS_ADD_JOB = "Créer une offre d'emploi";
+const ADMIN_JOBS_TASKS = "Vos tâches ";
+const ADMIN_JOBS_STRENGTHS = "Vos forces ";
+const ADMIN_JOBS_MOD_JOB = "Modifier offre";
+
 //Admin create/modif job page
 
 const ADMIN_JOB_RETURN = "Retour";
@@ -597,7 +607,7 @@ const ADMIN_JOB_TASKS_1 = "Tâches Anglais";
 
 const ADMIN_JOB_TASKS_2 = "Tâches Français";
 
-const ADMIN_JOB_STRENGTHS = "Strengths";
+const ADMIN_JOB_STRENGTHS = "Forces";
 
 const ADMIN_JOB_STRENGTHS_1 = "Forces Anglais";
 
@@ -614,3 +624,23 @@ const ADMIN_JOB_DISPLAY_SAVE = "Sauvegarder";
 const ADMIN_JOB_DISPLAY_DELETE = "Supprimer";
 
 const ADMIN_JOB_DISPLAY_DELETE_WARNING = "Êtes-vous sûr de vouloir supprimer cette offre d'emploi ?";
+
+//Home page
+
+const HOME_FIRST_DESCRIPTION = "Bienvenue chez Kaiserstuhl Escape, la destination ultime pour les passionnés d'escape games ! Nos escape games immersifs mettent au défi votre esprit et votre créativité, alors que vous travaillez en équipe pour résoudre des énigmes, déchiffrer des codes et élucider des mystères. Avec plusieurs salles à thème au choix, chacune avec sa propre histoire et ses propres défis, vous êtes sûr de vivre une expérience inoubliable. Que vous prévoyiez une soirée amusante avec des amis ou une activité de renforcement d'équipe pour votre entreprise, Kaiserstuhl Escape offre le mélange parfait de divertissement et d'aventure. Réservez votre aventure en salle d'évasion dès aujourd'hui et voyez si vous avez ce qu'il faut pour vous échapper à temps !";
+
+const HOME_MORE_INFO = "Plus d'informations";
+
+const HOME_BUY = "Acheter !";
+
+const HOME_GIFT_CARD_TITLE = "Cartes cadeaux";
+
+const HOME_GIFT_CARD_P = "Offrez une aventure maintenant !";
+
+const HOME_OTHER_ESCAPE_TITLE = "Autres escape games";
+
+const HOME_OTHER_ESCAPE_LINK = "Découvrez →";
+
+const HOME_REVIEW_TITLE = "Avis";
+
+
