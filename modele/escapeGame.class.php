@@ -82,4 +82,31 @@ class escapeGame extends bdd
         $this->execReqPrep($req, array($id));
     }
 
+    public function addXY($latitudeX, $longitudeY, $idEG){
+        $req = "UPDATE escapegame SET x = ?, y = ? WHERE escapegame.id_escapeGame = ?";
+        $data = array($latitudeX, $longitudeY, $idEG);
+        $coordonnees = $this->execReqPrep($req, $data);
+        
+        if($coordonnees==1){
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function getReviewEG($id){
+        $req = "SELECT * FROM reviews WHERE id_escapeGame = ?";
+        $data = array($id);
+        $reviewsEG = $this->execReqPrep($req, $data);
+        return $reviewsEG;
+    }
+
+    public function getQandAEG($id){
+        $req = "SELECT * FROM qandaquestion WHERE id_qAndACat = ?";
+        $data = array($id+1);
+        $qAndAEG = $this->execReqPrep($req, $data);
+        return $qAndAEG;
+    }
+
+
 }

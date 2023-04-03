@@ -5,13 +5,20 @@ document.querySelector('.escapeGameFDroite').addEventListener('click', slider);
 
 var sliderCurrent = 1;
 
+// document.querySelector('.escapeGSliderIMG>img:nth-child(1)').classList = "escapeGameSCenterSelec";
+
 //fonction permettant de changer d'image dans le slider de vueEscapeGame.php
 function slider(){
     let rectSelec = document.querySelector('.escapeGSliderRect>div:nth-child(' + sliderCurrent + ')');
     let imgSelec = document.querySelector('.escapeGSliderIMG>img:nth-child(' + sliderCurrent + ')');
+    let sliderLength = 0;
+
+    document.querySelectorAll('.escapeGSliderIMG>img').forEach(e =>{
+        sliderLength++;
+    })
     
     if(this.id=="next"){
-        if(sliderCurrent!=4){
+        if(sliderCurrent!=sliderLength){
             rectSelec.classList = "escapeGameRect";
             imgSelec.classList = "escapeGameSCenter";
 
@@ -20,7 +27,7 @@ function slider(){
         
             sliderCurrent++;
 
-        } else if(sliderCurrent==4){
+        } else if(sliderCurrent==sliderLength){
             rectSelec.classList = "escapeGameRect";
             imgSelec.classList = "escapeGameSCenter";
 
@@ -44,10 +51,10 @@ function slider(){
             rectSelec.classList = "escapeGameRect";
             imgSelec.classList = "escapeGameSCenter";
 
-            document.querySelector('.escapeGSliderRect>div:nth-child(4)').classList = 'escapeGameRectSelec';
-            document.querySelector('.escapeGSliderIMG>img:nth-child(4)').classList = "escapeGameSCenterSelec";
+            document.querySelector('.escapeGSliderRect>div:nth-child(' + sliderLength + ')').classList = 'escapeGameRectSelec';
+            document.querySelector('.escapeGSliderIMG>img:nth-child(' + sliderLength + ')').classList = "escapeGameSCenterSelec";
 
-            sliderCurrent = 4;
+            sliderCurrent = sliderLength;
         }   
     }
 }
@@ -55,37 +62,72 @@ function slider(){
 
 
 //map
-var mapEscapeGame = L.map('mapEscapeGame').setView([48.04297152074871, 7.648250017883536], 13);
+var p = document.querySelector('.escapeGameMap').dataset;
+
+var mapEscapeGame = L.map('mapEscapeGame').setView([p.x, p.y], 13);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(mapEscapeGame);
-var marker = L.marker([48.0429728656882, 7.648250017883536]).addTo(mapEscapeGame);
+var marker = L.marker([p.x, p.y]).addTo(mapEscapeGame);
 marker.bindPopup("Event's place").openPopup();
 
 //q&a, pour faire afficher les questions en + au clic sur le boutton "More answers" (même chose pour les reviews).
 var answersButton = document.querySelector('.escapeMoreAnswersButton');
 var moreAnswers = document.querySelector('.escapeMoreAnswers');
 
-answersButton.addEventListener('click', function(){
-    moreAnswers.classList.toggle('displayNone');
+if(moreAnswers!=null){
+    answersButton.addEventListener('click', function(){
+        moreAnswers.classList.toggle('displayNone');
 
-    if(moreAnswers.classList[1] == "displayNone"){
-        answersButton.innerText = 'More answers';
-    } else {
-        answersButton.innerText = 'Mask answers';
-    }
-})
+        if(moreAnswers.classList[1] == "displayNone"){
+            answersButton.innerText = 'More answers';
+        } else {
+            answersButton.innerText = 'Mask answers';
+        }
+    })
+}
 
 var reviewsButton = document.querySelector('.escapeMoreReviewsButton');
 var moreReviews = document.querySelector('.escapeMoreReviews');
 
-reviewsButton.addEventListener('click', function(){
-    moreReviews.classList.toggle('displayNone');
+if(reviewsButton!=null){
+    reviewsButton.addEventListener('click', function(){
+        moreReviews.classList.toggle('displayNone');
 
-    if(moreReviews.classList[1] == "displayNone"){
-        reviewsButton.innerText = 'More reviews';
-    } else {
-        reviewsButton.innerText = 'Mask reviews';
+        if(moreReviews.classList[1] == "displayNone"){
+            reviewsButton.innerText = 'More reviews';
+        } else {
+            reviewsButton.innerText = 'Mask reviews';
+        }
+    })
+}
+
+//buy
+
+
+document.querySelector('.escapeSearchButton').addEventListener('click', function(){
+    if((document.querySelector('#buyPerson').value!="")&&(document.querySelector('#buyDate').value!="")){
+
+        var buyPersons = document.querySelector('#buyPerson').value;
+        var buyDate = document.querySelector('#buyDate').value;
+
+        var day = buyDate.split('-')[2];
+        var month = getMonthName(buyDate.split('-')[1], 'en-US');
+        var mois = getMonthName(buyDate.split('-')[1], 'fr-FR');
+        var year = buyDate.split('-')[0];
+
+        document.querySelector('.possibleSchedules').classList.remove('displayNone');
+        document.querySelector('.inserDate').innerText = day + " " + month + " " + year;
     }
+    
 })
+
+function getMonthName(monthNumber, lang) {
+    const date = new Date();
+    date.setMonth(monthNumber - 1);
+  
+    return date.toLocaleString(lang, {
+      month: 'long',
+    });
+  }
