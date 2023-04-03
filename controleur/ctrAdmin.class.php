@@ -36,9 +36,10 @@ class ctrAdmin
 
     public function escapeGames()
     {
+        $EGs = $this->EG->getNameEscapeGames();
         $title = "Administration Escape Games - Kaiserstuhl escape";
         $objVue = new vue("AdminEscapeGames");
-        $objVue->afficher(array(), $title);
+        $objVue->afficher(array("EGs" => $EGs), $title);
     }
 
     public function contactForm()

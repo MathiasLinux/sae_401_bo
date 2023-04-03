@@ -11,6 +11,12 @@ class escapeGame extends bdd
         return $this->execReq($req);
     }
 
+    public function getNameEscapeGames()
+    {
+        $req = "SELECT id_escapeGame, name, nameFR FROM escapeGame";
+        return $this->execReq($req);
+    }
+
     public function getEscapeGame($id)
     {
         $req = "SELECT * FROM escapeGame WHERE id_escapeGame = ?";
