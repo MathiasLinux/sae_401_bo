@@ -299,6 +299,8 @@ abstract class config
 EOF
 # Change the directory
 cd .. || exit
+# Change git config to create a safe directory
+$SUDO git config --global --add safe.directory $directory
 # Modify the rights of the whole directory
 warn "Modifying the rights of the whole directory..."
 $SUDO chmod -R 755 "$directory"
