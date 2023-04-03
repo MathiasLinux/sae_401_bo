@@ -204,15 +204,7 @@ fi
 # Change the directory
 cd "$directory" || exit
 # Download the web site
-$SUDO git clone https://github.com/MathiasLinux/sae_401_bo.git
-# Change the directory
-cd sae_401_bo || exit
-# Move the content of the web site to the directory
-$SUDO mv * ..
-# Change the directory
-cd .. || exit
-# Remove the directory
-$SUDO rm -rf sae_401_bo
+$SUDO git clone https://github.com/MathiasLinux/sae_401_bo.git .
 
 # Create the database
 warn "Creating the database..."
@@ -442,13 +434,7 @@ warn "Deleting the old web site..."
 $SUDO rm -rf "$directory"
 # Download the new web site
 warn "Downloading the new web site..."
-$SUDO git clone https://github.com/MathiasLinux/sae_401_bo.git
-# Move the content of the new web site to the directory
-warn "Moving the content of the new web site to the directory..."
-$SUDO mv sae_401_bo/* "$directory"
-# Delete the folder of git
-warn "Deleting the folder of git..."
-$SUDO rm -rf sae_401_bo
+$SUDO git clone https://github.com/MathiasLinux/sae_401_bo.git .
 # Restore the configuration file and the images
 warn "Restoring the configuration file and the images..."
 # Restore the configuration file
