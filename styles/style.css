@@ -434,6 +434,8 @@ footer a {
     color: white;
 }
 
+
+
 #map {
     height: 250px;
 }
@@ -573,11 +575,9 @@ footer a {
     align-items: center;
 }
 
-.doubleLigneJobs {
+.jobsFirstIcons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    justify-items: center;
-    align-items: center;
 }
 
 .singleLigneJobs {
@@ -619,9 +619,6 @@ footer a {
 
 }
 
-.contactJobs {
-    margin-top: 20px;
-}
 
 /* Page Partners vuePartners.php */
 
