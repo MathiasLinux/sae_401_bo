@@ -495,6 +495,11 @@ const BUY_CARDS_SUCCESS_TITLE = "Thank you for your purchase !";
 
 const BUY_CARDS_SUCCESS_BUTTON = "Back to the home page";
 
+//Admin Escape Games
+
+const ADMIN_EG_TITLE = "Escape Games";
+const ADMIN_EG_BUTTON = "Modify";
+
 //Admin Contact Form page
 
 const ADMIN_CONTACT_FORM_TITLE = "Contact Form";

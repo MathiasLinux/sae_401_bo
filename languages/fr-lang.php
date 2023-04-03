@@ -482,6 +482,11 @@ const BUY_CARDS_SUCCESS_TITLE = "Merci pour votre achat !";
 
 const BUY_CARDS_SUCCESS_BUTTON = "Retour à l'accueil";
 
+//Admin Escape Games
+
+const ADMIN_EG_TITLE = "Escape games";
+const ADMIN_EG_BUTTON = "Modifier";
+
 //Admin Contact Form page
 
 const ADMIN_CONTACT_FORM_TITLE = "Messages reçus";

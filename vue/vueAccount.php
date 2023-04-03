@@ -56,6 +56,7 @@ echo "<h3 class='welcomeBack'>" . ACCOUNT_WELCOME . " " . $user["firstName"] . "
         <tbody>
         <?php
         if (isset($escapeCards) and !empty($escapeCards)) {
+            // var_dump($escapeCards);
             foreach ($escapeCards as $card) {
                 ?>
                 <tr class="searchContent">
