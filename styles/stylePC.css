@@ -369,9 +369,13 @@ header img {
 
 .contactInfos {
     position: absolute;
-    bottom: 0px;
+    bottom: -10px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+.contactInfos div{
+    flex-direction: column;
 }
 
 /* Page de connexion vueLogin.php */
@@ -614,3 +618,32 @@ label.center > h3 {
 
     margin-left: 160px;
 }
+
+/* Vue Jobs PC */
+
+.jobFlexPC{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+    text-align: left;
+}
+
+.wit{
+    height: auto;
+    border-radius: 10px;
+}
+
+
+.jobsFirstIcons{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.doubleLigneJobs{
+    display: block;
+}
+
+
