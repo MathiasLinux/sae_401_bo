@@ -2,6 +2,10 @@
 # Script to install KaiserStuhl Escape web site on Ubuntu server or RHEL server (RHEL, AlmaLinux, RockyLinux, CentOS) or Fedora server
 #This script can possibly work on Debian 11, but with an external source for PHP 8.0 or higher
 
+# Change the language of the system
+export LC_ALL=C
+
+# Colors
 SETCOLOR_FAILURE="\\033[1;31m"
 SETCOLOR_SUCCESS="\\033[1;32m"
 SETCOLOR_WARNING="\\033[1;33m"
@@ -326,9 +330,6 @@ success "The installation is finished. You can now access the web site at the fo
 success "The default user is admin@admin.fr and the default password is Admin#1234"
 
 success "Thank you for using this script. If you have any questions, please contact me on GitHub: MathiasLinux"
-
-# End of the script with a success code
-exit 0
 }
 
 # Function to update the web site
@@ -356,6 +357,14 @@ fi
 
 # Change the directory
 cd "$directory" || exit
+
+# Check if the directory has not the last updates main branch with git status
+warn "Checking if the directory has not the last updates main branch..."
+# Here it's little hacky but it works
+if git status | grep -q "is up to date"; then
+    error "You already have the last updates. Aborting..."
+    exit 1
+fi
 # Backup the configuration file and the images
 warn "Backing up the configuration file and the images..."
 # Create the backup directory
@@ -464,9 +473,6 @@ fi
 success "The update is finished. You can now access the web site at the following address: http://localhost !"
 
 success "Thank you for using this script. If you have any questions, please contact me on GitHub: MathiasLinux"
-
-# End of the script with a success code
-exit 0
 }
 
 # Check if the script is run as root
@@ -486,3 +492,9 @@ else
     error "The answer is not valid. Aborting..."
     exit 1
 fi
+
+# Reset the language of the system
+unset LC_ALL
+
+# End of the script with a success code
+exit 0
