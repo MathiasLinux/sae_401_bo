@@ -571,7 +571,7 @@ const ADMIN_GIFT_CARDS_SUBMIT = "Create";
 
 const ADMIN_GIFT_CARDS_H2_2 = "Sold Money Cards";
 
-const ADMIN_GIFT_CARDS_SOLD_DATE = "Date";
+const ADMIN_GIFT_CARDS_SOLD_DATE = "Date of purchase";
 
 const ADMIN_GIFT_CARDS_SOLD_USAGE_DATE = "Usage Date";
 

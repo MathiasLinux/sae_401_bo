@@ -50,7 +50,7 @@ echo "<h3 class='welcomeBack'>" . ACCOUNT_WELCOME . " " . $user["firstName"] . "
         <tr>
             <th class="tg-a43n"><?= ADMIN_GIFT_CARDS_SOLD_DATE ?></th>
             <th class="tg-a43n"><?= ADMIN_GIFT_CARDS_SOLD_CODE ?></th>
-            <th class="tg-a43n"><?= ADMIN_GIFT_CARDS_SOLD_AMOUNT ?></th>
+            <th class="tg-a43n"><?= ADMIN_GIFT_CARDS_SOLD_ESCAPEGAME ?></th>
         </tr>
         </thead>
         <tbody>
@@ -61,7 +61,21 @@ echo "<h3 class='welcomeBack'>" . ACCOUNT_WELCOME . " " . $user["firstName"] . "
                 <tr class="searchContent">
                     <td class="tg-m5d1 pad"><?= $card['buyingDate'] ?></td>
                     <td class="tg-m5d1 pad"><?= $card['code'] ?></td>
-                    <td class="tg-m5d1 pad"><?= $card['price'] ?> €</td>
+                    <?php
+                    if ($_SESSION["lang"] == "en") {
+                        ?>
+                        <td class="tg-m5d1 pad"><?= $card['name'] ?></td>
+                        <?php
+                    } elseif ($_SESSION["lang"] == "fr") {
+                        ?>
+                        <td class="tg-m5d1 pad"><?= $card['nameFR'] ?></td>
+                        <?php
+                    } else {
+                        ?>
+                        <td class="tg-m5d1 pad"><?= $card['name'] ?></td>
+                        <?php
+                    }
+                    ?>
                 </tr>
                 <?php
             }

@@ -559,7 +559,7 @@ const ADMIN_GIFT_CARDS_SUBMIT = "Ajouter";
 
 const ADMIN_GIFT_CARDS_H2_2 = "Cartes cadeaux d'argent vendues";
 
-const ADMIN_GIFT_CARDS_SOLD_DATE = "Date";
+const ADMIN_GIFT_CARDS_SOLD_DATE = "Date d'achat";
 
 const ADMIN_GIFT_CARDS_SOLD_USAGE_DATE = "Date d'utilisation";
 
