@@ -358,10 +358,17 @@ fi
 # Change the directory
 cd "$directory" || exit
 
+# Verify if the directory is a git repository
+warn "Verifying if the directory is a git repository..."
+if ! $SUDO git rev-parse --git-dir > /dev/null 2>&1; then
+    error "The directory is not a git repository. Aborting..."
+    exit 1
+fi
+
 # Check if the directory has not the last updates main branch with git status
 warn "Checking if the directory has not the last updates main branch..."
 # Here it's little hacky but it works
-if git status | grep -q "is up to date"; then
+if $SUDO git status | grep -q "is up to date"; then
     error "You already have the last updates. Aborting..."
     exit 1
 fi
@@ -392,18 +399,21 @@ if [ ! -d "$backup_directory" ]; then
         error "Aborting..."
         exit 1
     fi
-    # Get the current date
-    date=$(date +%Y-%m-%d_%H-%M-%S)
     # Create the directory
     warn "Creating the directory..."
-    backup_directory="$backup_directory/$date"
     $SUDO mkdir -p "$backup_directory"
 fi
-cd "$backup_directory" || exit
+# Get the current date
+date=$(date +%Y-%m-%d_%H-%M-%S)
+# Create the backup directory with the current date
+warn "Creating the backup directory with the current date..."
+$SUDO mkdir "$backup_directory"/"$date"
+# Change the directory
+cd "$backup_directory"/"$date" || exit
 # Backup the configuration file
-$SUDO cp config/config.class.php "$backup_directory"/config.class.php
+$SUDO cp $directory/config/config.class.php "$backup_directory"/"$date"/config.class.php
 # Backup the images
-$SUDO cp -r img/escapeGames "$backup_directory"/img/escapeGames
+$SUDO cp -r $directory/img/escapeGames "$backup_directory"/"$date"/img/escapeGames
 # Backup the database
 warn "Backing up the database..."
 # Ask for the database name
@@ -421,7 +431,7 @@ if [ "$answer" != "y" ]; then
     exit 1
 fi
 # Backup the database
-$SUDO mysqldump "$database" > "$backup_directory"/database.sql
+$SUDO mysqldump "$database" > "$backup_directory"/"$date"/database.sql
 
 # Update the web site
 warn "Updating the web site..."
