@@ -74,6 +74,14 @@ if check_cmd yum; then
     # Update the package list and upgrade all packages
     warn "Updating the package list and upgrading all packages..."
     $SUDO yum update -y
+    # check if the rhel version is 8
+    # shellcheck disable=SC2046
+    if [ $(cat /etc/redhat-release | grep -Eo '[0-9]+' | head -n 1) -eq 8 ]; then
+        # enable the php 8.0 module
+        $SUDO yum module enable -y php:8.0
+        # set the php 8.0 module as default
+        $SUDO yum module set -y php:8.0
+    fi
     # Check if the php version in the repository is superior to 8.0
     # shellcheck disable=SC2046
     if [ $(yum list php | grep -Eo '8\.[0-9]+' | head -n 1 | cut -d '.' -f 2) -ge 0 ]; then
