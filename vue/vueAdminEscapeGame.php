@@ -14,9 +14,18 @@
         </label>
     </div>
 
-    <!-- Gestion de la visibilité à faire -->
+    <div class="visibilityEG">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+        <div>Display</div>
+        <input type="range" name="" id="" min="0" max="1">
+    </div>
 
     <!-- Gestion des images à faire -->
+
+    <?php
+        $imgs = scandir("img/".$EG['id_escapeGame']);
+        var_dump($imgs);
+    ?>
 
     <h2 class="titleUnderline">Difficulty & Duration</h2>
 
