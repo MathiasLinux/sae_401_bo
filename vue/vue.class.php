@@ -43,8 +43,6 @@ class vue
 
         $contenu = ob_get_clean();  // Arrête la temporisation et récupère le contenu généré
 
-        $footer = "&copy; MMI Mulhouse"; // Le pied de page est généré dans le gabarit
-
         require "gabarit.php";  // Affiche le gabarit
     }
 }
