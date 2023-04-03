@@ -91,6 +91,7 @@ if check_cmd yum; then
     $SUDO yum update -y
     # check if the rhel version is 8
     # shellcheck disable=SC2046
+    # shellcheck disable=SC2002
     if [ $(cat /etc/redhat-release | grep -Eo '[0-9]+' | head -n 1) -eq 8 ]; then
         # enable the php 8.0 module
         $SUDO yum module enable -y php:8.0
@@ -450,16 +451,16 @@ $SUDO git clone https://github.com/MathiasLinux/sae_401_bo.git .
 # Restore the configuration file and the images
 warn "Restoring the configuration file and the images..."
 # Restore the configuration file
-$SUDO cp "$backup_directory"/config.class.php config/config.class.php
+$SUDO cp "$backup_directory"/"$date"/config.class.php config/config.class.php
 # Restore the images
-$SUDO cp -r "$backup_directory"/img/escapeGames img/escapeGames
+$SUDO cp -r "$backup_directory"/"$date"/img/escapeGames img/escapeGames
 # Ask if the user wants to restore the database
 warn "Do you want to restore the database? (y/n)"
 read -r -p "Answer: " answer
 if [ "$answer" = "y" ]; then
     # Restore the database
     warn "Restoring the database..."
-    $SUDO mysql "$database" < "$backup_directory"/database.sql
+    $SUDO mysql "$database" < "$backup_directory"/"$date"/database.sql
 fi
 
 # Restart the apache2 service
