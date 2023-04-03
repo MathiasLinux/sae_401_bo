@@ -865,6 +865,56 @@ footer a {
     justify-content: center;
 }
 
+/* Page admin vueAdminEscapeGame.php */
+
+.formAdminEG{
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 2% 0%;
+}
+
+.formAdminEG>h2{
+    width: fit-content;
+}
+
+.formAdminEG>div{
+    margin: 2% 0%;
+}
+
+.formAdminEG>div>label{
+    position: relative;
+}
+
+.formAdminEG>div>label>span{
+    position: absolute;
+    color: var(--lightGrey);
+    font-size: 15px;
+    margin-left: 1%;
+    margin-top: 0.25%;
+}
+
+.formAdminEG>div>label>input[type="text"], 
+.formAdminEG>div>label>select, 
+.formAdminEG>div>label>textarea{
+    background-color: var(--lightBlue);
+    border: none;
+    padding: 20px;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 20px;
+    color: white;
+    width: 90%;
+}
+
+.formAdminEG>div>label>textarea{
+    height: 240px;
+}
+
+.difficultyAdmin{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
 /* Page admin vueAdminContactForm.php */
 
 .tg {
@@ -1245,7 +1295,8 @@ textarea.addTitle {
     width: auto;
 }
 
-.formAdmin > input[type=submit] {
+.formAdmin > input[type=submit], 
+.formAdminEG>input[type=submit] {
     padding: 20px 0%;
     text-align: center;
     margin: 0% 10%;
