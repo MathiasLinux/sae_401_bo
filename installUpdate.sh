@@ -362,6 +362,8 @@ fi
 # Check if the directory has not the last updates main branch with git status
 warn "Checking if the directory has not the last updates main branch..."
 # Here it's little hacky but it works
+# Update the repository
+$SUDO git remote update
 if $SUDO git status | grep -q "is up to date"; then
     error "You already have the last updates. Aborting..."
     exit 1
@@ -405,8 +407,11 @@ $SUDO mkdir "$backup_directory"/"$date"
 # Change the directory
 cd "$backup_directory"/"$date" || exit
 # Backup the configuration file
+warn "Backing up the configuration file..."
 $SUDO cp $directory/config/config.class.php "$backup_directory"/"$date"/config.class.php
 # Backup the images
+warn "Backing up the images..."
+$SUDO mkdir -p "$backup_directory"/"$date"/img/escapeGames
 $SUDO cp -r $directory/img/escapeGames "$backup_directory"/"$date"/img/escapeGames
 # Backup the database
 warn "Backing up the database..."
