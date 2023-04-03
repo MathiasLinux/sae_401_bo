@@ -439,6 +439,11 @@ cd "$directory" || exit
 # Delete the old web site
 warn "Deleting the old web site..."
 $SUDO rm -rf "$directory"
+#Create the new directory
+warn "Creating the new directory..."
+$SUDO mkdir -p "$directory"
+# Change the directory
+cd "$directory" || exit
 # Download the new web site
 warn "Downloading the new web site..."
 $SUDO git clone https://github.com/MathiasLinux/sae_401_bo.git .
