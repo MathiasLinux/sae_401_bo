@@ -59,6 +59,17 @@ if check_cmd apt-get; then
         $SUDO systemctl enable --now apache2.service
         # Launch and enable the mariadb service
         $SUDO systemctl enable --now mariadb.service
+        # Enable the firewall
+        # check if ufw is installed
+        if check_cmd ufw; then
+            $SUDO ufw allow in "Apache Full"
+        fi
+        # check if firewalld is installed
+        if check_cmd firewall-cmd; then
+            $SUDO firewall-cmd --permanent --add-service=http
+            $SUDO firewall-cmd --permanent --add-service=https
+            $SUDO firewall-cmd --reload
+        fi
     else
         error "PHP 8.0 is not available in the repository of your distribution. Please install it manually. Aborting..."
         exit 1
@@ -79,15 +90,13 @@ if check_cmd yum; then
     if [ $(cat /etc/redhat-release | grep -Eo '[0-9]+' | head -n 1) -eq 8 ]; then
         # enable the php 8.0 module
         $SUDO yum module enable -y php:8.0
-        # set the php 8.0 module as default
-        $SUDO yum module set -y php:8.0
     fi
     # Check if the php version in the repository is superior to 8.0
     # shellcheck disable=SC2046
     if [ $(yum list php | grep -Eo '8\.[0-9]+' | head -n 1 | cut -d '.' -f 2) -ge 0 ]; then
         # Install the dependencies for a LAMP stack
         warn "Installing the dependencies for a LAMP stack..."
-        $SUDO yum install -y httpd php mariadb php-{gd,pdo,xml,mbstring,zip,mysqlnd,opcache,json} mod_ssl openssl
+        $SUDO yum install -y httpd php mariadb mariadb-server php-{gd,pdo,xml,mbstring,zip,mysqlnd,opcache,json} mod_ssl openssl
         # Install git and unzip
         $SUDO yum install -y git unzip
         warn "Enabling the apache2, php-fpm and mariadb services..."
@@ -97,6 +106,10 @@ if check_cmd yum; then
         $SUDO systemctl enable --now php-fpm.service
         # Launch and enable the mariadb service
         $SUDO systemctl enable --now mariadb.service
+        # Enable the firewall
+        $SUDO firewall-cmd --permanent --add-service=http
+        $SUDO firewall-cmd --permanent --add-service=https
+        $SUDO firewall-cmd --reload
     else
         error "PHP 8.0 is not available in the repository of your distribution. Please install it manually. Aborting..."
         exit 1
@@ -125,6 +138,10 @@ if check_cmd dnf; then
         $SUDO systemctl enable --now php-fpm.service
         # Launch and enable the mariadb service
         $SUDO systemctl enable --now mariadb.service
+        # Enable the firewall
+        $SUDO firewall-cmd --permanent --add-service=http
+        $SUDO firewall-cmd --permanent --add-service=https
+        $SUDO firewall-cmd --reload
     else
         error "PHP 8.0 is not available in the repository of your distribution. Please install it manually. Aborting..."
         exit 1
