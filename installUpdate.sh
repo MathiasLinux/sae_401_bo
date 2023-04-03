@@ -45,6 +45,7 @@ if check_cmd apt-get; then
     $SUDO apt-get -qq update
     $SUDO apt-get -qq upgrade -y
     # Check if the php version in the repository is superior to 8.0
+    # shellcheck disable=SC2046
     if [ $(apt-cache policy php | grep -Eo '8\.[0-9]+' | head -n 1 | cut -d '.' -f 2) -ge 0 ]; then
         # Install the dependencies for a LAMP stack
         warn "Installing the dependencies for a LAMP stack..."
@@ -74,6 +75,7 @@ if check_cmd yum; then
     warn "Updating the package list and upgrading all packages..."
     $SUDO yum update -y
     # Check if the php version in the repository is superior to 8.0
+    # shellcheck disable=SC2046
     if [ $(yum list php | grep -Eo '8\.[0-9]+' | head -n 1 | cut -d '.' -f 2) -ge 0 ]; then
         # Install the dependencies for a LAMP stack
         warn "Installing the dependencies for a LAMP stack..."
@@ -101,6 +103,7 @@ if check_cmd dnf; then
     warn "Updating the package list and upgrading all packages..."
     $SUDO dnf update -y
     # Check if the php version in the repository is superior to 8.0
+    # shellcheck disable=SC2046
     if [ $(dnf list php | grep -Eo '8\.[0-9]+' | head -n 1 | cut -d '.' -f 2) -ge 0 ]; then
         # Install the dependencies for a LAMP stack
         warn "Installing the dependencies for a LAMP stack..."
