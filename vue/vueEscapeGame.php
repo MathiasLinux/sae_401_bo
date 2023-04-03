@@ -1,220 +1,239 @@
+<?php
+    // require_once "modele/escapeGame.class.php";
+?>
+
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
       integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
       crossorigin=""/>
 
-<h2 class="titreUnderline">Titre Escape Game</h2>
+
+<h2 class="titreUnderline"><?php echo $escapeGame['name']; ?></h2>
 
 <!-- Infos escape game -->
 <div class="escapeGameGrid">
     <div>
         <img src="img/puzzle.png" alt="Puzzle">
-        <p>30+ puzzles</p>
+        <p><?php echo $escapeGame['puzzles']; ?> puzzles</p>
     </div>
     <div>
         <img src="img/aventureuxLeMec.png" alt="Aventurier">
-        <p>3 adventures</p>
+        <p><?php echo $escapeGame['adventures']; ?> adventures</p>
     </div>
     <div>
         <img src="img/placeholder.png" alt="Position">
-        <p>4 spots in the Kaiserstuhl</p>
+        <p><?php echo $escapeGame['spots']; ?> spots in the Kaiserstuhl</p>
     </div>
     <div>
         <img src="img/book.png" alt="Livre">
-        <p>1 story</p>
+        <p><?php echo $escapeGame['story']; ?> story</p>
     </div>
 </div>
 
 <!-- Partie présentation de l'escape game  -->
 <h2 class="titreUnderline">Presentation</h2>
-<p class="alinea">Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate nisi. Integer in felis sed leo vestibulum venenatis. Suspendisse quis arcu sem. Aenean feugiat ex eu vestibulum vestibulum. Morbi a eleifend magna. Nam metus lacus, porttitor eu mauris a, blandit ultrices nibh. Mauris sit amet magna non ligula vestibulum eleifend. Nulla varius volutpat turpis sed lacinia. Nam eget mi in purus lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper quis venenatis nisi. Proin vitae facilisis nisi, ac posuere leo.</p>
-<p class="alinea">Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate nisi. Integer in felis sed leo vestibulum venenatis. Suspendisse quis arcu sem. Aenean feugiat ex eu vestibulum vestibulum. Morbi a eleifend magna. Nam metus lacus, porttitor eu mauris a, blandit ultrices nibh. Mauris sit amet magna non ligula vestibulum eleifend. Nulla varius volutpat turpis sed lacinia. Nam eget mi in purus lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper quis venenatis nisi. Proin vitae facilisis nisi, ac posuere leo.</p>
+<p class="alinea">
+    <?php echo $escapeGame['description']; ?>
+</p>
 
 <!-- Slider d'images représentatives de l'escape game -->
 <h2 class="titreUnderline">Gallery</h2>
 <div class="escapeGameSlider">
 
     <div class="escapeGameF">
-        <img class="escapeGameFGauche" src="img/flecheGauche.png" alt="Left arrow" id='previous'>
-        <img class="escapeGameFDroite" src="img/flecheDroite.png" alt="Right arrow" id='next'>
+        <img class="escapeGameFGauche" src="../img/flecheGauche.png" alt="Left arrow" id='previous'>
+        <img class="escapeGameFDroite" src="../img/flecheDroite.png" alt="Right arrow" id='next'>
     </div>
 
     <div class="escapeGSliderRect">
-        <div class='escapeGameRectSelec' id='1'></div>
-        <div class='escapeGameRect' id='2'></div>
-        <div class='escapeGameRect' id='3'></div>
-        <div class='escapeGameRect' id='4'></div>
+        <?php
+            // $dir = "img/escapeGame/" . $escapeGame["id_escapeGame"];
+            // $a = scandir($dir);
+            // print_r($a);
+        
+            $nbImg = count(glob("img/escapeGame/" . $escapeGame['id_escapeGame'] ."/*.*"));
+
+            echo "<div class='escapeGameRectSelec'></div>";
+            for($i=1; $i<$nbImg; $i++){
+                echo "<div class='escapeGameRect'></div>";
+            }
+        ?>
     </div>
 
     <div class="escapeGSliderIMG">
-        <img class="escapeGameSCenterSelec" src="img/codexMinia.png">
-        <img class="escapeGameSCenter" src="img/codexMinia.png">
-        <img class="escapeGameSCenter" src="img/codexMinia.png">
-        <img class="escapeGameSCenter" src="img/codexMinia.png">
+        <?php
+            echo "<img class='escapeGameSCenterSelec' src='../img/escapeGame/" . $escapeGame["id_escapeGame"] ."/1.jpg'>";
+            for($i=1; $i<$nbImg; $i++){
+                echo "<img class='escapeGameSCenter' src='../img/escapeGame/" . $escapeGame["id_escapeGame"] ."/" . $i+1 . ".jpg'>";
+            }
+        ?>
     </div>
 </div>
 
 <!-- Map -->
 <h2 class="titreUnderline">Map</h2>
 
-<p>Wasenweilerstraße 8, 79241 Ihringen, Germany</p>
+<p>
+    <?php
+    echo "<div class='escapeGameMap' data-x='" . $escapeGame['x'] . "' data-y='" . $escapeGame['y'] . "'>" . $escapeGame["address"] . "</div>";
+    ?>
+</p>
 <div id='mapEscapeGame'></div>
 
 <!-- Q&A -->
 <h2 class="titreUnderline">Q&A</h2>
 
-<div class="aQuestion">
-    <div class="titleQuestion">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ?</p>
-        <svg class="arrow arrowDown" xmlns="http://www.w3.org/2000/svg" width="14.828" height="8.414" viewBox="0 0 14.828 8.414">
-            <path id="Tracé_3" data-name="Tracé 3" d="M6,9l6,6,6-6" transform="translate(-4.586 -7.586)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-        </svg>
-    </div>
-    <div class="descQuestion displayQuestion">
-        <p>eh connais-tu les deux frères ? Les deux frères plombiers ! Héros pas zéros dans les jeux vidéos</p>
-    </div>
-</div>
+<?php if($qAndAEG!=0){ ?>
 
-<div class="escapeMoreAnswers displayNone">
-<div class="aQuestion">
-    <div class="titleQuestion">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ?</p>
-        <svg class="arrow arrowDown" xmlns="http://www.w3.org/2000/svg" width="14.828" height="8.414" viewBox="0 0 14.828 8.414">
-            <path id="Tracé_3" data-name="Tracé 3" d="M6,9l6,6,6-6" transform="translate(-4.586 -7.586)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-        </svg>
+    <div class="aQuestion">
+        <div class="titleQuestion">
+            <?php echo "<p>" . $qAndAEG[0]['title'] . '</p>' ?>
+            <svg class="arrow arrowDown" xmlns="http://www.w3.org/2000/svg" width="14.828" height="8.414" viewBox="0 0 14.828 8.414">
+                <path id="Tracé_3" data-name="Tracé 3" d="M6,9l6,6,6-6" transform="translate(-4.586 -7.586)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+            </svg>
+        </div>
+        <div class="descQuestion displayQuestion">
+            <?php echo "<p>" . $qAndAEG[0]['answer'] . '</p>' ?>
+        </div>
     </div>
-    <div class="descQuestion displayQuestion">
-        <p>euh ouais je</p>
-    </div>
-</div>
 
-<div class="aQuestion">
-    <div class="titleQuestion">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ?</p>
-        <svg class="arrow arrowDown" xmlns="http://www.w3.org/2000/svg" width="14.828" height="8.414" viewBox="0 0 14.828 8.414">
-            <path id="Tracé_3" data-name="Tracé 3" d="M6,9l6,6,6-6" transform="translate(-4.586 -7.586)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-        </svg>
+    <div class="escapeMoreAnswers displayNone">
+        <?php
+            for($i=0; $i<sizeof($qAndAEG)-1; $i++){
+                echo "<div class='aQuestion'>";
+                echo "<div class='titleQuestion'><p>" . $qAndAEG[$i+1]['title'] . "</p>"; ?>
+                <svg class="arrow arrowDown" xmlns="http://www.w3.org/2000/svg" width="14.828" height="8.414" viewBox="0 0 14.828 8.414">
+                    <path id="Tracé_3" data-name="Tracé 3" d="M6,9l6,6,6-6" transform="translate(-4.586 -7.586)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                </svg>
+                <?php echo "</div><div class='descQuestion displayQuestion'><p>" . $qAndAEG[$i+1]['answer'] . "</p></div>";
+            echo "</div>";
+            }
+        ?>
     </div>
-    <div class="descQuestion displayQuestion">
-        <p>mmmm spaghettis</p>
-    </div>
-</div>
 
-<div class="aQuestion">
-    <div class="titleQuestion">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ?</p>
-        <svg class="arrow arrowDown" xmlns="http://www.w3.org/2000/svg" width="14.828" height="8.414" viewBox="0 0 14.828 8.414">
-            <path id="Tracé_3" data-name="Tracé 3" d="M6,9l6,6,6-6" transform="translate(-4.586 -7.586)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-        </svg>
+<?php if(sizeof($qAndAEG)>1){ ?>
+    <div class="escapeMoreAnswersButton greenButton">
+        More answers
     </div>
-    <div class="descQuestion displayQuestion">
-        <p>n'hésitez pas à jouer a celeste c'est un bon jeu</p>
-    </div>
-</div>
-</div>
 
-<div class="escapeMoreAnswersButton greenButton">
-    More answers
-</div>
+<?php }
+} else {
+    echo "<p class='vide'>There's no question for this escape game yet.</p>";
+} ?>
 
 <!-- reviews -->
 <h2 class="titreUnderline">Reviews</h2>
 
+<?php if($reviewsEG!=0){ ?>
+
 <div class="escapeGameReview">
-    <div class="reviewNom">John Smith</div>
-    <div class="reviewDesc">Yorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+    <div class="reviewNom"><?php echo $reviewsEG[0]["firstName"]; ?></div>
+    <div class="reviewDesc"><?php echo $reviewsEG[0]["description"] ?></div>
     <div class="reviewNote">
-        <svg height="20" width="20">
+        <?php
+        $splitRating = preg_split("/[.]/", $reviewsEG[0]["rating"]);
+        if (sizeof($splitRating)>1) {
+            $rating = (int) $splitRating[0];
+            for($i = 0; $i<$rating; $i++){
+                ?><svg height='20' width='20'><circle cx='10' cy='10' r='10' fill='white'/></svg> <?php
+            }
+            ?> <svg height="20" width="10">
             <circle cx="10" cy="10" r="10" fill="white"/>
-        </svg>
-        <svg height="20" width="20">
-            <circle cx="10" cy="10" r="10" fill="white"/>
-        </svg>
-        <svg height="20" width="20">
-            <circle cx="10" cy="10" r="10" fill="white"/>
-        </svg>
-        <svg height="20" width="20">
-            <circle cx="10" cy="10" r="10" fill="white"/>
-        </svg>
-        <svg height="20" width="10"> <!-- On réduit le width pour que le cercle soit coupé en deux -->
-            <circle cx="10" cy="10" r="10" fill="white"/>
-        </svg>
+        </svg> <?php
+        } else if(sizeof($splitRating)==1){
+            $rating = $reviewsEG[0]["rating"];
+            for($i = 0; $i<$rating; $i++){
+                ?><svg height='20' width='20'><circle cx='10' cy='10' r='10' fill='white'/></svg> <?php
+            }
+        }
+        ?>
     </div> 
 </div>
 
 <div class="escapeMoreReviews displayNone">
-
-    <div class="escapeGameReview">
-        <div class="reviewNom">John Smith</div>
-        <div class="reviewDesc">Yorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-        <div class="reviewNote">
-            <svg height="20" width="20">
+    <?php
+        for($i = 0; $i<sizeof($reviewsEG); $i++){
+            ?>
+            <div class="escapeGameReview">
+            <div class="reviewNom"><?php echo $reviewsEG[$i+1]["firstName"] ?></div>
+            <div class="reviewDesc"><?php echo $reviewsEG[$i+1]["description"] ?></div>
+            <div class="reviewNote">
+            <?php
+            $splitRating = preg_split("/[.]/", $reviewsEG[$i+1]["rating"]);
+            if (sizeof($splitRating)>1) {
+                $rating = (int) $splitRating[0];
+                for($i = 0; $i<$rating; $i++){
+                    ?><svg height='20' width='20'><circle cx='10' cy='10' r='10' fill='white'/></svg> <?php
+                }
+                ?> <svg height="20" width="10">
                 <circle cx="10" cy="10" r="10" fill="white"/>
-            </svg>
-            <svg height="20" width="20">
-                <circle cx="10" cy="10" r="10" fill="white"/>
-            </svg>
-            <svg height="20" width="20">
-                <circle cx="10" cy="10" r="10" fill="white"/>
-            </svg>
-            <svg height="20" width="20">
-                <circle cx="10" cy="10" r="10" fill="white"/>
-            </svg>
-            <svg height="20" width="10"> <!-- On réduit le width pour que le cercle soit coupé en deux -->
-                <circle cx="10" cy="10" r="10" fill="white"/>
-            </svg>
-        </div> 
-    </div>
-
-    <div class="escapeGameReview">
-        <div class="reviewNom">John Smith</div>
-        <div class="reviewDesc">Yorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-        <div class="reviewNote">
-            <svg height="20" width="20">
-                <circle cx="10" cy="10" r="10" fill="white"/>
-            </svg>
-            <svg height="20" width="20">
-                <circle cx="10" cy="10" r="10" fill="white"/>
-            </svg>
-            <svg height="20" width="20">
-                <circle cx="10" cy="10" r="10" fill="white"/>
-            </svg>
-            <svg height="20" width="20">
-                <circle cx="10" cy="10" r="10" fill="white"/>
-            </svg>
-            <svg height="20" width="10"> <!-- On réduit le width pour que le cercle soit coupé en deux -->
-                <circle cx="10" cy="10" r="10" fill="white"/>
-            </svg>
-        </div> 
-    </div>
+            </svg> <?php
+            } else if(sizeof($splitRating)==1){
+                $rating = $reviewsEG[$i+1]["rating"];
+                for($i = 0; $i<$rating; $i++){
+                    ?><svg height='20' width='20'><circle cx='10' cy='10' r='10' fill='white'/></svg> <?php
+                }
+            }
+            echo '</div></div>';
+        }
+    ?>
+    </div> 
 </div>
 
-<div class="escapeMoreReviewsButton escapeYellowButton">
-    More Reviews
-</div>
+<?php if(sizeof($reviewsEG)>1){ ?>
+    <div class="escapeMoreReviewsButton escapeYellowButton">
+        More Reviews
+    </div>
+
+<?php
+}
+} else {
+    echo "<p class='vide'>There's no review for this escape game yet.</p>";
+} ?>
 
 <!-- Buy -->
 <h2 class="titreUnderline">Buy</h2>
 
-<p>Number of person</p>
-<input class="inputBuy" type="number" id="buyPerson">
+<form id="search" action="index.php?action=buyEG&escapeGame=<?= $escapeGame["id_escapeGame"]?>" method="POST">
 
-<p>Date</p>
-<input class="inputBuy" type="date" id="buyDate">
+    <p>Number of person</p>
+    <input class="inputBuy" type="number" id="buyPerson" name="nbPersons">
 
-<div class="escapeSearchButton">Search</div>
+    <p>Date</p>
+    <input class="inputBuy" type="date" id="buyDate" name="buyDate">
 
+    <div class="escapeSearchButton">Search</div>
 
-<!-- La partie possibleSchedules apparaitra seulement au clic sur .escapeSearchButton au dessus -->
-<div class="possibleSchedules">
-    <h3>Possible schedules</h3> 
-    <div class="hoursSchedules">
-        <div class="greenButton">10h</div>
-        <div class="greenButton occupied">14h</div>
-        <div class="greenButton">18h</div>
-        <div class="greenButton">20h</div>
-    </div>
-    <div class="escapeYellowButton">Order now</div>
-</div>
+    <?php
+    // if (!empty($_POST)){   
+    //     if(($_POST["nbPersons"]!="") && ($_POST["buyDate"]!="")){ 
+    ?>
+        <div class="possibleSchedules displayNone">
+            
+            <h3>Possible schedules for the <span class="inserDate">DATE</span>:</h3> 
+
+            <div class="hoursSchedules">
+            
+                <input type="radio" name="hour" id="ten" value="ten">
+                <label for="ten" class="greenButton">10h</label>
+
+                <input type="radio" name="hour" id="fourteen" value="fourteen">
+                <label for="fourteen" class="greenButton">14h</label>
+ 
+                <input type="radio" name="hour" id="eightteen" value="eightteen">
+                <label for="eightteen" class="greenButton">18h</label>
+
+                <input type="radio" name="hour" id="twenty" value="twenty">
+                <label for="twenty" class="greenButton">20h</label>
+
+            </div>
+            <input type="submit" value="Order now" class="escapeYellowButton">
+        </div>
+        <?php
+    //     }
+    // }
+?>
+</form>
+
 
 <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
         integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="

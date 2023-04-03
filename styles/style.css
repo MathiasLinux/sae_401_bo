@@ -698,6 +698,10 @@ footer a {
     justify-content: space-between;
 }
 
+.escapeGameFGauche, .escapeGameFDroite{
+    width: auto;
+}
+
 .escapeGSliderRect {
     position: absolute;
     display: flex;
@@ -748,6 +752,10 @@ footer a {
     display: none;
 }
 
+.vide{
+    color: var(--red);
+}
+
 .escapeGameReview {
     background-color: var(--green);
     display: grid;
@@ -796,22 +804,37 @@ footer a {
     border-style: solid;
     border-color: var(--green);
     padding: 10px 20px;
+    width: 100%;
     margin: 30px 0;
     font-size: 20px;
     display: flex;
     justify-content: center;
     text-align: center;
-    cursor: pointer;
     text-decoration: none;
     color: white;
+    background: none;
+}
+
+.formHours{
+    display: none;
 }
 
 .hoursSchedules > .greenButton {
     color: black;
+    transition: 0.2s;
 }
 
 .hoursSchedules > .occupied {
     background-color: #01241a;
+}
+
+.hoursSchedules>input{
+    display: none;
+}
+
+.hoursSchedules>input:checked+label{
+    background-color: lightgreen;
+    transition: 0.2s;
 }
 
 .possibleSchedules > .escapeYellowButton {
