@@ -42,17 +42,17 @@ install_apt() {
 if check_cmd apt-get; then
     # Update the package list and upgrade all packages
     warn "Updating the package list and upgrading all packages..."
-    $SUDO apt-get update
-    $SUDO apt-get upgrade -y
+    $SUDO apt-get -qq update
+    $SUDO apt-get -qq upgrade -y
     # Check if the php version in the repository is superior to 8.0
     if [ $(apt-cache policy php | grep -Eo '8\.[0-9]+' | head -n 1 | cut -d '.' -f 2) -ge 0 ]; then
         # Install the dependencies for a LAMP stack
         warn "Installing the dependencies for a LAMP stack..."
-        $SUDO apt-get install -y apache2 php libapache2-mod-php mariadb-server php-mysql
+        $SUDO apt-get -qq install -y apache2 php libapache2-mod-php mariadb-server php-mysql
         # Install the dependencies for the web application
-        $SUDO apt-get install -y php-curl php-gd php-intl php-json php-mbstring php-xml php-zip
+        $SUDO apt-get -qq install -y php-curl php-gd php-intl php-json php-mbstring php-xml php-zip
         # Install git and unzip
-        $SUDO apt-get install -y git unzip
+        $SUDO apt-get -qq install -y git unzip
         warn "Enabling the apache2 and mariadb services..."
         # Launch and enable the apache2 service
         $SUDO systemctl enable --now apache2.service
@@ -126,13 +126,13 @@ APACHE_USER=""
 # Launch the installation of the dependencies
 if check_cmd apt-get; then
     install_apt
-    $APACHE_USER="www-data"
+    APACHE_USER="www-data"
 elif check_cmd yum; then
     install_yum
-    $APACHE_USER="apache"
+    APACHE_USER="apache"
 elif check_cmd dnf; then
     install_dnf
-    $APACHE_USER="apache"
+    APACHE_USER="apache"
 else
     error "Your distribution is not supported by this script. Aborting..."
     exit 1
@@ -217,7 +217,7 @@ if [ "$password" != "$password2" ]; then
     exit 1
 fi
 # Check if the password is empty
-if [z "$password" ]; then
+if [ -z "$password" ]; then
     password="kaiserstuhlEscape"
 fi
 warn "The password of the user linked to the database is $password"
@@ -246,19 +246,20 @@ cd config || exit
 # create the configuration file
 $SUDO touch config.class.php
 # Add the content of the configuration file
+
 $SUDO cat > config.class.php << EOF
 <?php
 abstract class config
 {
     // Definition des paramètres de la BDD
-    public const DBNAME = "sae401";
-    public static $DBHost = "localhost";
+    public const DBNAME = "$database";
+    public static \$DBHost = "localhost";
 
-    // Définition des paramètres du site
-    public static $DBUser = "$user";
+    // Login
+    public static \$DBUser = "$user";
 
-    // Menu par défaut
-    public static $DBPwd = "$password";
+    // Password
+    public static \$DBPwd = "$password";
 }
 EOF
 # Change the directory
