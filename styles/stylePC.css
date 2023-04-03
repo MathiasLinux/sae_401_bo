@@ -666,3 +666,7 @@ label.center > h3 {
 }
 
 
+.grid1fr{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}

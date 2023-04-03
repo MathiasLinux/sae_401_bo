@@ -69,60 +69,54 @@
                 <h3><?= $jobTitle ?></h3>
                 <p><?= $jobPosition ?></p>
             </div>
-            <div class="taskJobOffer">
-                <p>Your Task :</p>
-                <ul>
-                    <?php
-                    if ($_SESSION['lang'] == "fr") {
-                        $jobTask = $job['taskFR'];
-                    } elseif ($_SESSION['lang'] == "en") {
-                        $jobTask = $job['task'];
-                    } else {
-                        $jobTask = $job['task'];
-                    }
-                    //Detection the \r et on le remplace par un <li>
-                    $jobTaskFinal = str_replace("\r", "<li>", $jobTask);
-                    //On ajoute le <li> au début de la chaine
-                    $jobTaskFinal = "<li>" . $jobTaskFinal;
-                    echo $jobTaskFinal . "</li>";
-                    ?>
-                </ul>
+            <div class="grid1fr">
+                <div class="taskJobOffer">
+                    <p>Your Task :</p>
+                    <ul>
+                        <?php
+                        if ($_SESSION['lang'] == "fr") {
+                            $jobTask = $job['taskFR'];
+                        } elseif ($_SESSION['lang'] == "en") {
+                            $jobTask = $job['task'];
+                        } else {
+                            $jobTask = $job['task'];
+                        }
+                        //Detection the \r et on le remplace par un <li>
+                        $jobTaskFinal = str_replace("\r", "<li>", $jobTask);
+                        //On ajoute le <li> au début de la chaine
+                        $jobTaskFinal = "<li>" . $jobTaskFinal;
+                        echo $jobTaskFinal . "</li>";
+                        ?>
+                    </ul>
+                </div>
+                <div class="strenghtJobOffer">
+                    <p>Your strenght :</p>
+                    <ul>
+                        <?php
+                        if ($_SESSION['lang'] == "fr") {
+                            $jobStrength = $job['strengthFR'];
+                        } elseif ($_SESSION['lang'] == "en") {
+                            $jobStrength = $job['strength'];
+                        } else {
+                            $jobStrength = $job['strength'];
+                        }
+                        //Detection the \r et on le remplace par un <li>
+                        $jobStrengthFinal = str_replace("\r", "<li>", $jobStrength);
+                        //On ajoute le <li> au début de la chaine
+                        $jobStrengthFinal = "<li>" . $jobStrengthFinal;
+                        echo $jobStrengthFinal . "</li>";
+                        ?>
+                    </ul>
+                </div>
             </div>
-            <div class="strenghtJobOffer">
-                <p>Your strenght :</p>
-                <ul>
-                    <?php
-                    if ($_SESSION['lang'] == "fr") {
-                        $jobStrength = $job['strengthFR'];
-                    } elseif ($_SESSION['lang'] == "en") {
-                        $jobStrength = $job['strength'];
-                    } else {
-                        $jobStrength = $job['strength'];
-                    }
-                    //Detection the \r et on le remplace par un <li>
-                    $jobStrengthFinal = str_replace("\r", "<li>", $jobStrength);
-                    //On ajoute le <li> au début de la chaine
-                    $jobStrengthFinal = "<li>" . $jobStrengthFinal;
-                    echo $jobStrengthFinal . "</li>";
-                    ?>
-                </ul>
-            </div>
+            
         </div>
         <?php
     }
     ?>
 </div>
 <h2 class="titleUnderline"><?= JOBS_H2_3 ?></h2>
-<div class="contactInfos">
-    <div>
-        <img src="img/svg/tel.svg" alt="Phone Icon">
-        <a href="tel:017666810096">0176 66810096</a>
-    </div>
-    <div>
-        <img src="img/svg/email.svg" alt="Mail Icon">
-        <a href="mailto:booking@we-escape.de">booking@we-escape.de</a>
-    </div>
-</div>
+
 <form class="contactForm contactJobs" action="#" method="post">
     <div class="formGroup">
         <label>
@@ -157,5 +151,15 @@
     <div class="formGroup formInput right">
         <input type="submit" value="<?= CONTACT_FORM_SUBMIT ?>">
     </div>
+    <div class="contactInfos">
+    <div>
+        <img src="img/svg/tel.svg" alt="Phone Icon">
+        <a href="tel:017666810096">0176 66810096</a>
+    </div>
+    <div>
+        <img src="img/svg/email.svg" alt="Mail Icon">
+        <a href="mailto:booking@we-escape.de">booking@we-escape.de</a>
+    </div>
+</div>
 </form>
 </div>
