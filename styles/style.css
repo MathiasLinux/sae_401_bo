@@ -910,6 +910,16 @@ footer a {
     height: 240px;
 }
 
+.visibilityEG{
+    display: grid;
+    padding: 4%;
+    font-size: 24px;
+    grid-template-columns: 10% 80% 10%;
+    align-items: center;
+    text-align: center;
+    background-color: var(--lightBlue);
+}
+
 .difficultyAdmin{
     display: grid;
     grid-template-columns: 1fr 1fr;
