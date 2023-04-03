@@ -91,6 +91,7 @@ if check_cmd yum; then
     $SUDO yum update -y
     # check if the rhel version is 8
     # shellcheck disable=SC2046
+    # shellcheck disable=SC2002
     if [ $(cat /etc/redhat-release | grep -Eo '[0-9]+' | head -n 1) -eq 8 ]; then
         # enable the php 8.0 module
         $SUDO yum module enable -y php:8.0
@@ -204,15 +205,7 @@ fi
 # Change the directory
 cd "$directory" || exit
 # Download the web site
-$SUDO git clone https://github.com/MathiasLinux/sae_401_bo.git
-# Change the directory
-cd sae_401_bo || exit
-# Move the content of the web site to the directory
-$SUDO mv * ..
-# Change the directory
-cd .. || exit
-# Remove the directory
-$SUDO rm -rf sae_401_bo
+$SUDO git clone https://github.com/MathiasLinux/sae_401_bo.git .
 
 # Create the database
 warn "Creating the database..."
@@ -307,6 +300,8 @@ abstract class config
 EOF
 # Change the directory
 cd .. || exit
+# Change git config to create a safe directory
+$SUDO git config --global --add safe.directory $directory
 # Modify the rights of the whole directory
 warn "Modifying the rights of the whole directory..."
 $SUDO chmod -R 755 "$directory"
@@ -358,10 +353,19 @@ fi
 # Change the directory
 cd "$directory" || exit
 
+# Verify if the directory is a git repository
+warn "Verifying if the directory is a git repository..."
+if ! $SUDO git rev-parse --git-dir > /dev/null 2>&1; then
+    error "The directory is not a git repository. Aborting..."
+    exit 1
+fi
+
 # Check if the directory has not the last updates main branch with git status
 warn "Checking if the directory has not the last updates main branch..."
 # Here it's little hacky but it works
-if git status | grep -q "is up to date"; then
+# Update the repository
+$SUDO git remote update
+if $SUDO git status | grep -q "is up to date"; then
     error "You already have the last updates. Aborting..."
     exit 1
 fi
@@ -392,18 +396,24 @@ if [ ! -d "$backup_directory" ]; then
         error "Aborting..."
         exit 1
     fi
-    # Get the current date
-    date=$(date +%Y-%m-%d_%H-%M-%S)
     # Create the directory
     warn "Creating the directory..."
-    backup_directory="$backup_directory/$date"
     $SUDO mkdir -p "$backup_directory"
 fi
-cd "$backup_directory" || exit
+# Get the current date
+date=$(date +%Y-%m-%d_%H-%M-%S)
+# Create the backup directory with the current date
+warn "Creating the backup directory with the current date..."
+$SUDO mkdir "$backup_directory"/"$date"
+# Change the directory
+cd "$backup_directory"/"$date" || exit
 # Backup the configuration file
-$SUDO cp config/config.class.php "$backup_directory"/config.class.php
+warn "Backing up the configuration file..."
+$SUDO cp $directory/config/config.class.php "$backup_directory"/"$date"/config.class.php
 # Backup the images
-$SUDO cp -r img/escapeGames "$backup_directory"/img/escapeGames
+warn "Backing up the images..."
+$SUDO mkdir -p "$backup_directory"/"$date"/img/escapeGames
+$SUDO cp -r $directory/img/escapeGames "$backup_directory"/"$date"/img/escapeGames
 # Backup the database
 warn "Backing up the database..."
 # Ask for the database name
@@ -421,7 +431,7 @@ if [ "$answer" != "y" ]; then
     exit 1
 fi
 # Backup the database
-$SUDO mysqldump "$database" > "$backup_directory"/database.sql
+$SUDO mysqldump "$database" > "$backup_directory"/"$date"/database.sql
 
 # Update the web site
 warn "Updating the web site..."
@@ -430,28 +440,27 @@ cd "$directory" || exit
 # Delete the old web site
 warn "Deleting the old web site..."
 $SUDO rm -rf "$directory"
+#Create the new directory
+warn "Creating the new directory..."
+$SUDO mkdir -p "$directory"
+# Change the directory
+cd "$directory" || exit
 # Download the new web site
 warn "Downloading the new web site..."
-$SUDO git clone https://github.com/MathiasLinux/sae_401_bo.git
-# Move the content of the new web site to the directory
-warn "Moving the content of the new web site to the directory..."
-$SUDO mv sae_401_bo/* "$directory"
-# Delete the folder of git
-warn "Deleting the folder of git..."
-$SUDO rm -rf sae_401_bo
+$SUDO git clone https://github.com/MathiasLinux/sae_401_bo.git .
 # Restore the configuration file and the images
 warn "Restoring the configuration file and the images..."
 # Restore the configuration file
-$SUDO cp "$backup_directory"/config.class.php config/config.class.php
+$SUDO cp "$backup_directory"/"$date"/config.class.php config/config.class.php
 # Restore the images
-$SUDO cp -r "$backup_directory"/img/escapeGames img/escapeGames
+$SUDO cp -r "$backup_directory"/"$date"/img/escapeGames img/escapeGames
 # Ask if the user wants to restore the database
 warn "Do you want to restore the database? (y/n)"
 read -r -p "Answer: " answer
 if [ "$answer" = "y" ]; then
     # Restore the database
     warn "Restoring the database..."
-    $SUDO mysql "$database" < "$backup_directory"/database.sql
+    $SUDO mysql "$database" < "$backup_directory"/"$date"/database.sql
 fi
 
 # Restart the apache2 service
