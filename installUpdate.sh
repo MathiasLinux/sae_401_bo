@@ -149,6 +149,17 @@ if check_cmd dnf; then
 fi
 }
 
+verify_if_install(){
+    if [ -f "$directory/index.php" ]; then
+        error "The web site is already installed in $directory. Aborting..."
+        exit 1
+    fi
+}
+
+install_web_site(){
+
+# Define the apache user
+
 APACHE_USER=""
 
 # Launch the installation of the dependencies
@@ -316,5 +327,162 @@ success "The default user is admin@admin.fr and the default password is Admin#12
 
 success "Thank you for using this script. If you have any questions, please contact me on GitHub: MathiasLinux"
 
-# End of the script
+# End of the script with a success code
 exit 0
+}
+
+# Function to update the web site
+update_web_site() {
+# Define the web site directory
+warn "Please enter the directory where the web site is installed (default: /var/www/html):"
+read -r -p "Directory: " directory
+# Check if the directory is empty
+if [ -z "$directory" ]; then
+    directory="/var/www/html"
+fi
+warn "The web site is installed in $directory"
+warn "Is it correct? (y/n)"
+read -r -p "Answer: " answer
+if [ "$answer" != "y" ]; then
+    error "Aborting..."
+    exit 1
+fi
+
+# Check if the directory exists
+if [ ! -d "$directory" ]; then
+    error "The directory does not exist. Aborting..."
+    exit 1
+fi
+
+# Change the directory
+cd "$directory" || exit
+# Backup the configuration file and the images
+warn "Backing up the configuration file and the images..."
+# Create the backup directory
+# Ask for the backup directory
+warn "Please enter the directory where the backup will be stored (default: /var/www/backup):"
+read -r -p "Directory: " backup_directory
+# Check if the backup directory is empty
+if [ -z "$backup_directory" ]; then
+    backup_directory="/var/www/backup"
+fi
+warn "The backup will be stored in $backup_directory"
+warn "Is it correct? (y/n)"
+read -r -p "Answer: " answer
+if [ "$answer" != "y" ]; then
+    error "Aborting..."
+    exit 1
+fi
+# Verify if the backup directory exists
+if [ ! -d "$backup_directory" ]; then
+    warn "The backup directory does not exist."
+    # Ask the user if he wants to create the directory
+    warn "Do you want to create the directory? (y/n)"
+    read -r -p "Answer: " answer
+    if [ "$answer" != "y" ]; then
+        error "Aborting..."
+        exit 1
+    fi
+    # Get the current date
+    date=$(date +%Y-%m-%d_%H-%M-%S)
+    # Create the directory
+    warn "Creating the directory..."
+    backup_directory="$backup_directory/$date"
+    $SUDO mkdir -p "$backup_directory"
+fi
+cd "$backup_directory" || exit
+# Backup the configuration file
+$SUDO cp config/config.class.php "$backup_directory"/config.class.php
+# Backup the images
+$SUDO cp -r img/escapeGames "$backup_directory"/img/escapeGames
+# Backup the database
+warn "Backing up the database..."
+# Ask for the database name
+warn "Please enter the name of the database (default: kaiserstuhlEscape):"
+read -r -p "Database name: " database
+# Check if the database name is empty
+if [ -z "$database" ]; then
+    database="kaiserstuhlEscape"
+fi
+warn "The name of the database is $database"
+warn "Is it correct? (y/n)"
+read -r -p "Answer: " answer
+if [ "$answer" != "y" ]; then
+    error "Aborting..."
+    exit 1
+fi
+# Backup the database
+$SUDO mysqldump "$database" > "$backup_directory"/database.sql
+
+# Update the web site
+warn "Updating the web site..."
+# Change the directory
+cd "$directory" || exit
+# Delete the old web site
+warn "Deleting the old web site..."
+$SUDO rm -rf "$directory"
+# Download the new web site
+warn "Downloading the new web site..."
+$SUDO git clone https://github.com/MathiasLinux/sae_401_bo.git
+# Move the content of the new web site to the directory
+warn "Moving the content of the new web site to the directory..."
+$SUDO mv sae_401_bo/* "$directory"
+# Delete the folder of git
+warn "Deleting the folder of git..."
+$SUDO rm -rf sae_401_bo
+# Restore the configuration file and the images
+warn "Restoring the configuration file and the images..."
+# Restore the configuration file
+$SUDO cp "$backup_directory"/config.class.php config/config.class.php
+# Restore the images
+$SUDO cp -r "$backup_directory"/img/escapeGames img/escapeGames
+# Ask if the user wants to restore the database
+warn "Do you want to restore the database? (y/n)"
+read -r -p "Answer: " answer
+if [ "$answer" = "y" ]; then
+    # Restore the database
+    warn "Restoring the database..."
+    $SUDO mysql "$database" < "$backup_directory"/database.sql
+fi
+
+# Restart the apache2 service
+warn "Restarting the apache2 service..."
+if check_cmd apt-get; then
+    $SUDO systemctl restart apache2.service
+elif check_cmd yum; then
+    $SUDO systemctl restart httpd.service
+elif check_cmd dnf; then
+    $SUDO systemctl restart httpd.service
+fi
+
+# if yum or dnf is installed restart php-fpm
+if check_cmd yum || check_cmd dnf; then
+    $SUDO systemctl restart php-fpm.service
+fi
+
+# Display the end of the script
+success "The update is finished. You can now access the web site at the following address: http://localhost !"
+
+success "Thank you for using this script. If you have any questions, please contact me on GitHub: MathiasLinux"
+
+# End of the script with a success code
+exit 0
+}
+
+# Check if the script is run as root
+if [ "$EUID" -ne 0 ]; then
+    error "Please run this script as root. Aborting..."
+    exit 1
+fi
+
+# Ask if the user wants to install the web site or to update it
+warn "Do you want to install the web site or to update it? (install/update)"
+read -r -p "Answer: " answer
+if [ "$answer" = "install" ]; then
+    install_web_site
+elif [ "$answer" = "update" ]; then
+    update_web_site
+else
+    error "The answer is not valid. Aborting..."
+    exit 1
+fi
