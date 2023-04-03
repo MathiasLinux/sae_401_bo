@@ -23,7 +23,7 @@
     <!-- Gestion des images à faire -->
 
     <?php
-        $imgs = scandir("img/".$EG['id_escapeGame']);
+        $imgs = scandir("img/".$EG['id_escapeGame']."/");
         var_dump($imgs);
     ?>
 
