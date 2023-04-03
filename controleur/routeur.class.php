@@ -190,6 +190,17 @@ class routeur
                                         $this->ctrAdmin->admin();
                                     }
                                     break;
+                                case "delReservation":
+                                    if (str_contains($_SESSION["rights"], "management") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        if (isset($_GET["id"])) {
+                                            $this->ctrAdmin->delReservation($_GET["id"]);
+                                        } else {
+                                            $this->ctrAdmin->reservations();
+                                        }
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
+                                    break;
                                 case "giftCards":
                                     if (str_contains($_SESSION["rights"], "management") or str_contains($_SESSION["rights"], "superadmin")) {
                                         $this->ctrAdmin->giftCards();

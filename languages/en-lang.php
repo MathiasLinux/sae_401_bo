@@ -530,6 +530,25 @@ const ADMIN_CONTACT_FROM_DELETE_VERIF = "Are you sure you want to delete this me
 const ADMIN_CONTACT_FORM_DELETE_YES = "Yes";
 const ADMIN_CONTACT_FROM_DELETE_NO = "No";
 
+//Admin Reservation page
+
+const ADMIN_RESERVATION_TITLE = "Reservations";
+
+const ADMIN_RESERVATION_DATE = "Date";
+
+const ADMIN_RESERVATION_HOURS = "Hours";
+
+const ADMIN_RESERVATION_ESCAPE = "Escape Game";
+
+const ADMIN_RESERVATION_NB_PERSONS = "Number of persons";
+
+const ADMIN_RESERVATION_FIRST_NAME = "First Name";
+
+const ADMIN_RESERVATION_LAST_NAME = "Last Name";
+
+const ADMIN_RESERVATION_CANCEL = "Cancel?";
+const ADMIN_RESERVATION_DELETE_WARNING = "Are you sure you want to delete this reservation ?";
+
 //Admin user page
 
 const ADMIN_USER_TITLE = "Users Management";
@@ -576,7 +595,7 @@ const ADMIN_GIFT_CARDS_SUBMIT = "Create";
 
 const ADMIN_GIFT_CARDS_H2_2 = "Sold Money Cards";
 
-const ADMIN_GIFT_CARDS_SOLD_DATE = "Date";
+const ADMIN_GIFT_CARDS_SOLD_DATE = "Date of purchase";
 
 const ADMIN_GIFT_CARDS_SOLD_USAGE_DATE = "Usage Date";
 

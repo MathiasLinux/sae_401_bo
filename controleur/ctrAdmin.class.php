@@ -66,9 +66,16 @@ class ctrAdmin
 
     public function reservations()
     {
+        $reservations = $this->EG->getAllReservations();
         $title = "Administration Reservation - Kaiserstuhl escape";
         $objVue = new vue("AdminReservations");
-        $objVue->afficher(array(), $title);
+        $objVue->afficher(array("reservations" => $reservations), $title);
+    }
+
+    public function delReservation($id)
+    {
+        $this->EG->delReservation($id);
+        header("Location: index.php?action=admin&page=reservations");
     }
 
     public function delGiftCard()
