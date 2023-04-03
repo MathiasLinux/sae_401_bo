@@ -513,6 +513,25 @@ const ADMIN_CONTACT_FROM_DELETE_VERIF = "Êtes-vous sûr de vouloir supprimer ce
 const ADMIN_CONTACT_FORM_DELETE_YES = "Oui";
 const ADMIN_CONTACT_FROM_DELETE_NO = "Non";
 
+//Admin Reservation page
+
+const ADMIN_RESERVATION_TITLE = "Réservations";
+
+const ADMIN_RESERVATION_DATE = "Date";
+
+const ADMIN_RESERVATION_HOURS = "Heure";
+
+const ADMIN_RESERVATION_ESCAPE = "Escape Game";
+
+const ADMIN_RESERVATION_NB_PERSONS = "Nombre de personnes";
+
+const ADMIN_RESERVATION_FIRST_NAME = "Prénom";
+
+const ADMIN_RESERVATION_LAST_NAME = "Nom";
+
+const ADMIN_RESERVATION_CANCEL = "Annuler ?";
+const ADMIN_RESERVATION_DELETE_WARNING = "Êtes-vous sûr de vouloir supprimer cette réservation ?";
+
 //Admin user page
 
 const ADMIN_USER_TITLE = "Gestion des utilisateurs";

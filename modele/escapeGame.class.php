@@ -64,4 +64,16 @@ class escapeGame extends bdd
         return $escapeGames;
     }
 
+    public function getAllReservations()
+    {
+        $req = "SELECT DATE_FORMAT(gameDate, '%d/%m/%Y') AS gameDateDisplay, hours, eG.name, eG.nameFR, nbPlayers, buyersFirstName, buyersLastName, id_buying from buying INNER JOIN escapeGame eG on buying.id_escapeGame = eG.id_escapeGame;";
+        return $this->execReq($req);
+    }
+
+    public function delReservation($id)
+    {
+        $req = "DELETE FROM buying WHERE id_buying = ?";
+        $this->execReqPrep($req, array($id));
+    }
+
 }

@@ -992,6 +992,12 @@ footer a {
     border: none
 }
 
+/* Page admin vueAdminReservation.php */
+
+.noBg {
+    background-color: rgba(255, 255, 255, 0) !important;
+}
+
 /* Page admin vueAdminGiftCards.php */
 .amount p {
     font-size: 20px;
@@ -1519,7 +1525,7 @@ h3.titleAdminQAndA {
 
 .validationDeleteUser a {
     text-decoration: none;
-    color: black;
+    color: white;
     background-color: var(--red);
     padding: 10px 30px;
 }
