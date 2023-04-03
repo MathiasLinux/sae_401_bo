@@ -7,19 +7,19 @@
 <!-- Infos escape game -->
 <div class="escapeGameGrid">
     <div>
-        <img src="../img/puzzle.png" alt="Puzzle">
+        <img src="img/puzzle.png" alt="Puzzle">
         <p>30+ puzzles</p>
     </div>
     <div>
-        <img src="../img/aventureuxLeMec.png" alt="Aventurier">
+        <img src="img/aventureuxLeMec.png" alt="Aventurier">
         <p>3 adventures</p>
     </div>
     <div>
-        <img src="../img/placeholder.png" alt="Position">
+        <img src="img/placeholder.png" alt="Position">
         <p>4 spots in the Kaiserstuhl</p>
     </div>
     <div>
-        <img src="../img/book.png" alt="Livre">
+        <img src="img/book.png" alt="Livre">
         <p>1 story</p>
     </div>
 </div>
@@ -34,8 +34,8 @@
 <div class="escapeGameSlider">
 
     <div class="escapeGameF">
-        <img class="escapeGameFGauche" src="../img/flecheGauche.png" alt="Left arrow" id='previous'>
-        <img class="escapeGameFDroite" src="../img/flecheDroite.png" alt="Right arrow" id='next'>
+        <img class="escapeGameFGauche" src="img/flecheGauche.png" alt="Left arrow" id='previous'>
+        <img class="escapeGameFDroite" src="img/flecheDroite.png" alt="Right arrow" id='next'>
     </div>
 
     <div class="escapeGSliderRect">
@@ -46,10 +46,10 @@
     </div>
 
     <div class="escapeGSliderIMG">
-        <img class="escapeGameSCenterSelec" src="../img/codexMinia.png">
-        <img class="escapeGameSCenter" src="../img/codexMinia.png">
-        <img class="escapeGameSCenter" src="../img/codexMinia.png">
-        <img class="escapeGameSCenter" src="../img/codexMinia.png">
+        <img class="escapeGameSCenterSelec" src="img/codexMinia.png">
+        <img class="escapeGameSCenter" src="img/codexMinia.png">
+        <img class="escapeGameSCenter" src="img/codexMinia.png">
+        <img class="escapeGameSCenter" src="img/codexMinia.png">
     </div>
 </div>
 
