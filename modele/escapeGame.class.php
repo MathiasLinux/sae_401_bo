@@ -17,11 +17,11 @@ class escapeGame extends bdd
         return $this->execReq($req);
     }
 
-    public function getEscapeGame($id)
+    public function getEscapeGame($idEG)
     {
         $req = "SELECT * FROM escapeGame WHERE id_escapeGame = ?";
-        $escapeGame = $this->execReqPrep($req, array($id));
-        return $escapeGame[0]["name"];
+        $escapeGame = $this->execReqPrep($req, array($idEG));
+        return $escapeGame[0];
     }
 
     public function getPriceEscapeGame($id, $nbPersons)
