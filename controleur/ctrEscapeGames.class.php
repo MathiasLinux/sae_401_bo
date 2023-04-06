@@ -14,38 +14,50 @@ class ctrEscapeGames
 
     public function __construct()
     {
-        $this->escapeGames = new escapeGame; 
+        $this->escapeGames = new escapeGame;
 
-        if(isset($_GET["escapeGame"])){
+        if (isset($_GET["escapeGame"])) {
             $this->escapeGame = $this->escapeGames->getEscapeGame($_GET["escapeGame"]);
 
-            if(($this->escapeGame["x"]==0) && ($this->escapeGame["y"]==0))
-            {
+            if (($this->escapeGame["x"] == 0) && ($this->escapeGame["y"] == 0)) {
                 $this->ch = curl_init();
 
+                // User agent to be viewed as an application and not a bot
+                //$config['useragent'] = "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:10.0.2) Gecko/20100101 Firefox/10.0.2";
+
+                $config['useragent'] = $_SERVER['HTTP_USER_AGENT'];
+
                 $this->options = array(
-                    CURLOPT_URL => "http://api.positionstack.com/v1/forward?access_key=8e1f3883571571dbaade3511a59d7e2b&query=". urlencode($this->escapeGame["address"]),
+                    //https://nominatim.openstreetmap.org/search?format=json&q={address}
+                    CURLOPT_URL => "https://nominatim.openstreetmap.org/search?format=json&q=" . urlencode($this->escapeGame["address"]),
+                    CURLOPT_USERAGENT => $config['useragent'],
                     CURLOPT_RETURNTRANSFER => true,
                     CURLOPT_SSL_VERIFYPEER => true,
                 );
                 curl_setopt_array($this->ch, $this->options);
+                echo "https://nominatim.openstreetmap.org/search?format=json&q=" . urlencode($this->escapeGame["address"]);
 
                 $this->r = curl_exec($this->ch);
+                echo "<pre>";
+                print_r($this->r);
+                echo "</pre>";
 
                 $this->result = json_decode($this->r);
 
-        
+                echo "<pre>";
+                print_r($this->result);
+                echo "</pre>";
+
 
                 // Verif des erreurs
-                if(curl_errno($this->ch) === 0){
+                if (curl_errno($this->ch) === 0) {
                     $this->result = json_decode($this->r);
-                    $latitudeX = $this->result->data[0]->latitude;
-                    $longitudeY = $this->result->data[0]->longitude;
+                    $latitudeX = $this->result[0]->lat;
+                    $longitudeY = $this->result[0]->lon;
                     $idEG = $_GET["escapeGame"];
                     $this->escapeGames->addXY($latitudeX, $longitudeY, $idEG);
-                }
-                else
-                    throw new Exception("Coordonnées introuvables => (".curl_errno($this->ch).")". curl_error($this->r));
+                } else
+                    throw new Exception("Coordonnées introuvables => (" . curl_errno($this->ch) . ")" . curl_error($this->ch));
             }
         }
     }
