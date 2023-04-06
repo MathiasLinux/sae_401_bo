@@ -188,18 +188,24 @@ if ($_SESSION["lang"] == "fr") {
 <h2 class="titleUnderline"><?= HOME_REVIEW_TITLE ?></h2>
 <div class="reviewsHome">
     <?php
-    foreach ($reviews as $review) {
+    $length = count($reviews);
+    if (count($reviews) < 4) {
+        $length = count($reviews);
+    } else {
+        $length = 4;
+    }
+    for ($i = 0; $i < $length; $i++) {
         if ($_SESSION["lang"] == "fr") {
-            $description = $review["descriptionFR"];
+            $description = $reviews[$i]["descriptionFR"];
         } elseif ($_SESSION["lang"] == "en") {
-            $description = $review["description"];
+            $description = $reviews[$i]["description"];
         } else {
-            $description = $review["description"];
+            $description = $reviews[$i]["description"];
         }
         ?>
         <div class="aReview">
             <div class="leftReview">
-                <p class="reviewName"><?= $review["firstName"] . " " . $review["lastName"] ?></p>
+                <p class="reviewName"><?= $reviews[$i]["firstName"] . " " . $reviews[$i]["lastName"] ?></p>
                 <div class="reviewStars">
                     <svg height="20" width="20">
                         <circle cx="10" cy="10" r="10" fill="white"/>

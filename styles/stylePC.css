@@ -218,8 +218,9 @@ header img {
 }
 
 .Vue2 {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
     align-items: center;
 }
 
@@ -393,7 +394,7 @@ header img {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-.contactInfos div{
+.contactInfos div {
     flex-direction: column;
 }
 
@@ -441,6 +442,20 @@ header img {
 }
 
 /* Menu Admin */
+
+.mobileMenuAdmin {
+    width: 30%;
+    background-color: var(--lightBlue);
+    border-left: #262626 solid 3px;
+}
+
+.show {
+    left: 70% !important;
+}
+
+.mobileMenuAdmin .lang img {
+    width: 50px;
+}
 
 /* Page admin vueAdminContactForm.php */
 
@@ -640,7 +655,7 @@ label.center > h3 {
 
 /* Vue Jobs PC */
 
-.jobFlexPC{
+.jobFlexPC {
     position: relative;
     display: flex;
     justify-content: space-around;
@@ -649,24 +664,24 @@ label.center > h3 {
     text-align: left;
 }
 
-.wit{
+.wit {
     height: auto;
     border-radius: 10px;
 }
 
 
-.jobsFirstIcons{
+.jobsFirstIcons {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.doubleLigneJobs{
+.doubleLigneJobs {
     display: block;
 }
 
 
-.grid1fr{
+.grid1fr {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
