@@ -818,7 +818,6 @@ footer a {
     border-style: solid;
     border-color: var(--green);
     padding: 10px 20px;
-    width: 100%;
     margin: 30px 0;
     font-size: 20px;
     display: flex;

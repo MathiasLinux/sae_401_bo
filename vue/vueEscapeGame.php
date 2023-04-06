@@ -7,41 +7,38 @@
       crossorigin=""/>
 
 
-<h2 class="titreUnderline"><?php echo $escapeGame['name']; ?></h2>
+<h2 class="titreUnderline"><?php
+    echo $_SESSION['lang'] ? $escapeGame['nameFR'] : $escapeGame['name'];
+?></h2>
 
 <!-- Infos escape game -->
 <div class="escapeGameGrid">
     <div>
         <img src="img/puzzle.png" alt="Puzzle">
-        <p><?php echo $escapeGame['puzzles']; ?> puzzles</p>
+        <p><?php echo $escapeGame['duration']; ?>h</p>
     </div>
     <div>
         <img src="img/aventureuxLeMec.png" alt="Aventurier">
-        <p><?php echo $escapeGame['adventures']; ?> adventures</p>
-    </div>
-    <div>
-        <img src="img/placeholder.png" alt="Position">
-        <p><?php echo $escapeGame['spots']; ?> spots in the Kaiserstuhl</p>
-    </div>
-    <div>
-        <img src="img/book.png" alt="Livre">
-        <p><?php echo $escapeGame['story']; ?> story</p>
+        <p><?php
+            echo $_SESSION['lang']=='fr' ? $escapeGame['difficultyFR'] : $escapeGame['difficulty'];
+         ?></p>
     </div>
 </div>
 
 <!-- Partie présentation de l'escape game  -->
-<h2 class="titreUnderline">Presentation</h2>
+<h2 class="titreUnderline"><?= ESCAPEGAME_H2_PRESENTATION ?></h2>
 <p class="alinea">
-    <?php echo $escapeGame['description']; ?>
+    <?php echo $_SESSION['lang']=='fr' ? $escapeGame['descriptionFR'] : $escapeGame['description'];
+    ?>
 </p>
 
 <!-- Slider d'images représentatives de l'escape game -->
-<h2 class="titreUnderline">Gallery</h2>
+<h2 class="titreUnderline"><?= ESCAPEGAME_H2_GALLERY ?></h2>
 <div class="escapeGameSlider">
 
     <div class="escapeGameF">
-        <img class="escapeGameFGauche" src="img/flecheGauche.png" alt="Left arrow" id='previous'>
-        <img class="escapeGameFDroite" src="img/flecheDroite.png" alt="Right arrow" id='next'>
+        <img class="escapeGameFGauche" src="../img/flecheGauche.png" alt="Left arrow" id='previous'>
+        <img class="escapeGameFDroite" src="../img/flecheDroite.png" alt="Right arrow" id='next'>
     </div>
 
     <div class="escapeGSliderRect">
@@ -61,16 +58,16 @@
 
     <div class="escapeGSliderIMG">
         <?php
-            echo "<img class='escapeGameSCenterSelec' src='img/escapeGame/" . $escapeGame["id_escapeGame"] ."/1.jpg'>";
+            echo "<img class='escapeGameSCenterSelec' src='../img/escapeGame/" . $escapeGame["id_escapeGame"] ."/1.jpg'>";
             for($i=1; $i<$nbImg; $i++){
-                echo "<img class='escapeGameSCenter' src='img/escapeGame/" . $escapeGame["id_escapeGame"] ."/" . $i+1 . ".jpg'>";
+                echo "<img class='escapeGameSCenter' src='../img/escapeGame/" . $escapeGame["id_escapeGame"] ."/" . $i+1 . ".jpg'>";
             }
         ?>
     </div>
 </div>
 
 <!-- Map -->
-<h2 class="titreUnderline">Map</h2>
+<h2 class="titreUnderline"><?= ESCAPEGAME_H2_MAP ?></h2>
 
 <p>
     <?php
@@ -80,19 +77,19 @@
 <div id='mapEscapeGame'></div>
 
 <!-- Q&A -->
-<h2 class="titreUnderline">Q&A</h2>
+<h2 class="titreUnderline"><?= ESCAPEGAME_H2_QANDA ?></h2>
 
 <?php if($qAndAEG!=0){ ?>
 
     <div class="aQuestion">
         <div class="titleQuestion">
-            <?php echo "<p>" . $qAndAEG[0]['title'] . '</p>' ?>
+            <?php echo "<p>" . ($_SESSION['lang']=='fr' ? $qAndAEG[0]['titleFR'] : $qAndAEG[0]['title']) . '</p>' ?>
             <svg class="arrow arrowDown" xmlns="http://www.w3.org/2000/svg" width="14.828" height="8.414" viewBox="0 0 14.828 8.414">
                 <path id="Tracé_3" data-name="Tracé 3" d="M6,9l6,6,6-6" transform="translate(-4.586 -7.586)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
             </svg>
         </div>
         <div class="descQuestion displayQuestion">
-            <?php echo "<p>" . $qAndAEG[0]['answer'] . '</p>' ?>
+            <?php echo "<p>" . ($_SESSION['lang']=='fr' ? $qAndAEG[0]['answerFR'] : $qAndAEG[0]['answer']) . '</p>' ?>
         </div>
     </div>
 
@@ -112,7 +109,7 @@
 
 <?php if(sizeof($qAndAEG)>1){ ?>
     <div class="escapeMoreAnswersButton greenButton">
-        More answers
+        <?=ESCAPEGAME_MOREANSWERS?>
     </div>
 
 <?php }
@@ -121,13 +118,13 @@
 } ?>
 
 <!-- reviews -->
-<h2 class="titreUnderline">Reviews</h2>
+<h2 class="titreUnderline"><?= ESCAPEGAME_H2_REVIEWS ?></h2>
 
 <?php if($reviewsEG!=0){ ?>
 
 <div class="escapeGameReview">
     <div class="reviewNom"><?php echo $reviewsEG[0]["firstName"]; ?></div>
-    <div class="reviewDesc"><?php echo $reviewsEG[0]["description"] ?></div>
+    <div class="reviewDesc"><?php echo $_SESSION['lang']=='fr' ? $reviewsEG[0]["descriptionFR"] : $reviewsEG[0]["description"] ?></div>
     <div class="reviewNote">
         <?php
         $splitRating = preg_split("/[.]/", $reviewsEG[0]["rating"]);
@@ -154,11 +151,11 @@
         for($i = 0; $i<sizeof($reviewsEG); $i++){
             ?>
             <div class="escapeGameReview">
-            <div class="reviewNom"><?php echo $reviewsEG[$i+1]["firstName"] ?></div>
-            <div class="reviewDesc"><?php echo $reviewsEG[$i+1]["description"] ?></div>
+            <div class="reviewNom"><?php echo $reviewsEG[$i]["firstName"] ?></div>
+            <div class="reviewDesc"><?php echo $reviewsEG[$i]["description"] ?></div>
             <div class="reviewNote">
             <?php
-            $splitRating = preg_split("/[.]/", $reviewsEG[$i+1]["rating"]);
+            $splitRating = preg_split("/[.]/", $reviewsEG[$i]["rating"]);
             if (sizeof($splitRating)>1) {
                 $rating = (int) $splitRating[0];
                 for($i = 0; $i<$rating; $i++){
@@ -181,27 +178,27 @@
 
 <?php if(sizeof($reviewsEG)>1){ ?>
     <div class="escapeMoreReviewsButton escapeYellowButton">
-        More Reviews
+        <?= ESCAPEGAME_H2_MOREREVIEWS ?>
     </div>
 
 <?php
 }
 } else {
-    echo "<p class='vide'>There's no review for this escape game yet.</p>";
+    echo "<p class='vide'>" . ESCAPEGAME_NOREVIEW . "</p>";
 } ?>
 
 <!-- Buy -->
-<h2 class="titreUnderline">Buy</h2>
+<h2 class="titreUnderline"><?= ESCAPEGAME_H2_BUY ?></h2>
 
 <form id="search" action="index.php?action=buyEG&escapeGame=<?= $escapeGame["id_escapeGame"]?>" method="POST">
 
-    <p>Number of person</p>
+    <p><?= ESCAPEGAME_NBPERSONS ?></p>
     <input class="inputBuy" type="number" id="buyPerson" name="nbPersons">
 
     <p>Date</p>
     <input class="inputBuy" type="date" id="buyDate" name="buyDate">
 
-    <div class="escapeSearchButton">Search</div>
+    <div class="escapeSearchButton"><?= ESCAPEGAME_ESCAPESEARCHBUTTON ?></div>
 
     <?php
     // if (!empty($_POST)){   
@@ -209,7 +206,7 @@
     ?>
         <div class="possibleSchedules displayNone">
             
-            <h3>Possible schedules for the <span class="inserDate">DATE</span>:</h3> 
+            <h3><?= ESCAPEGAME_SCHEDULES ?><span class="inserDate">DATE</span>:</h3> 
 
             <div class="hoursSchedules">
             
