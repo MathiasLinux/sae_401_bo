@@ -178,7 +178,7 @@
 
 <?php if(sizeof($reviewsEG)>1){ ?>
     <div class="escapeMoreReviewsButton escapeYellowButton">
-        <?= ESCAPEGAME_H2_MOREREVIEWS ?>
+        <?= ESCAPEGAME_MOREREVIEWS ?>
     </div>
 
 <?php
