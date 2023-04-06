@@ -942,6 +942,14 @@ footer a {
     background-color: var(--lightBlue);
 }
 
+main
+.formAdminEG>.imgAdminEG{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 4%;
+    margin-bottom: 16%;
+}
+
 .difficultyAdmin {
     display: grid;
     grid-template-columns: 1fr 1fr;
