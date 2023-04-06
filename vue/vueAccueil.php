@@ -15,18 +15,18 @@
 ?>
 <?php
 if ($_SESSION["lang"] == "fr") {
-    $title = $frontEscape["nameFR"];
+    $titre = $frontEscape["nameFR"];
     $description = $frontEscape["descriptionFR"];
 } elseif ($_SESSION["lang"] == "en") {
-    $title = $frontEscape["name"];
+    $titre = $frontEscape["name"];
     $description = $frontEscape["description"];
 } else {
-    $title = $frontEscape["name"];
+    $titre = $frontEscape["name"];
     $description = $frontEscape["description"];
 }
 ?>
 <section class="newEscapeGame">
-    <h2 class="titleUnderline div1"><?= $title ?></h2>
+    <h2 class="titleUnderline div1"><?= $titre ?></h2>
 
     <p class="descLastEscape div2">
         <?= $description ?>
@@ -41,7 +41,7 @@ if ($_SESSION["lang"] == "fr") {
         $img = "img/escapeGames/default.jpg";
     }
     ?>
-    <img class="imgBorder div3" src="<?= $img ?>" alt="<?= $title ?>">
+    <img class="imgBorder div3" src="<?= $img ?>" alt="<?= $titre ?>">
     <div class="linkGroup div4">
         <a class="greenLink div5" href="index.php?action=escapegames"><?= HOME_MORE_INFO ?></a>
         <a class="greenLink div6" href="index.php?action=escapegames"><?= HOME_BUY ?></a>
@@ -73,15 +73,18 @@ if ($_SESSION["lang"] == "fr") {
 
 <section class="Vue">
     <?php
-    foreach ($escapeGames as $escapeGame) {
+    // foreach ($escapeGames as $escapeGame)
+    for($i=0; $i<4; $i++)
+    {
+        $escapeGame = $escapeGames[$i];
         if ($_SESSION["lang"] == "fr") {
-            $title = $escapeGame["nameFR"];
+            $titre = $escapeGame["nameFR"];
             $description = $escapeGame["descriptionFR"];
         } elseif ($_SESSION["lang"] == "en") {
-            $title = $escapeGame["name"];
+            $titre = $escapeGame["name"];
             $description = $escapeGame["description"];
         } else {
-            $title = $escapeGame["name"];
+            $titre = $escapeGame["name"];
             $description = $escapeGame["description"];
         }
         ?>
@@ -97,9 +100,9 @@ if ($_SESSION["lang"] == "fr") {
                     $img = "img/escapeGames/default.jpg";
                 }
                 ?>
-                <img src="<?= $img ?>" alt="<?= $title ?>">
+                <img src="<?= $img ?>" alt="<?= $titre ?>">
                 <div>
-                    <h2 class="titleYellow"><?= $title ?></h2>
+                    <h2 class="titleYellow"><?= $titre ?></h2>
                     <a class="yellowLinkHomeEscapeMobile" href="index.php?action=escapegames"><?= HOME_MORE_INFO ?></a>
                 </div>
             </div>
@@ -111,74 +114,45 @@ if ($_SESSION["lang"] == "fr") {
 
 <section class="Vue2">
     <?php
-    foreach ($escapeGames as $escapeGame) {
+    // var_dump($escapeGames);
+    // foreach ($escapeGames as $escapeGame)
+    $escapeGamesR = array_reverse($escapeGames);
+    for($i=0;$i<4;$i++)
+    {
+        $escapeGame = $escapeGamesR[$i];
+        // var_dump($escapeGame);
         if ($_SESSION["lang"] == "fr") {
-            $title = $escapeGame["nameFR"];
-            $description = $escapeGame["descriptionFR"];
+            $titre = $escapeGame["nameFR"];
+            // $description = $escapeGame["descriptionFR"];
         } elseif ($_SESSION["lang"] == "en") {
-            $title = $escapeGame["name"];
-            $description = $escapeGame["description"];
+            $titre = $escapeGame["name"];
+            // $description = $escapeGame["description"];
         } else {
-            $title = $escapeGame["name"];
-            $description = $escapeGame["description"];
+            $titre = $escapeGame["name"];
+            // $description = $escapeGame["description"];
         }
-        if (file_exists("img/escapeGames/" . $escapeGame["id_escapeGame"] . ".jpg")) {
+        if (file_exists("img/escapeGames/" . $escapeGame["id_escapeGame"] . "-home.jpg")) {
             $img = "img/escapeGames/" . $escapeGame["id_escapeGame"] . "-home.jpg";
         } elseif (file_exists("img/escapeGames/" . $escapeGame["id_escapeGame"] . "-home.png")) {
-            $img = "img/escapeGames/" . $escapeGame["id_escapeGame"] . ".png";
+            $img = "img/escapeGames/" . $escapeGame["id_escapeGame"] . "-home.png";
         } else {
-            $img = "img/escapeGames/default.jpg";
+            $img = "img/escapeGames/default.png";
         }
         ?>
-        <div>
-            <div class="Posi">
-                <div>
-                    <img class="img1" src="<?= $img ?>" alt="">
+        <a href="index.php?action=escapeGame&escapeGame=<?= $escapeGame["id_escapeGame"] ?>">
+            <div>
+                <div class="Posi">
+                    <div>
+                        <img class="img1" src="<?= $img ?>" alt="<?= $escapeGame["id_escapeGame"] ?>_<?= $titre ?>">
+                    </div>
+                    <h2><?= $titre ?></h2>
+                    <!-- <a href="index.php?action=admin&page=escapeGame&id=<?= $escapeGame["id_escapeGame"] ?>"><?= HOME_OTHER_ESCAPE_LINK ?></a> -->
                 </div>
-                <h2><?= $title ?></h2>
-                <a class
-                   href="index.php?action=admin&page=escapeGame&id=<?= $escapeGame["id_escapeGame"] ?>"><?= HOME_OTHER_ESCAPE_LINK ?></a>
             </div>
-        </div>
+        </a>
         <?php
     }
     ?>
-    <!--<div>
-        <div class="Posi">
-            <div>
-                <img class="img1" src="img/escapeGames/2.jpg" alt="">
-            </div>
-            <h2>In Vinos Veritas</h2>
-            <a href="index.php?action=admin&page=escapeGame&id=1">Discover →</a>
-        </div>
-    </div>
-    <div>
-        <div class="Posi">
-            <div>
-                <img class="img2" src="img/escapeGames/3.jpg" alt="">
-            </div>
-            <h2>In Vinos Veritas</h2>
-            <a href="index.php?action=admin&page=escapeGame&id=1">Discover →</a>
-        </div>
-    </div>
-    <div>
-        <div class="Posi">
-            <div>
-                <img class="img3" src="img/escapeGames/4.jpg" alt="">
-            </div>
-            <h2>In Vinos Veritas</h2>
-            <a href="index.php?action=admin&page=escapeGame&id=1">Discover →</a>
-        </div>
-    </div>
-    <div>
-        <div class="Posi">
-            <div>
-                <img class="img4" src="img/escapeGames/5.jpg" alt="">
-            </div>
-            <h2>In Vinos Veritas</h2>
-            <a href="index.php?action=admin&page=escapeGame&id=1">Discover →</a>
-        </div>
-    </div>-->
 </section>
 
 <?php

@@ -17,7 +17,10 @@
             <?php
                 if(!empty($EGs)){
                     foreach($EGs as $EG){
-                        echo "<option value='".$EG["id_escapeGame"]."'>";
+                        if($EG['id_escapeGame']==$qAndAs['id_escapeGame'])
+                            echo "<option value='".$EG["id_escapeGame"]."' selected>";
+                        else
+                            echo "<option value='".$EG["id_escapeGame"]."'>";
                         echo $_SESSION['lang']=='fr' ? $EG['nameFR'] : $EG['name'];
                         echo "</option>";
                     }
