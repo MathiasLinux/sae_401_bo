@@ -1,19 +1,19 @@
 <h2 class="titleUnderline"><?= GIFT_CARDS_TITLE ?></h2>
 <div class="giftCardsIcons flexCardsPC">
     <div class="ligneOneGiftCards">
-        <div class="giftCardsIcon">
+        <div class="giftCardsIcon Place1">
             <img src="img/svg/dollar.svg" alt="Logo dollar">
             <p><?= GIFT_CARDS_LOGO_1 ?></p>
         </div>
-        <div class="giftCardsIcon">
+        <div class="giftCardsIcon Place2">
             <img src="img/svg/key.svg" alt="Logo escape game">
             <p><?= GIFT_CARDS_LOGO_2 ?></p>
         </div>
-    </div>
-    <div class="ligneTwoGiftCards">
-        <div class="giftCardsIcon">
-            <img src="img/svg/audience.svg" alt="Logo persons">
-            <p><?= GIFT_CARDS_LOGO_3 ?></p>
+        <div class="ligneTwoGiftCards Place3">
+            <div class="giftCardsIcon">
+                <img src="img/svg/audience.svg" alt="Logo persons">
+                <p><?= GIFT_CARDS_LOGO_3 ?></p>
+            </div>
         </div>
     </div>
 </div>
