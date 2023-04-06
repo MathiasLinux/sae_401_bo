@@ -303,13 +303,17 @@ header img {
 .flexCardsPC {
     display: flex;
     gap: 50px;
-    justify-content: center;
+    justify-content: space-around;
     align-items: baseline;
 }
 
 .ligneOneGiftCards {
+    display: flex;
+    justify-content: space-around;
     grid-gap: 50px;
 }
+
+
 
 /* Page Jobs */
 

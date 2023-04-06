@@ -442,10 +442,15 @@ footer a {
 /* Page de carte cadeau vueGiftCards.php */
 .ligneOneGiftCards {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr;
     justify-items: center;
     align-items: center;
 }
+
+.Place1 { grid-area: 1 / 1 / 2 / 2; }
+.Place2 { grid-area: 1 / 3 / 2 / 4; }
+.Place3 { grid-area: 2 / 2 / 3 / 3; }
 
 .ligneTwoGiftCards {
     display: flex;
@@ -458,6 +463,7 @@ footer a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .giftCardsIcon img {
