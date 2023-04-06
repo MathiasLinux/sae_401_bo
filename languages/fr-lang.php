@@ -610,6 +610,11 @@ const ADMIN_GIFT_CARDS_SOLD_USER_EMAIL = "E-mail de l'utilisateur";
 
 const ADMIN_GIFT_CARDS_H2_3 = "Cartes cadeaux d'escape game vendues";
 
+
+// Escape Gamess
+
+const ESCAPE_GAMES_BUTTON = "Découvrir l'escape game";
+
 //Admin Jobs
 
 const ADMIN_JOBS_TITLE = "Offres d'emploi";

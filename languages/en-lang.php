@@ -174,6 +174,11 @@ const ABOUT_US_H2_2 = "Contact";
 
 const ABOUT_US_H2_3 = "Map";
 
+// Escape Gamess
+
+const ESCAPE_GAMES_BUTTON = "Discover the escape game";
+
+
 //Contact Form
 
 const CONTACT_FROM_TITLE = "Contact us";

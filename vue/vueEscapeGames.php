@@ -10,8 +10,7 @@ foreach ($escapeGames as $escapeGame) {
              alt="<?php echo $escapeGame['name']; ?>">
         </div>
         <p class="paraEscape"><?php echo $_SESSION["lang"] == "fr" ? $escapeGame['descriptionFR'] : $escapeGame['description']; ?></p>
-        <a class="greenLink buttonEscape" href="index.php?action=escapeGame&escapeGame=<?php echo $escapeGame['id_escapeGame']; ?>">Go the
-            escape game page</a>
+        <a class="greenLink buttonEscape" href="index.php?action=escapeGame&escapeGame=<?php echo  $escapeGame['id_escapeGame']; ?>"><?= ESCAPE_GAMES_BUTTON ?></a>
     </div>
     <div class="contourTitleImage" style="padding-bottom: 50px; margin-bottom: 50px;"></div>
     <?php
