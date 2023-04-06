@@ -121,7 +121,11 @@ header img {
 .ligneFooter {
     display: block;
     text-align: center;
-    gap: 10px;
+    gap: 20px;
+}
+
+.ligneFooter>div{
+    margin: 10px;
 }
 
 .Yellow {
@@ -741,7 +745,7 @@ label.center > h3 {
   
   .escapeGamesReverse > .paraEscape {
     grid-area: 2 / 1 / 3 / 2 !important;
-    text-align: right;
+  
   }
   
   .escapeGamesReverse > .buttonEscape {
@@ -749,6 +753,6 @@ label.center > h3 {
     width: max-content;
     height: max-content;
     margin-right: 170px;
-    text-align: right;
+
   }
   
