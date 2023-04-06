@@ -682,10 +682,63 @@ const HOME_GIFT_CARD_TITLE = "Gift Cards";
 const HOME_GIFT_CARD_P = "Gift an adventure now !";
 
 const HOME_OTHER_ESCAPE_TITLE = "Other Escape Games";
+
 const HOME_OTHER_ESCAPE_LINK = "Discover →";
 
 const HOME_REVIEW_TITLE = "Reviews";
 
+//Escape Game Page
+const ESCAPEGAME_H2_PRESENTATION = "Presentation";
 
-//Escape Games
+const ESCAPEGAME_H2_GALLERY = "Gallery";
 
+const ESCAPEGAME_H2_MAP = "Map";
+
+const ESCAPEGAME_H2_QANDA = "Q&A";
+
+const ESCAPEGAME_MOREANSWERS = "More Answers";
+
+const ESCAPEGAME_H2_REVIEWS = "Reviews";
+
+const ESCAPEGAME_MOREREVIEWS = "More Reviews";
+
+const ESCAPEGAME_NOREVIEW = "There's no review for this escape game yet.";
+
+const ESCAPEGAME_H2_BUY = "Buy";
+
+const ESCAPEGAME_NBPERSONS = "Number of person";
+
+const ESCAPEGAME_ESCAPESEARCHBUTTON = "Search";
+
+const ESCAPEGAME_SCHEDULES = "Possible schedules for the ";
+
+//Escape Game Buy Page
+const BOOK_ESCAPEGAME_TITLE = "Book an escape game";
+
+const BOOK_ESCAPEGAME_H2_1 = "Please enter your card information";
+
+const BOOK_ESCAPEGAME_ORDER_NOW = "Order now";
+
+const BOOK_ESCAPEGAME_NB_PERSONS = "Number of persons";
+
+const BOOK_ESCAPEGAME_AMOUNT = "Total : ";
+
+const BOOK_ESCAPEGAME_H3_1 = "Please enter your card information";
+
+const BOOK_ESCAPEGAME_CARD_NUMBER = "Card number";
+
+const BOOK_ESCAPEGAME_CARD_DATE = "Expiration date";
+
+const BOOK_ESCAPEGAME_CARD_CVC = "CVC";
+
+const BOOK_ESCAPEGAME_CARD_NAME = "Name";
+
+const BOOK_ESCAPEGAME_CARD_SUBMIT = "Pay";
+
+const BOOK_ESCAPEGAME_ESCAPE_NAME = "Your are booking the escape game : ";
+
+const BOOK_ESCAPEGAME_ESCAPE_DAY = ", the ";
+
+const BOOK_ESCAPEGAME_ESCAPE_HOUR  = " at ";
+
+const BOOK_ESCAPEGAME_ESCAPE_FOR = " for ";

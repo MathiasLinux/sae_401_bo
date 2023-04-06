@@ -676,4 +676,60 @@ const HOME_OTHER_ESCAPE_LINK = "Découvrez →";
 
 const HOME_REVIEW_TITLE = "Avis";
 
+//Escape Game Page
+const ESCAPEGAME_H2_PRESENTATION = "Présentation";
+
+const ESCAPEGAME_H2_GALLERY = "Galerie";
+
+const ESCAPEGAME_H2_MAP = "Carte";
+
+const ESCAPEGAME_H2_QANDA = "FAQ";
+
+const ESCAPEGAME_MOREANSWERS = "Plus de réponses";
+
+const ESCAPEGAME_H2_REVIEWS = "Avis";
+
+const ESCAPEGAME_MOREREVIEWS = "Plus d'avis";
+
+const ESCAPEGAME_NOREVIEW = "Il n'y a pas d'avis pour cet escape game pour l'instant.";
+
+const ESCAPEGAME_H2_BUY = "Réserver";
+
+const ESCAPEGAME_NBPERSONS = "Nombre de personnes";
+
+const ESCAPEGAME_ESCAPESEARCHBUTTON = "Chercher";
+
+const ESCAPEGAME_SCHEDULES = "Crénaux disponibles pour le ";
+
+
+//Escape Game Buy Page
+const BOOK_ESCAPEGAME_TITLE = "Réserver un créneau";
+
+const BOOK_ESCAPEGAME_H2_1 = "Information de paiement";
+
+const BOOK_ESCAPEGAME_ORDER_NOW = "Réserver maintenant";
+
+const BOOK_ESCAPEGAME_NB_PERSONS = "Nombre de personnes";
+
+const BOOK_ESCAPEGAME_AMOUNT = "Total : ";
+
+const BOOK_ESCAPEGAME_H3_1 = "Information de paiement";
+
+const BOOK_ESCAPEGAME_CARD_NUMBER = "Numéro de carte";
+
+const BOOK_ESCAPEGAME_CARD_DATE = "Date d'expiration";
+
+const BOOK_ESCAPEGAME_CARD_CVC = "CVC";
+
+const BOOK_ESCAPEGAME_CARD_NAME = "Nom";
+
+const BOOK_ESCAPEGAME_CARD_SUBMIT = "Payer";
+
+const BOOK_ESCAPEGAME_ESCAPE_NAME = "Vous réservez l'escape game : ";
+
+const BOOK_ESCAPEGAME_ESCAPE_DAY = ", le ";
+
+const BOOK_ESCAPEGAME_ESCAPE_HOUR  = " à ";
+
+const BOOK_ESCAPEGAME_ESCAPE_FOR = " pour ";
 
