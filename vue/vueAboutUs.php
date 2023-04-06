@@ -33,32 +33,32 @@
     </div>
     <div class="aPerson div8">
         <div class="leftPerson">
-            <p>Eva</p>
-            <div><?= ABOUT_US_PERSON_1_ROLE ?></div>
-            <div><?= ABOUT_US_PERSON_1_POSITION ?></div>
+            <p>Melina</p>
+            <div><?= ABOUT_US_PERSON_2_ROLE ?></div>
+            <div><?= ABOUT_US_PERSON_2_POSITION ?></div>
         </div>
 
-        <img src="img/team/eva.png" alt="Eva photo">
+        <img src="img/team/Melina.jpg" alt="Melina photo">
     </div>
     <div class="aPerson div9">
         
-            <img src="img/team/eva.png" alt="Eva photo">
+            <img src="img/team/Nik.jpg" alt="Nik photo">
         
         <div class="leftPerson">
-            <p>Eva</p>
-            <div><?= ABOUT_US_PERSON_1_ROLE ?></div>
-            <div><?= ABOUT_US_PERSON_1_POSITION ?></div>
+            <p>Nik</p>
+            <div><?= ABOUT_US_PERSON_3_ROLE ?></div>
+            <div><?= ABOUT_US_PERSON_3_POSITION ?></div>
         </div>
     </div>
 
     <div class="aPerson div10">
         <div class="leftPerson">
-            <p>Eva</p>
-            <div><?= ABOUT_US_PERSON_1_ROLE ?></div>
-            <div><?= ABOUT_US_PERSON_1_POSITION ?></div>
+            <p>Thilo</p>
+            <div><?= ABOUT_US_PERSON_4_ROLE ?></div>
+            <div><?= ABOUT_US_PERSON_4_POSITION ?></div>
         </div>
 
-        <img src="img/team/eva.png" alt="Eva photo">
+        <img src="img/team/Thilo.png" alt="Thilo photo">
     </div>
 </div>
 

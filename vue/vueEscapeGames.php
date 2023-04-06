@@ -9,7 +9,7 @@ foreach ($escapeGames as $escapeGame) {
             <img class="imgBorder " src="img/escapeGames/<?php echo $escapeGame['id_escapeGame']; ?>.jpg"
              alt="<?php echo $escapeGame['name']; ?>">
         </div>
-        <p class="paraEscape"><?php echo $escapeGame['description']; ?></p>
+        <p class="paraEscape"><?php echo $_SESSION["lang"] == "fr" ? $escapeGame['descriptionFR'] : $escapeGame['description']; ?></p>
         <a class="greenLink buttonEscape" href="index.php?action=escapeGame&escapeGame=<?php echo $escapeGame['id_escapeGame']; ?>">Go the
             escape game page</a>
     </div>

@@ -40,47 +40,7 @@ class ctrLogin
         // Création du tableau d'erreurs
         $error = array();
         $ok = array();
-        // Vérification des données
-        /*if (isset($_POST["email"]) and isset($_POST["password"]) and isset($_POST["password1"]) and isset($_POST["firstName"]) and isset($_POST["lastName"])) {
-            if (!empty($_POST["email"]) and !empty($_POST["password"]) and !empty($_POST["password1"]) and !empty($_POST["firstName"]) and !empty($_POST["lastName"])) {
-                // Vérification de l'email
-                if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
-                    // Vérification que l'email n'est pas déjà utilisé
-                    if (!$this->objLogin->emailAlreadyUsed($_POST["email"])) {
-                        // Vérification que le nom et le prénom ne contiennent que des lettres
-                        if (preg_match("/^[a-zA-Z]+$/", $_POST["firstName"]) and preg_match("/^[a-zA-Z]+$/", $_POST["lastName"])) {
-                            // Vérification que les mots de passe sont identiques
-                            if ($_POST["password"] == $_POST["password1"]) {
-                                // Ajout de l'utilisateur
-                                $this->objLogin->addNormalUser($_POST["email"], $_POST["password"], $_POST["firstName"], $_POST["lastName"]);
-                                // Connexion de l'utilisateur
-                                header("Location: index.php?action=login");
-                            } else {
-                                // Les mots de passe ne sont pas identiques
-                                $error[] = 1;
-                                //header("Location: index.php?action=signUp&error=1");
-                            }
-                        } else {
-                            // Le nom ou le prénom contient des caractères non autorisés
-                            $error[] = 4;
-                            //header("Location: index.php?action=signUp&error=4");
-                        }
-                    } else {
-                        // L'email est déjà utilisé
-                        $error[] = 5;
-                        //header("Location: index.php?action=signUp&error=5");
-                    }
-                } else {
-                    // L'email n'est pas valide
-                    $error[] = 2;
-                    //header("Location: index.php?action=signUp&error=2");
-                }
-            } else {
-                // Un des champs est vide
-                $error[] = 3;
-                //header("Location: index.php?action=signUp&error=3");
-            }
-        }*/
+        
         if (!(isset($_POST["email"]) and isset($_POST["password"]) and isset($_POST["password1"]) and isset($_POST["firstName"]) and isset($_POST["lastName"]))) {
             $error[] = 3; // Un des champs est vide
         }

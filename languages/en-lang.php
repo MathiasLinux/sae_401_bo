@@ -154,12 +154,20 @@ const CHANGE_ACCOUNT_INFOS_NEW_PASSWORDS_NOT_IDENTICAL = "The new passwords are 
 //About us page
 
 const ABOUT_US_TITLE = "About us";
-const ABOUT_US_P_1 = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, fugit, maiores. Sapiente, unde, voluptatum! Architecto aspernatur, cum dolore, dolorum eveniet facilis ipsam maxime officia officiis quae sit, tempora. Necessitatibus, officiis? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam aliquid autem commodi consectetur deleniti id illum, in inventore maiores minima natus neque nostrum obcaecati quaerat quibusdam quos reiciendis veniam. ";
+const ABOUT_US_P_1 = "Welcome to Kaiserstuhl Escape, the ultimate destination for escape game enthusiasts! Our immersive escape games challenge your mind and creativity as you work as a team to solve puzzles, crack codes and unravel mysteries. With several themed rooms to choose from, each with its own story and challenges, you are sure to have an unforgettable experience. Whether you're planning a fun night out with friends or a team building activity for your company, Kaiserstuhl Escape offers the perfect blend of fun and adventure. Book your escape room adventure today and see if you have what it takes to escape in time!";
 
 const ABOUT_US_H2_1 = "The Team";
 const ABOUT_US_PERSON_1_ROLE = "The annunciator";
 const ABOUT_US_PERSON_1_POSITION = "Head of Marketing Sales Management";
 
+const ABOUT_US_PERSON_2_ROLE = "Gang leader";
+const ABOUT_US_PERSON_2_POSITION = "Event manager and development";
+
+const ABOUT_US_PERSON_4_ROLE = "The string puller";
+const ABOUT_US_PERSON_4_POSITION = "Girl for everything 'No can do, no can do.'";
+
+const ABOUT_US_PERSON_3_ROLE = "The prankster";
+const ABOUT_US_PERSON_3_POSITION = "Production Manager and development";
 
 const ABOUT_US_H2_2 = "Contact";
 
@@ -677,3 +685,7 @@ const HOME_OTHER_ESCAPE_TITLE = "Other Escape Games";
 const HOME_OTHER_ESCAPE_LINK = "Discover →";
 
 const HOME_REVIEW_TITLE = "Reviews";
+
+
+//Escape Games
+
