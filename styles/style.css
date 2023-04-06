@@ -289,17 +289,14 @@ footer a {
 
 .reviewsHome {
     display: block;
-
-
 }
 
 .aReview {
-    background-color: var(--yellow);
+    background-color: var(--green);
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 10px;
     padding: 20px;
-    color: black;
 }
 
 .leftReview {
@@ -311,6 +308,18 @@ footer a {
 
 .reviewName {
     font-size: 20px;
+}
+
+.rightReview{
+    border-left: var(--yellow) solid 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.rightReview>p{
+    margin-left: 4%;
 }
 
 .Vue {

@@ -301,8 +301,14 @@ header img {
 }
 
 .reviewsHome {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     justify-content: space-around;
+}
+
+.aReview>.rightReview{
+    text-align: center;
+    align-items: center;
 }
 
 /* Page Gift Cards */
