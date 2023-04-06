@@ -40,8 +40,8 @@
 <div class="escapeGameSlider">
 
     <div class="escapeGameF">
-        <img class="escapeGameFGauche" src="../img/flecheGauche.png" alt="Left arrow" id='previous'>
-        <img class="escapeGameFDroite" src="../img/flecheDroite.png" alt="Right arrow" id='next'>
+        <img class="escapeGameFGauche" src="img/flecheGauche.png" alt="Left arrow" id='previous'>
+        <img class="escapeGameFDroite" src="img/flecheDroite.png" alt="Right arrow" id='next'>
     </div>
 
     <div class="escapeGSliderRect">
@@ -61,9 +61,9 @@
 
     <div class="escapeGSliderIMG">
         <?php
-            echo "<img class='escapeGameSCenterSelec' src='../img/escapeGame/" . $escapeGame["id_escapeGame"] ."/1.jpg'>";
+            echo "<img class='escapeGameSCenterSelec' src='img/escapeGame/" . $escapeGame["id_escapeGame"] ."/1.jpg'>";
             for($i=1; $i<$nbImg; $i++){
-                echo "<img class='escapeGameSCenter' src='../img/escapeGame/" . $escapeGame["id_escapeGame"] ."/" . $i+1 . ".jpg'>";
+                echo "<img class='escapeGameSCenter' src='img/escapeGame/" . $escapeGame["id_escapeGame"] ."/" . $i+1 . ".jpg'>";
             }
         ?>
     </div>
