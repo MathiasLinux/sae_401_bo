@@ -22,10 +22,17 @@
 
     <!-- Gestion des images à faire -->
 
-    <?php
-        $imgs = scandir("img/".$EG['id_escapeGame']."/");
-        var_dump($imgs);
-    ?>
+    <div class="imgAdminEG">
+        <?php
+            $imgs = scandir("img/escapeGame/".$EG['id_escapeGame']."/");
+            array_shift($imgs);
+            array_shift($imgs);
+            foreach($imgs as $img)
+                echo "<img src='img/escapeGame/".$EG['id_escapeGame']."/$img' alt='$img image'>";
+        ?>
+    </div>
+
+    
 
     <h2 class="titleUnderline">Difficulty & Duration</h2>
 
