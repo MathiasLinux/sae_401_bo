@@ -435,7 +435,6 @@ footer a {
 }
 
 
-
 #map {
     height: 250px;
 }
@@ -698,7 +697,7 @@ footer a {
     justify-content: space-between;
 }
 
-.escapeGameFGauche, .escapeGameFDroite{
+.escapeGameFGauche, .escapeGameFDroite {
     width: auto;
 }
 
@@ -752,7 +751,7 @@ footer a {
     display: none;
 }
 
-.vide{
+.vide {
     color: var(--red);
 }
 
@@ -815,7 +814,7 @@ footer a {
     background: none;
 }
 
-.formHours{
+.formHours {
     display: none;
 }
 
@@ -828,11 +827,11 @@ footer a {
     background-color: #01241a;
 }
 
-.hoursSchedules>input{
+.hoursSchedules > input {
     display: none;
 }
 
-.hoursSchedules>input:checked+label{
+.hoursSchedules > input:checked + label {
     background-color: lightgreen;
     transition: 0.2s;
 }
@@ -890,25 +889,25 @@ footer a {
 
 /* Page admin vueAdminEscapeGame.php */
 
-.formAdminEG{
+.formAdminEG {
     display: grid;
     grid-template-columns: 1fr;
     margin: 2% 0%;
 }
 
-.formAdminEG>h2{
+.formAdminEG > h2 {
     width: fit-content;
 }
 
-.formAdminEG>div{
+.formAdminEG > div {
     margin: 2% 0%;
 }
 
-.formAdminEG>div>label{
+.formAdminEG > div > label {
     position: relative;
 }
 
-.formAdminEG>div>label>span{
+.formAdminEG > div > label > span {
     position: absolute;
     color: var(--lightGrey);
     font-size: 15px;
@@ -916,9 +915,9 @@ footer a {
     margin-top: 0.25%;
 }
 
-.formAdminEG>div>label>input[type="text"], 
-.formAdminEG>div>label>select, 
-.formAdminEG>div>label>textarea{
+.formAdminEG > div > label > input[type="text"],
+.formAdminEG > div > label > select,
+.formAdminEG > div > label > textarea {
     background-color: var(--lightBlue);
     border: none;
     padding: 20px;
@@ -929,11 +928,11 @@ footer a {
     width: 90%;
 }
 
-.formAdminEG>div>label>textarea{
+.formAdminEG > div > label > textarea {
     height: 240px;
 }
 
-.visibilityEG{
+.visibilityEG {
     display: grid;
     padding: 4%;
     font-size: 24px;
@@ -943,7 +942,7 @@ footer a {
     background-color: var(--lightBlue);
 }
 
-.difficultyAdmin{
+.difficultyAdmin {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -1328,8 +1327,8 @@ textarea.addTitle {
     width: auto;
 }
 
-.formAdmin > input[type=submit], 
-.formAdminEG>input[type=submit] {
+.formAdmin > input[type=submit],
+.formAdminEG > input[type=submit] {
     padding: 20px 0%;
     text-align: center;
     margin: 0% 10%;
