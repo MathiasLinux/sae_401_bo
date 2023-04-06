@@ -215,11 +215,20 @@ const CHANGE_ACCOUNT_INFOS_NEW_PASSWORDS_NOT_IDENTICAL = "Les nouveaux mots de p
 //About us page
 
 const ABOUT_US_TITLE = "A propos";
-const ABOUT_US_P_1 = "FR Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, fugit, maiores. Sapiente, unde, voluptatum! Architecto aspernatur, cum dolore, dolorum eveniet facilis ipsam maxime officia officiis quae sit, tempora. Necessitatibus, officiis? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam aliquid autem commodi consectetur deleniti id illum, in inventore maiores minima natus neque nostrum obcaecati quaerat quibusdam quos reiciendis veniam. ";
+const ABOUT_US_P_1 = "Bienvenue chez Kaiserstuhl Escape, la destination ultime pour les passionnés d'escape games ! Nos escape games immersifs mettent au défi votre esprit et votre créativité, alors que vous travaillez en équipe pour résoudre des énigmes, déchiffrer des codes et élucider des mystères. Avec plusieurs salles à thème au choix, chacune avec sa propre histoire et ses propres défis, vous êtes sûr de vivre une expérience inoubliable. Que vous prévoyiez une soirée amusante avec des amis ou une activité de renforcement d'équipe pour votre entreprise, Kaiserstuhl Escape offre le mélange parfait de divertissement et d'aventure. Réservez votre aventure en salle d'évasion dès aujourd'hui et voyez si vous avez ce qu'il faut pour vous échapper à temps !";
 
 const ABOUT_US_H2_1 = "L'équipe";
 const ABOUT_US_PERSON_1_ROLE = "L'annonciatrice";
 const ABOUT_US_PERSON_1_POSITION = "Cheffe du marketing et de la gestion des ventes";
+
+const ABOUT_US_PERSON_2_ROLE = "Chef de bande";
+const ABOUT_US_PERSON_2_POSITION = "Responsable d'événements et de développement";
+
+const ABOUT_US_PERSON_4_ROLE = "La personne qui tire les ficelles";
+const ABOUT_US_PERSON_4_POSITION = "Une fille pour tout 'Impossible, impossible'.";
+
+const ABOUT_US_PERSON_3_ROLE = "Le farceur";
+const ABOUT_US_PERSON_3_POSITION = "Direction de la production et de développement";
 
 const ABOUT_US_H2_2 = "Contact";
 
