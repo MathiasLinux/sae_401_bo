@@ -112,7 +112,7 @@ if (isset($amount)) {
                 </div>
             </div>
             <input type="hidden" name="amount" value="<?= $amount ?>">
-            <div class="formGroup formInput">
+            <div class="formGroup formInput column2">
                 <input type="submit" value="<?= BUY_CARDS_CARD_SUBMIT ?>">
             </div>
         </form>
