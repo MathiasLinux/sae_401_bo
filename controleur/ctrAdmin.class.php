@@ -226,7 +226,7 @@ class ctrAdmin
     {
         $EGs = $this->EG->getEscapeGames();
         $qAndAs = $this->qAndAs->getOneQandACat($idCat);
-        $title = "Administration Q&A - Modify escape game - Kaiserstuhl escape";
+        $title = "Administration Q&A - Modify association of escape game - Kaiserstuhl escape";
         $objVue = new vue("AdminQAndAModifyEG");
         $objVue->afficher(array("qAndAs" => $qAndAs, "EGs" => $EGs), $title);
     }

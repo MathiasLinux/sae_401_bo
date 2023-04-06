@@ -163,10 +163,10 @@ if ($_SESSION["lang"] == "fr") {
 <div class="reviewsHome">
     <?php
     $length = count($reviews);
-    if (count($reviews) < 4) {
+    if (count($reviews) < 3) {
         $length = count($reviews);
     } else {
-        $length = 4;
+        $length = 3;
     }
     for ($i = 0; $i < $length; $i++) {
         if ($_SESSION["lang"] == "fr") {
@@ -199,6 +199,16 @@ if ($_SESSION["lang"] == "fr") {
                 </div>
             </div>
             <div class="rightReview">
+                <?php
+                    if (strlen($description) > 100) {
+                        $description = substr($description, 0, 100);
+                        // var_dump($description);
+                        $description = substr($description, 0, strrpos($description, ' '));
+                        // var_dump($description);
+                        $description .= '...';
+                        // var_dump($description);
+                    }
+                ?>
                 <p><?= $description ?></p>
             </div>
         </div>
