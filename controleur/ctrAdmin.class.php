@@ -45,9 +45,11 @@ class ctrAdmin
     public function escapeGame($idEG)
     {
         $EG = $this->EG->getEscapeGame($idEG);
+        $difficultiesEN = $this->EG->getDifficulty("en");
+        $difficultiesFR = $this->EG->getDifficulty("fr");
         $title = "Administration Escape Game - Kaiserstuhl escape";
         $objVue = new vue("AdminEscapeGame");
-        $objVue->afficher(array("EG" => $EG), $title);
+        $objVue->afficher(array("EG" => $EG, "difficultiesEN" => $difficultiesEN, "difficultiesFR" => $difficultiesFR), $title);
     }
 
     public function contactForm()
@@ -359,6 +361,76 @@ class ctrAdmin
         $rights = substr($rights, 0, -1);
         $this->user->updateRightsUser($id, $rights);
         header("Location: index.php?action=admin&page=users");
+    }
+
+    public function modifyEscapeGame($id)
+    {
+        //var_dump($_POST);
+        //var_dump($_FILES);
+        if (isset($_POST["imgEscapeUpload"]) and !empty($_POST["imgEscapeUpload"])) {
+            $this->EG->addFiles("imgEscapeUpload", "escapeGame/" . $id);
+        }
+        if (isset($_POST["name"]) and !empty($_POST["name"])) {
+            $this->EG->updateName($id, $_POST["name"], "en");
+        }
+        if (isset($_POST["nameFR"]) and !empty($_POST["nameFR"])) {
+            $this->EG->updateName($id, $_POST["nameFR"], "fr");
+        }
+        if (isset($_POST["visible"]) and !empty($_POST["visible"])) {
+            $this->EG->updateVisibility($id, $_POST["visible"]);
+        }
+        if (isset($_POST["difficulty"]) and !empty($_POST["difficulty"])) {
+            $this->EG->updateDifficulty($id, $_POST["difficulty"], "en");
+        }
+        if (isset($_POST["difficultyFR"]) and !empty($_POST["difficultyFR"])) {
+            $this->EG->updateDifficulty($id, $_POST["difficultyFR"], "fr");
+        }
+        if (isset($_POST["address"]) and !empty($_POST["address"])) {
+            $this->EG->updateAddress($id, $_POST["address"]);
+        }
+        if (isset($_POST["description"]) and !empty($_POST["description"])) {
+            $this->EG->updateDescription($id, $_POST["description"], "en");
+        }
+        if (isset($_POST["descriptionFR"]) and !empty($_POST["descriptionFR"])) {
+            $this->EG->updateDescription($id, $_POST["descriptionFR"], "fr");
+        }
+        if (isset($_POST["address"]) and !empty($_POST["address"])) {
+            $this->EG->updateAddress($id, $_POST["address"]);
+        }
+        if (isset($_POST["price2_3Persons"]) and !empty($_POST["price2_3Persons"])) {
+            $this->EG->updatePrice($id, "price2_3Persons", $_POST["price2_3Persons"]);
+        }
+        if (isset($_POST["price4Persons"]) and !empty($_POST["price4Persons"])) {
+            $this->EG->updatePrice($id, "price4Persons", $_POST["price4Persons"]);
+        }
+        if (isset($_POST["price5Persons"]) and !empty($_POST["price5Persons"])) {
+            $this->EG->updatePrice($id, "price5Persons", $_POST["price5Persons"]);
+        }
+        if (isset($_POST["price6Persons"]) and !empty($_POST["price6Persons"])) {
+            $this->EG->updatePrice($id, "price6Persons", $_POST["price6Persons"]);
+        }
+        if (isset($_POST["price7Persons"]) and !empty($_POST["price7Persons"])) {
+            $this->EG->updatePrice($id, "price7Persons", $_POST["price7Persons"]);
+        }
+        if (isset($_POST["price8Persons"]) and !empty($_POST["price8Persons"])) {
+            $this->EG->updatePrice($id, "price8Persons", $_POST["price8Persons"]);
+        }
+        if (isset($_POST["price9Persons"]) and !empty($_POST["price9Persons"])) {
+            $this->EG->updatePrice($id, "price9Persons", $_POST["price9Persons"]);
+        }
+        if (isset($_POST["price10Persons"]) and !empty($_POST["price10Persons"])) {
+            $this->EG->updatePrice($id, "price10Persons", $_POST["price10Persons"]);
+        }
+        if (isset($_POST["price11Persons"]) and !empty($_POST["price11Persons"])) {
+            $this->EG->updatePrice($id, "price11Persons", $_POST["price11Persons"]);
+        }
+        if (isset($_POST["price12Persons"]) and !empty($_POST["price12Persons"])) {
+            $this->EG->updatePrice($id, "price12Persons", $_POST["price12Persons"]);
+        }
+        if (isset($_POST["price12PlusPersons"]) and !empty($_POST["price12PlusPersons"])) {
+            $this->EG->updatePrice($id, "price12PlusPersons", $_POST["price12PlusPersons"]);
+        }
+        header("Location: index.php?action=admin&page=escapeGames");
     }
 
 }

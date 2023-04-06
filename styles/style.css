@@ -922,6 +922,7 @@ footer a {
 }
 
 .formAdminEG > div > label > input[type="text"],
+.formAdminEG > div > label > input[type="number"],
 .formAdminEG > div > label > select,
 .formAdminEG > div > label > textarea {
     background-color: var(--lightBlue);
@@ -948,17 +949,29 @@ footer a {
     background-color: var(--lightBlue);
 }
 
-main
-.formAdminEG>.imgAdminEG{
+main .formAdminEG > .imgAdminEG {
     display: grid;
     grid-template-columns: auto auto;
     gap: 4%;
-    margin-bottom: 16%;
+    margin-bottom: 20%;
 }
 
 .difficultyAdmin {
     display: grid;
     grid-template-columns: 1fr 1fr;
+}
+
+.escapeImgDivUpload {
+    border: dashed 2px var(--lightGrey);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.escapeImgDivUpload input[type="file"] {
+    display: none;
 }
 
 /* Page admin vueAdminContactForm.php */

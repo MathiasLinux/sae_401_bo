@@ -161,8 +161,19 @@ class routeur
                                 case "escapeGame":
                                     // Ici on vérifie si l'utilisateur a les droits pour accéder à la page demandée (ici escapeGames) et on l'envoie sur la page demandée ou sur la page admin si il n'a pas les droits pour accéder à la page demandée (ici escapeGames)
                                     if (str_contains($_SESSION["rights"], "editor") or str_contains($_SESSION["rights"], "superadmin")) {
-                                        if(isset($_GET['id'])){
+                                        if (isset($_GET['id'])) {
                                             $this->ctrAdmin->escapeGame($_GET["id"]);
+                                        }
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
+                                    break;
+                                case "modifyEscapeGame":
+                                    if (str_contains($_SESSION["rights"], "editor") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        if (isset($_GET["id"])) {
+                                            $this->ctrAdmin->modifyEscapeGame($_GET["id"]);
+                                        } else {
+                                            $this->ctrAdmin->escapeGames();
                                         }
                                     } else {
                                         $this->ctrAdmin->admin();
