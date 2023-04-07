@@ -22,9 +22,7 @@ class ctrEscapeGames
             if (($this->escapeGame["x"] == 0) && ($this->escapeGame["y"] == 0)) {
                 $this->ch = curl_init();
 
-                // User agent to be viewed as an application and not a bot
-                //$config['useragent'] = "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:10.0.2) Gecko/20100101 Firefox/10.0.2";
-
+                // User agent to be viewed as the user agent of the browser that is making the request
                 $config['useragent'] = $_SERVER['HTTP_USER_AGENT'];
 
                 $this->options = array(
@@ -35,19 +33,10 @@ class ctrEscapeGames
                     CURLOPT_SSL_VERIFYPEER => true,
                 );
                 curl_setopt_array($this->ch, $this->options);
-                echo "https://nominatim.openstreetmap.org/search?format=json&q=" . urlencode($this->escapeGame["address"]);
 
                 $this->r = curl_exec($this->ch);
-                echo "<pre>";
-                print_r($this->r);
-                echo "</pre>";
 
                 $this->result = json_decode($this->r);
-
-                echo "<pre>";
-                print_r($this->result);
-                echo "</pre>";
-
 
                 // Verif des erreurs
                 if (curl_errno($this->ch) === 0) {
@@ -87,22 +76,21 @@ class ctrEscapeGames
         $nameEscapeGame = $escapeGame['name'];
         $priceEscapeGame = $this->escapeGames->getPriceEscapeGame($escapeGame["id_escapeGame"], $_POST["nbPersons"]);
         $dateSplit = preg_split("/[-]/", $_POST['buyDate']);
-        
-        if($_SESSION['lang'] == 'fr'){
+
+        if ($_SESSION['lang'] == 'fr') {
             $mois = array('janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre');
-            $dateEscapeGame = $dateSplit[2] . " " . $mois[(int) $dateSplit[1]-1] . " " . $dateSplit[0];
-        }
-        else{
+            $dateEscapeGame = $dateSplit[2] . " " . $mois[(int)$dateSplit[1] - 1] . " " . $dateSplit[0];
+        } else {
             $dateEscapeGame = $dateSplit[2] . " " . date('F', mktime(0, 0, 0, $dateSplit[1], 10)) . " " . $dateSplit[0];
         }
-        
-        if($_POST['hour']=='ten')
+
+        if ($_POST['hour'] == 'ten')
             $hourEscapeGame = 10;
-        else if($_POST['hour']=='fourteen')
+        else if ($_POST['hour'] == 'fourteen')
             $hourEscapeGame = 14;
-        else if($_POST['hour']=="eightteen")
+        else if ($_POST['hour'] == "eightteen")
             $hourEscapeGame = 18;
-        else if($_POST['hour']=="twenty")
+        else if ($_POST['hour'] == "twenty")
             $hourEscapeGame = 20;
         $objVue = new vue("buyEG");
         $objVue->afficher(array("buyEG" => $_POST, "nameEscapeGame" => $nameEscapeGame, "priceEscapeGame" => $priceEscapeGame, "dateEscapeGame" => $dateEscapeGame, "hourEscapeGame" => $hourEscapeGame), $title);

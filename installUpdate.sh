@@ -115,6 +115,7 @@ if check_cmd yum; then
         $SUDO firewall-cmd --permanent --add-service=http
         $SUDO firewall-cmd --permanent --add-service=https
         $SUDO firewall-cmd --reload
+        $SUDO setsebool -P httpd_can_network_connect on
     else
         error "PHP 8.0 is not available in the repository of your distribution. Please install it manually. Aborting..."
         exit 1
@@ -147,6 +148,7 @@ if check_cmd dnf; then
         $SUDO firewall-cmd --permanent --add-service=http
         $SUDO firewall-cmd --permanent --add-service=https
         $SUDO firewall-cmd --reload
+        $SUDO setsebool -P httpd_can_network_connect on
     else
         error "PHP 8.0 is not available in the repository of your distribution. Please install it manually. Aborting..."
         exit 1
@@ -479,7 +481,7 @@ if check_cmd yum || check_cmd dnf; then
 fi
 
 # Display the end of the script
-success "The update is finished. You can now access the web site at the following address: http://localhost !"
+success "The update is finished. You can now access the web site on the ip address of your server !"
 
 success "Thank you for using this script. If you have any questions, please contact me on GitHub: MathiasLinux"
 }
