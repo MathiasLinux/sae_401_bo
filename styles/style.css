@@ -310,7 +310,7 @@ footer a {
     font-size: 20px;
 }
 
-.rightReview{
+.rightReview {
     border-left: var(--yellow) solid 2px;
     display: flex;
     justify-content: center;
@@ -318,7 +318,7 @@ footer a {
     text-align: center;
 }
 
-.rightReview>p{
+.rightReview > p {
     margin-left: 4%;
 }
 
@@ -457,9 +457,17 @@ footer a {
     align-items: center;
 }
 
-.Place1 { grid-area: 1 / 1 / 2 / 2; }
-.Place2 { grid-area: 1 / 3 / 2 / 4; }
-.Place3 { grid-area: 2 / 2 / 3 / 3; }
+.Place1 {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.Place2 {
+    grid-area: 1 / 3 / 2 / 4;
+}
+
+.Place3 {
+    grid-area: 2 / 2 / 3 / 3;
+}
 
 .ligneTwoGiftCards {
     display: flex;
@@ -826,6 +834,7 @@ footer a {
     text-decoration: none;
     color: white;
     background: none;
+    cursor: pointer;
 }
 
 .formHours {

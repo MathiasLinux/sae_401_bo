@@ -48,7 +48,13 @@ class ctrGiftCards
                     $title = "Payment - Kaiserstuhl escape";
                     $objVue = new vue("BuyCardsEscape");
                     if (!empty($idEscapeGame)) {
-                        $nameEscapeGame = $this->objEscapeGame->getEscapeGame($idEscapeGame);
+                        if ($_SESSION['lang'] == "fr") {
+                            $nameEscapeGame = $this->objEscapeGame->getEscapeGame($idEscapeGame)["nameFR"];
+                        } elseif ($_SESSION['lang'] == "en") {
+                            $nameEscapeGame = $this->objEscapeGame->getEscapeGame($idEscapeGame)["name"];
+                        } else {
+                            $nameEscapeGame = $this->objEscapeGame->getEscapeGame($idEscapeGame)["name"];
+                        }
                         $priceEscapeGame = $this->objEscapeGame->getPriceEscapeGame($idEscapeGame, $persons);
                     } else {
                         $nameEscapeGame = "";

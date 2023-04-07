@@ -96,7 +96,14 @@ class routeur
                     break;
                 case "buyEGValid":
                     if (isset($_SESSION["email"]) and isset($_POST["cardNumber"]) and isset($_POST["cardDate"]) and isset($_POST["cardCVC"]) and isset($_POST["cardName"])) {
-                        $this->ctrEscapeGames->buyEG();
+                        $this->ctrEscapeGames->buyEGValid();
+                    } else {
+                        $this->ctrLogin->login();
+                    }
+                    break;
+                case "buyEGSuccess":
+                    if (isset($_SESSION["email"])) {
+                        $this->ctrEscapeGames->buyEGSuccess();
                     } else {
                         $this->ctrLogin->login();
                     }

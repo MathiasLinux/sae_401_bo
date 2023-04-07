@@ -1,6 +1,8 @@
 <?php
 
 require_once "modele/escapeGame.class.php";
+require_once "modele/card.class.php";
+require_once "modele/user.class.php";
 require_once "vue/vue.class.php";
 
 class ctrEscapeGames
@@ -12,9 +14,14 @@ class ctrEscapeGames
     public $r;
     public $info;
 
+    public $objCard;
+    public $objUser;
+
     public function __construct()
     {
-        $this->escapeGames = new escapeGame;
+        $this->escapeGames = new escapeGame();
+        $this->objCard = new card();
+        $this->objUser = new user();
 
         if (isset($_GET["escapeGame"])) {
             $this->escapeGame = $this->escapeGames->getEscapeGame($_GET["escapeGame"]);
@@ -92,13 +99,12 @@ class ctrEscapeGames
             $hourEscapeGame = 18;
         else if ($_POST['hour'] == "twenty")
             $hourEscapeGame = 20;
-        $objVue = new vue("buyEG");
-        $objVue->afficher(array("buyEG" => $_POST, "nameEscapeGame" => $nameEscapeGame, "priceEscapeGame" => $priceEscapeGame, "dateEscapeGame" => $dateEscapeGame, "hourEscapeGame" => $hourEscapeGame), $title);
+        $objVue = new vue("BuyEG");
+        $objVue->afficher(array("nameEscapeGame" => $nameEscapeGame, "priceEscapeGame" => $priceEscapeGame, "dateEscapeGame" => $dateEscapeGame, "hourEscapeGame" => $hourEscapeGame), $title);
     }
 
     public function buyEGValid()
     {
-        var_dump($_POST);
         if (isset($_POST['cardNumber']) and isset($_POST['cardDate']) and isset($_POST['cardCVC']) and isset($_POST['cardName']) and isset($_POST['amount']) and isset($_POST['idEscapeGame'])) {
             $error = [];
             if (empty($_POST['cardNumber'])) {
@@ -136,6 +142,20 @@ class ctrEscapeGames
                     $error['idEscapeGame'] = "No escape game has been chosen";
                 }
             }
+            if (empty($_POST['buyerFirstName'])) {
+                if ($_SESSION['lang'] == "fr") {
+                    $error['buyerFirstName'] = "Le prénom est vide";
+                } else {
+                    $error['buyerFirstName'] = "The first name is empty";
+                }
+            }
+            if (empty($_POST['buyerLastName'])) {
+                if ($_SESSION['lang'] == "fr") {
+                    $error['buyerLastName'] = "Le nom est vide";
+                } else {
+                    $error['buyerLastName'] = "The last name is empty";
+                }
+            }
             if (empty($error)) {
                 if (!$this->objCard->luhn_check($_POST['cardNumber'])) {
                     if ($_SESSION['lang'] == "fr") {
@@ -166,10 +186,40 @@ class ctrEscapeGames
                         $error['cardName'] = "Card name is not valid";
                     }
                 }
+                if (!$this->objCard->verifyCardName($_POST['buyerFirstName'])) {
+                    if ($_SESSION['lang'] == "fr") {
+                        $error['buyerFirstName'] = "Le prénom n'est pas valide";
+                    } else {
+                        $error['buyerFirstName'] = "The first name is not valid";
+                    }
+                }
+                if (!$this->objCard->verifyCardName($_POST['buyerLastName'])) {
+                    if ($_SESSION['lang'] == "fr") {
+                        $error['buyerLastName'] = "Le nom n'est pas valide";
+                    } else {
+                        $error['buyerLastName'] = "The last name is not valid";
+                    }
+                }
+
                 if (empty($error)) {
                     $id_user = $this->objUser->getIdUser($_SESSION['email']);
-                    $this->objGiftCards->buyGiftCardsEscape($_POST['idEscapeGame'], $id_user);
-                    header("Location: index.php?action=buyCardSuccess");
+                    $id_escapeGame = $_POST['idEscapeGame'];
+                    //get the actual date with the format of the database
+                    $buyingDate = date("Y-m-d");
+                    $gameDate = $_POST['dateEscapeGame'];
+                    $gameHour = $_POST['hourEscapeGame'];
+                    $nbPersons = $_POST['nbPersons'];
+                    $buyersFirstName = $_POST['buyerFirstName'];
+                    $buyersLastName = $_POST['buyerLastName'];
+
+                    //if date in french like 26 mai 2019 change it to 2019-05-26
+                    if (preg_match("#[a-zA-Z]#", $gameDate)) {
+                        $gameDate = $this->objCard->changeDateFR($gameDate);
+                    }
+                    //Change the date to a format like 2019-05-26 with strtotime
+                    $gameDate = date("Y-m-d", strtotime($gameDate));
+                    $this->escapeGames->buyEscapeGame($id_user, $id_escapeGame, $buyingDate, $gameDate, $gameHour, $nbPersons, $buyersFirstName, $buyersLastName);
+                    header("Location: index.php?action=buyEGSuccess");
                 } else {
                     // return to payment page with errors and send the post data of the values and the valid fields
                     $okValues = [];
@@ -180,7 +230,7 @@ class ctrEscapeGames
                         }
                     }
                     $title = "Payment - Kaiserstuhl escape";
-                    $objVue = new vue("BuyCards");
+                    $objVue = new vue("BuyEG");
                     $objVue->afficher(array("error" => $error, "okValue" => $okValues, "amount" => $_POST['amount']), $title);
                 }
             } else {
@@ -195,7 +245,8 @@ class ctrEscapeGames
                     }
                 }
                 $title = "Payment - Kaiserstuhl escape";
-                $objVue = new vue("BuyCardsEscape");
+                $objVue = new vue("BuyEG");
+                //(array("nameEscapeGame" => $nameEscapeGame, "priceEscapeGame" => $priceEscapeGame, "dateEscapeGame" => $dateEscapeGame, "hourEscapeGame" => $hourEscapeGame)
                 $objVue->afficher(array("error" => $error, "okValue" => $okValues, "amount" => $_POST['amount']), $title);
             }
         }

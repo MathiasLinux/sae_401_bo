@@ -736,7 +736,7 @@ const BOOK_ESCAPEGAME_CARD_DATE = "Expiration date";
 
 const BOOK_ESCAPEGAME_CARD_CVC = "CVC";
 
-const BOOK_ESCAPEGAME_CARD_NAME = "Name";
+const BOOK_ESCAPEGAME_CARD_NAME = "Name on the card";
 
 const BOOK_ESCAPEGAME_CARD_SUBMIT = "Pay";
 
@@ -744,6 +744,12 @@ const BOOK_ESCAPEGAME_ESCAPE_NAME = "Your are booking the escape game : ";
 
 const BOOK_ESCAPEGAME_ESCAPE_DAY = ", the ";
 
-const BOOK_ESCAPEGAME_ESCAPE_HOUR  = " at ";
+const BOOK_ESCAPEGAME_ESCAPE_HOUR = " at ";
 
 const BOOK_ESCAPEGAME_ESCAPE_FOR = " for ";
+
+const BOOK_ESCAPEGAME_BUYER_FIRST_NAME = "First name";
+
+const BOOK_ESCAPEGAME_BUYER_LAST_NAME = "Last name";
+
+const BOOK_ESCAPEGAME_PERSONS = " persons ";

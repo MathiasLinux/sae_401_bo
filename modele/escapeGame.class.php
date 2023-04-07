@@ -371,4 +371,21 @@ class escapeGame extends bdd
             $this->execReqPrep($req, array($price, $id));
         }
     }
+
+    /*********
+     * @param $id_user int the id of the user
+     * @param $id_escapeGame int the id of the escape game
+     * @param $buyingDate string the date of the buying of the escape game (format : YYYY-MM-DD)
+     * @param $gameDate string the date of the game of the escape game (format : YYYY-MM-DD)
+     * @param $hours string the hours of the game of the escape game (format : HH)
+     * @param $nbPlayers int the number of players of the escape game
+     * @param $buyersFirstName string the first name of the buyers of the escape game
+     * @param $buyersLastName string the last name of the buyers of the escape game
+     * @return void
+     */
+    public function buyEscapeGame($id_user, $id_escapeGame, $buyingDate, $gameDate, $hours, $nbPlayers, $buyersFirstName, $buyersLastName)
+    {
+        $req = "INSERT INTO buying (id_user, id_escapeGame, buyingDate, gameDate, hours, nbPlayers, buyersFirstName, buyersLastName) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $this->execReqPrep($req, array($id_user, $id_escapeGame, $buyingDate, $gameDate, $hours, $nbPlayers, $buyersFirstName, $buyersLastName));
+    }
 }
