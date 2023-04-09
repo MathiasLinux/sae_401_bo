@@ -452,8 +452,86 @@ header img {
 
 /* Admin Escape Game */
 
-.visibilityEG {
+.formAdminEG {
+    display: grid;
+    grid-template-areas:
+    "title title ."
+    "image image display"
+    "upload upload ."
+    "difficulty difficulty ."
+    "presentation presentation ."
+    "map map ."
+    "price price ."
+    ". submit .";
+}
+
+.titleAdminEG {
+    grid-area: title;
+}
+
+.titleAdminEGInputDiv {
+    margin-bottom: 0%;
+}
+
+.visibilityEGBig {
     font-size: 22px;
+    grid-area: display;
+    margin-bottom: 0%;
+}
+
+.imgAdminEG {
+    grid-area: image;
+
+}
+
+main .formAdminEG > .imgAdminEG {
+    grid-template-columns: auto auto auto;
+    margin-right: 20px;
+}
+
+.escapeImgDivUpload {
+    grid-area: upload;
+}
+
+.difficultyAdminBig {
+    grid-area: difficulty;
+}
+
+.difficultyAdmin {
+    grid-gap: 20px;
+}
+
+.presentationEGAdmin {
+    grid-area: presentation;
+}
+
+.mapEGAdmin {
+    grid-area: map;
+}
+
+.priceEGAdmin {
+    grid-area: price;
+}
+
+.priceInputEGAdminDiv {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.submitEGAdmin {
+    grid-area: submit;
+}
+
+.deleteEGButton .redButton {
+    padding: 20px 20%;
+}
+
+
+.formAdminEG input[type="text"],
+.formAdminEG input[type="number"],
+.formAdminEG select,
+.formAdminEG textarea {
+    width: 100%;
 }
 
 /* Admin Escape Games */

@@ -926,11 +926,11 @@ footer a {
     margin: 2% 0%;
 }
 
-.formAdminEG > div > label {
+.formAdminEG > div > label, .titleAdminEG div > label {
     position: relative;
 }
 
-.formAdminEG > div > label > span {
+.formAdminEG span {
     position: absolute;
     color: var(--lightGrey);
     font-size: 15px;
@@ -938,10 +938,67 @@ footer a {
     margin-top: 0.25%;
 }
 
-.formAdminEG > div > label > input[type="text"],
-.formAdminEG > div > label > input[type="number"],
-.formAdminEG > div > label > select,
-.formAdminEG > div > label > textarea {
+.titleAdminEGInputDiv {
+    display: grid;
+    grid-gap: 20px;
+    margin-bottom: 4%;
+}
+
+.difficultyAdmin {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 5px;
+}
+
+.durationAdmin {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    justify-items: left;
+}
+
+.presentationEGTextareaDiv {
+    display: grid;
+    grid-gap: 20px;
+}
+
+.presentationEGTextareaDiv textarea {
+    height: 200px;
+}
+
+.priceInputEGAdminDiv {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.priceInputEGAdminDiv div {
+    margin: 10% 20% 0 0;
+}
+
+.submitEGAdmin {
+    display: grid;
+    justify-items: center;
+    margin: 4% 0 0 0 !important;
+}
+
+.deleteEGButton {
+    display: grid;
+    justify-items: center;
+}
+
+.deleteEGButton .redButton {
+    padding: 20px 35%;
+}
+
+.submitEGAdmin input {
+    padding: 20px 10%;
+    font-size: 26px;
+}
+
+.formAdminEG input[type="text"],
+.formAdminEG input[type="number"],
+.formAdminEG select,
+.formAdminEG textarea {
     background-color: var(--lightBlue);
     border: none;
     padding: 20px;
@@ -969,13 +1026,14 @@ footer a {
 .visibilityEGBig {
     display: flex;
     flex-direction: column;
+    margin-bottom: 6%;
 }
 
 main .formAdminEG > .imgAdminEG {
     display: grid;
     grid-template-columns: auto auto;
     gap: 4%;
-    margin-bottom: 20%;
+    margin-bottom: 40%;
 }
 
 .difficultyAdmin {

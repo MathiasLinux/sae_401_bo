@@ -76,7 +76,12 @@ if ($_SESSION["lang"] == "fr") {
 <section class="Vue">
     <?php
     // foreach ($escapeGames as $escapeGame)
-    for ($i = 0; $i < 4; $i++) {
+    if (count($escapeGames) > 4) {
+        $length = 4;
+    } else {
+        $length = count($escapeGames);
+    }
+    for ($i = 0; $i < $length; $i++) {
         $escapeGame = $escapeGames[$i];
         if ($_SESSION["lang"] == "fr") {
             $titre = $escapeGame["nameFR"];
@@ -118,7 +123,13 @@ if ($_SESSION["lang"] == "fr") {
     // var_dump($escapeGames);
     // foreach ($escapeGames as $escapeGame)
     $escapeGamesR = array_reverse($escapeGames);
-    for ($i = 0; $i < 4; $i++) {
+    if (count($escapeGamesR) > 4) {
+        $length = 4;
+    } else {
+        $length = count($escapeGamesR);
+    }
+    //var_dump($length);
+    for ($i = 0; $i < $length; $i++) {
         $escapeGame = $escapeGamesR[$i];
         // var_dump($escapeGame);
         if ($_SESSION["lang"] == "fr") {

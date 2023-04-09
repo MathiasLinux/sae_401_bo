@@ -12,19 +12,23 @@ if (isset($EG)) {
 
     <form class="formAdminEG" action="index.php?action=admin&page=modifyEscapeGame&id=<?= $EG["id_escapeGame"] ?>"
           method="post" enctype="multipart/form-data">
-        <div>
-            <label>
-                <span><?= ADMIN_EG_NAME ?></span>
-                <input type="text" value="<?= $EG['name'] ?>" id="name" name="name">
-            </label>
+        <div class="titlesAdminEG">
+            <h2 class="titleUnderline"><?= ADMIN_EG_NAMES ?></h2>
+            <div class="titleAdminEGInputDiv">
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_NAME ?></span>
+                        <input type="text" value="<?= $EG['name'] ?>" id="name" name="name">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_NAME_FR ?></span>
+                        <input type="text" value="<?= $EG['nameFR'] ?>" id="nameFR" name="nameFR">
+                    </label>
+                </div>
+            </div>
         </div>
-        <div>
-            <label>
-                <span><?= ADMIN_EG_NAME_FR ?></span>
-                <input type="text" value="<?= $EG['nameFR'] ?>" id="nameFR" name="nameFR">
-            </label>
-        </div>
-
         <div class="visibilityEGBig">
             <div class="visibilityEG">
                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none"
@@ -99,177 +103,213 @@ if (isset($EG)) {
                    accept="image/png, image/jpeg" multiple="multiple">
         </div>
 
+        <div class="difficultyAdminBig">
+            <h2 class="titleUnderline"><?= ADMIN_EG_DIFFICULTY_DURATION ?></h2>
 
-        <h2 class="titleUnderline"><?= ADMIN_EG_DIFFICULTY_DURATION ?></h2>
+            <?php
+            //var_dump($difficultiesEN);
+            //separate at the comma
+            $difficultiesENArr = explode(",", $difficultiesEN);
+            $difficultiesFRArr = explode(",", $difficultiesFR);
+            //remove the first bracket and the last one
+            $difficultiesENArr[0] = substr($difficultiesENArr[0], 1);
+            $difficultiesENArr[count($difficultiesENArr) - 1] = substr($difficultiesENArr[count($difficultiesENArr) - 1], 0, -1);
+            $difficultiesFRArr[0] = substr($difficultiesFRArr[0], 1);
+            $difficultiesFRArr[count($difficultiesFRArr) - 1] = substr($difficultiesFRArr[count($difficultiesFRArr) - 1], 0, -1);
+            //remove the quote at the beginning and the end
+            for ($i = 0; $i < count($difficultiesENArr); $i++) {
+                $difficultiesENArr[$i] = substr($difficultiesENArr[$i], 1);
+                $difficultiesENArr[$i] = substr($difficultiesENArr[$i], 0, -1);
+                $difficultiesFRArr[$i] = substr($difficultiesFRArr[$i], 1);
+                $difficultiesFRArr[$i] = substr($difficultiesFRArr[$i], 0, -1);
+            }
+            //var_dump($difficultiesENArr);
+            //var_dump($difficultiesFRArr);
+            //echo $difficultiesENArr[0];
+            ?>
+            <div class="difficultyAdmin">
+                <label>
+                    <span><?= ADMIN_EG_DIFFICULTY ?></span>
+                    <select name="difficultyEN" id="difficultyEN">
+                        <option value=""></option>
+                        <?php
+                        //check if the escape game has a difficulty and select it
+                        if ($EG['difficulty'] != "") {
+                            foreach ($difficultiesENArr as $difficultyEN) {
+                                if ($difficultyEN == $EG['difficulty']) {
+                                    echo "<option value='$difficultyEN' selected>$difficultyEN</option>";
+                                } else {
+                                    echo "<option value='$difficultyEN'>$difficultyEN</option>";
+                                }
+                            }
+                        } else {
+                            foreach ($difficultiesENArr as $difficultyEN) {
+                                echo "<option value='$difficultyEN'>$difficultyEN</option>";
+                            }
+                        }
+                        ?>
+                    </select>
+                </label>
+                <label>
+                    <!-- add pi character with unicode
+                    &#960; -->
+                    <span><?= ADMIN_EG_DIFFICULTY_FR ?></span>
+                    <select name="difficultyFR" id="difficultyFR">
+                        <option value=""></option>
+                        <?php
+                        //check if the escape game has a difficulty and select it
+                        if ($EG['difficultyFR'] != "") {
+                            foreach ($difficultiesFRArr as $difficultyFR) {
+                                if ($difficultyFR == $EG['difficultyFR']) {
+                                    echo "<option value='$difficultyFR' selected>$difficultyFR</option>";
+                                } else {
+                                    echo "<option value='$difficultyFR'>$difficultyFR</option>";
+                                }
+                            }
+                        } else {
+                            foreach ($difficultiesFRArr as $difficultyFR) {
+                                echo "<option value='$difficultyFR'>$difficultyFR</option>";
+                            }
+                        }
+                        ?>
+                    </select>
+                </label>
+            </div>
+            <div class="durationAdmin">
+                <label>
+                    <span><?= ADMIN_EG_DURATION ?></span>
+                    <input type="number" value="<?= $EG['duration'] ?>" id="duration" name="duration" min="1">
+                </label>
+            </div>
+        </div>
+        <div class="presentationEGAdmin">
+            <h2 class="titleUnderline"><?= ADMIN_EG_PRESENTATION ?></h2>
+            <div class="presentationEGTextareaDiv">
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_DESCRIPTION ?></span>
+                        <textarea id="description" name="description"><?= $EG['description'] ?></textarea>
+                    </label>
+                </div>
 
-        <?php
-        //var_dump($difficultiesEN);
-        //separate at the comma
-        $difficultiesENArr = explode(",", $difficultiesEN);
-        $difficultiesFRArr = explode(",", $difficultiesFR);
-        //remove the first bracket and the last one
-        $difficultiesENArr[0] = substr($difficultiesENArr[0], 1);
-        $difficultiesENArr[count($difficultiesENArr) - 1] = substr($difficultiesENArr[count($difficultiesENArr) - 1], 0, -1);
-        $difficultiesFRArr[0] = substr($difficultiesFRArr[0], 1);
-        $difficultiesFRArr[count($difficultiesFRArr) - 1] = substr($difficultiesFRArr[count($difficultiesFRArr) - 1], 0, -1);
-        //remove the quote at the beginning and the end
-        for ($i = 0; $i < count($difficultiesENArr); $i++) {
-            $difficultiesENArr[$i] = substr($difficultiesENArr[$i], 1);
-            $difficultiesENArr[$i] = substr($difficultiesENArr[$i], 0, -1);
-            $difficultiesFRArr[$i] = substr($difficultiesFRArr[$i], 1);
-            $difficultiesFRArr[$i] = substr($difficultiesFRArr[$i], 0, -1);
-        }
-        //var_dump($difficultiesENArr);
-        //var_dump($difficultiesFRArr);
-        //echo $difficultiesENArr[0];
-        ?>
-        <div class="difficultyAdmin">
-            <label>
-                <span><?= ADMIN_EG_DIFFICULTY ?></span>
-                <select name="difficultyEN" id="difficultyEN">
-                    <option value=""></option>
-                    <?php
-                    foreach ($difficultiesENArr as $difficultyEN) {
-                        echo "<option value='$difficultyEN'>$difficultyEN</option>";
-                    }
-                    ?>
-                </select>
-            </label>
-            <label>
-                <!-- add pi character with unicode
-                &#960; -->
-                <span><?= ADMIN_EG_DIFFICULTY_FR ?></span>
-                <select name="difficultyFR" id="difficultyFR">
-                    <option value=""></option>
-                    <?php
-                    foreach ($difficultiesFRArr as $difficultyFR) {
-                        echo "<option value='$difficultyFR'>$difficultyFR</option>";
-                    }
-                    ?>
-                </select>
-            </label>
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_DESCRIPTION_FR ?></span>
+                        <textarea id="descriptionFR" name="descriptionFR"><?= $EG['descriptionFR'] ?></textarea>
+                    </label>
+                </div>
+            </div>
         </div>
-        <div>
-            <label>
-                <span><?= ADMIN_EG_DURATION ?></span>
-                <input type="number" value="<?= $EG['duration'] ?>" id="duration" name="duration" min="1">
-            </label>
-        </div>
+        <div class="mapEGAdmin">
+            <h2 class="titleUnderline"><?= ADMIN_EG_MAP ?></h2>
 
-        <h2 class="titleUnderline"><?= ADMIN_EG_PRESENTATION ?></h2>
-
-        <div>
-            <label>
-                <span><?= ADMIN_EG_DESCRIPTION ?></span>
-                <textarea id="description" name="description"><?= $EG['description'] ?></textarea>
-            </label>
+            <div>
+                <label>
+                    <span><?= ADMIN_EG_ADDRESS ?></span>
+                    <input type="text" value="<?= $EG['address'] ?>" id="address" name="address">
+                </label>
+            </div>
         </div>
-
-        <div>
-            <label>
-                <span><?= ADMIN_EG_DESCRIPTION_FR ?></span>
-                <textarea id="descriptionFR" name="descriptionFR"><?= $EG['descriptionFR'] ?></textarea>
-            </label>
+        <div class="priceEGAdmin">
+            <h2 class="titleUnderline"><?= ADMIN_EG_PRICES ?></h2>
+            <div class="priceInputEGAdminDiv">
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_PRICE_2_3 ?></span>
+                        <input type="number" value="<?= $EG['price2_3Persons'] ?>" id="price2_3Persons"
+                               name="price2_3Persons"
+                               min="1">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_PRICE_4 ?></span>
+                        <input type="number" value="<?= $EG['price4Persons'] ?>" id="price4Persons" name="price4Persons"
+                               min="1">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_PRICE_5 ?></span>
+                        <input type="number" value="<?= $EG['price5Persons'] ?>" id="price5Persons" name="price5Persons"
+                               min="1">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_PRICE_6 ?></span>
+                        <input type="number" value="<?= $EG['price6Persons'] ?>" id="price6Persons" name="price6Persons"
+                               min="1">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_PRICE_7 ?></span>
+                        <input type="number" value="<?= $EG['price7Persons'] ?>" id="price7Persons" name="price7Persons"
+                               min="1">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_PRICE_8 ?></span>
+                        <input type="number" value="<?= $EG['price8Persons'] ?>" id="price8Persons" name="price8Persons"
+                               min="1">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_PRICE_9 ?></span>
+                        <input type="number" value="<?= $EG['price9Persons'] ?>" id="price9Persons" name="price9Persons"
+                               min="1">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_PRICE_10 ?></span>
+                        <input type="number" value="<?= $EG['price10Persons'] ?>" id="price10Persons"
+                               name="price10Persons"
+                               min="1">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_PRICE_11 ?></span>
+                        <input type="number" value="<?= $EG['price11Persons'] ?>" id="price11Persons"
+                               name="price11Persons"
+                               min="1">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_PRICE_12 ?></span>
+                        <input type="number" value="<?= $EG['price12Persons'] ?>" id="price12Persons"
+                               name="price12Persons"
+                               min="1">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_PRICE_12_PLUS ?></span>
+                        <input type="number" value="<?= $EG['price12PlusPersons'] ?>" id="price12PlusPersons"
+                               name="price12PlusPersons" min="1">
+                    </label>
+                </div>
+            </div>
         </div>
-
-        <h2 class="titleUnderline"><?= ADMIN_EG_MAP ?></h2>
-
-        <div>
-            <label>
-                <span><?= ADMIN_EG_ADDRESS ?></span>
-                <input type="text" value="<?= $EG['address'] ?>" id="address" name="address">
-            </label>
+        <div class="submitEGAdmin">
+            <input class="yellowButton" type="submit" value="<?= ADMIN_EG_UPDATE_BUTTON ?>" name="ok">
         </div>
-        <h2 class="titleUnderline"><?= ADMIN_EG_PRICES ?></h2>
-
-        <div>
-            <label>
-                <span><?= ADMIN_EG_PRICE_2_3 ?></span>
-                <input type="number" value="<?= $EG['price2_3Persons'] ?>" id="price2_3Persons" name="price2_3Persons"
-                       min="1">
-            </label>
-        </div>
-        <div>
-            <label>
-                <span><?= ADMIN_EG_PRICE_4 ?></span>
-                <input type="number" value="<?= $EG['price4Persons'] ?>" id="price4Persons" name="price4Persons"
-                       min="1">
-            </label>
-        </div>
-        <div>
-            <label>
-                <span><?= ADMIN_EG_PRICE_5 ?></span>
-                <input type="number" value="<?= $EG['price5Persons'] ?>" id="price5Persons" name="price5Persons"
-                       min="1">
-            </label>
-        </div>
-        <div>
-            <label>
-                <span><?= ADMIN_EG_PRICE_6 ?></span>
-                <input type="number" value="<?= $EG['price6Persons'] ?>" id="price6Persons" name="price6Persons"
-                       min="1">
-            </label>
-        </div>
-        <div>
-            <label>
-                <span><?= ADMIN_EG_PRICE_7 ?></span>
-                <input type="number" value="<?= $EG['price7Persons'] ?>" id="price7Persons" name="price7Persons"
-                       min="1">
-            </label>
-        </div>
-        <div>
-            <label>
-                <span><?= ADMIN_EG_PRICE_8 ?></span>
-                <input type="number" value="<?= $EG['price8Persons'] ?>" id="price8Persons" name="price8Persons"
-                       min="1">
-            </label>
-        </div>
-        <div>
-            <label>
-                <span><?= ADMIN_EG_PRICE_9 ?></span>
-                <input type="number" value="<?= $EG['price9Persons'] ?>" id="price9Persons" name="price9Persons"
-                       min="1">
-            </label>
-        </div>
-        <div>
-            <label>
-                <span><?= ADMIN_EG_PRICE_10 ?></span>
-                <input type="number" value="<?= $EG['price10Persons'] ?>" id="price10Persons" name="price10Persons"
-                       min="1">
-            </label>
-        </div>
-        <div>
-            <label>
-                <span><?= ADMIN_EG_PRICE_11 ?></span>
-                <input type="number" value="<?= $EG['price11Persons'] ?>" id="price11Persons" name="price11Persons"
-                       min="1">
-            </label>
-        </div>
-        <div>
-            <label>
-                <span><?= ADMIN_EG_PRICE_12 ?></span>
-                <input type="number" value="<?= $EG['price12Persons'] ?>" id="price12Persons" name="price12Persons"
-                       min="1">
-            </label>
-        </div>
-        <div>
-            <label>
-                <span><?= ADMIN_EG_PRICE_12_PLUS ?></span>
-                <input type="number" value="<?= $EG['price12PlusPersons'] ?>" id="price12PlusPersons"
-                       name="price12PlusPersons" min="1">
-            </label>
-        </div>
-
-        <input class="yellowButton" type="submit" value="<?= ADMIN_EG_UPDATE_BUTTON ?>" name="ok">
     </form>
-    <div class="redButton">
-        <?= ADMIN_JOB_DISPLAY_DELETE ?>
-    </div>
-    <div class="validationDeleteUser">
-        <h3><?= ADMIN_EG_DISPLAY_DELETE_WARNING ?></h3>
-        <div class="delUserDivButton">
-            <a href="index.php?action=admin&page=delEscapeGame&id=<?= $EG["id_escapeGame"] ?>"><?= ADMIN_CONTACT_FORM_DELETE_YES ?></a>
-            <div class="noDeleteUser"><?= ADMIN_CONTACT_FROM_DELETE_NO ?></div>
+    <div class="deleteEGButton">
+        <div class="redButton">
+            <?= ADMIN_JOB_DISPLAY_DELETE ?>
+        </div>
+        <div class="validationDeleteUser">
+            <h3><?= ADMIN_EG_DISPLAY_DELETE_WARNING ?></h3>
+            <div class="delUserDivButton">
+                <a href="index.php?action=admin&page=delEscapeGame&id=<?= $EG["id_escapeGame"] ?>"><?= ADMIN_CONTACT_FORM_DELETE_YES ?></a>
+                <div class="noDeleteUser"><?= ADMIN_CONTACT_FROM_DELETE_NO ?></div>
+            </div>
         </div>
     </div>
     <script defer src="js/adminEscapeGame.js"></script>
@@ -278,17 +318,22 @@ if (isset($EG)) {
     ?>
     <form class="formAdminEG" action="index.php?action=admin&page=addEscapeGame" method="post"
           enctype="multipart/form-data">
-        <div>
-            <label>
-                <span><?= ADMIN_EG_NAME ?></span>
-                <input type="text" id="name" name="name">
-            </label>
-        </div>
-        <div>
-            <label>
-                <span><?= ADMIN_EG_NAME_FR ?></span>
-                <input type="text" id="nameFR" name="nameFR">
-            </label>
+        <div class="titlesAdminEG">
+            <h2 class="titleUnderline"><?= ADMIN_EG_NAMES ?></h2>
+            <div class="titleAdminEGInputDiv">
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_NAME ?></span>
+                        <input type="text" id="name" name="name">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_NAME_FR ?></span>
+                        <input type="text" id="nameFR" name="nameFR">
+                    </label>
+                </div>
+            </div>
         </div>
 
         <div class="visibilityEGBig">
@@ -332,158 +377,167 @@ if (isset($EG)) {
                    accept="image/png, image/jpeg" multiple="multiple">
         </div>
 
+        <div class="difficultyAdminBig">
+            <h2 class="titleUnderline"><?= ADMIN_EG_DIFFICULTY_DURATION ?></h2>
 
-        <h2 class="titleUnderline"><?= ADMIN_EG_DIFFICULTY_DURATION ?></h2>
+            <?php
+            //var_dump($difficultiesEN);
+            //separate at the comma
+            $difficultiesENArr = explode(",", $difficultiesEN);
+            $difficultiesFRArr = explode(",", $difficultiesFR);
+            //remove the first bracket and the last one
+            $difficultiesENArr[0] = substr($difficultiesENArr[0], 1);
+            $difficultiesENArr[count($difficultiesENArr) - 1] = substr($difficultiesENArr[count($difficultiesENArr) - 1], 0, -1);
+            $difficultiesFRArr[0] = substr($difficultiesFRArr[0], 1);
+            $difficultiesFRArr[count($difficultiesFRArr) - 1] = substr($difficultiesFRArr[count($difficultiesFRArr) - 1], 0, -1);
+            //remove the quote at the beginning and the end
+            for ($i = 0; $i < count($difficultiesENArr); $i++) {
+                $difficultiesENArr[$i] = substr($difficultiesENArr[$i], 1);
+                $difficultiesENArr[$i] = substr($difficultiesENArr[$i], 0, -1);
+                $difficultiesFRArr[$i] = substr($difficultiesFRArr[$i], 1);
+                $difficultiesFRArr[$i] = substr($difficultiesFRArr[$i], 0, -1);
+            }
+            //var_dump($difficultiesENArr);
+            //var_dump($difficultiesFRArr);
+            //echo $difficultiesENArr[0];
+            ?>
+            <div class="difficultyAdmin">
+                <label>
+                    <span><?= ADMIN_EG_DIFFICULTY ?></span>
+                    <select name="difficultyEN" id="difficultyEN">
+                        <option value=""></option>
+                        <?php
+                        foreach ($difficultiesENArr as $difficultyEN) {
+                            echo "<option value='$difficultyEN'>$difficultyEN</option>";
+                        }
+                        ?>
+                    </select>
+                </label>
+                <label>
+                    <!-- add pi character with unicode
+                    &#960; -->
+                    <span><?= ADMIN_EG_DIFFICULTY_FR ?></span>
+                    <select name="difficultyFR" id="difficultyFR">
+                        <option value=""></option>
+                        <?php
+                        foreach ($difficultiesFRArr as $difficultyFR) {
+                            echo "<option value='$difficultyFR'>$difficultyFR</option>";
+                        }
+                        ?>
+                    </select>
+                </label>
+            </div>
+            <div class="durationAdmin">
+                <label>
+                    <span><?= ADMIN_EG_DURATION ?></span>
+                    <input type="number" id="duration" name="duration" min="1">
+                </label>
+            </div>
+        </div>
+        <div class="presentationEGAdmin">
+            <h2 class="titleUnderline"><?= ADMIN_EG_PRESENTATION ?></h2>
+            <div class="presentationEGTextareaDiv">
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_DESCRIPTION ?></span>
+                        <textarea id="description" name="description"></textarea>
+                    </label>
+                </div>
 
-        <?php
-        //var_dump($difficultiesEN);
-        //separate at the comma
-        $difficultiesENArr = explode(",", $difficultiesEN);
-        $difficultiesFRArr = explode(",", $difficultiesFR);
-        //remove the first bracket and the last one
-        $difficultiesENArr[0] = substr($difficultiesENArr[0], 1);
-        $difficultiesENArr[count($difficultiesENArr) - 1] = substr($difficultiesENArr[count($difficultiesENArr) - 1], 0, -1);
-        $difficultiesFRArr[0] = substr($difficultiesFRArr[0], 1);
-        $difficultiesFRArr[count($difficultiesFRArr) - 1] = substr($difficultiesFRArr[count($difficultiesFRArr) - 1], 0, -1);
-        //remove the quote at the beginning and the end
-        for ($i = 0; $i < count($difficultiesENArr); $i++) {
-            $difficultiesENArr[$i] = substr($difficultiesENArr[$i], 1);
-            $difficultiesENArr[$i] = substr($difficultiesENArr[$i], 0, -1);
-            $difficultiesFRArr[$i] = substr($difficultiesFRArr[$i], 1);
-            $difficultiesFRArr[$i] = substr($difficultiesFRArr[$i], 0, -1);
-        }
-        //var_dump($difficultiesENArr);
-        //var_dump($difficultiesFRArr);
-        //echo $difficultiesENArr[0];
-        ?>
-        <div class="difficultyAdmin">
-            <label>
-                <span><?= ADMIN_EG_DIFFICULTY ?></span>
-                <select name="difficultyEN" id="difficultyEN">
-                    <option value=""></option>
-                    <?php
-                    foreach ($difficultiesENArr as $difficultyEN) {
-                        echo "<option value='$difficultyEN'>$difficultyEN</option>";
-                    }
-                    ?>
-                </select>
-            </label>
-            <label>
-                <!-- add pi character with unicode
-                &#960; -->
-                <span><?= ADMIN_EG_DIFFICULTY_FR ?></span>
-                <select name="difficultyFR" id="difficultyFR">
-                    <option value=""></option>
-                    <?php
-                    foreach ($difficultiesFRArr as $difficultyFR) {
-                        echo "<option value='$difficultyFR'>$difficultyFR</option>";
-                    }
-                    ?>
-                </select>
-            </label>
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_DESCRIPTION_FR ?></span>
+                        <textarea id="descriptionFR" name="descriptionFR"></textarea>
+                    </label>
+                </div>
+            </div>
         </div>
-        <div>
-            <label>
-                <span><?= ADMIN_EG_DURATION ?></span>
-                <input type="number" id="duration" name="duration" min="1">
-            </label>
-        </div>
+        <div class="mapEGAdmin">
 
-        <h2 class="titleUnderline"><?= ADMIN_EG_PRESENTATION ?></h2>
+            <h2 class="titleUnderline"><?= ADMIN_EG_MAP ?></h2>
 
-        <div>
-            <label>
-                <span><?= ADMIN_EG_DESCRIPTION ?></span>
-                <textarea id="description" name="description"></textarea>
-            </label>
+            <div>
+                <label>
+                    <span><?= ADMIN_EG_ADDRESS ?></span>
+                    <input type="text" id="address" name="address">
+                </label>
+            </div>
         </div>
-
-        <div>
-            <label>
-                <span><?= ADMIN_EG_DESCRIPTION_FR ?></span>
-                <textarea id="descriptionFR" name="descriptionFR"></textarea>
-            </label>
+        <div class="priceEGAdmin">
+            <h2 class="titleUnderline"><?= ADMIN_EG_PRICES ?></h2>
+            <div class="priceInputEGAdminDiv">
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_PRICE_2_3 ?></span>
+                        <input type="number" id="price2_3Persons" name="price2_3Persons" min="1">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_PRICE_4 ?></span>
+                        <input type="number" id="price4Persons" name="price4Persons" min="1">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_PRICE_5 ?></span>
+                        <input type="number" id="price5Persons" name="price5Persons" min="1">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_PRICE_6 ?></span>
+                        <input type="number" id="price6Persons" name="price6Persons" min="1">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_PRICE_7 ?></span>
+                        <input type="number" id="price7Persons" name="price7Persons" min="1">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_PRICE_8 ?></span>
+                        <input type="number" id="price8Persons" name="price8Persons" min="1">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_PRICE_9 ?></span>
+                        <input type="number" id="price9Persons" name="price9Persons" min="1">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_PRICE_10 ?></span>
+                        <input type="number" id="price10Persons" name="price10Persons" min="1">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_PRICE_11 ?></span>
+                        <input type="number" id="price11Persons" name="price11Persons" min="1">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_PRICE_12 ?></span>
+                        <input type="number" id="price12Persons" name="price12Persons" min="1">
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span><?= ADMIN_EG_PRICE_12_PLUS ?></span>
+                        <input type="number" id="price12PlusPersons"
+                               name="price12PlusPersons" min="1">
+                    </label>
+                </div>
+            </div>
         </div>
-
-        <h2 class="titleUnderline"><?= ADMIN_EG_MAP ?></h2>
-
-        <div>
-            <label>
-                <span><?= ADMIN_EG_ADDRESS ?></span>
-                <input type="text" id="address" name="address">
-            </label>
+        <div class="submitEGAdmin">
+            <input class="yellowButton" type="submit" value="<?= ADMIN_EG_CREATE_BUTTON ?>" name="ok">
         </div>
-        <h2 class="titleUnderline"><?= ADMIN_EG_PRICES ?></h2>
-
-        <div>
-            <label>
-                <span><?= ADMIN_EG_PRICE_2_3 ?></span>
-                <input type="number" id="price2_3Persons" name="price2_3Persons" min="1">
-            </label>
-        </div>
-        <div>
-            <label>
-                <span><?= ADMIN_EG_PRICE_4 ?></span>
-                <input type="number" id="price4Persons" name="price4Persons" min="1">
-            </label>
-        </div>
-        <div>
-            <label>
-                <span><?= ADMIN_EG_PRICE_5 ?></span>
-                <input type="number" id="price5Persons" name="price5Persons" min="1">
-            </label>
-        </div>
-        <div>
-            <label>
-                <span><?= ADMIN_EG_PRICE_6 ?></span>
-                <input type="number" id="price6Persons" name="price6Persons" min="1">
-            </label>
-        </div>
-        <div>
-            <label>
-                <span><?= ADMIN_EG_PRICE_7 ?></span>
-                <input type="number" id="price7Persons" name="price7Persons" min="1">
-            </label>
-        </div>
-        <div>
-            <label>
-                <span><?= ADMIN_EG_PRICE_8 ?></span>
-                <input type="number" id="price8Persons" name="price8Persons" min="1">
-            </label>
-        </div>
-        <div>
-            <label>
-                <span><?= ADMIN_EG_PRICE_9 ?></span>
-                <input type="number" id="price9Persons" name="price9Persons" min="1">
-            </label>
-        </div>
-        <div>
-            <label>
-                <span><?= ADMIN_EG_PRICE_10 ?></span>
-                <input type="number" id="price10Persons" name="price10Persons" min="1">
-            </label>
-        </div>
-        <div>
-            <label>
-                <span><?= ADMIN_EG_PRICE_11 ?></span>
-                <input type="number" id="price11Persons" name="price11Persons" min="1">
-            </label>
-        </div>
-        <div>
-            <label>
-                <span><?= ADMIN_EG_PRICE_12 ?></span>
-                <input type="number" id="price12Persons" name="price12Persons" min="1">
-            </label>
-        </div>
-        <div>
-            <label>
-                <span><?= ADMIN_EG_PRICE_12_PLUS ?></span>
-                <input type="number" id="price12PlusPersons"
-                       name="price12PlusPersons" min="1">
-            </label>
-        </div>
-
-        <input class="yellowButton" type="submit" value="<?= ADMIN_EG_CREATE_BUTTON ?>" name="ok">
     </form>
     <?php
 }
