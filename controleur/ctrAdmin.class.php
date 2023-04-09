@@ -42,14 +42,26 @@ class ctrAdmin
         $objVue->afficher(array("EGs" => $EGs), $title);
     }
 
-    public function escapeGame($idEG)
+    public function escapeGame($idEG = "")
     {
-        $EG = $this->EG->getEscapeGame($idEG);
-        $difficultiesEN = $this->EG->getDifficulty("en");
-        $difficultiesFR = $this->EG->getDifficulty("fr");
-        $title = "Administration Escape Game - Kaiserstuhl escape";
-        $objVue = new vue("AdminEscapeGame");
-        $objVue->afficher(array("EG" => $EG, "difficultiesEN" => $difficultiesEN, "difficultiesFR" => $difficultiesFR), $title);
+        if (!empty($idEG)) {
+            if ($this->EG->getEscapeGame($idEG)) {
+                $EG = $this->EG->getEscapeGame($idEG);
+                $difficultiesEN = $this->EG->getDifficulty("en");
+                $difficultiesFR = $this->EG->getDifficulty("fr");
+                $title = "Administration Escape Game - Kaiserstuhl escape";
+                $objVue = new vue("AdminEscapeGame");
+                $objVue->afficher(array("EG" => $EG, "difficultiesEN" => $difficultiesEN, "difficultiesFR" => $difficultiesFR), $title);
+            } else {
+                header("Location: index.php?action=admin&page=escapeGames");
+            }
+        } else {
+            $difficultiesEN = $this->EG->getDifficulty("en");
+            $difficultiesFR = $this->EG->getDifficulty("fr");
+            $title = "Administration Escape Game - Kaiserstuhl escape";
+            $objVue = new vue("AdminEscapeGame");
+            $objVue->afficher(array("difficultiesEN" => $difficultiesEN, "difficultiesFR" => $difficultiesFR), $title);
+        }
     }
 
     public function contactForm()
@@ -430,6 +442,31 @@ class ctrAdmin
         if (isset($_POST["price12PlusPersons"]) and !empty($_POST["price12PlusPersons"])) {
             $this->EG->updatePrice($id, "price12PlusPersons", $_POST["price12PlusPersons"]);
         }
+        header("Location: index.php?action=admin&page=escapeGames");
+    }
+
+    public function addEscapeGame()
+    {
+        var_dump($_POST);
+        var_dump($_FILES);
+        if (isset($_POST["name"]) and isset($_POST["nameFR"]) and isset($_POST["visible"]) and isset($_POST["difficultyEN"]) and isset($_POST["difficultyFR"]) and isset($_POST["duration"]) and isset($_POST["description"]) and isset($_POST["descriptionFR"]) and isset($_POST["address"]) and isset($_POST["price2_3Persons"]) and isset($_POST["price4Persons"]) and isset($_POST["price5Persons"]) and isset($_POST["price6Persons"]) and isset($_POST["price7Persons"]) and isset($_POST["price8Persons"]) and isset($_POST["price9Persons"]) and isset($_POST["price10Persons"]) and isset($_POST["price11Persons"]) and isset($_POST["price12Persons"]) and isset($_POST["price12PlusPersons"]) and isset($_POST["onFront"])) {
+            echo "ok post";
+            $this->EG->addEscapeGame($_POST["name"], $_POST["nameFR"], $_POST["visible"], $_POST["difficultyEN"], $_POST["difficultyFR"], $_POST["description"], $_POST["descriptionFR"], $_POST["duration"], $_POST["address"], $_POST["price2_3Persons"], $_POST["price4Persons"], $_POST["price5Persons"], $_POST["price6Persons"], $_POST["price7Persons"], $_POST["price8Persons"], $_POST["price9Persons"], $_POST["price10Persons"], $_POST["price11Persons"], $_POST["price12Persons"], $_POST["price12PlusPersons"], $_POST["onFront"]);
+            if (isset($_FILES["imgEscapeUpload"])) {
+                //create folder
+                $id = $this->EG->getEscapeGameIdByName($_POST["name"]);
+                mkdir("img/escapeGame/" . $id);
+                //add files
+                $this->EG->addFiles("imgEscapeUpload", "escapeGame/" . $id);
+                echo "ok files";
+            }
+        }
+        //header("Location: index.php?action=admin&page=escapeGames");
+    }
+
+    public function delEscapeGame($id)
+    {
+        $this->EG->delEscapeGame($id);
         header("Location: index.php?action=admin&page=escapeGames");
     }
 

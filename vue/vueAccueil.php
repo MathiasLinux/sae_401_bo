@@ -43,8 +43,10 @@ if ($_SESSION["lang"] == "fr") {
     ?>
     <img class="imgBorder div3" src="<?= $img ?>" alt="<?= $titre ?>">
     <div class="linkGroup div4">
-        <a class="greenLink div5" href="index.php?action=escapegames"><?= HOME_MORE_INFO ?></a>
-        <a class="greenLink div6" href="index.php?action=escapegames"><?= HOME_BUY ?></a>
+        <a class="greenLink div5"
+           href="index.php?action=escapeGame&escapeGame=<?= $frontEscape["id_escapeGame"] ?>"><?= HOME_MORE_INFO ?></a>
+        <a class="greenLink div6"
+           href="index.php?action=escapeGame&escapeGame=<?= $frontEscape["id_escapeGame"] ?>#buyEscapeGame"><?= HOME_BUY ?></a>
     </div>
     <div>
 
@@ -74,8 +76,7 @@ if ($_SESSION["lang"] == "fr") {
 <section class="Vue">
     <?php
     // foreach ($escapeGames as $escapeGame)
-    for($i=0; $i<4; $i++)
-    {
+    for ($i = 0; $i < 4; $i++) {
         $escapeGame = $escapeGames[$i];
         if ($_SESSION["lang"] == "fr") {
             $titre = $escapeGame["nameFR"];
@@ -117,8 +118,7 @@ if ($_SESSION["lang"] == "fr") {
     // var_dump($escapeGames);
     // foreach ($escapeGames as $escapeGame)
     $escapeGamesR = array_reverse($escapeGames);
-    for($i=0;$i<4;$i++)
-    {
+    for ($i = 0; $i < 4; $i++) {
         $escapeGame = $escapeGamesR[$i];
         // var_dump($escapeGame);
         if ($_SESSION["lang"] == "fr") {
@@ -200,14 +200,14 @@ if ($_SESSION["lang"] == "fr") {
             </div>
             <div class="rightReview">
                 <?php
-                    if (strlen($description) > 100) {
-                        $description = substr($description, 0, 100);
-                        // var_dump($description);
-                        $description = substr($description, 0, strrpos($description, ' '));
-                        // var_dump($description);
-                        $description .= '...';
-                        // var_dump($description);
-                    }
+                if (strlen($description) > 100) {
+                    $description = substr($description, 0, 100);
+                    // var_dump($description);
+                    $description = substr($description, 0, strrpos($description, ' '));
+                    // var_dump($description);
+                    $description .= '...';
+                    // var_dump($description);
+                }
                 ?>
                 <p><?= $description ?></p>
             </div>

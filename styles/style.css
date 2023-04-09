@@ -959,11 +959,16 @@ footer a {
 .visibilityEG {
     display: grid;
     padding: 4%;
-    font-size: 24px;
+    font-size: 18px;
     grid-template-columns: 10% 80% 10%;
     align-items: center;
     text-align: center;
     background-color: var(--lightBlue);
+}
+
+.visibilityEGBig {
+    display: flex;
+    flex-direction: column;
 }
 
 main .formAdminEG > .imgAdminEG {

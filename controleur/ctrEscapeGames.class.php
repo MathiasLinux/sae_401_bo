@@ -24,36 +24,38 @@ class ctrEscapeGames
         $this->objUser = new user();
 
         if (isset($_GET["escapeGame"])) {
-            $this->escapeGame = $this->escapeGames->getEscapeGame($_GET["escapeGame"]);
+            if ($this->escapeGames->verifyEG($_GET["escapeGame"])) {
+                $this->escapeGame = $this->escapeGames->getEscapeGame($_GET["escapeGame"]);
 
-            if (($this->escapeGame["x"] == 0) && ($this->escapeGame["y"] == 0)) {
-                $this->ch = curl_init();
+                if (($this->escapeGame["x"] == 0) && ($this->escapeGame["y"] == 0)) {
+                    $this->ch = curl_init();
 
-                // User agent to be viewed as the user agent of the browser that is making the request
-                $config['useragent'] = $_SERVER['HTTP_USER_AGENT'];
+                    // User agent to be viewed as the user agent of the browser that is making the request
+                    $config['useragent'] = $_SERVER['HTTP_USER_AGENT'];
 
-                $this->options = array(
-                    //https://nominatim.openstreetmap.org/search?format=json&q={address}
-                    CURLOPT_URL => "https://nominatim.openstreetmap.org/search?format=json&q=" . urlencode($this->escapeGame["address"]),
-                    CURLOPT_USERAGENT => $config['useragent'],
-                    CURLOPT_RETURNTRANSFER => true,
-                    CURLOPT_SSL_VERIFYPEER => true,
-                );
-                curl_setopt_array($this->ch, $this->options);
+                    $this->options = array(
+                        //https://nominatim.openstreetmap.org/search?format=json&q={address}
+                        CURLOPT_URL => "https://nominatim.openstreetmap.org/search?format=json&q=" . urlencode($this->escapeGame["address"]),
+                        CURLOPT_USERAGENT => $config['useragent'],
+                        CURLOPT_RETURNTRANSFER => true,
+                        CURLOPT_SSL_VERIFYPEER => true,
+                    );
+                    curl_setopt_array($this->ch, $this->options);
 
-                $this->r = curl_exec($this->ch);
+                    $this->r = curl_exec($this->ch);
 
-                $this->result = json_decode($this->r);
-
-                // Verif des erreurs
-                if (curl_errno($this->ch) === 0) {
                     $this->result = json_decode($this->r);
-                    $latitudeX = $this->result[0]->lat;
-                    $longitudeY = $this->result[0]->lon;
-                    $idEG = $_GET["escapeGame"];
-                    $this->escapeGames->addXY($latitudeX, $longitudeY, $idEG);
-                } else
-                    throw new Exception("Coordonnées introuvables => (" . curl_errno($this->ch) . ")" . curl_error($this->ch));
+
+                    // Verif des erreurs
+                    if (curl_errno($this->ch) === 0) {
+                        $this->result = json_decode($this->r);
+                        $latitudeX = $this->result[0]->lat;
+                        $longitudeY = $this->result[0]->lon;
+                        $idEG = $_GET["escapeGame"];
+                        $this->escapeGames->addXY($latitudeX, $longitudeY, $idEG);
+                    } else
+                        throw new Exception("Coordonnées introuvables => (" . curl_errno($this->ch) . ")" . curl_error($this->ch));
+                }
             }
         }
     }
@@ -68,12 +70,17 @@ class ctrEscapeGames
 
     public function escapeGame()
     {
-        $reviewsEG = $this->escapeGames->getReviewEG($_GET["escapeGame"]);
-        $qAndAEG = $this->escapeGames->getQAndAEG($_GET["escapeGame"]);
-        $escapeGame = $this->escapeGames->getEscapeGame($_GET["escapeGame"]);
-        $title = "Escape Game - Kaiserstuhl escape";
-        $objVue = new vue("EscapeGame");
-        $objVue->afficher(array("escapeGame" => $escapeGame, "reviewsEG" => $reviewsEG, "qAndAEG" => $qAndAEG), $title);
+        //verify if the id of the escape game is on the database
+        if ($this->escapeGames->verifyEG($_GET["escapeGame"])) {
+            $reviewsEG = $this->escapeGames->getReviewEG($_GET["escapeGame"]);
+            $qAndAEG = $this->escapeGames->getQAndAEG($_GET["escapeGame"]);
+            $escapeGame = $this->escapeGames->getEscapeGame($_GET["escapeGame"]);
+            $title = "Escape Game - Kaiserstuhl escape";
+            $objVue = new vue("EscapeGame");
+            $objVue->afficher(array("escapeGame" => $escapeGame, "reviewsEG" => $reviewsEG, "qAndAEG" => $qAndAEG), $title);
+        } else {
+            header("Location: index.php?action=escapeGames");
+        }
     }
 
     public function buyEG()

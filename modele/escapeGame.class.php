@@ -17,11 +17,40 @@ class escapeGame extends bdd
         return $this->execReq($req);
     }
 
+    /*******
+     * Verify if the escape game exist in the database
+     * @return boolean
+     */
+    public function verifyEG($idEscapeGame)
+    {
+        $escapeGame = $this->getEscapeGame($idEscapeGame);
+        if (empty($escapeGame)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     public function getEscapeGame($idEG)
     {
         $req = "SELECT * FROM escapeGame WHERE id_escapeGame = ?";
         $escapeGame = $this->execReqPrep($req, array($idEG));
-        return $escapeGame[0];
+        if (empty($escapeGame)) {
+            return false;
+        } else {
+            return $escapeGame[0];
+        }
+    }
+
+    public function getEscapeGameIdByName($name)
+    {
+        $req = "SELECT id_escapeGame FROM escapeGame WHERE name = ?";
+        $escapeGame = $this->execReqPrep($req, array($name));
+        if (empty($escapeGame)) {
+            return false;
+        } else {
+            return $escapeGame[0]['id_escapeGame'];
+        }
     }
 
     public function getPriceEscapeGame($id, $nbPersons)
@@ -166,7 +195,7 @@ class escapeGame extends bdd
                                     //echo "Transfert du fichier " . $_FILES[$name]['name'][$j] . " effectué !";
                                     if (((file_exists("img/" . $path . "1.jpg")) || (file_exists("img/" . $path . "1.jpeg")) || (file_exists("img/" . $path . "1.png")))) {
                                         echo "files non = -1";
-                                        var_dump($_FILES[$name]['name'][$j]);
+                                        //var_dump($_FILES[$name]['name'][$j]);
                                         $i = 1;
                                         while (file_exists("img/" . $path . $i . ".jpg") || file_exists("img/" . $path . $i . ".jpeg") || file_exists("img/" . $path . $i . ".png")) {
                                             $i++;
@@ -178,8 +207,8 @@ class escapeGame extends bdd
                                         //rename('img/' . $path . $_FILES[$name]['name'][$j], 'img/' . $path . $id . '-1.' . $extension_upload);
                                     } else {
                                         echo "files = 1";
-                                        var_dump($_FILES[$name]['name'][$j]);
-                                        move_uploaded_file($_FILES[$name]['tmp_name'][$j], "img/" . $path . '-1.' . $extension_upload);
+                                        //var_dump($_FILES[$name]['name'][$j]);
+                                        move_uploaded_file($_FILES[$name]['tmp_name'][$j], "img/" . $path . "1" . '.' . $extension_upload);
                                     }
                                     /*if (!file_exists("img/" . $path . $id . "-1.jpg") or !file_exists("img/" . $path . $id . "-1.jpeg") or !file_exists("img/" . $path . $id . "-1.png")) {
                                         move_uploaded_file($_FILES[$name]['tmp_name'][$j], "img/" . $path . $id . '-1.' . $extension_upload);
@@ -387,5 +416,17 @@ class escapeGame extends bdd
     {
         $req = "INSERT INTO buying (id_user, id_escapeGame, buyingDate, gameDate, hours, nbPlayers, buyersFirstName, buyersLastName) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $this->execReqPrep($req, array($id_user, $id_escapeGame, $buyingDate, $gameDate, $hours, $nbPlayers, $buyersFirstName, $buyersLastName));
+    }
+
+    public function addEscapeGame($name, $nameFR, $visible, $difficulty, $difficultyFR, $description, $descriptionFR, $duration, $address, $price2_3Persons, $price4Persons, $price5Persons, $price6Persons, $price7Persons, $price8Persons, $price9Persons, $price10Persons, $price11Persons, $price12Persons, $price12PlusPersons, $onFront)
+    {
+        $req = "INSERT INTO escapeGame (name, nameFR, visible, difficulty, difficultyFR, description, descriptionFR, duration, address, price2_3Persons, price4Persons, price5Persons, price6Persons, price7Persons, price8Persons, price9Persons, price10Persons, price11Persons, price12Persons, price12PlusPersons, onFront) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $this->execReqPrep($req, array($name, $nameFR, $visible, $difficulty, $difficultyFR, $description, $descriptionFR, $duration, $address, $price2_3Persons, $price4Persons, $price5Persons, $price6Persons, $price7Persons, $price8Persons, $price9Persons, $price10Persons, $price11Persons, $price12Persons, $price12PlusPersons, $onFront));
+    }
+
+    public function delEscapeGame($id_escapeGame)
+    {
+        $req = "DELETE FROM escapeGame WHERE id_escapeGame = ?";
+        $this->execReqPrep($req, array($id_escapeGame));
     }
 }

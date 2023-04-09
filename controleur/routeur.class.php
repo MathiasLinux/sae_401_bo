@@ -89,7 +89,11 @@ class routeur
                     $this->ctrEscapeGames->escapeGames();
                     break;
                 case "escapeGame":
-                    $this->ctrEscapeGames->escapeGame();
+                    if (isset($_GET["escapeGame"]) and !empty($_GET["escapeGame"]) and is_numeric($_GET["escapeGame"])) {
+                        $this->ctrEscapeGames->escapeGame();
+                    } else {
+                        $this->ctrEscapeGames->escapeGames();
+                    }
                     break;
                 case "buyEG":
                     $this->ctrEscapeGames->buyEG();
@@ -177,6 +181,8 @@ class routeur
                                     if (str_contains($_SESSION["rights"], "editor") or str_contains($_SESSION["rights"], "superadmin")) {
                                         if (isset($_GET['id'])) {
                                             $this->ctrAdmin->escapeGame($_GET["id"]);
+                                        } else {
+                                            $this->ctrAdmin->escapeGame();
                                         }
                                     } else {
                                         $this->ctrAdmin->admin();
@@ -186,6 +192,24 @@ class routeur
                                     if (str_contains($_SESSION["rights"], "editor") or str_contains($_SESSION["rights"], "superadmin")) {
                                         if (isset($_GET["id"])) {
                                             $this->ctrAdmin->modifyEscapeGame($_GET["id"]);
+                                        } else {
+                                            $this->ctrAdmin->escapeGames();
+                                        }
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
+                                    break;
+                                case "addEscapeGame":
+                                    if (str_contains($_SESSION["rights"], "editor") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        $this->ctrAdmin->addEscapeGame();
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
+                                    break;
+                                case "delEscapeGame":
+                                    if (str_contains($_SESSION["rights"], "editor") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        if (isset($_GET["id"])) {
+                                            $this->ctrAdmin->delEscapeGame($_GET["id"]);
                                         } else {
                                             $this->ctrAdmin->escapeGames();
                                         }

@@ -1,5 +1,17 @@
 # TODO In the SAE 401
 
+# <b>IMPORTANT</b>
+
+## Admin Escape Game
+
+- [X] Add a button to add a new escape game
+- [X] Add a button to delete an escape game
+- [X] Add a checkbox to make the escape game on front
+- [ ] Add the difficulty of the escape game in the selector if it's modified escape game
+- [ ] Make a better pc version of the admin escape game page
+
+----------------
+
 ## Account Page
 
 - [x] Display infos of the user
@@ -30,7 +42,7 @@
 
 ## Reviews creations
 
-- [ ] A page dédicated to that.
+- [ ] A page dedicated to that.
 
 ## Videos in escape games
 

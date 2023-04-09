@@ -496,6 +496,66 @@ const BUY_CARDS_SUCCESS_BUTTON = "Retour à l'accueil";
 const ADMIN_EG_TITLE = "Escape games";
 const ADMIN_EG_BUTTON = "Modifier";
 
+const ADMIN_EG_ADD_BUTTON = "Créer un escape game";
+
+// Admin Escape Game
+
+const ADMIN_EG_NAME = "Nom EN";
+
+const ADMIN_EG_NAME_FR = "Nom FR";
+
+const ADMIN_EG_DISPLAY = "Affichage";
+
+const ADMIN_EG_DIFFICULTY_DURATION = "Difficulté et durée";
+
+const ADMIN_EG_DIFFICULTY = "Difficulty EN";
+
+const ADMIN_EG_DIFFICULTY_FR = "Difficulty FR";
+
+const ADMIN_EG_DURATION = "Durée";
+
+const ADMIN_EG_PRESENTATION = "Présentation";
+
+const ADMIN_EG_DESCRIPTION = "Description EN";
+
+const ADMIN_EG_DESCRIPTION_FR = "Description FR";
+
+const ADMIN_EG_MAP = "Carte";
+
+const ADMIN_EG_ADDRESS = "Adresse";
+
+const ADMIN_EG_PRICES = "Prix";
+
+const ADMIN_EG_PRICE_2_3 = "Prix pour 2 à 3 personnes";
+
+const ADMIN_EG_PRICE_4 = "Prix pour 4 personnes";
+
+const ADMIN_EG_PRICE_5 = "Prix pour 5 personnes";
+
+const ADMIN_EG_PRICE_6 = "Prix pour 6 personnes";
+
+const ADMIN_EG_PRICE_7 = "Prix pour 7 personnes";
+
+const ADMIN_EG_PRICE_8 = "Prix pour 8 personnes";
+
+const ADMIN_EG_PRICE_9 = "Prix pour 9 personnes";
+
+const ADMIN_EG_PRICE_10 = "Prix pour 10 personnes";
+
+const ADMIN_EG_PRICE_11 = "Prix pour 11 personnes";
+
+const ADMIN_EG_PRICE_12 = "Prix pour 12 personnes";
+
+const ADMIN_EG_PRICE_12_PLUS = "Prix pour 12 personnes et plus";
+
+const ADMIN_EG_UPDATE_BUTTON = "Modifier l'escape game";
+
+const ADMIN_EG_CREATE_BUTTON = "Créer l'escape game";
+
+const ADMIN_EG_DISPLAY_DELETE_WARNING = "Êtes-vous sûr de vouloir supprimer cet escape game ?";
+
+const ADMIN_EG_FRONT = "Afficher sur le début de la page d'accueil";
+
 //Admin Contact Form page
 
 const ADMIN_CONTACT_FORM_TITLE = "Messages reçus";
