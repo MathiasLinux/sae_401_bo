@@ -62,7 +62,7 @@ class ctrEscapeGames
 
     public function escapeGames()
     {
-        $escapeGames = $this->escapeGames->getEscapeGames();
+        $escapeGames = $this->escapeGames->getEscapeGamesVisible();
         $title = "Escape Games - Kaiserstuhl escape";
         $objVue = new vue("EscapeGames");
         $objVue->afficher(array("escapeGames" => $escapeGames), $title);
@@ -71,7 +71,7 @@ class ctrEscapeGames
     public function escapeGame()
     {
         //verify if the id of the escape game is on the database
-        if ($this->escapeGames->verifyEG($_GET["escapeGame"])) {
+        if ($this->escapeGames->verifyEG($_GET["escapeGame"]) and $this->escapeGames->verifyIfEscapeGameVisible($_GET["escapeGame"])) {
             $reviewsEG = $this->escapeGames->getReviewEG($_GET["escapeGame"]);
             $qAndAEG = $this->escapeGames->getQAndAEG($_GET["escapeGame"]);
             $escapeGame = $this->escapeGames->getEscapeGame($_GET["escapeGame"]);

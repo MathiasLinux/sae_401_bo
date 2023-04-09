@@ -517,6 +517,8 @@ const ADMIN_EG_ADD_BUTTON = "Create an escape game";
 
 // Admin Escape Game
 
+const ADMIN_EG_NAMES = "Names";
+
 const ADMIN_EG_NAME = "Name";
 
 const ADMIN_EG_NAME_FR = "Name FR";

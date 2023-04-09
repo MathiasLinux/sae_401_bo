@@ -7,7 +7,6 @@ foreach ($escapeGames as $escapeGame) {
         <h2 class="titleYellow titreEscape"><?php echo $escapeGame['name']; ?></h2>
         <div class="imgEscape">
             <?php
-            echo $escapeGame['id_escapeGame'];
             if (file_exists("img/escapeGame/" . $escapeGame["id_escapeGame"] . "/1.jpg")) {
                 $img = "img/escapeGame/" . $escapeGame["id_escapeGame"] . "/1.jpg";
             } elseif (file_exists("img/escapeGame/" . $escapeGame["id_escapeGame"] . "/1.png")) {

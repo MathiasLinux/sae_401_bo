@@ -500,6 +500,8 @@ const ADMIN_EG_ADD_BUTTON = "Créer un escape game";
 
 // Admin Escape Game
 
+const ADMIN_EG_NAMES = "Noms";
+
 const ADMIN_EG_NAME = "Nom EN";
 
 const ADMIN_EG_NAME_FR = "Nom FR";

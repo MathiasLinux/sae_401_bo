@@ -11,6 +11,23 @@ class escapeGame extends bdd
         return $this->execReq($req);
     }
 
+    public function getEscapeGamesVisible()
+    {
+        $req = "SELECT * FROM escapeGame WHERE visible = 1";
+        return $this->execReq($req);
+    }
+
+    public function verifyIfEscapeGameVisible($idEscapeGame)
+    {
+        $req = "SELECT visible FROM escapeGame WHERE id_escapeGame = ?";
+        $escapeGame = $this->execReqPrep($req, array($idEscapeGame));
+        if ($escapeGame[0]['visible'] == 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     public function getNameEscapeGames()
     {
         $req = "SELECT id_escapeGame, name, nameFR FROM escapeGame";
@@ -89,12 +106,16 @@ class escapeGame extends bdd
     {
         $req = "SELECT * FROM escapeGame WHERE onFront = 1";
         $escapeGames = $this->execReq($req);
-        return $escapeGames[0];
+        if (empty($escapeGames)) {
+            return false;
+        } else {
+            return $escapeGames[0];
+        }
     }
 
     public function getEscapeGamesWithoutFront()
     {
-        $req = "SELECT * FROM escapeGame WHERE onFront = 0";
+        $req = "SELECT * FROM escapeGame WHERE onFront = 0 AND visible = 1";
         $escapeGames = $this->execReq($req);
         return $escapeGames;
     }
@@ -282,8 +303,8 @@ class escapeGame extends bdd
     public function updateVisibility($id, $visibility)
     {
         //before update verify if the value is not already in the database
-        $req = "SELECT visible FROM escapeGame WHERE visible = ?";
-        $actualVisibility = $this->execReqPrep($req, array($visibility));
+        $req = "SELECT visible FROM escapeGame WHERE visible = ? AND id_escapeGame = ?";
+        $actualVisibility = $this->execReqPrep($req, array($visibility, $id));
         if (empty($actualVisibility)) {
             $req = "UPDATE escapeGame SET visible = ? WHERE id_escapeGame = ?";
             $this->execReqPrep($req, array($visibility, $id));
@@ -301,8 +322,8 @@ class escapeGame extends bdd
     {
         if ($lang == "en") {
             //before update verify if the value is not already in the database
-            $req = "SELECT difficulty FROM escapeGame WHERE difficulty = ?";
-            $actualDifficulty = $this->execReqPrep($req, array($difficulty));
+            $req = "SELECT difficulty FROM escapeGame WHERE difficulty = ? AND id_escapeGame = ?";
+            $actualDifficulty = $this->execReqPrep($req, array($difficulty, $id));
             if (empty($actualDifficulty)) {
                 $req = "UPDATE escapeGame SET difficulty = ? WHERE id_escapeGame = ?";
                 $this->execReqPrep($req, array($difficulty, $id));
@@ -310,8 +331,8 @@ class escapeGame extends bdd
         }
         if ($lang == "fr") {
             //before update verify if the value is not already in the database
-            $req = "SELECT difficultyFR FROM escapeGame WHERE difficultyFR = ?";
-            $actualDifficulty = $this->execReqPrep($req, array($difficulty));
+            $req = "SELECT difficultyFR FROM escapeGame WHERE difficultyFR = ? AND id_escapeGame = ?";
+            $actualDifficulty = $this->execReqPrep($req, array($difficulty, $id));
             if (empty($actualDifficulty)) {
                 $req = "UPDATE escapeGame SET difficultyFR = ? WHERE id_escapeGame = ?";
                 $this->execReqPrep($req, array($difficulty, $id));
@@ -328,8 +349,10 @@ class escapeGame extends bdd
     public function updateDuration($id, $duration)
     {
         //before update verify if the value is not already in the database
-        $req = "SELECT duration FROM escapeGame WHERE duration = ?";
-        $actualDuration = $this->execReqPrep($req, array($duration));
+        $req = "SELECT duration FROM escapeGame WHERE duration = ? AND id_escapeGame = ?";
+        $actualDuration = $this->execReqPrep($req, array($duration, $id));
+        var_dump($actualDuration);
+        var_dump($duration);
         if (empty($actualDuration)) {
             $req = "UPDATE escapeGame SET duration = ? WHERE id_escapeGame = ?";
             $this->execReqPrep($req, array($duration, $id));
@@ -398,6 +421,18 @@ class escapeGame extends bdd
             $req = "UPDATE escapeGame SET " . $priceName . " = ? WHERE id_escapeGame = ?";
             echo $req;
             $this->execReqPrep($req, array($price, $id));
+        }
+    }
+
+    public function updateOnFront($id, $onFrontPage)
+    {
+        var_dump($onFrontPage);
+        echo "onFrontPage top";
+        if ($onFrontPage == "1" or $onFrontPage == "0") {
+            $req = "UPDATE escapeGame SET onFront = ? WHERE id_escapeGame = ?";
+            $this->execReqPrep($req, array($onFrontPage, $id));
+        } else {
+            return false;
         }
     }
 

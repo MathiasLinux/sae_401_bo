@@ -17,7 +17,10 @@ class ctrPage
 
     public function accueil()
     {
-        $frontEscape = $this->objEscapeGame->getFrontEscapeGames();
+        if ($this->objEscapeGame->getFrontEscapeGames())
+            $frontEscape = $this->objEscapeGame->getFrontEscapeGames();
+        else
+            $frontEscape = $this->objEscapeGame->getEscapeGames()[0];
         $escapeGames = $this->objEscapeGame->getEscapeGamesWithoutFront();
         $reviews = $this->objReview->getReviews();
         $title = "Home - Kaiserstuhl escape";
