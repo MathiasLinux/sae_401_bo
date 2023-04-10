@@ -1,5 +1,11 @@
 <?php
 // require_once "modele/escapeGame.class.php";
+//create a cookie to store the lang of the user with the session lang
+if (isset($_SESSION["lang"])) {
+    if (!isset($_COOKIE["lang"])) {
+        setcookie("lang", $_SESSION["lang"], time() + 3600 * 24 * 30, "/");
+    }
+}
 ?>
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
@@ -74,7 +80,9 @@
     echo "<div class='escapeGameMap' data-x='" . $escapeGame['x'] . "' data-y='" . $escapeGame['y'] . "'>" . $escapeGame["address"] . "</div>";
     ?>
 </p>
-<div id='mapEscapeGame'></div>
+<div class="divOutsideMapEG">
+    <div id='mapEscapeGame'></div>
+</div>
 
 <!-- Q&A -->
 <h2 class="titreUnderline"><?= ESCAPEGAME_H2_QANDA ?></h2>
@@ -124,52 +132,15 @@
 <!-- reviews -->
 <h2 class="titreUnderline"><?= ESCAPEGAME_H2_REVIEWS ?></h2>
 
-<?php if ($reviewsEG != 0){ ?>
+<?php if ($reviewsEG != 0) { ?>
 
-<div class="escapeGameReview">
-    <div class="reviewNom"><?php echo $reviewsEG[0]["firstName"]; ?></div>
-    <div
-        class="reviewDesc"><?php echo $_SESSION['lang'] == 'fr' ? $reviewsEG[0]["descriptionFR"] : $reviewsEG[0]["description"] ?></div>
-    <div class="reviewNote">
-        <?php
-        $splitRating = preg_split("/[.]/", $reviewsEG[0]["rating"]);
-        if (sizeof($splitRating) > 1) {
-            $rating = (int)$splitRating[0];
-            for ($i = 0; $i < $rating; $i++) {
-                ?>
-                <svg height='20' width='20'>
-                    <circle cx='10' cy='10' r='10' fill='white'/>
-                </svg> <?php
-            }
-            ?>
-            <svg height="20" width="10">
-                <circle cx="10" cy="10" r="10" fill="white"/>
-            </svg> <?php
-        } else if (sizeof($splitRating) == 1) {
-            $rating = $reviewsEG[0]["rating"];
-            for ($i = 0; $i < $rating; $i++) {
-                ?>
-                <svg height='20' width='20'>
-                    <circle cx='10' cy='10' r='10' fill='white'/>
-                </svg> <?php
-            }
-        }
-        ?>
-    </div>
-</div>
-
-<div class="escapeMoreReviews displayNone">
-    <?php
-    for ($i = 0;
-         $i < sizeof($reviewsEG);
-         $i++){
-    ?>
     <div class="escapeGameReview">
-        <div class="reviewNom"><?php echo $reviewsEG[$i]["firstName"] ?></div>
-        <div class="reviewDesc"><?php echo $reviewsEG[$i]["description"] ?></div>
+        <div class="reviewNom"><?php echo $reviewsEG[0]["firstName"]; ?></div>
+        <div
+            class="reviewDesc"><?php echo $_SESSION['lang'] == 'fr' ? $reviewsEG[0]["descriptionFR"] : $reviewsEG[0]["description"] ?></div>
         <div class="reviewNote">
             <?php
-            $splitRating = preg_split("/[.]/", $reviewsEG[$i]["rating"]);
+            $splitRating = preg_split("/[.]/", $reviewsEG[0]["rating"]);
             if (sizeof($splitRating) > 1) {
                 $rating = (int)$splitRating[0];
                 for ($i = 0; $i < $rating; $i++) {
@@ -183,7 +154,7 @@
                     <circle cx="10" cy="10" r="10" fill="white"/>
                 </svg> <?php
             } else if (sizeof($splitRating) == 1) {
-                $rating = $reviewsEG[$i + 1]["rating"];
+                $rating = $reviewsEG[0]["rating"];
                 for ($i = 0; $i < $rating; $i++) {
                     ?>
                     <svg height='20' width='20'>
@@ -191,10 +162,53 @@
                     </svg> <?php
                 }
             }
-            echo '</div></div>';
-            }
             ?>
         </div>
+    </div>
+
+    <div class="escapeMoreReviews displayNone">
+        <?php
+        //var_dump($reviewsEG);
+        //var_dump(sizeof($reviewsEG));
+        for ($i = 1;
+             $i < sizeof($reviewsEG);
+             $i++) {
+            ?>
+            <div class="escapeGameReview">
+                <div class="reviewNom"><?php echo $reviewsEG[$i]["firstName"] ?></div>
+                <div class="reviewDesc"><?php echo $reviewsEG[$i]["description"] ?></div>
+                <div class="reviewNote">
+                    <?php
+                    //create a circle for each rating if the rating is a float number (ex: 4.5) or a whole number (ex: 4) and a half circle if the rating is a float number with a decimal (ex: 4.3)
+                    $splitRating = preg_split("/[.]/", $reviewsEG[$i]["rating"]);
+                    if (sizeof($splitRating) > 1) {
+                        $rating = (int)$splitRating[0];
+                        for ($j = 0; $j < $rating; $j++) {
+                            ?>
+                            <svg height='20' width='20'>
+                                <circle cx='10' cy='10' r='10' fill='white'/>
+                            </svg> <?php
+                        }
+                        ?>
+                        <svg height="20" width="10">
+                            <circle cx="10" cy="10" r="10" fill="white"/>
+                        </svg> <?php
+                    } else if (sizeof($splitRating) == 1) {
+                        $rating = $reviewsEG[$i]["rating"];
+                        for ($j = 0; $j < $rating; $j++) {
+                            ?>
+                            <svg height='20' width='20'>
+                                <circle cx='10' cy='10' r='10' fill='white'/>
+                            </svg> <?php
+                        }
+                    }
+                    ?>
+                </div>
+            </div>
+            <?php
+        }
+        ?>
+    </div>
     </div>
 
     <?php if (sizeof($reviewsEG) > 1) { ?>
@@ -204,58 +218,75 @@
 
         <?php
     }
-    } else {
-        echo "<p class='vide'>" . ESCAPEGAME_NOREVIEW . "</p>";
-    } ?>
+} else {
+    echo "<p class='vide'>" . ESCAPEGAME_NOREVIEW . "</p>";
+} ?>
 
-    <!-- Buy -->
-    <h2 id="buyEscapeGame" class="titreUnderline"><?= ESCAPEGAME_H2_BUY ?></h2>
-
-    <form id="search" action="index.php?action=buyEG&escapeGame=<?= $escapeGame["id_escapeGame"] ?>" method="POST">
-
-        <p><?= ESCAPEGAME_NBPERSONS ?></p>
-        <input class="inputBuy" type="number" id="buyPerson" name="nbPersons">
-
-        <p>Date</p>
-        <input class="inputBuy" type="date" id="buyDate" name="buyDate">
-
-        <div class="escapeSearchButton"><?= ESCAPEGAME_ESCAPESEARCHBUTTON ?></div>
-
-        <?php
-        // if (!empty($_POST)){
-        //     if(($_POST["nbPersons"]!="") && ($_POST["buyDate"]!="")){
+<?php
+//Check if the user is connected
+if (isset($_SESSION["email"])) {
+    //Check if the user has already reviewed the escape game
+    //var_dump($reviewed);
+    if (!$reviewed) {
         ?>
-        <div class="possibleSchedules displayNone">
-
-            <h3><?= ESCAPEGAME_SCHEDULES ?><span class="inserDate">DATE</span>:</h3>
-
-            <div class="hoursSchedules">
-
-                <input type="radio" name="hour" id="ten" value="ten">
-                <label for="ten" class="greenButton">10h</label>
-
-                <input type="radio" name="hour" id="fourteen" value="fourteen">
-                <label for="fourteen" class="greenButton">14h</label>
-
-                <input type="radio" name="hour" id="eightteen" value="eightteen">
-                <label for="eightteen" class="greenButton">18h</label>
-
-                <input type="radio" name="hour" id="twenty" value="twenty">
-                <label for="twenty" class="greenButton">20h</label>
-
+        <a href="index.php?action=addReview&id=<?= $escapeGame["id_escapeGame"] ?>">
+            <div class="greenButton">
+                <?= ESCAPEGAME_ADD_REVIEW ?>
             </div>
-            <input type="submit" value="Order now" class="escapeYellowButton">
-        </div>
+        </a>
         <?php
-        //     }
-        // }
-        ?>
-    </form>
+    }
+}
+?>
+
+<!-- Buy -->
+<h2 id="buyEscapeGame" class="titreUnderline"><?= ESCAPEGAME_H2_BUY ?></h2>
+
+<form id="search" action="index.php?action=buyEG&escapeGame=<?= $escapeGame["id_escapeGame"] ?>" method="POST">
+
+    <p><?= ESCAPEGAME_NBPERSONS ?></p>
+    <input class="inputBuy" type="number" id="buyPerson" name="nbPersons">
+
+    <p>Date</p>
+    <input class="inputBuy" type="date" id="buyDate" name="buyDate">
+
+    <div class="escapeSearchButton"><?= ESCAPEGAME_ESCAPESEARCHBUTTON ?></div>
+
+    <?php
+    // if (!empty($_POST)){
+    //     if(($_POST["nbPersons"]!="") && ($_POST["buyDate"]!="")){
+    ?>
+    <div class="possibleSchedules displayNone">
+
+        <h3><?= ESCAPEGAME_SCHEDULES ?><span class="inserDate">DATE</span>:</h3>
+
+        <div class="hoursSchedules">
+
+            <input type="radio" name="hour" id="ten" value="ten">
+            <label for="ten" class="greenButton">10h</label>
+
+            <input type="radio" name="hour" id="fourteen" value="fourteen">
+            <label for="fourteen" class="greenButton">14h</label>
+
+            <input type="radio" name="hour" id="eightteen" value="eightteen">
+            <label for="eightteen" class="greenButton">18h</label>
+
+            <input type="radio" name="hour" id="twenty" value="twenty">
+            <label for="twenty" class="greenButton">20h</label>
+
+        </div>
+        <input type="submit" value="Order now" class="escapeYellowButton">
+    </div>
+    <?php
+    //     }
+    // }
+    ?>
+</form>
 
 
-    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-            integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-            crossorigin=""></script>
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+        crossorigin=""></script>
 
-    <script src="js/qAndA.js"></script>
-    <script src="js/escapeGame.js"></script>
+<script src="js/qAndA.js"></script>
+<script src="js/escapeGame.js"></script>

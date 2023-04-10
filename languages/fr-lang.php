@@ -441,6 +441,7 @@ const ADMIN_HOME_PAGE_GIFT_CARD = "Carte cadeaux";
 const ADMIN_HOME_PAGE_QANDA = "FAQ";
 const ADMIN_HOME_PAGE_JOB = "Emplois";
 const ADMIN_HOME_PAGE_USER = "Utilisateurs";
+const ADMIN_HOME_PAGE_REVIEWS = "Avis";
 
 //Admin : Q&A
 
@@ -768,6 +769,8 @@ const ESCAPEGAME_ESCAPESEARCHBUTTON = "Chercher";
 
 const ESCAPEGAME_SCHEDULES = "Crénaux disponibles pour le ";
 
+const ESCAPEGAME_ADD_REVIEW = "Ajouter un avis";
+
 
 //Escape Game Buy Page
 const BOOK_ESCAPEGAME_TITLE = "Réserver un créneau";
@@ -806,3 +809,28 @@ const BOOK_ESCAPEGAME_BUYER_LAST_NAME = "Nom";
 
 const BOOK_ESCAPEGAME_PERSONS = " personnes ";
 
+/* Page Admin Reviews */
+
+const ADMIN_REVIEWS_TITLE = "Avis";
+
+const ADMIN_REVIEWS_ESCAPEGAME_NAME = "Escape Game";
+const ADMIN_REVIEWS_FIRST_NAME = "Prénom";
+const ADMIN_REVIEWS_LAST_NAME = "Nom";
+const ADMIN_REVIEWS_DESCRIPTION = "Description";
+const ADMIN_REVIEWS_DESCRIPTION_FR = "Description FR";
+const ADMIN_REVIEWS_RATING = "Note";
+const ADMIN_REVIEWS_DELETE = "Supprimer ?";
+
+const ADMIN_REVIEWS_DELETE_WARNING = "Êtes-vous sûr de vouloir supprimer cet avis ?";
+
+/* Page Add Review */
+
+const ADD_REVIEW_TITLE = "Ajouter un avis";
+
+const ADD_REVIEW_REVIEW = "Avis";
+
+const ADD_REVIEW_REVIEW_FR = "Avis FR";
+
+const ADD_REVIEW_RATING = "Note";
+
+const ADD_REVIEW_ESCAPE_GAME_NAME = "Pour : ";

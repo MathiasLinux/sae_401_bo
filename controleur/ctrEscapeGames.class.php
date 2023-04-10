@@ -71,13 +71,23 @@ class ctrEscapeGames
     public function escapeGame()
     {
         //verify if the id of the escape game is on the database
+        $reviewed = false;
         if ($this->escapeGames->verifyEG($_GET["escapeGame"]) and $this->escapeGames->verifyIfEscapeGameVisible($_GET["escapeGame"])) {
+            //verify if the user is connected
+            if (isset($_SESSION['email'])) {
+                //get the id of the user
+                $idUser = $this->objUser->getIdUser($_SESSION['email']);
+                //check if the user has already reviewed the escape game
+                if ($this->escapeGames->verifyIfUserHasAlreadyReviewedTheEscapeGame($idUser, $_GET["escapeGame"])) {
+                    $reviewed = true;
+                }
+            }
             $reviewsEG = $this->escapeGames->getReviewEG($_GET["escapeGame"]);
             $qAndAEG = $this->escapeGames->getQAndAEG($_GET["escapeGame"]);
             $escapeGame = $this->escapeGames->getEscapeGame($_GET["escapeGame"]);
             $title = "Escape Game - Kaiserstuhl escape";
             $objVue = new vue("EscapeGame");
-            $objVue->afficher(array("escapeGame" => $escapeGame, "reviewsEG" => $reviewsEG, "qAndAEG" => $qAndAEG), $title);
+            $objVue->afficher(array("escapeGame" => $escapeGame, "reviewsEG" => $reviewsEG, "qAndAEG" => $qAndAEG, "reviewed" => $reviewed), $title);
         } else {
             header("Location: index.php?action=escapeGames");
         }
@@ -264,5 +274,140 @@ class ctrEscapeGames
         $title = "Payment - Kaiserstuhl escape";
         $objVue = new vue("BuyEGSuccess");
         $objVue->afficher(array(), $title);
+    }
+
+    public function addReviewInSys()
+    {
+        //var_dump($_POST);
+        if (isset($_POST['review'])) {
+            $idUser = $this->objUser->getIdUser($_SESSION['email']);
+            $error = [];
+            if (empty($_POST["firstName"])) {
+                //define the message with the lang of user
+                if ($_SESSION['lang'] == "fr") {
+                    $error['firstName'] = "Le prénom est vide";
+                } else {
+                    $error['firstName'] = "The first name is empty";
+                }
+            }
+            if (empty($_POST["name"])) {
+                if ($_SESSION['lang'] == "fr") {
+                    $error['name'] = "Le nom est vide";
+                } else {
+                    $error['name'] = "The last name is empty";
+                }
+            }
+            if (empty($_POST["review"])) {
+                if ($_SESSION['lang'] == "fr") {
+                    $error['review'] = "La critique est vide";
+                } else {
+                    $error['review'] = "The review is empty";
+                }
+            }
+            if (empty($_POST["reviewFR"])) {
+                if ($_SESSION['lang'] == "fr") {
+                    $error['reviewFR'] = "La critique française est vide";
+                } else {
+                    $error['reviewFR'] = "The review in French is empty";
+                }
+            }
+            if (empty($_POST["rating"])) {
+                if ($_SESSION['lang'] == "fr") {
+                    $error['rating'] = "La note est vide";
+                } else {
+                    $error['rating'] = "The rating is empty";
+                }
+            }
+            if (empty($error)) {
+                //Verify all the values
+                if (!$this->escapeGames->verifyReviewName($_POST["firstName"])) {
+                    if ($_SESSION['lang'] == "fr") {
+                        $error['firstName'] = "Le prénom n'est pas valide";
+                    } else {
+                        $error['firstName'] = "The first name is not valid";
+                    }
+                }
+                if (!$this->escapeGames->verifyReviewName($_POST["name"])) {
+                    if ($_SESSION['lang'] == "fr") {
+                        $error['name'] = "Le nom n'est pas valide";
+                    } else {
+                        $error['name'] = "The last name is not valid";
+                    }
+                }
+                if (!$this->escapeGames->verifyReview($_POST["review"])) {
+                    if ($_SESSION['lang'] == "fr") {
+                        $error['review'] = "La critique n'est pas valide. Veuillez limiter le nombre de caractères à 500";
+                    } else {
+                        $error['review'] = "The review is not valid. Please limit the number of characters to 500";
+                    }
+                }
+                if (!$this->escapeGames->verifyReview($_POST["reviewFR"])) {
+                    if ($_SESSION['lang'] == "fr") {
+                        $error['reviewFR'] = "La critique française n'est pas valide. Veuillez limiter le nombre de caractères à 500";
+                    } else {
+                        $error['reviewFR'] = "The review in French is not valid. Please limit the number of characters to 500";
+                    }
+                }
+                if (!$this->escapeGames->verifyReviewRating($_POST["rating"])) {
+                    if ($_SESSION['lang'] == "fr") {
+                        $error['rating'] = "La note n'est pas valide";
+                    } else {
+                        $error['rating'] = "The rating is not valid";
+                    }
+                }
+                if (empty($error)) {
+                    if (isset($_POST["id"])) {
+                        $idEscapeGame = $_POST["id"];
+                    } elseif (isset($_GET["id"])) {
+                        $idEscapeGame = $_GET["id"];
+                    } else {
+                        header("Location: index.php?action=escapeGames");
+                    }
+                    $this->escapeGames->addReviewInSys($idUser, $idEscapeGame, $_POST["firstName"], $_POST["name"], $_POST["review"], $_POST["reviewFR"], $_POST["rating"]);
+                    header("Location: index.php?action=escapeGame&id=" . $idEscapeGame);
+                } else {
+                    //return the input without errors
+                    $okValues = [];
+                    //search if the values are in error
+                    foreach ($_POST as $key => $value) {
+                        if (!array_key_exists($key, $error)) {
+                            $okValues[$key] = $value;
+                        }
+                    }
+                    $escapeGame = $this->escapeGames->getEscapeGame($_POST["id"]);
+                    $title = "Add a review - Kaiserstuhl escape";
+                    $objVue = new vue("AddReview");
+                    $objVue->afficher(array("error" => $error, "okValues" => $okValues, "escapeGame" => $escapeGame), $title);
+                }
+            } else {
+                //return the input without errors
+                $okValues = [];
+                //search if the values are in error
+                foreach ($_POST as $key => $value) {
+                    if (!array_key_exists($key, $error)) {
+                        $okValues[$key] = $value;
+                    }
+                }
+                $escapeGame = $this->escapeGames->getEscapeGame($_POST["id"]);
+                $title = "Add a review - Kaiserstuhl escape";
+                $objVue = new vue("AddReview");
+                $objVue->afficher(array("error" => $error, "okValues" => $okValues, "escapeGame" => $escapeGame), $title);
+            }
+            //header("Location: index.php?action=escapeGame&id=" . $_POST["id"]);
+        }
+    }
+
+    public function addReview($id)
+    {
+        $idUser = $this->objUser->getIdUser($_SESSION['email']);
+        //check if the user has already reviewed the escape game
+        if (!$this->escapeGames->verifyIfUserHasAlreadyReviewedTheEscapeGame($idUser, $_GET["id"])) {
+            $escapeGame = $this->escapeGames->getEscapeGame($id);
+            $title = "Add a review - Kaiserstuhl escape";
+            $objVue = new vue("AddReview");
+            $objVue->afficher(array("escapeGame" => $escapeGame), $title);
+        } else {
+            header("Location: index.php?action=escapeGame&id=" . $_GET["escapeGame"]);
+        }
     }
 }

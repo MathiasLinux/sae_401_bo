@@ -2,13 +2,15 @@
 
 # <b>IMPORTANT</b>
 
-## Admin Escape Game
+## Escape Game Page
 
-- [X] Add a button to add a new escape game
-- [X] Add a button to delete an escape game
-- [X] Add a checkbox to make the escape game on front
-- [X] Add the difficulty of the escape game in the selector if it's modified escape game
-- [X] Make a better pc version of the admin escape game page
+- [ ] Limit the reservation at the day after the current day
+- [ ] If the hour is already taken, the user can't choose it
+
+## Reviews creations
+
+- [X] A page dedicated to that.
+- [X] An admin page to see all the reviews
 
 ----------------
 
@@ -40,9 +42,13 @@
 
         - [X] Buyers First and Last Name
 
-## Reviews creations
+## Admin Escape Game
 
-- [ ] A page dedicated to that.
+- [X] Add a button to add a new escape game
+- [X] Add a button to delete an escape game
+- [X] Add a checkbox to make the escape game on front
+- [X] Add the difficulty of the escape game in the selector if it's modified escape game
+- [X] Make a better pc version of the admin escape game page
 
 ## Videos in escape games
 

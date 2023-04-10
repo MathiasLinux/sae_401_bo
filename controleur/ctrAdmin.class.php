@@ -6,6 +6,7 @@ require_once "modele/user.class.php";
 require_once "modele/giftCards.class.php";
 require_once "modele/escapeGame.class.php";
 require_once "modele/contact.class.php";
+require_once "modele/reviews.class.php";
 require_once "vue/vue.class.php";
 
 class ctrAdmin
@@ -16,6 +17,7 @@ class ctrAdmin
     public $giftCards;
     public $EG;
     public $contact;
+    public $reviews;
 
     public function __construct()
     {
@@ -25,6 +27,7 @@ class ctrAdmin
         $this->giftCards = new giftCards();
         $this->EG = new escapeGame();
         $this->contact = new contact();
+        $this->reviews = new review();
     }
 
     public function admin()
@@ -475,6 +478,20 @@ class ctrAdmin
     {
         $this->EG->delEscapeGame($id);
         header("Location: index.php?action=admin&page=escapeGames");
+    }
+
+    public function reviews()
+    {
+        $reviews = $this->reviews->getReviews();
+        $title = "Administration Reviews - Kaiserstuhl escape";
+        $objVue = new vue("AdminReviews");
+        $objVue->afficher(array("reviews" => $reviews), $title);
+    }
+
+    public function delReviews($id)
+    {
+        $this->reviews->delReviews($id);
+        header("Location: index.php?action=admin&page=reviews");
     }
 
 }

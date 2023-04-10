@@ -212,6 +212,10 @@
                 <img src="img/svg/group.svg" alt="a group of user">
                 <p>Users</p>
             </a>
+            <a href="index.php?action=admin&page=reviews">
+                <img src="img/svg/reviews.svg" alt="Users wih stars">
+                <p>Reviews</p>
+            </a>
         </div>
         <div class="lang">
             <a href="index.php?action=lang&lang=fr">

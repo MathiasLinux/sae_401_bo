@@ -122,7 +122,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    font-size: 24px;
+    font-size: 22px;
     margin-left: 20%;
 }
 
@@ -1838,4 +1838,24 @@ h3.titleAdminQAndA {
     text-align: center;
 }
 
-/* Page de vente réussite */
+/* Page d'avis vueAddReview.php */
+
+.addReviewRatingDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+}
+
+.outputRatingDiv {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.escapeGameNameReview {
+    margin: 0 0 20px 0;
+    font-size: 24px;
+}

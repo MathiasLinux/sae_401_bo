@@ -458,6 +458,7 @@ const ADMIN_HOME_PAGE_GIFT_CARD = "Gift Cards";
 const ADMIN_HOME_PAGE_QANDA = "Q&A";
 const ADMIN_HOME_PAGE_JOB = "Jobs";
 const ADMIN_HOME_PAGE_USER = "Users";
+const ADMIN_HOME_PAGE_REVIEWS = "Reviews";
 
 //Admin : Q&A
 
@@ -815,3 +816,32 @@ const BOOK_ESCAPEGAME_BUYER_FIRST_NAME = "First name";
 const BOOK_ESCAPEGAME_BUYER_LAST_NAME = "Last name";
 
 const BOOK_ESCAPEGAME_PERSONS = " persons ";
+
+const ESCAPEGAME_ADD_REVIEW = "Add a review";
+
+/* Page Admin Reviews */
+
+const ADMIN_REVIEWS_TITLE = "Reviews";
+
+const ADMIN_REVIEWS_ESCAPEGAME_NAME = "Escape game";
+const ADMIN_REVIEWS_FIRST_NAME = "First name";
+const ADMIN_REVIEWS_LAST_NAME = "Last name";
+const ADMIN_REVIEWS_DESCRIPTION = "Description";
+const ADMIN_REVIEWS_DESCRIPTION_FR = "Description FR";
+const ADMIN_REVIEWS_RATING = "Rating";
+const ADMIN_REVIEWS_DELETE = "Delete?";
+
+const ADMIN_REVIEWS_DELETE_WARNING = "Are you sure you want to delete this review?";
+
+
+/* Page Add Review */
+
+const ADD_REVIEW_TITLE = "Add a review";
+
+const ADD_REVIEW_REVIEW = "Review";
+
+const ADD_REVIEW_REVIEW_FR = "Review FR";
+
+const ADD_REVIEW_RATING = "Rating";
+
+const ADD_REVIEW_ESCAPE_GAME_NAME = "For: ";

@@ -1,4 +1,4 @@
-console.log("adminReservation.js loaded");
+//console.log("adminReservation.js loaded");
 document.querySelectorAll(".deleteUser").forEach(function (element) {
     element.addEventListener("click", warningDeleteUser);
 });

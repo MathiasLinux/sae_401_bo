@@ -82,7 +82,7 @@ header img {
     justify-content: center;
     align-items: center;
     padding: 20px;
-    transition: 0.8s;
+    transition: 0.4s;
     transform: translateY(-100%);
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
 }
@@ -800,8 +800,15 @@ label.center > h3 {
     height: 50vh;
 }
 
+.divOutsideMapEG {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #mapEscapeGame {
     height: 40vh;
+    width: 70vw;
 }
 
 

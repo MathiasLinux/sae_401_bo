@@ -163,6 +163,24 @@ class routeur
                         $this->ctrLogin->login();
                     }
                     break;
+                case "addReview":
+                    if (isset($_SESSION["email"])) {
+                        if (isset($_GET["id"])) {
+                            $this->ctrEscapeGames->addReview($_GET["id"]);
+                        } else {
+                            $this->ctrEscapeGames->escapeGames();
+                        }
+                    } else {
+                        $this->ctrLogin->login();
+                    }
+                    break;
+                case "addReviewInSys":
+                    if (isset($_SESSION["email"])) {
+                        $this->ctrEscapeGames->addReviewInSys();
+                    } else {
+                        $this->ctrLogin->login();
+                    }
+                    break;
                 case "admin":
                     // Ici on vérifie si l'utilisateur est connecté et on l'envoie sur la page admin ou sur la page de connexion si il n'est pas connecté
                     if (isset($_SESSION["email"]) and !empty($_SESSION["rights"])) {
@@ -450,6 +468,24 @@ class routeur
                                         $idCat = $_GET['id_qAndACat'];
                                         $idQ = $_GET['id_qAndAQ'];
                                         $this->ctrAdmin->qAndAQuestionsModify_S($idCat, $idQ);
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
+                                    break;
+                                case "reviews":
+                                    if (str_contains($_SESSION["rights"], "management") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        $this->ctrAdmin->reviews();
+                                    } else {
+                                        $this->ctrAdmin->admin();
+                                    }
+                                    break;
+                                case "delReviews":
+                                    if (str_contains($_SESSION["rights"], "management") or str_contains($_SESSION["rights"], "superadmin")) {
+                                        if (isset($_GET["id"])) {
+                                            $this->ctrAdmin->delReviews($_GET["id"]);
+                                        } else {
+                                            $this->ctrAdmin->reviews();
+                                        }
                                     } else {
                                         $this->ctrAdmin->admin();
                                     }

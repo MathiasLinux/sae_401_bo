@@ -28,4 +28,8 @@
         <img src="img/svg/group.svg" alt="A briefcase">
         <p><?= ADMIN_HOME_PAGE_USER ?></p>
     </a>
+    <a class="aButton" href="index.php?action=admin&page=reviews">
+        <img src="img/svg/reviews.svg" alt="Users wih stars">
+        <p><?= ADMIN_HOME_PAGE_REVIEWS ?></p>
+    </a>
 </div>

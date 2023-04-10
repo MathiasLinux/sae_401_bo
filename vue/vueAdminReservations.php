@@ -1,6 +1,5 @@
 <h2 class="titleUnderline"><?= ADMIN_RESERVATION_TITLE ?></h2>
 <div class="tableContactForm">
-    </tr>
     <div class="tg-wrap">
         <table class="tg">
             <thead>

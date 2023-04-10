@@ -464,4 +464,48 @@ class escapeGame extends bdd
         $req = "DELETE FROM escapeGame WHERE id_escapeGame = ?";
         $this->execReqPrep($req, array($id_escapeGame));
     }
+
+    public function verifyIfUserHasAlreadyReviewedTheEscapeGame($id_user, $id_escapeGame)
+    {
+        $req = "SELECT id_user FROM reviews WHERE id_user = ? AND id_escapeGame = ?";
+        $result = $this->execReqPrep($req, array($id_user, $id_escapeGame));
+        if (empty($result)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public function verifyReviewName($name)
+    {
+        if (strlen($name) > 0 and strlen($name) < 50 and preg_match("#^[a-zA-ZÀ-ÿ -]+$#", $name)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function verifyReview($review)
+    {
+        if (strlen($review) > 0 and strlen($review) < 500 and preg_match("#^[a-zA-ZÀ-ÿ0-9 -]+$#", $review)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function verifyReviewRating($rating)
+    {
+        if ($rating >= 0 and $rating <= 5) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function addReviewInSys($id_user, $id_escapeGame, $firstName, $lastName, $description, $descriptionFR, $rating)
+    {
+        $req = "INSERT INTO reviews (id_user, id_escapeGame, firstName, lastName, description, descriptionFR, rating) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $this->execReqPrep($req, array($id_user, $id_escapeGame, $firstName, $lastName, $description, $descriptionFR, $rating));
+    }
 }
