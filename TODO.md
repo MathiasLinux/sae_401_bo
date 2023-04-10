@@ -2,23 +2,17 @@
 
 # <b>IMPORTANT</b>
 
-## Escape Game Page
+## Buy escape game
 
-- [X] Limit the reservation at the day after the current day
-- [X] If the hour is already taken, the user can't choose it
-
-## Reviews creations
-
-- [X] A page dedicated to that.
-- [X] An admin page to see all the reviews
+- [ ] Add the gift card payement
 
 ----------------
 
 ## Account Page
 
-- [x] Display infos of the user
+- [X] Display infos of the user
 
-- [x] The user can change his infos (email, first name, last name, password)
+- [X] The user can change his infos (email, first name, last name, password)
 
 - [x] Display the product that the client has bought
 
@@ -49,6 +43,16 @@
 - [X] Add a checkbox to make the escape game on front
 - [X] Add the difficulty of the escape game in the selector if it's modified escape game
 - [X] Make a better pc version of the admin escape game page
+
+## Escape Game Page
+
+- [X] Limit the reservation at the day after the current day
+- [X] If the hour is already taken, the user can't choose it
+
+## Reviews creations
+
+- [X] A page dedicated to that.
+- [X] An admin page to see all the reviews
 
 ## Videos in escape games
 

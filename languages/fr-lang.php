@@ -757,7 +757,7 @@ const ESCAPEGAME_MOREANSWERS = "Plus de réponses";
 
 const ESCAPEGAME_H2_REVIEWS = "Avis";
 
-const ESCAPEGAME_MOREREVIEWS = "Plus d'avis";
+const ESCAPEGAME_MOREREVIEWS = "Plus de commentaire";
 
 const ESCAPEGAME_NOREVIEW = "Il n'y a pas d'avis pour cet escape game pour l'instant.";
 

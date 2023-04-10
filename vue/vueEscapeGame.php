@@ -2,7 +2,13 @@
 // require_once "modele/escapeGame.class.php";
 //create a cookie to store the lang of the user with the session lang
 if (isset($_SESSION["lang"])) {
-    if (!isset($_COOKIE["lang"])) {
+    // if the cookie is already set but in another lang, we change it
+    if (isset($_COOKIE["lang"])) {
+        if ($_COOKIE["lang"] != $_SESSION["lang"]) {
+            setcookie("lang", $_SESSION["lang"], time() + 3600 * 24 * 30, "/");
+        }
+    } else {
+        // if the cookie is not set, we set it
         setcookie("lang", $_SESSION["lang"], time() + 3600 * 24 * 30, "/");
     }
 }
