@@ -508,4 +508,21 @@ class escapeGame extends bdd
         $req = "INSERT INTO reviews (id_user, id_escapeGame, firstName, lastName, description, descriptionFR, rating) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $this->execReqPrep($req, array($id_user, $id_escapeGame, $firstName, $lastName, $description, $descriptionFR, $rating));
     }
+
+    public function getReservationsForDate($id, $date)
+    {
+        $req = "SELECT * FROM buying WHERE id_escapeGame = ? AND gameDate = ?";
+        return $this->execReqPrep($req, array($id, $date));
+    }
+
+    public function verifyIfHourIsAvailable($id, $date, $hour)
+    {
+        $req = "SELECT * FROM buying WHERE id_escapeGame = ? AND gameDate = ? AND hours = ?";
+        $result = $this->execReqPrep($req, array($id, $date, $hour));
+        if (empty($result)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

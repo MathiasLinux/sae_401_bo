@@ -136,7 +136,7 @@ if (reviewsButton != null) {
 //buy
 
 
-document.querySelector('.escapeSearchButton').addEventListener('click', function () {
+/*document.querySelector('.escapeSearchButton').addEventListener('click', function () {
     if ((document.querySelector('#buyPerson').value != "") && (document.querySelector('#buyDate').value != "")) {
 
         var buyPersons = document.querySelector('#buyPerson').value;
@@ -151,7 +151,7 @@ document.querySelector('.escapeSearchButton').addEventListener('click', function
         document.querySelector('.inserDate').innerText = day + " " + month + " " + year;
     }
 
-})
+})*/
 
 function getMonthName(monthNumber, lang) {
     const date = new Date();

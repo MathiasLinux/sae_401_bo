@@ -4,8 +4,8 @@
 
 ## Escape Game Page
 
-- [ ] Limit the reservation at the day after the current day
-- [ ] If the hour is already taken, the user can't choose it
+- [X] Limit the reservation at the day after the current day
+- [X] If the hour is already taken, the user can't choose it
 
 ## Reviews creations
 

@@ -815,6 +815,7 @@ footer a {
     cursor: pointer;
     text-decoration: none;
     color: black;
+    border: none;
 }
 
 .inputBuy {
@@ -844,6 +845,11 @@ footer a {
 .hoursSchedules > .greenButton {
     color: black;
     transition: 0.2s;
+}
+
+.hoursSchedules > input:disabled + label {
+    background-color: #073b2b;
+    color: white;
 }
 
 .hoursSchedules > .occupied {

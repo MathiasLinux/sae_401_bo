@@ -242,39 +242,101 @@ if (isset($_SESSION["email"])) {
 <!-- Buy -->
 <h2 id="buyEscapeGame" class="titreUnderline"><?= ESCAPEGAME_H2_BUY ?></h2>
 
-<form id="search" action="index.php?action=buyEG&escapeGame=<?= $escapeGame["id_escapeGame"] ?>" method="POST">
+<form id="search" action="index.php?action=escapeGame&escapeGame=<?= $escapeGame["id_escapeGame"] ?>#hours"
+      method="POST">
 
     <p><?= ESCAPEGAME_NBPERSONS ?></p>
-    <input class="inputBuy" type="number" id="buyPerson" name="nbPersons">
+    <input class="inputBuy" type="number" id="buyPerson" name="nbPersons" required>
 
     <p>Date</p>
-    <input class="inputBuy" type="date" id="buyDate" name="buyDate">
+    <!-- Min date after the current date and the user can't select sunday -->
+    <input class="inputBuy" type="date" id="buyDate" name="buyDate" min="<?= date("Y-m-d", strtotime("+1 day")) ?>"
+           required>
+    <input type="hidden" name="research" value="true">
 
-    <div class="escapeSearchButton"><?= ESCAPEGAME_ESCAPESEARCHBUTTON ?></div>
+    <input class="escapeSearchButton" value="<?= ESCAPEGAME_ESCAPESEARCHBUTTON ?>" type="submit" name="submit">
 
-    <?php
-    // if (!empty($_POST)){
-    //     if(($_POST["nbPersons"]!="") && ($_POST["buyDate"]!="")){
-    ?>
-    <div class="possibleSchedules displayNone">
+</form>
 
-        <h3><?= ESCAPEGAME_SCHEDULES ?><span class="inserDate">DATE</span>:</h3>
+<form id="search" action="index.php?action=buyEG&escapeGame=<?= $escapeGame["id_escapeGame"] ?>" method="POST">
+    <div class="possibleSchedules <?php
+    if (!isset($_POST["research"]) or $_POST["buyDate"] < date("Y-m-d", strtotime("+1 day"))) {
+        echo "displayNone";
+    }
+    ?>">
+        <?php
+        if (isset($_POST["research"]) and $_POST["buyDate"] >= date("Y-m-d", strtotime("+1 day"))) {
+            if ($_SESSION["lang"] == "fr") {
+                //set the date in french with the month in french like "1 janvier 2020"
+                setlocale(LC_TIME, 'fr_FR.utf8', 'fra');
+            } else {
+                //set the date in english with the month in english like "1 january 2020"
+                setlocale(LC_TIME, 'en_US.utf8', 'eng');
+            }
+            ?>
+            <h3><?= ESCAPEGAME_SCHEDULES ?><span
+                    class="inserDate"><?= strftime("%#d %B %Y", strtotime($_POST["buyDate"])) ?></span>:</h3>
+        <?php } else { ?>
+            <h3><?= ESCAPEGAME_SCHEDULES ?><span class="inserDate">DATE</span>:</h3>
+        <?php } ?>
+        <?php
+        //var_dump($reservation);
 
-        <div class="hoursSchedules">
+        $ten = false;
+        $fourteen = false;
+        $eightteen = false;
+        $twenty = false;
+        if (!empty($reservation)) {
+            //var_dump($reservation);
+            //verify that none of the date contain de hours 10 or 14 or 18 or 20
+            foreach ($reservation as $res) {
+                if ($res["hours"] == 10) {
+                    $ten = true;
+                } else if ($res["hours"] == 14) {
+                    $fourteen = true;
+                } else if ($res["hours"] == 18) {
+                    $eightteen = true;
+                } else if ($res["hours"] == 20) {
+                    $twenty = true;
+                }
+            }
+        }
+        ?>
 
-            <input type="radio" name="hour" id="ten" value="ten">
-            <label for="ten" class="greenButton">10h</label>
-
-            <input type="radio" name="hour" id="fourteen" value="fourteen">
-            <label for="fourteen" class="greenButton">14h</label>
-
-            <input type="radio" name="hour" id="eightteen" value="eightteen">
-            <label for="eightteen" class="greenButton">18h</label>
-
-            <input type="radio" name="hour" id="twenty" value="twenty">
-            <label for="twenty" class="greenButton">20h</label>
-
+        <div class="hoursSchedules" id="hours">
+            <?php
+            if (isset($_POST["research"]) and $_POST["buyDate"] >= date("Y-m-d", strtotime("+1 day"))) {
+                ?>
+                <input type="radio" name="hour" id="ten" value="ten" <?php
+                if ($ten) {
+                    echo "disabled";
+                }
+                ?>>
+                <label for="ten" class="greenButton">10h</label>
+                <input type="radio" name="hour" id="fourteen" value="fourteen" <?php
+                if ($fourteen) {
+                    echo "disabled";
+                }
+                ?>>
+                <label for="fourteen" class="greenButton">14h</label>
+                <input type="radio" name="hour" id="eightteen" value="eightteen" <?php
+                if ($eightteen) {
+                    echo "disabled";
+                }
+                ?>>
+                <label for="eightteen" class="greenButton">18h</label>
+                <input type="radio" name="hour" id="twenty" value="twenty" <?php
+                if ($twenty) {
+                    echo "disabled";
+                }
+                ?>>
+                <label for="twenty" class="greenButton">20h</label>
+                <?php
+            }
+            ?>
         </div>
+        <input type="hidden" name="buyDate" value="<?= $_POST["buyDate"] ?>">
+        <input type="hidden" name="nbPersons" value="<?= $_POST["nbPersons"] ?>">
         <input type="submit" value="Order now" class="escapeYellowButton">
     </div>
     <?php

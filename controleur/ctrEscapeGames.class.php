@@ -82,12 +82,17 @@ class ctrEscapeGames
                     $reviewed = true;
                 }
             }
+            $reservation = "";
+            if (isset($_POST['research'])) {
+                $buyDate = $_POST['buyDate'];
+                $reservation = $this->escapeGames->getReservationsForDate($_GET["escapeGame"], $buyDate);
+            }
             $reviewsEG = $this->escapeGames->getReviewEG($_GET["escapeGame"]);
             $qAndAEG = $this->escapeGames->getQAndAEG($_GET["escapeGame"]);
             $escapeGame = $this->escapeGames->getEscapeGame($_GET["escapeGame"]);
             $title = "Escape Game - Kaiserstuhl escape";
             $objVue = new vue("EscapeGame");
-            $objVue->afficher(array("escapeGame" => $escapeGame, "reviewsEG" => $reviewsEG, "qAndAEG" => $qAndAEG, "reviewed" => $reviewed), $title);
+            $objVue->afficher(array("escapeGame" => $escapeGame, "reviewsEG" => $reviewsEG, "qAndAEG" => $qAndAEG, "reviewed" => $reviewed, "reservation" => $reservation), $title);
         } else {
             header("Location: index.php?action=escapeGames");
         }
@@ -109,13 +114,28 @@ class ctrEscapeGames
         }
 
         if ($_POST['hour'] == 'ten')
-            $hourEscapeGame = 10;
+            if ($this->escapeGames->verifyIfHourIsAvailable($_GET["escapeGame"], $_POST['buyDate'], 10))
+                $hourEscapeGame = 10;
+            else
+                $hourEscapeGame = 0;
         else if ($_POST['hour'] == 'fourteen')
-            $hourEscapeGame = 14;
-        else if ($_POST['hour'] == "eightteen")
-            $hourEscapeGame = 18;
-        else if ($_POST['hour'] == "twenty")
-            $hourEscapeGame = 20;
+            if ($this->escapeGames->verifyIfHourIsAvailable($_GET["escapeGame"], $_POST['buyDate'], 14))
+                $hourEscapeGame = 14;
+            else
+                $hourEscapeGame = 0;
+        else if ($_POST['hour'] == 'eightteen')
+            if ($this->escapeGames->verifyIfHourIsAvailable($_GET["escapeGame"], $_POST['buyDate'], 18))
+                $hourEscapeGame = 18;
+            else
+                $hourEscapeGame = 0;
+        else if ($_POST['hour'] == 'twenty')
+            if ($this->escapeGames->verifyIfHourIsAvailable($_GET["escapeGame"], $_POST['buyDate'], 20))
+                $hourEscapeGame = 20;
+            else
+                $hourEscapeGame = 0;
+
+        if ($hourEscapeGame == 0)
+            header("Location: index.php?action=escapeGame&escapeGame=" . $_GET["escapeGame"]);
         $objVue = new vue("BuyEG");
         $objVue->afficher(array("nameEscapeGame" => $nameEscapeGame, "priceEscapeGame" => $priceEscapeGame, "dateEscapeGame" => $dateEscapeGame, "hourEscapeGame" => $hourEscapeGame), $title);
     }
