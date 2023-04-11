@@ -14,7 +14,7 @@ class ctrJobs
 
     public function jobs()
     {
-        $jobs = $this->jobs->getJobs();
+        $jobs = $this->jobs->getJobsVisible();
         $title = "Jobs - Kaiserstuhl escape";
         $objVue = new vue("Jobs");
         $objVue->afficher(array("jobs" => $jobs), $title);

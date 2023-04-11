@@ -12,6 +12,28 @@ const MENU_ABOUT_US = "About us";
 
 const MENU_CONNECTION = "Connection";
 
+//Menu Admin
+
+const MENU_ADMIN_HOME = "Home";
+
+const MENU_ADMIN_MANAGEMENT = "Management";
+
+const MENU_ADMIN_MANAGEMENT_ESCAPE_GAME = "Escape Game";
+
+const MENU_ADMIN_MANAGEMENT_CONTACT_FORM = "Contact Form";
+
+const MENU_ADMIN_MANAGEMENT_RESERVATION = "Reservation";
+
+const MENU_ADMIN_MANAGEMENT_GIFT_CARDS = "Gift Cards";
+
+const MENU_ADMIN_MANAGEMENT_Q_AND_A = "Q&A";
+
+const MENU_ADMIN_MANAGEMENT_JOBS = "Jobs";
+
+const MENU_ADMIN_MANAGEMENT_USERS = "Users";
+
+const MENU_ADMIN_MANAGEMENT_REVIEWS = "Reviews";
+
 //Footer
 
 const FOOTER_COMPAGNY = "Compagny";
@@ -125,17 +147,17 @@ const ACCOUNT_NO_PURCHASES = "You have no purchases";
 
 const CHANGE_ACCOUNT_INFOS_TITLE = "Change your infos";
 
-const CHANGE_ACCOUNT_INFOS_EMAIL = "Your email address :";
+const CHANGE_ACCOUNT_INFOS_EMAIL = "Your email address:";
 
-const CHANGE_ACCOUNT_INFOS_FIRST_NAME = "Your first name :";
+const CHANGE_ACCOUNT_INFOS_FIRST_NAME = "Your first name:";
 
-const CHANGE_ACCOUNT_INFOS_LAST_NAME = "Your last name :";
+const CHANGE_ACCOUNT_INFOS_LAST_NAME = "Your last name:";
 
-const CHANGE_ACCOUNT_INFOS_PASSWORD = "Your actual password :";
+const CHANGE_ACCOUNT_INFOS_PASSWORD = "Your actual password:";
 
-const CHANGE_ACCOUNT_INFOS_NEW_PASSWORD = "Your new password :";
+const CHANGE_ACCOUNT_INFOS_NEW_PASSWORD = "Your new password:";
 
-const CHANGE_ACCOUNT_INFOS_NEW_PASSWORD_CONFIRM = "Confirm your new password :";
+const CHANGE_ACCOUNT_INFOS_NEW_PASSWORD_CONFIRM = "Confirm your new password:";
 
 const CHANGE_ACCOUNT_INFOS_SUBMIT = "Change";
 
@@ -156,7 +178,7 @@ const CHANGE_ACCOUNT_INFOS_NEW_PASSWORD_INVALID = "The new password is invalid i
 //About us page
 
 const ABOUT_US_TITLE = "About us";
-const ABOUT_US_P_1 = "Welcome to Kaiserstuhl Escape, the ultimate destination for escape game enthusiasts! Our immersive escape games challenge your mind and creativity as you work as a team to solve puzzles, crack codes and unravel mysteries. With several themed rooms to choose from, each with its own story and challenges, you are sure to have an unforgettable experience. Whether you're planning a fun night out with friends or a team building activity for your company, Kaiserstuhl Escape offers the perfect blend of fun and adventure. Book your escape room adventure today and see if you have what it takes to escape in time!";
+const ABOUT_US_P_1 = "Welcome to Kaiserstuhl Escape, the ultimate destination for escape game enthusiasts! Our immersive escape games challenge your mind and creativity as you work as a team to solve puzzles, crack codes and unravel mysteries. With several adventures to choose from, each with its own story and challenges, you are sure to have an unforgettable experience. Whether you're planning a fun night out with friends or a team building activity for your company, Kaiserstuhl Escape offers the perfect blend of fun and adventure. Book your adventure today and see if you have what it takes to escape in time!";
 
 const ABOUT_US_H2_1 = "The Team";
 const ABOUT_US_PERSON_1_ROLE = "The annunciator";
@@ -165,8 +187,8 @@ const ABOUT_US_PERSON_1_POSITION = "Head of Marketing Sales Management";
 const ABOUT_US_PERSON_2_ROLE = "Gang leader";
 const ABOUT_US_PERSON_2_POSITION = "Event manager and development";
 
-const ABOUT_US_PERSON_4_ROLE = "The string puller";
-const ABOUT_US_PERSON_4_POSITION = "Girl for everything 'No can do, no can do.'";
+const ABOUT_US_PERSON_4_ROLE = "The manager";
+const ABOUT_US_PERSON_4_POSITION = "Manage the team and the escape games";
 
 const ABOUT_US_PERSON_3_ROLE = "The prankster";
 const ABOUT_US_PERSON_3_POSITION = "Production Manager and development";
@@ -371,7 +393,7 @@ const PARTNERS_P_1 = "A regional NETWORK - connection on many levels.
     We look forward to further steps together.";
 
 //Q&A
-const QANDA_LINE_1 = "You have not find the answer to you question ?";
+const QANDA_LINE_1 = "You have not found the answer to your question ?";
 
 const QANDA_LINE_2 = "You can contact us through the contact page :";
 
@@ -381,8 +403,8 @@ const QANDA_BUTTON = "Contact us";
 
 const GIFT_CARDS_TITLE = "Gift Cards";
 
-const GIFT_CARDS_LOGO_1 = "Gift an amount";
-const GIFT_CARDS_LOGO_2 = "Gift an escape game";
+const GIFT_CARDS_LOGO_1 = "Offer an amount";
+const GIFT_CARDS_LOGO_2 = "Offer an escape game";
 
 const GIFT_CARDS_LOGO_3 = "Gift for many persons";
 const GIFT_CARDS_H2_1 = "What is a Gift Card ?";
@@ -425,6 +447,9 @@ const JOBS_LOGO_2_4 = "Adaptable";
 const JOBS_H2_2 = "Job offers";
 
 const JOBS_H2_3 = "Contact us";
+
+const JOBS_TASK = "Your Tasks:";
+const JOBS_STRENGHT = "Your Strenghts:";
 
 //BuyCards
 
@@ -753,7 +778,7 @@ const HOME_BUY = "Buy now !";
 
 const HOME_GIFT_CARD_TITLE = "Gift Cards";
 
-const HOME_GIFT_CARD_P = "Gift an adventure now !";
+const HOME_GIFT_CARD_P = "Offer an adventure now !";
 
 const HOME_OTHER_ESCAPE_TITLE = "Other Escape Games";
 
@@ -787,6 +812,18 @@ const ESCAPEGAME_ESCAPESEARCHBUTTON = "Search";
 const ESCAPEGAME_SCHEDULES = "Possible schedules for the ";
 
 const ESCAPEGAME_ADD_REVIEW = "Add a review";
+const ESCAPEGAME_H2_PRICE = "Prices";
+const ESCAPE_GAME_PRICE_2_3 = "2 to 3 persons";
+const ESCAPE_GAME_PRICE_4 = "4 persons";
+const ESCAPE_GAME_PRICE_5 = "5 persons";
+const ESCAPE_GAME_PRICE_6 = "6 persons";
+const ESCAPE_GAME_PRICE_7 = "7 persons";
+const ESCAPE_GAME_PRICE_8 = "8 persons";
+const ESCAPE_GAME_PRICE_9 = "9 persons";
+const ESCAPE_GAME_PRICE_10 = "10 persons";
+const ESCAPE_GAME_PRICE_11 = "11 persons";
+const ESCAPE_GAME_PRICE_12 = "12 persons";
+const ESCAPE_GAME_PRICE_12_PLUS = "More than 12 persons";
 
 //Escape Game Buy Page
 const BOOK_ESCAPEGAME_TITLE = "Book an escape game";

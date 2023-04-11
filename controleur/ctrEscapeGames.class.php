@@ -102,7 +102,15 @@ class ctrEscapeGames
     {
         $title = "Escape Game - Payment";
         $escapeGame = $this->escapeGames->getEscapeGame($_GET["escapeGame"]);
-        $nameEscapeGame = $escapeGame['name'];
+        //change the lang of the name if the session lang is fr
+        if ($_SESSION['lang'] == 'fr') {
+            $nameEscapeGame = $escapeGame['nameFR'];
+        } else {
+            $nameEscapeGame = $escapeGame['name'];
+        }
+        if ($_POST["nbPersons"] < 1) {
+            header("Location: index.php?action=escapeGame&escapeGame=" . $_GET["escapeGame"]);
+        }
         $priceEscapeGame = $this->escapeGames->getPriceEscapeGame($escapeGame["id_escapeGame"], $_POST["nbPersons"]);
         $dateSplit = preg_split("/[-]/", $_POST['buyDate']);
 

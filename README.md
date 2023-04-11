@@ -101,6 +101,9 @@ List of features
 * Gift card management
 * Q&A management
 * User management
+* Review management
+
+To access the admin panel, go to `https://yourwebsite.com/index.php?action=admin` when you are logged in.
 
 ## Status
 

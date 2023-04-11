@@ -497,6 +497,9 @@ class escapeGame extends bdd
         if (empty($actualAddress)) {
             $req = "UPDATE escapeGame SET address = ? WHERE id_escapeGame = ?";
             $this->execReqPrep($req, array($address, $id));
+            //reset the x and y coordinates
+            $req = "UPDATE escapeGame SET x = NULL, y = NULL WHERE id_escapeGame = ?";
+            $this->execReqPrep($req, array($id));
         }
     }
 
@@ -582,7 +585,7 @@ class escapeGame extends bdd
 
     public function verifyReview($review)
     {
-        if (strlen($review) > 0 and strlen($review) < 500 and preg_match("#^[a-zA-ZÀ-ÿ0-9 -]+$#", $review)) {
+        if (strlen($review) > 0 and strlen($review) < 500) {
             return true;
         } else {
             return false;

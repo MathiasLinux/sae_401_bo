@@ -71,7 +71,7 @@
             </div>
             <div class="grid1fr">
                 <div class="taskJobOffer">
-                    <p>Your Task :</p>
+                    <p><?= JOBS_TASK ?></p>
                     <ul>
                         <?php
                         if ($_SESSION['lang'] == "fr") {
@@ -90,7 +90,7 @@
                     </ul>
                 </div>
                 <div class="strenghtJobOffer">
-                    <p>Your strenght :</p>
+                    <p><?= JOBS_STRENGHT ?></p>
                     <ul>
                         <?php
                         if ($_SESSION['lang'] == "fr") {

@@ -181,40 +181,40 @@
         <div class="linksMenuAdmin">
             <a href="index.php">
                 <img src="img/svg/home.svg" alt="a house">
-                <p>Home</p>
+                <p><?= MENU_ADMIN_HOME ?></p>
             </a>
-            <div class="menuUnderline">Management</div>
+            <div class="menuUnderline"><?= MENU_ADMIN_MANAGEMENT ?></div>
             <a href="index.php?action=admin&page=escapeGames">
                 <img src="img/svg/key.svg" alt="a key">
-                <p>Escape Games</p>
+                <p><?= MENU_ADMIN_MANAGEMENT_ESCAPE_GAME ?></p>
             </a>
             <a href="index.php?action=admin&page=contactForm">
                 <img src="img/svg/email.svg" alt="a letter">
-                <p>Contact Form</p>
+                <p><?= MENU_ADMIN_MANAGEMENT_CONTACT_FORM ?></p>
             </a>
             <a href="index.php?action=admin&page=reservations">
                 <img src="img/svg/moneyHand.svg" alt="an hand with money">
-                <p>Reservations</p>
+                <p><?= MENU_ADMIN_MANAGEMENT_RESERVATION ?></p>
             </a>
             <a href="index.php?action=admin&page=giftCards">
                 <img src="img/svg/giftCard.svg" alt="a gift card">
-                <p>Gift Cards</p>
+                <p><?= MENU_ADMIN_MANAGEMENT_GIFT_CARDS ?></p>
             </a>
             <a href="index.php?action=admin&page=qAndA">
                 <img src="img/svg/faq.svg" alt="an faq">
-                <p>Q&A</p>
+                <p><?= MENU_ADMIN_MANAGEMENT_Q_AND_A ?></p>
             </a>
             <a href="index.php?action=admin&page=jobs">
                 <img src="img/svg/briefcase.svg" alt="a briefcase">
-                <p>Jobs</p>
+                <p><?= MENU_ADMIN_MANAGEMENT_JOBS ?></p>
             </a>
             <a href="index.php?action=admin&page=users">
                 <img src="img/svg/group.svg" alt="a group of user">
-                <p>Users</p>
+                <p><?= MENU_ADMIN_MANAGEMENT_USERS ?></p>
             </a>
             <a href="index.php?action=admin&page=reviews">
                 <img src="img/svg/reviews.svg" alt="Users wih stars">
-                <p>Reviews</p>
+                <p><?= MENU_ADMIN_MANAGEMENT_REVIEWS ?></p>
             </a>
         </div>
         <div class="lang">

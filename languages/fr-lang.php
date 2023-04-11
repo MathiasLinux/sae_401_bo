@@ -74,6 +74,28 @@ const MENU_ABOUT_US = "A propos";
 
 const MENU_CONNECTION = "Connexion";
 
+//Menu Admin
+
+const MENU_ADMIN_HOME = "Accueil";
+
+const MENU_ADMIN_MANAGEMENT = "Gestion";
+
+const MENU_ADMIN_MANAGEMENT_ESCAPE_GAME = "Escape Game";
+
+const MENU_ADMIN_MANAGEMENT_CONTACT_FORM = "Formulaire de contacts";
+
+const MENU_ADMIN_MANAGEMENT_RESERVATION = "Réservation";
+
+const MENU_ADMIN_MANAGEMENT_GIFT_CARDS = "Cartes cadeaux";
+
+const MENU_ADMIN_MANAGEMENT_Q_AND_A = "FAQ";
+
+const MENU_ADMIN_MANAGEMENT_JOBS = "Emplois";
+
+const MENU_ADMIN_MANAGEMENT_USERS = "Utilisateurs";
+
+const MENU_ADMIN_MANAGEMENT_REVIEWS = "Avis";
+
 //Footer
 
 const FOOTER_COMPAGNY = "Entreprise";
@@ -213,11 +235,15 @@ const CHANGE_ACCOUNT_INFOS_NEW_PASSWORDS_NOT_IDENTICAL = "Les nouveaux mots de p
 
 const CHANGE_ACCOUNT_INFOS_NEW_PASSWORD_INVALID = "Le nouveau mot de passe est invalide il doit contenir au moins 8 caractères dont une majuscule, une minuscule, un chiffre et un caractère spécial";
 
+const CHANGE_ACCOUNT_INFOS_NEW_PASSWORD = "Nouveau mot de passe :";
+
+const CHANGE_ACCOUNT_INFOS_NEW_PASSWORD_CONFIRM = "Confirmez votre nouveau mot de passe :";
+
 
 //About us page
 
 const ABOUT_US_TITLE = "A propos";
-const ABOUT_US_P_1 = "Bienvenue chez Kaiserstuhl Escape, la destination ultime pour les passionnés d'escape games ! Nos escape games immersifs mettent au défi votre esprit et votre créativité, alors que vous travaillez en équipe pour résoudre des énigmes, déchiffrer des codes et élucider des mystères. Avec plusieurs salles à thème au choix, chacune avec sa propre histoire et ses propres défis, vous êtes sûr de vivre une expérience inoubliable. Que vous prévoyiez une soirée amusante avec des amis ou une activité de renforcement d'équipe pour votre entreprise, Kaiserstuhl Escape offre le mélange parfait de divertissement et d'aventure. Réservez votre aventure en salle d'évasion dès aujourd'hui et voyez si vous avez ce qu'il faut pour vous échapper à temps !";
+const ABOUT_US_P_1 = "Bienvenue chez Kaiserstuhl Escape, la destination ultime pour les passionnés d'escape games ! Nos escape games immersifs mettent au défi votre esprit et votre créativité, alors que vous travaillez en équipe pour résoudre des énigmes, déchiffrer des codes et élucider des mystères. Avec plusieurs aventures, chacune avec sa propre histoire et ses propres défis, vous êtes sûr de vivre une expérience inoubliable. Que vous prévoyiez une soirée amusante avec des amis ou une activité de renforcement d'équipe pour votre entreprise, Kaiserstuhl Escape offre le mélange parfait de divertissement et d'aventure. Réservez votre aventure dès aujourd'hui et voyez si vous avez ce qu'il faut pour vous échapper à temps !";
 
 const ABOUT_US_H2_1 = "L'équipe";
 const ABOUT_US_PERSON_1_ROLE = "L'annonciatrice";
@@ -226,8 +252,8 @@ const ABOUT_US_PERSON_1_POSITION = "Cheffe du marketing et de la gestion des ven
 const ABOUT_US_PERSON_2_ROLE = "Chef de bande";
 const ABOUT_US_PERSON_2_POSITION = "Responsable d'événements et de développement";
 
-const ABOUT_US_PERSON_4_ROLE = "La personne qui tire les ficelles";
-const ABOUT_US_PERSON_4_POSITION = "Une fille pour tout 'Impossible, impossible'.";
+const ABOUT_US_PERSON_4_ROLE = "Le manageur";
+const ABOUT_US_PERSON_4_POSITION = "Responsable de l'équipe et des escape games";
 
 const ABOUT_US_PERSON_3_ROLE = "Le farceur";
 const ABOUT_US_PERSON_3_POSITION = "Direction de la production et de développement";
@@ -368,7 +394,7 @@ const GIFT_CARDS_LOGO_2 = "Offrez un escape game";
 
 const GIFT_CARDS_LOGO_3 = "Un cadeau pour plusieurs personnes";
 const GIFT_CARDS_H2_1 = "Qu'est-ce qu'une carte cadeau ?";
-const GIFT_CARDS_P_1 = "Une carte cadeau peut être utilisé pour payer des article sur le site. Vous pouvez aussi acheter une carte cadeau pour offrir un escape game précis";
+const GIFT_CARDS_P_1 = "Une carte cadeau peut être utilisée pour payer des articles sur le site. Vous pouvez aussi acheter une carte cadeau pour offrir un escape game précis";
 
 const GIFT_CARDS_H2_2 = "Acheter";
 
@@ -376,8 +402,8 @@ const GIFT_CARDS_BUTTON_1 = "Carte d'un montant";
 
 const GIFT_CARDS_BUTTON_2 = "Carte d'un escape game";
 
-const GIFT_CARDS_MONEY_SELECT = "Selectionnez le montant";
-const GIFT_CARDS_ESCAPE_SELECT = "Selectionnez l'escape game";
+const GIFT_CARDS_MONEY_SELECT = "Selectionner le montant";
+const GIFT_CARDS_ESCAPE_SELECT = "Selectionner l'escape game";
 
 const GIFT_CARDS_PERSONS_2 = "2 ou 3";
 
@@ -410,6 +436,9 @@ const JOBS_LOGO_2_4 = "Adaptable";
 const JOBS_H2_2 = "Offres d'emplois";
 
 const JOBS_H2_3 = "Contactez-nous";
+
+const JOBS_TASK = "Vos tâches :";
+const JOBS_STRENGHT = "Vos forces :";
 
 //BuyCards
 
@@ -763,7 +792,7 @@ const ESCAPEGAME_MOREANSWERS = "Plus de réponses";
 
 const ESCAPEGAME_H2_REVIEWS = "Avis";
 
-const ESCAPEGAME_MOREREVIEWS = "Plus de commentaire";
+const ESCAPEGAME_MOREREVIEWS = "Plus de commentaires";
 
 const ESCAPEGAME_NOREVIEW = "Il n'y a pas d'avis pour cet escape game pour l'instant.";
 
@@ -776,10 +805,22 @@ const ESCAPEGAME_ESCAPESEARCHBUTTON = "Chercher";
 const ESCAPEGAME_SCHEDULES = "Crénaux disponibles pour le ";
 
 const ESCAPEGAME_ADD_REVIEW = "Ajouter un avis";
+const ESCAPEGAME_H2_PRICE = "Prix";
+const ESCAPE_GAME_PRICE_2_3 = "2 à 3 personnes";
+const ESCAPE_GAME_PRICE_4 = "4 personnes";
+const ESCAPE_GAME_PRICE_5 = "5 personnes";
+const ESCAPE_GAME_PRICE_6 = "6 personnes";
+const ESCAPE_GAME_PRICE_7 = "7 personnes";
+const ESCAPE_GAME_PRICE_8 = "8 personnes";
+const ESCAPE_GAME_PRICE_9 = "9 personnes";
+const ESCAPE_GAME_PRICE_10 = "10 personnes";
+const ESCAPE_GAME_PRICE_11 = "11 personnes";
+const ESCAPE_GAME_PRICE_12 = "12 personnes";
+const ESCAPE_GAME_PRICE_12_PLUS = "Plus de 12 personnes";
 
 
 //Escape Game Buy Page
-const BOOK_ESCAPEGAME_TITLE = "Réserver un créneau";
+const BOOK_ESCAPEGAME_TITLE = "Réserver un créneaux";
 
 const BOOK_ESCAPEGAME_H2_1 = "Information de paiement";
 

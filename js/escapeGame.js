@@ -6,9 +6,10 @@ $cookie = $cookie.split(';');
 //search for the cookie "lang"
 let lang = "en";
 for ($i = 0; $i < $cookie.length; $i++) {
-    //console.log($cookie[$i].split('=')[0])
-    if ($cookie[$i].split('=')[0] === " lang") {
+    //console.log($cookie[$i])
+    if ($cookie[$i].split('=')[0] === "lang" || $cookie[$i].split('=')[0] === " lang") {
         lang = $cookie[$i].split('=')[1];
+        //console.log(lang)
     }
 }
 
@@ -83,7 +84,14 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(mapEscapeGame);
 var marker = L.marker([p.x, p.y]).addTo(mapEscapeGame);
-marker.bindPopup("Event's place").openPopup();
+//change the text with the cookie "lang"
+if (lang === "fr") {
+    marker.bindPopup("Lieu de l'événement").openPopup();
+} else if (lang === "en") {
+    marker.bindPopup("Event's place").openPopup();
+} else {
+    marker.bindPopup("Lieu de l'événement").openPopup();
+}
 
 //q&a, pour faire afficher les questions en + au clic sur le boutton "More answers" (même chose pour les reviews).
 var answersButton = document.querySelector('.escapeMoreAnswersButton');

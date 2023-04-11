@@ -20,7 +20,11 @@ if (isset($_SESSION["lang"])) {
 
 
 <h2 class="titreUnderline"><?php
-    echo $_SESSION['lang'] ? $escapeGame['nameFR'] : $escapeGame['name'];
+    if ($_SESSION['lang'] == 'fr') {
+        echo $escapeGame['nameFR'];
+    } else {
+        echo $escapeGame['name'];
+    }
     ?></h2>
 
 <!-- Infos escape game -->
@@ -49,8 +53,8 @@ if (isset($_SESSION["lang"])) {
 <div class="escapeGameSlider">
 
     <div class="escapeGameF">
-        <img class="escapeGameFGauche" src="../img/flecheGauche.png" alt="Left arrow" id='previous'>
-        <img class="escapeGameFDroite" src="../img/flecheDroite.png" alt="Right arrow" id='next'>
+        <img class="escapeGameFGauche" src="img/flecheGauche.png" alt="Left arrow" id='previous'>
+        <img class="escapeGameFDroite" src="img/flecheDroite.png" alt="Right arrow" id='next'>
     </div>
 
     <div class="escapeGSliderRect">
@@ -261,13 +265,48 @@ if (isset($_SESSION["email"])) {
 ?>
 
 <!-- Buy -->
+<h2 id="buyEscapeGame" class="titreUnderline"><?= ESCAPEGAME_H2_PRICE ?></h2>
+<div class="escapeGamePriceList">
+    <table class="tg">
+        <thead>
+        <tr>
+            <th class="tg-a43n"><?= ESCAPE_GAME_PRICE_2_3 ?></th>
+            <th class="tg-a43n"><?= ESCAPE_GAME_PRICE_4 ?></th>
+            <th class="tg-a43n"><?= ESCAPE_GAME_PRICE_5 ?></th>
+            <th class="tg-a43n"><?= ESCAPE_GAME_PRICE_6 ?></th>
+            <th class="tg-a43n"><?= ESCAPE_GAME_PRICE_7 ?></th>
+            <th class="tg-a43n"><?= ESCAPE_GAME_PRICE_8 ?></th>
+            <th class="tg-a43n"><?= ESCAPE_GAME_PRICE_9 ?></th>
+            <th class="tg-a43n"><?= ESCAPE_GAME_PRICE_10 ?></th>
+            <th class="tg-a43n"><?= ESCAPE_GAME_PRICE_11 ?></th>
+            <th class="tg-a43n"><?= ESCAPE_GAME_PRICE_12 ?></th>
+            <th class="tg-a43n"><?= ESCAPE_GAME_PRICE_12_PLUS ?></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="tg-m5d1 pad"><?= $escapeGame["price2_3Persons"] ?> €</td>
+            <td class="tg-m5d1 pad"><?= $escapeGame["price4Persons"] ?> €</td>
+            <td class="tg-m5d1 pad"><?= $escapeGame["price5Persons"] ?> €</td>
+            <td class="tg-m5d1 pad"><?= $escapeGame["price6Persons"] ?> €</td>
+            <td class="tg-m5d1 pad"><?= $escapeGame["price7Persons"] ?> €</td>
+            <td class="tg-m5d1 pad"><?= $escapeGame["price8Persons"] ?> €</td>
+            <td class="tg-m5d1 pad"><?= $escapeGame["price9Persons"] ?> €</td>
+            <td class="tg-m5d1 pad"><?= $escapeGame["price10Persons"] ?> €</td>
+            <td class="tg-m5d1 pad"><?= $escapeGame["price11Persons"] ?> €</td>
+            <td class="tg-m5d1 pad"><?= $escapeGame["price12Persons"] ?> €</td>
+            <td class="tg-m5d1 pad"><?= $escapeGame["price12PlusPersons"] ?> €</td>
+        </tbody>
+    </table>
+</div>
+
 <h2 id="buyEscapeGame" class="titreUnderline"><?= ESCAPEGAME_H2_BUY ?></h2>
 
 <form id="search" action="index.php?action=escapeGame&escapeGame=<?= $escapeGame["id_escapeGame"] ?>#hours"
       method="POST">
 
     <p><?= ESCAPEGAME_NBPERSONS ?></p>
-    <input class="inputBuy" type="number" id="buyPerson" name="nbPersons" required>
+    <input class="inputBuy" type="number" id="buyPerson" name="nbPersons" min="2" required>
 
     <p>Date</p>
     <!-- Min date after the current date and the user can't select sunday -->
@@ -358,7 +397,7 @@ if (isset($_SESSION["email"])) {
         </div>
         <input type="hidden" name="buyDate" value="<?= $_POST["buyDate"] ?>">
         <input type="hidden" name="nbPersons" value="<?= $_POST["nbPersons"] ?>">
-        <input type="submit" value="Order now" class="escapeYellowButton">
+        <input type="submit" value="<?= BOOK_ESCAPEGAME_ORDER_NOW ?>" class="escapeYellowButton">
     </div>
     <?php
     //     }

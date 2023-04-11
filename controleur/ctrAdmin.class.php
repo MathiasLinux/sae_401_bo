@@ -387,6 +387,10 @@ class ctrAdmin
             $this->EG->addFiles("imgEscapeUpload", "escapeGame/" . $id);
         }
         if (isset($_FILES["imgEscapeUploadCover"]) and !empty($_FILES["imgEscapeUploadCover"])) {
+            //verify that the repertoire exist
+            if (!file_exists("img/escapeGame/" . $id)) {
+                mkdir("img/escapeGame/" . $id);
+            }
             $this->EG->addFileCover("imgEscapeUploadCover", "escapeGames/", $id);
         }
         if (isset($_POST["name"]) and !empty($_POST["name"])) {

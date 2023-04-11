@@ -324,6 +324,7 @@ header img {
     display: flex;
     justify-content: space-around;
     grid-gap: 50px;
+    align-items: flex-end;
 }
 
 

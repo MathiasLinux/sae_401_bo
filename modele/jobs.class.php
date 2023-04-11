@@ -11,6 +11,13 @@ class jobs extends bdd
         return $jobs;
     }
 
+    public function getJobsVisible()
+    {
+        $req = "SELECT * FROM jobs WHERE visible = 1";
+        $jobs = $this->execReq($req);
+        return $jobs;
+    }
+
     public function addJobs($title, $titleFR, $position, $positionFR, $task, $taskFR, $strength, $strengthFR, $visible)
     {
         $req = "INSERT INTO jobs (title, titleFR, position, positionFR, task, taskFR, strength, strengthFR, visible) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
