@@ -780,6 +780,8 @@ const ESCAPEGAME_ESCAPESEARCHBUTTON = "Search";
 
 const ESCAPEGAME_SCHEDULES = "Possible schedules for the ";
 
+const ESCAPEGAME_ADD_REVIEW = "Add a review";
+
 //Escape Game Buy Page
 const BOOK_ESCAPEGAME_TITLE = "Book an escape game";
 
@@ -817,7 +819,11 @@ const BOOK_ESCAPEGAME_BUYER_LAST_NAME = "Last name";
 
 const BOOK_ESCAPEGAME_PERSONS = " persons ";
 
-const ESCAPEGAME_ADD_REVIEW = "Add a review";
+const BOOK_ESCAPEGAME_GIFT_CARD_MSG = "If you have a gift card, please enter the code here: ";
+
+const BOOK_ESCAPEGAME_GIFTCARD_NUMBER = "Gift card code";
+
+const BOOK_ESCAPEGAME_GIFTCARD_SUBMIT = "Use";
 
 /* Page Admin Reviews */
 

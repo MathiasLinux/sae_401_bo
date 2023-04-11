@@ -95,6 +95,17 @@ class routeur
                         $this->ctrEscapeGames->escapeGames();
                     }
                     break;
+                case "verifyGiftCard":
+                    if (isset($_SESSION["email"])) {
+                        if (isset($_POST["giftCardNumber"])) {
+                            $this->ctrGiftCards->verifyGiftCard();
+                        } else {
+                            $this->ctrEscapeGames->escapeGames();
+                        }
+                    } else {
+                        $this->ctrLogin->login();
+                    }
+                    break;
                 case "buyEG":
                     $this->ctrEscapeGames->buyEG();
                     break;

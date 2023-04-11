@@ -869,6 +869,12 @@ footer a {
     margin-top: 50px;
 }
 
+/* Page achat escape game vueBuyEG.php */
+
+.submitDivEscapeGameCardUse {
+    margin-bottom: 15%;
+}
+
 /* Page admin vueAdmin.php */
 
 .aButton {

@@ -809,6 +809,12 @@ const BOOK_ESCAPEGAME_BUYER_LAST_NAME = "Nom";
 
 const BOOK_ESCAPEGAME_PERSONS = " personnes ";
 
+const BOOK_ESCAPEGAME_GIFT_CARD_MSG = "Si vous avez une carte cadeau, entrez son code ici : ";
+
+const BOOK_ESCAPEGAME_GIFTCARD_NUMBER = "Code de la carte cadeau";
+
+const BOOK_ESCAPEGAME_GIFTCARD_SUBMIT = "Utiliser";
+
 /* Page Admin Reviews */
 
 const ADMIN_REVIEWS_TITLE = "Avis";

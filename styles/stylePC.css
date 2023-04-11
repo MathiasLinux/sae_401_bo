@@ -422,8 +422,19 @@ header img {
     flex-direction: column;
 }
 
-/* Page de connexion vueLogin.php */
+/* Page d'achat d'escape game vueBuyEG.php */
 
+.giftCardEscapeBuyForm {
+    display: grid;
+    grid-template-columns: none;
+    grid-template-rows: 1fr 1fr;
+}
+
+.submitDivEscapeGameCardUse {
+    margin-bottom: 0;
+}
+
+/* Page de connexion vueLogin.php */
 .signInForm {
     display: flex;
     flex-direction: column;

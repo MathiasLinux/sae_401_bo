@@ -2,9 +2,9 @@
 
 # <b>IMPORTANT</b>
 
-## Buy escape game
+## Escape game admin
 
-- [ ] Add the gift card payement
+- [ ] Crop the image before uploading it in two format One for the front and one for the escape game page
 
 ----------------
 
@@ -53,6 +53,10 @@
 
 - [X] A page dedicated to that.
 - [X] An admin page to see all the reviews
+
+## Buy escape game
+
+- [X] Add the gift card payement
 
 ## Videos in escape games
 

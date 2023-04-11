@@ -317,7 +317,7 @@ if (isset($_SESSION["email"])) {
                 if ($ten) {
                     echo "disabled";
                 }
-                ?>>
+                ?> required>
                 <label for="ten" class="greenButton">10h</label>
                 <input type="radio" name="hour" id="fourteen" value="fourteen" <?php
                 if ($fourteen) {

@@ -7,18 +7,40 @@
 // var_dump($priceEscapeGame);
 // var_dump($hourEscapeGame);
 
-if ($_POST) {
+if (isset($_POST["hour"]) or isset($_POST["hourEscapeGame"])) {
     //var_dump($_POST);
     $nbPersons = $_POST['nbPersons'];
+    if (!empty($discount[0]["price"])) {
+        $discount = $discount[0]["price"];
+    }
+    if (isset($priceEscapeGame) and isset($discount)) {
+        //if price contains a dot use floatval else use intval
+        if (str_contains($priceEscapeGame, '.'))
+            $priceEscapeGame = floatval($priceEscapeGame) - floatval($discount);
+        else {
+            $priceEscapeGame = intval($priceEscapeGame) - intval($discount);
+        }
+        $priceEscapeGame = floatval($priceEscapeGame) - floatval($discount);
+    } elseif (isset($_POST['amount']) and isset($discount)) {
+        //if price contains a dot use floatval else use intval
+        if (str_contains($_POST['amount'], '.'))
+            $priceEscapeGame = floatval($_POST['amount']) - floatval($discount);
+        else {
+            //var_dump(intval($_POST['amount']));
+            //var_dump($discount);
+            //var_dump(intval($discount));
+            $_POST['amount'] = intval($_POST['amount']) - intval($discount);
+        }
+    }
     ?>
     <div class="amount">
         <h3><?= BOOK_ESCAPEGAME_H3_1 ?></h3>
         <div>
             <?php
-            if (!empty($nameEscapeGame) and !empty($priceEscapeGame) and !empty($dateEscapeGame) and !empty($hourEscapeGame)) {
-                echo "<p> " . BOOK_ESCAPEGAME_ESCAPE_NAME . $nameEscapeGame . BOOK_ESCAPEGAME_ESCAPE_DAY . $dateEscapeGame . BOOK_ESCAPEGAME_ESCAPE_HOUR . $hourEscapeGame . "h" . BOOK_ESCAPEGAME_ESCAPE_FOR . $nbPersons . BOOK_ESCAPEGAME_PERSONS . BOOK_ESCAPEGAME_ESCAPE_FOR . $priceEscapeGame . "€</p>";
+            if (!empty($nameEscapeGame) and !empty($priceEscapeGame) and !empty($dateEscapeGame) and !empty($hourEscapeGame) and !empty($nbPersons)) {
+                echo "<p> " . BOOK_ESCAPEGAME_ESCAPE_NAME . $nameEscapeGame . BOOK_ESCAPEGAME_ESCAPE_DAY . $dateEscapeGame . BOOK_ESCAPEGAME_ESCAPE_HOUR . $hourEscapeGame . "h" . BOOK_ESCAPEGAME_ESCAPE_FOR . $nbPersons . BOOK_ESCAPEGAME_PERSONS . BOOK_ESCAPEGAME_ESCAPE_FOR . "<strong>" . $priceEscapeGame . "€</strong></p>";
             } elseif (!empty($_POST['nameEscapeGame']) and !empty($_POST['amount']) and !empty($_POST['dateEscapeGame']) and !empty($_POST['hourEscapeGame'])) {
-                echo "<p> " . BOOK_ESCAPEGAME_ESCAPE_NAME . $_POST['nameEscapeGame'] . BOOK_ESCAPEGAME_ESCAPE_DAY . $_POST['dateEscapeGame'] . BOOK_ESCAPEGAME_ESCAPE_HOUR . $_POST['hourEscapeGame'] . "h" . BOOK_ESCAPEGAME_ESCAPE_FOR . $_POST['amount'] . "€</p>";
+                echo "<p> " . BOOK_ESCAPEGAME_ESCAPE_NAME . $_POST['nameEscapeGame'] . BOOK_ESCAPEGAME_ESCAPE_DAY . $_POST['dateEscapeGame'] . BOOK_ESCAPEGAME_ESCAPE_HOUR . $_POST['hourEscapeGame'] . "h" . BOOK_ESCAPEGAME_ESCAPE_FOR . $_POST["nbPersons"] . BOOK_ESCAPEGAME_ESCAPE_FOR . "<strong>" . $_POST['amount'] . "€</strong></p>";
             } else
                 if ($_SESSION['lang'] == 'fr')
                     echo "<p class='errorMessageBuy'> Vous n'avez pas sélectionné d'escape game.</p>";
@@ -26,6 +48,97 @@ if ($_POST) {
                     echo "<p class='errorMessageBuy'> You have not selected an escape game.</p>";
             ?>
         </div>
+        <form class="contactForm contactJobs giftCardEscapeBuyForm" action="index.php?action=verifyGiftCard"
+              method="post">
+            <div class="formGroup">
+                <p><?= BOOK_ESCAPEGAME_GIFT_CARD_MSG ?></p>
+                <label><?= BOOK_ESCAPEGAME_GIFTCARD_NUMBER ?>
+                    <input type="number" name="giftCardNumber" id="giftCardNumber" placeholder="1234567890123"<?php
+                    if (isset($error['giftCardNumber'])) {
+                        echo "class='errorForm'";
+                    } elseif (isset($okValue['giftCardNumber'])) {
+                        echo "class='okForm'";
+                    }
+                    if (isset($okValue['giftCardNumber'])) {
+                        echo "value='" . $okValue['giftCardNumber'] . "'";
+                    }
+                    ?>
+                           required <?php
+                    if (isset($discount)) {
+                        echo "disabled";
+                        echo " class='okForm'";
+                    }
+                    ?>>
+                </label>
+                <div>
+                    <?php
+                    if (isset($error['giftCardNumber'])) {
+                        echo "<p class='errorMessageBuy'>" . $error['giftCardNumber'] . "</p>";
+                    }
+                    ?>
+                </div>
+            </div>
+            <?php
+            //var_dump($_POST);
+            if (isset($_POST['nbPersons']))
+                $nbPersonsIn = $_POST['nbPersons'];
+            elseif (isset($nbPersons))
+                $nbPersonsIn = $nbPersons;
+            else
+                $nbPersonsIn = "";
+            if (isset($_POST['nameEscapeGame']))
+                $nameEscapeGameIn = $_POST['nameEscapeGame'];
+            elseif (isset($nameEscapeGame))
+                $nameEscapeGameIn = $nameEscapeGame;
+            else
+                $nameEscapeGameIn = "";
+            if (isset($_POST['dateEscapeGame']))
+                $dateEscapeGameIn = $_POST['dateEscapeGame'];
+            elseif (isset($dateEscapeGame))
+                $dateEscapeGameIn = $dateEscapeGame;
+            else
+                $dateEscapeGameIn = "";
+            if (isset($_POST['hourEscapeGame']))
+                $hourEscapeGameIn = $_POST['hourEscapeGame'];
+            elseif (isset($hourEscapeGame))
+                $hourEscapeGameIn = $hourEscapeGame;
+            else
+                $hourEscapeGameIn = "";
+            if (isset($_POST['amount']))
+                $priceEscapeGameIn = $_POST['amount'];
+            elseif (isset($priceEscapeGame))
+                $priceEscapeGameIn = $priceEscapeGame;
+            else
+                $priceEscapeGameIn = "";
+            if (isset($_POST['idEscapeGame']))
+                $idEscapeGameIn = $_POST['idEscapeGame'];
+            elseif ($_GET['escapeGame'])
+                $idEscapeGameIn = $_GET['escapeGame'];
+            else
+                $idEscapeGameIn = "";
+            ?>
+            <input type="hidden" name="nameEscapeGame" value="<?= $nameEscapeGameIn ?>">
+            <input type="hidden" name="dateEscapeGame" value="<?= $dateEscapeGameIn ?>">
+            <input type="hidden" name="hourEscapeGame" value="<?= $hourEscapeGameIn ?>">
+            <input type="hidden" name="amount" value="<?= $priceEscapeGameIn ?>">
+            <input type="hidden" name="nbPersons" value="<?= $nbPersonsIn ?>">
+            <input type="hidden" name="idEscapeGame" value="<?= $idEscapeGameIn ?>">
+            <div class="formGroup submitDivEscapeGameCardUse">
+                <input type="submit" <?php
+                if (isset($discount)) {
+                    if ($_SESSION['lang'] == 'fr')
+                        echo "value='Carte cadeau appliquée'";
+                    else {
+                        echo "value='Gift card applied'";
+                    }
+                    echo "disabled";
+                    echo " class='okForm'";
+                } else {
+                    echo "value=" . BOOK_ESCAPEGAME_GIFTCARD_SUBMIT;
+                }
+                ?>>
+            </div>
+        </form>
         <form class="contactForm contactJobs" action="index.php?action=buyEGValid" method="post">
             <div class="formGroup">
                 <label><?= BOOK_ESCAPEGAME_BUYER_FIRST_NAME ?>
@@ -170,5 +283,7 @@ if ($_POST) {
         </form>
     </div>
     <?php
+} else {
+    header('Location: index.php?action=escapeGames');
 }
 ?>

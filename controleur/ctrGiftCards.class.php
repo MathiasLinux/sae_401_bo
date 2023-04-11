@@ -284,4 +284,70 @@ class ctrGiftCards
         $objVue = new vue("BuyCardsSuccess");
         $objVue->afficher(array(), $title);
     }
+
+    public function verifyGiftCard()
+    {
+        //var_dump($_POST);
+        if (isset($_POST['giftCardNumber'])) {
+            $error = [];
+            if (empty($_POST['giftCardNumber'])) {
+                if ($_SESSION['lang'] == "fr") {
+                    $error['giftCardNumber'] = "Le numéro de la carte cadeau est vide";
+                } else {
+                    $error['giftCardNumber'] = "Gift card number is empty";
+                }
+            }
+            if (empty($error)) {
+                if (!$this->objGiftCards->verifyGiftCard($_POST['giftCardNumber'])) {
+                    if ($_SESSION['lang'] == "fr") {
+                        $error['giftCardNumber'] = "Le numéro de la carte cadeau n'est pas valide";
+                    } else {
+                        $error['giftCardNumber'] = "Gift card number is not valid";
+                    }
+                }
+                if (!$this->objGiftCards->verifyGiftCardAmount($_POST['giftCardNumber'], $_POST['amount'])) {
+                    if ($_SESSION['lang'] == "fr") {
+                        $error['giftCardNumber'] = "La carte cadeau est supérieure au montant de la commande";
+                    } else {
+                        $error['giftCardNumber'] = "The Gift card is greater than the amount of the order";
+                    }
+
+                }
+                if (empty($error)) {
+                    $id_user = $this->objUser->getIdUser($_SESSION['email']);
+                    $this->objGiftCards->userUsedGiftCard($_POST['giftCardNumber']);
+                    $discount = $this->objGiftCards->getDiscount($_POST['giftCardNumber']);
+                    $title = "Payment - Kaiserstuhl escape";
+                    $objVue = new vue("BuyEG");
+                    $objVue->afficher(array("discount" => $discount, "amount" => $_POST['amount']), $title);
+                } else {
+                    // return to payment page with errors and send the post data of the values and the valid fields
+                    $okValues = [];
+                    //search if the values are in error
+                    foreach ($_POST as $key => $value) {
+                        if (!array_key_exists($key, $error)) {
+                            $okValues[$key] = $value;
+                        }
+                    }
+                    $title = "Payment - Kaiserstuhl escape";
+                    $objVue = new vue("BuyEG");
+                    $objVue->afficher(array("error" => $error, "okValue" => $okValues, "amount" => $_POST['amount']), $title);
+                }
+            } else {
+                // return to payment page with errors and send the post data of the values and the valid fields
+                if (!isset($okValues)) {
+                    $okValues = [];
+                }
+                //search if the values are in error
+                foreach ($_POST as $key => $value) {
+                    if (!array_key_exists($key, $error)) {
+                        $okValues[$key] = $value;
+                    }
+                }
+                $title = "Payment - Kaiserstuhl escape";
+                $objVue = new vue("BuyEG");
+                $objVue->afficher(array("error" => $error, "okValue" => $okValues, "amount" => $_POST['amount']), $title);
+            }
+        }
+    }
 }

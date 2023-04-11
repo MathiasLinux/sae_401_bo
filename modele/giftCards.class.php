@@ -102,4 +102,43 @@ class giftCards extends bdd
         $req = "SELECT DATE_FORMAT(buyingDate, '%d/%m/%Y') AS buyingDate, code, eG.name, eG.nameFR FROM giftCard INNER JOIN escapeGame eG on giftCard.id_escapeGame = eG.id_escapeGame WHERE type = 'escapeGame' AND giftCard.id_user = ? AND ISNULL(usageDate);";
         return $this->execReqPrep($req, array($id));
     }
+
+    public function verifyGiftCard($code)
+    {
+        $req = "SELECT * FROM giftCard WHERE code = ? AND ISNULL(usageDate);";
+        if ($this->execReqPrep($req, array($code)))
+            return true;
+        else
+            return false;
+    }
+
+    public function userUsedGiftCard($code)
+    {
+        $req = "UPDATE giftCard SET usageDate = ? WHERE code = ?;";
+        $this->execReqPrep($req, array(date("Y-m-d"), $code));
+    }
+
+    public function getDiscount($code)
+    {
+        $req = "SELECT price FROM giftCardAmount INNER JOIN giftCard on giftCard.id_giftCardAmount = giftCardAmount.id_giftCardAmount WHERE code = ?;";
+        return $this->execReqPrep($req, array($code));
+    }
+
+    public function verifyGiftCardAmount($giftCardNumber, $orderAmount)
+    {
+        $req = "SELECT price FROM giftCardAmount INNER JOIN giftCard on giftCard.id_giftCardAmount = giftCardAmount.id_giftCardAmount WHERE code = ?;";
+        $giftCardAmount = $this->execReqPrep($req, array($giftCardNumber));
+        //if the orderAmount is a float number use floatval($orderAmount) else use intval($orderAmount)
+        if (str_contains($orderAmount, ".")) {
+            if (floatval($orderAmount) >= floatval($giftCardAmount[0]["price"]))
+                return true;
+            else
+                return false;
+        } else {
+            if (intval($orderAmount) >= intval($giftCardAmount[0]["price"]))
+                return true;
+            else
+                return false;
+        }
+    }
 }
