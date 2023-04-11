@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : mar. 11 avr. 2023 à 16:30
+-- Généré le : mar. 11 avr. 2023 à 16:32
 -- Version du serveur : 10.5.16-MariaDB
 -- Version de PHP : 8.0.27
 
@@ -20,9 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `sae401_github`
 --
-DROP DATABASE IF EXISTS `sae401_github`;
-CREATE DATABASE IF NOT EXISTS `sae401_github` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `sae401_github`;
 
 -- --------------------------------------------------------
 
@@ -30,6 +27,7 @@ USE `sae401_github`;
 -- Structure de la table `buying`
 --
 
+DROP TABLE IF EXISTS `buying`;
 CREATE TABLE `buying` (
   `id_user` int(11) DEFAULT NULL,
   `id_escapeGame` int(11) DEFAULT NULL,
@@ -56,6 +54,7 @@ INSERT INTO `buying` (`id_user`, `id_escapeGame`, `id_buying`, `buyingDate`, `ga
 -- Structure de la table `contactForm`
 --
 
+DROP TABLE IF EXISTS `contactForm`;
 CREATE TABLE `contactForm` (
   `id_contactForm` int(11) NOT NULL,
   `date` date DEFAULT NULL,
@@ -79,6 +78,7 @@ INSERT INTO `contactForm` (`id_contactForm`, `date`, `firstName`, `lastName`, `e
 -- Structure de la table `escapeGame`
 --
 
+DROP TABLE IF EXISTS `escapeGame`;
 CREATE TABLE `escapeGame` (
   `id_escapeGame` int(11) NOT NULL,
   `name` varchar(64) DEFAULT NULL,
@@ -123,6 +123,7 @@ INSERT INTO `escapeGame` (`id_escapeGame`, `name`, `nameFR`, `description`, `des
 -- Structure de la table `giftCard`
 --
 
+DROP TABLE IF EXISTS `giftCard`;
 CREATE TABLE `giftCard` (
   `id_giftCard` int(11) NOT NULL,
   `buyingDate` date DEFAULT NULL,
@@ -148,6 +149,7 @@ INSERT INTO `giftCard` (`id_giftCard`, `buyingDate`, `type`, `code`, `usageDate`
 -- Structure de la table `giftCardAmount`
 --
 
+DROP TABLE IF EXISTS `giftCardAmount`;
 CREATE TABLE `giftCardAmount` (
   `id_giftCardAmount` int(11) NOT NULL,
   `price` float DEFAULT NULL,
@@ -171,6 +173,7 @@ INSERT INTO `giftCardAmount` (`id_giftCardAmount`, `price`, `deleted`) VALUES
 -- Structure de la table `jobs`
 --
 
+DROP TABLE IF EXISTS `jobs`;
 CREATE TABLE `jobs` (
   `id_jobs` int(11) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
@@ -198,6 +201,7 @@ INSERT INTO `jobs` (`id_jobs`, `title`, `titleFR`, `position`, `positionFR`, `ta
 -- Structure de la table `qAndACat`
 --
 
+DROP TABLE IF EXISTS `qAndACat`;
 CREATE TABLE `qAndACat` (
   `id_qAndACat` int(11) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
@@ -219,6 +223,7 @@ INSERT INTO `qAndACat` (`id_qAndACat`, `title`, `titleFR`, `id_escapeGame`) VALU
 -- Structure de la table `qAndAQuestion`
 --
 
+DROP TABLE IF EXISTS `qAndAQuestion`;
 CREATE TABLE `qAndAQuestion` (
   `id_qAndAQuestion` int(11) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
@@ -243,6 +248,7 @@ INSERT INTO `qAndAQuestion` (`id_qAndAQuestion`, `title`, `titleFR`, `answer`, `
 -- Structure de la table `reviews`
 --
 
+DROP TABLE IF EXISTS `reviews`;
 CREATE TABLE `reviews` (
   `id_reviews` int(11) NOT NULL,
   `firstName` varchar(32) DEFAULT NULL,
@@ -267,6 +273,7 @@ INSERT INTO `reviews` (`id_reviews`, `firstName`, `lastName`, `description`, `de
 -- Structure de la table `user`
 --
 
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
