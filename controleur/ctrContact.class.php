@@ -21,7 +21,11 @@ class ctrContact
 
     public function sendForm()
     {
-        $this->contact->addContactInfos();
-        header("Location: index.php");
+        if (isset($_POST["firstName"]) and isset($_POST["name"]) and isset($_POST["email"]) and isset ($_POST["phone"]) and isset($_POST["message"])) {
+            $this->contact->addContactInfos();
+            header("Location: index.php");
+        } else {
+            header("Location: index.php?action=contact");
+        }
     }
 }

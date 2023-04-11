@@ -509,6 +509,10 @@ const ADMIN_EG_NAME = "Nom EN";
 
 const ADMIN_EG_NAME_FR = "Nom FR";
 
+const ADMIN_EG_PAGE_IMAGES = "Images de la page";
+
+const ADMIN_EG_HOME_IMAGE = "Image sur l'accueil";
+
 const ADMIN_EG_DISPLAY = "Affichage";
 
 const ADMIN_EG_DIFFICULTY_DURATION = "Difficulté et durée";

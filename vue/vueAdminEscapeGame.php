@@ -18,15 +18,56 @@ if (isset($EG)) {
                 <div>
                     <label>
                         <span><?= ADMIN_EG_NAME ?></span>
-                        <input type="text" value="<?= $EG['name'] ?>" id="name" name="name">
+                        <input type="text" value="<?= $EG['name'] ?>" id="name" name="name" required>
                     </label>
                 </div>
                 <div>
                     <label>
                         <span><?= ADMIN_EG_NAME_FR ?></span>
-                        <input type="text" value="<?= $EG['nameFR'] ?>" id="nameFR" name="nameFR">
+                        <input type="text" value="<?= $EG['nameFR'] ?>" id="nameFR" name="nameFR" required>
                     </label>
                 </div>
+            </div>
+        </div>
+        <div class="escapeImgDivUploadCoverBig">
+            <h2 class="titleUnderline"><?= ADMIN_EG_HOME_IMAGE ?></h2>
+            <?php
+            //display the image with the id of the escape game -home image in the /img/escapeGame folder
+            if (file_exists("img/escapeGames/" . $EG['id_escapeGame'] . "-home.jpg")) {
+                ?>
+                <div class="escapeImgDivUploadCover">
+                    <img src="img/escapeGames/<?= $EG['id_escapeGame'] ?>-home.jpg" alt="<?= $EG["name"] ?> image">
+                </div>
+                <?php
+            } elseif (file_exists("img/escapeGames/" . $EG['id_escapeGame'] . "-home.png")) {
+                ?>
+                <div class="escapeImgDivUploadCover">
+                    <img src="img/escapeGames/<?= $EG['id_escapeGame'] ?>-home.png" alt="<?= $EG["name"] ?> image">
+                </div>
+                <?php
+            } elseif (file_exists("img/escapeGames/" . $EG['id_escapeGame'] . "-home.jpeg")) {
+                ?>
+                <div class="escapeImgDivUploadCover">
+                    <img src="img/escapeGames/<?= $EG['id_escapeGame'] ?>-home.jpeg" alt="<?= $EG["name"] ?> image">
+                </div>
+                <?php
+            }
+            ?>
+            <div class="escapeImgDivUpload ">
+                <label for="imgEscapeUploadCover">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="74.419" height="74.419"
+                         viewBox="0 0 74.419 74.419">
+                        <path id="Tracé_27" data-name="Tracé 27"
+                              d="M3,50.613V66.484a7.959,7.959,0,0,0,7.935,7.936H66.484a7.936,7.936,0,0,0,7.936-7.936V50.613M58.548,22.839,38.71,3,18.871,22.839M38.71,7.761V48.629"
+                              transform="translate(-1.5 -1.5)" fill="none" stroke="#b2b2b2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round" stroke-width="3"/>
+                    </svg>
+                </label>
+                <input type="hidden" name="MAX_FILE_SIZE" value="20000000">
+                <input type="file"
+                       id="imgEscapeUploadCover" name="imgEscapeUploadCover"
+                       accept="image/png, image/jpeg">
             </div>
         </div>
         <div class="visibilityEGBig">
@@ -41,11 +82,11 @@ if (isset($EG)) {
                 <?php
                 if ($EG['visible'] == 1) {
                     ?>
-                    <input type="range" min="0" max="1" id="visible" name="visible" value="1">
+                    <input type="range" min="0" max="1" id="visible" name="visible" value="1" required>
                     <?php
                 } else {
                     ?>
-                    <input type="range" min="0" max="1" id="visible" name="visible" value="0">
+                    <input type="range" min="0" max="1" id="visible" name="visible" value="0" required>
                     <?php
                 }
                 ?>
@@ -61,46 +102,49 @@ if (isset($EG)) {
                 <?php
                 if ($EG['onFront'] == 1) {
                     ?>
-                    <input type="range" min="0" max="1" id="onFront" name="onFront" value="1">
+                    <input type="range" min="0" max="1" id="onFront" name="onFront" value="1" required>
                     <?php
                 } else {
                     ?>
-                    <input type="range" min="0" max="1" id="onFront" name="onFront" value="0">
+                    <input type="range" min="0" max="1" id="onFront" name="onFront" value="0" required>
                     <?php
                 }
                 ?>
             </div>
         </div>
 
-        <!-- Gestion des images à faire -->
-
-        <div class="imgAdminEG">
-            <?php
-            //verify if the folder exist
-            if (file_exists("img/escapeGame/" . $EG['id_escapeGame'] . "/")) {
-                $imgs = scandir("img/escapeGame/" . $EG['id_escapeGame'] . "/");
-                array_shift($imgs);
-                array_shift($imgs);
-                foreach ($imgs as $img)
-                    echo "<img src='img/escapeGame/" . $EG['id_escapeGame'] . "/$img' alt='$img image'>";
-            }
-            ?>
+        <div class="imgAdminEGBig">
+            <h2 class="titleUnderline"><?= ADMIN_EG_PAGE_IMAGES ?></h2>
+            <div class="imgAdminEG">
+                <?php
+                //verify if the folder exist
+                if (file_exists("img/escapeGame/" . $EG['id_escapeGame'] . "/")) {
+                    $imgs = scandir("img/escapeGame/" . $EG['id_escapeGame'] . "/");
+                    array_shift($imgs);
+                    array_shift($imgs);
+                    foreach ($imgs as $img)
+                        echo "<img src='img/escapeGame/" . $EG['id_escapeGame'] . "/$img' alt='$img image'>";
+                }
+                ?>
+            </div>
         </div>
-        <div class="escapeImgDivUpload ">
-            <label for="imgEscapeUpload">
-                <svg xmlns="http://www.w3.org/2000/svg" width="74.419" height="74.419"
-                     viewBox="0 0 74.419 74.419">
-                    <path id="Tracé_27" data-name="Tracé 27"
-                          d="M3,50.613V66.484a7.959,7.959,0,0,0,7.935,7.936H66.484a7.936,7.936,0,0,0,7.936-7.936V50.613M58.548,22.839,38.71,3,18.871,22.839M38.71,7.761V48.629"
-                          transform="translate(-1.5 -1.5)" fill="none" stroke="#b2b2b2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round" stroke-width="3"/>
-                </svg>
-            </label>
-            <input type="hidden" name="MAX_FILE_SIZE" value="20000000">
-            <input type="file"
-                   id="imgEscapeUpload" name="imgEscapeUpload[]"
-                   accept="image/png, image/jpeg" multiple="multiple">
+        <div class="escapeImgDivUploadBig">
+            <div class="escapeImgDivUpload ">
+                <label for="imgEscapeUpload">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="74.419" height="74.419"
+                         viewBox="0 0 74.419 74.419">
+                        <path id="Tracé_27" data-name="Tracé 27"
+                              d="M3,50.613V66.484a7.959,7.959,0,0,0,7.935,7.936H66.484a7.936,7.936,0,0,0,7.936-7.936V50.613M58.548,22.839,38.71,3,18.871,22.839M38.71,7.761V48.629"
+                              transform="translate(-1.5 -1.5)" fill="none" stroke="#b2b2b2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round" stroke-width="3"/>
+                    </svg>
+                </label>
+                <input type="hidden" name="MAX_FILE_SIZE" value="20000000">
+                <input type="file"
+                       id="imgEscapeUpload" name="imgEscapeUpload[]"
+                       accept="image/png, image/jpeg" multiple="multiple">
+            </div>
         </div>
 
         <div class="difficultyAdminBig">
@@ -178,7 +222,7 @@ if (isset($EG)) {
             <div class="durationAdmin">
                 <label>
                     <span><?= ADMIN_EG_DURATION ?></span>
-                    <input type="number" value="<?= $EG['duration'] ?>" id="duration" name="duration" min="1">
+                    <input type="number" value="<?= $EG['duration'] ?>" id="duration" name="duration" min="1" required>
                 </label>
             </div>
         </div>
@@ -188,14 +232,15 @@ if (isset($EG)) {
                 <div>
                     <label>
                         <span><?= ADMIN_EG_DESCRIPTION ?></span>
-                        <textarea id="description" name="description"><?= $EG['description'] ?></textarea>
+                        <textarea id="description" name="description" required><?= $EG['description'] ?></textarea>
                     </label>
                 </div>
 
                 <div>
                     <label>
                         <span><?= ADMIN_EG_DESCRIPTION_FR ?></span>
-                        <textarea id="descriptionFR" name="descriptionFR"><?= $EG['descriptionFR'] ?></textarea>
+                        <textarea id="descriptionFR" name="descriptionFR"
+                                  required><?= $EG['descriptionFR'] ?></textarea>
                     </label>
                 </div>
             </div>
@@ -206,7 +251,7 @@ if (isset($EG)) {
             <div>
                 <label>
                     <span><?= ADMIN_EG_ADDRESS ?></span>
-                    <input type="text" value="<?= $EG['address'] ?>" id="address" name="address">
+                    <input type="text" value="<?= $EG['address'] ?>" id="address" name="address" required>
                 </label>
             </div>
         </div>
@@ -216,7 +261,7 @@ if (isset($EG)) {
                 <div>
                     <label>
                         <span><?= ADMIN_EG_PRICE_2_3 ?></span>
-                        <input type="number" value="<?= $EG['price2_3Persons'] ?>" id="price2_3Persons"
+                        <input type="number" value="<?= $EG['price2_3Persons'] ?>" id="price2_3Persons required"
                                name="price2_3Persons"
                                min="1">
                     </label>
@@ -225,42 +270,42 @@ if (isset($EG)) {
                     <label>
                         <span><?= ADMIN_EG_PRICE_4 ?></span>
                         <input type="number" value="<?= $EG['price4Persons'] ?>" id="price4Persons" name="price4Persons"
-                               min="1">
+                               min="1" required>
                     </label>
                 </div>
                 <div>
                     <label>
                         <span><?= ADMIN_EG_PRICE_5 ?></span>
                         <input type="number" value="<?= $EG['price5Persons'] ?>" id="price5Persons" name="price5Persons"
-                               min="1">
+                               min="1" required>
                     </label>
                 </div>
                 <div>
                     <label>
                         <span><?= ADMIN_EG_PRICE_6 ?></span>
                         <input type="number" value="<?= $EG['price6Persons'] ?>" id="price6Persons" name="price6Persons"
-                               min="1">
+                               min="1" required>
                     </label>
                 </div>
                 <div>
                     <label>
                         <span><?= ADMIN_EG_PRICE_7 ?></span>
                         <input type="number" value="<?= $EG['price7Persons'] ?>" id="price7Persons" name="price7Persons"
-                               min="1">
+                               min="1" required>
                     </label>
                 </div>
                 <div>
                     <label>
                         <span><?= ADMIN_EG_PRICE_8 ?></span>
                         <input type="number" value="<?= $EG['price8Persons'] ?>" id="price8Persons" name="price8Persons"
-                               min="1">
+                               min="1" required>
                     </label>
                 </div>
                 <div>
                     <label>
                         <span><?= ADMIN_EG_PRICE_9 ?></span>
                         <input type="number" value="<?= $EG['price9Persons'] ?>" id="price9Persons" name="price9Persons"
-                               min="1">
+                               min="1" required>
                     </label>
                 </div>
                 <div>
@@ -268,7 +313,7 @@ if (isset($EG)) {
                         <span><?= ADMIN_EG_PRICE_10 ?></span>
                         <input type="number" value="<?= $EG['price10Persons'] ?>" id="price10Persons"
                                name="price10Persons"
-                               min="1">
+                               min="1" required>
                     </label>
                 </div>
                 <div>
@@ -276,7 +321,7 @@ if (isset($EG)) {
                         <span><?= ADMIN_EG_PRICE_11 ?></span>
                         <input type="number" value="<?= $EG['price11Persons'] ?>" id="price11Persons"
                                name="price11Persons"
-                               min="1">
+                               min="1" required>
                     </label>
                 </div>
                 <div>
@@ -284,14 +329,14 @@ if (isset($EG)) {
                         <span><?= ADMIN_EG_PRICE_12 ?></span>
                         <input type="number" value="<?= $EG['price12Persons'] ?>" id="price12Persons"
                                name="price12Persons"
-                               min="1">
+                               min="1" required>
                     </label>
                 </div>
                 <div>
                     <label>
                         <span><?= ADMIN_EG_PRICE_12_PLUS ?></span>
                         <input type="number" value="<?= $EG['price12PlusPersons'] ?>" id="price12PlusPersons"
-                               name="price12PlusPersons" min="1">
+                               name="price12PlusPersons" min="1" required>
                     </label>
                 </div>
             </div>
@@ -324,18 +369,36 @@ if (isset($EG)) {
                 <div>
                     <label>
                         <span><?= ADMIN_EG_NAME ?></span>
-                        <input type="text" id="name" name="name">
+                        <input type="text" id="name" name="name" required>
                     </label>
                 </div>
                 <div>
                     <label>
                         <span><?= ADMIN_EG_NAME_FR ?></span>
-                        <input type="text" id="nameFR" name="nameFR">
+                        <input type="text" id="nameFR" name="nameFR" required>
                     </label>
                 </div>
             </div>
         </div>
-
+        <div class="escapeImgDivUploadCoverBig">
+            <h2 class="titleUnderline"><?= ADMIN_EG_HOME_IMAGE ?></h2>
+            <div class="escapeImgDivUpload ">
+                <label for="imgEscapeUploadCover">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="74.419" height="74.419"
+                         viewBox="0 0 74.419 74.419">
+                        <path id="Tracé_27" data-name="Tracé 27"
+                              d="M3,50.613V66.484a7.959,7.959,0,0,0,7.935,7.936H66.484a7.936,7.936,0,0,0,7.936-7.936V50.613M58.548,22.839,38.71,3,18.871,22.839M38.71,7.761V48.629"
+                              transform="translate(-1.5 -1.5)" fill="none" stroke="#b2b2b2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round" stroke-width="3"/>
+                    </svg>
+                </label>
+                <input type="hidden" name="MAX_FILE_SIZE" value="20000000">
+                <input type="file"
+                       id="imgEscapeUploadCover" name="imgEscapeUploadCover"
+                       accept="image/png, image/jpeg">
+            </div>
+        </div>
         <div class="visibilityEGBig">
             <div class="visibilityEG">
                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none"
@@ -345,7 +408,7 @@ if (isset($EG)) {
                     <circle cx="12" cy="12" r="3"></circle>
                 </svg>
                 <div><?= ADMIN_EG_DISPLAY ?></div>
-                <input type="range" min="0" max="1" id="visible" name="visible">
+                <input type="range" min="0" max="1" id="visible" name="visible" required>
             </div>
             <div class="visibilityEG">
                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none"
@@ -355,26 +418,29 @@ if (isset($EG)) {
                     <circle cx="12" cy="12" r="3"></circle>
                 </svg>
                 <div><?= ADMIN_EG_FRONT ?></div>
-                <input type="range" min="0" max="1" id="onFront" name="onFront" value="0">
+                <input type="range" min="0" max="1" id="onFront" name="onFront" value="0" required>
             </div>
         </div>
 
-        <!-- Gestion des images à faire -->
-        <div class="escapeImgDivUpload ">
-            <label for="imgEscapeUpload">
-                <svg xmlns="http://www.w3.org/2000/svg" width="74.419" height="74.419"
-                     viewBox="0 0 74.419 74.419">
-                    <path id="Tracé_27" data-name="Tracé 27"
-                          d="M3,50.613V66.484a7.959,7.959,0,0,0,7.935,7.936H66.484a7.936,7.936,0,0,0,7.936-7.936V50.613M58.548,22.839,38.71,3,18.871,22.839M38.71,7.761V48.629"
-                          transform="translate(-1.5 -1.5)" fill="none" stroke="#b2b2b2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round" stroke-width="3"/>
-                </svg>
-            </label>
-            <input type="hidden" name="MAX_FILE_SIZE" value="20000000">
-            <input type="file"
-                   id="imgEscapeUpload" name="imgEscapeUpload[]"
-                   accept="image/png, image/jpeg" multiple="multiple">
+
+        <div class="escapeImgDivUploadBig">
+            <h2 class="titleUnderline"><?= ADMIN_EG_PAGE_IMAGES ?></h2>
+            <div class="escapeImgDivUpload">
+                <label for="imgEscapeUpload">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="74.419" height="74.419"
+                         viewBox="0 0 74.419 74.419">
+                        <path id="Tracé_27" data-name="Tracé 27"
+                              d="M3,50.613V66.484a7.959,7.959,0,0,0,7.935,7.936H66.484a7.936,7.936,0,0,0,7.936-7.936V50.613M58.548,22.839,38.71,3,18.871,22.839M38.71,7.761V48.629"
+                              transform="translate(-1.5 -1.5)" fill="none" stroke="#b2b2b2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round" stroke-width="3"/>
+                    </svg>
+                </label>
+                <input type="hidden" name="MAX_FILE_SIZE" value="20000000">
+                <input type="file"
+                       id="imgEscapeUpload" name="imgEscapeUpload[]"
+                       accept="image/png, image/jpeg" multiple="multiple">
+            </div>
         </div>
 
         <div class="difficultyAdminBig">
@@ -430,7 +496,7 @@ if (isset($EG)) {
             <div class="durationAdmin">
                 <label>
                     <span><?= ADMIN_EG_DURATION ?></span>
-                    <input type="number" id="duration" name="duration" min="1">
+                    <input type="number" id="duration" name="duration" min="1" required>
                 </label>
             </div>
         </div>
@@ -440,14 +506,14 @@ if (isset($EG)) {
                 <div>
                     <label>
                         <span><?= ADMIN_EG_DESCRIPTION ?></span>
-                        <textarea id="description" name="description"></textarea>
+                        <textarea id="description" name="description" required></textarea>
                     </label>
                 </div>
 
                 <div>
                     <label>
                         <span><?= ADMIN_EG_DESCRIPTION_FR ?></span>
-                        <textarea id="descriptionFR" name="descriptionFR"></textarea>
+                        <textarea id="descriptionFR" name="descriptionFR" required></textarea>
                     </label>
                 </div>
             </div>
@@ -459,7 +525,7 @@ if (isset($EG)) {
             <div>
                 <label>
                     <span><?= ADMIN_EG_ADDRESS ?></span>
-                    <input type="text" id="address" name="address">
+                    <input type="text" id="address" name="address" required>
                 </label>
             </div>
         </div>
@@ -469,68 +535,68 @@ if (isset($EG)) {
                 <div>
                     <label>
                         <span><?= ADMIN_EG_PRICE_2_3 ?></span>
-                        <input type="number" id="price2_3Persons" name="price2_3Persons" min="1">
+                        <input type="number" id="price2_3Persons" name="price2_3Persons" min="1" required>
                     </label>
                 </div>
                 <div>
                     <label>
                         <span><?= ADMIN_EG_PRICE_4 ?></span>
-                        <input type="number" id="price4Persons" name="price4Persons" min="1">
+                        <input type="number" id="price4Persons" name="price4Persons" min="1" required>
                     </label>
                 </div>
                 <div>
                     <label>
                         <span><?= ADMIN_EG_PRICE_5 ?></span>
-                        <input type="number" id="price5Persons" name="price5Persons" min="1">
+                        <input type="number" id="price5Persons" name="price5Persons" min="1" required>
                     </label>
                 </div>
                 <div>
                     <label>
                         <span><?= ADMIN_EG_PRICE_6 ?></span>
-                        <input type="number" id="price6Persons" name="price6Persons" min="1">
+                        <input type="number" id="price6Persons" name="price6Persons" min="1" required>
                     </label>
                 </div>
                 <div>
                     <label>
                         <span><?= ADMIN_EG_PRICE_7 ?></span>
-                        <input type="number" id="price7Persons" name="price7Persons" min="1">
+                        <input type="number" id="price7Persons" name="price7Persons" min="1" required>
                     </label>
                 </div>
                 <div>
                     <label>
                         <span><?= ADMIN_EG_PRICE_8 ?></span>
-                        <input type="number" id="price8Persons" name="price8Persons" min="1">
+                        <input type="number" id="price8Persons" name="price8Persons" min="1" required>
                     </label>
                 </div>
                 <div>
                     <label>
                         <span><?= ADMIN_EG_PRICE_9 ?></span>
-                        <input type="number" id="price9Persons" name="price9Persons" min="1">
+                        <input type="number" id="price9Persons" name="price9Persons" min="1" required>
                     </label>
                 </div>
                 <div>
                     <label>
                         <span><?= ADMIN_EG_PRICE_10 ?></span>
-                        <input type="number" id="price10Persons" name="price10Persons" min="1">
+                        <input type="number" id="price10Persons" name="price10Persons" min="1" required>
                     </label>
                 </div>
                 <div>
                     <label>
                         <span><?= ADMIN_EG_PRICE_11 ?></span>
-                        <input type="number" id="price11Persons" name="price11Persons" min="1">
+                        <input type="number" id="price11Persons" name="price11Persons" min="1" required>
                     </label>
                 </div>
                 <div>
                     <label>
                         <span><?= ADMIN_EG_PRICE_12 ?></span>
-                        <input type="number" id="price12Persons" name="price12Persons" min="1">
+                        <input type="number" id="price12Persons" name="price12Persons" min="1" required>
                     </label>
                 </div>
                 <div>
                     <label>
                         <span><?= ADMIN_EG_PRICE_12_PLUS ?></span>
                         <input type="number" id="price12PlusPersons"
-                               name="price12PlusPersons" min="1">
+                               name="price12PlusPersons" min="1" required>
                     </label>
                 </div>
             </div>

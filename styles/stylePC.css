@@ -467,6 +467,7 @@ header img {
     display: grid;
     grid-template-areas:
     "title title ."
+    "coverImage coverImage ."
     "image image display"
     "upload upload ."
     "difficulty difficulty ."
@@ -490,7 +491,7 @@ header img {
     margin-bottom: 0%;
 }
 
-.imgAdminEG {
+.imgAdminEGBig {
     grid-area: image;
 
 }
@@ -500,8 +501,12 @@ main .formAdminEG > .imgAdminEG {
     margin-right: 20px;
 }
 
-.escapeImgDivUpload {
+.escapeImgDivUploadBig {
     grid-area: upload;
+}
+
+.escapeImgDivUploadCoverBig {
+    grid-area: coverImage;
 }
 
 .difficultyAdminBig {

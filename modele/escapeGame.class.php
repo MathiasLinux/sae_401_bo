@@ -176,31 +176,31 @@ class escapeGame extends bdd
     {
         if (isset($path)) {
             $path = $path . "/";
-            echo "test isset path";
-            echo "<br>";
-            echo $path;
-            echo "<br>";
+            //echo "test isset path";
+            //echo "<br>";
+            //echo $path;
+            //echo "<br>";
             $total = count($_FILES[$name]['name']);
             for ($j = 0; $j < $total; $j++) {
                 //var_dump($_FILES[$name]['name'][$j]);
                 if (isset($_FILES[$name]['name'][$j])) {
-                    echo "test name";
+                    //echo "test name";
                     // Test s'il n'y a pas d'erreur
                     if ($_FILES[$name]['error'][$j] == 0) {
-                        echo "test error";
+                        //echo "test error";
                         // Test si la taille du fichier uploadé est conforme
                         if ($_FILES[$name]['size'][$j] <= 20000000) {
-                            echo "test size";
+                            //echo "test size";
                             // Test si l'extension du fichier uploadé est autorisée
                             $infosfichier = new SplFileInfo($_FILES[$name]['name'][$j]);
                             $extension_upload = $infosfichier->getExtension();
                             $extensions_autorisees = array('jpg', 'jpeg', 'png');
                             if (in_array($extension_upload, $extensions_autorisees)) {
-                                echo "test extension";
-                                echo "<br>";
-                                echo "img/" . $path;
+                                //echo "test extension";
+                                //echo "<br>";
+                                //echo "img/" . $path;
                                 if (is_dir("img/" . $path)) {
-                                    echo "test is_dir";
+                                    //echo "test is_dir";
                                     // Stockage définitif du fichier photo dans le dossier uploads
                                     //move_uploaded_file($_FILES[$name]['tmp_name'][$j], "img/" . $path . $_FILES[$name]['name'][$j]);
                                     //+++++++++++++++++++++++++++++++++++++++++++
@@ -215,7 +215,7 @@ class escapeGame extends bdd
                                     //++++++++++++++
                                     //echo "Transfert du fichier " . $_FILES[$name]['name'][$j] . " effectué !";
                                     if (((file_exists("img/" . $path . "1.jpg")) || (file_exists("img/" . $path . "1.jpeg")) || (file_exists("img/" . $path . "1.png")))) {
-                                        echo "files non = -1";
+                                        //echo "files non = -1";
                                         //var_dump($_FILES[$name]['name'][$j]);
                                         $i = 1;
                                         while (file_exists("img/" . $path . $i . ".jpg") || file_exists("img/" . $path . $i . ".jpeg") || file_exists("img/" . $path . $i . ".png")) {
@@ -224,10 +224,10 @@ class escapeGame extends bdd
                                             //rename("img/" . $path . $_FILES[$name]['name'][$j], "img/" . $path . $id . "-" . $i . "." . $extension_upload);
                                         }
                                         move_uploaded_file($_FILES[$name]['tmp_name'][$j], "img/" . $path . $i . '.' . $extension_upload);
-                                        echo "Transfert du fichier " . $_FILES[$name]['name'][$j] . " effectué !";
+                                        //echo "Transfert du fichier " . $_FILES[$name]['name'][$j] . " effectué !";
                                         //rename('img/' . $path . $_FILES[$name]['name'][$j], 'img/' . $path . $id . '-1.' . $extension_upload);
                                     } else {
-                                        echo "files = 1";
+                                        //echo "files = 1";
                                         //var_dump($_FILES[$name]['name'][$j]);
                                         move_uploaded_file($_FILES[$name]['tmp_name'][$j], "img/" . $path . "1" . '.' . $extension_upload);
                                     }
@@ -256,12 +256,107 @@ class escapeGame extends bdd
                                     }*/
                                 }
                             } else
-                                echo "Echec du transfert : Type de fichier non autorisé.";
+                                //echo "Echec du transfert : Type de fichier non autorisé.";
+                                header('Location: index.php?action=admin&page=escapeGames');
                         } else
-                            echo "Echec du transfert : Fichier trop volumineux.";
+                            //echo "Echec du transfert : Fichier trop volumineux.";
+                            header('Location: index.php?action=admin&page=escapeGames');
                     } else
-                        echo "Echec du transfert avec le code d'erreur : " . $_FILES[$name]['error'];
+                        //echo "Echec du transfert avec le code d'erreur : " . $_FILES[$name]['error'];
+                        header('Location: index.php?action=admin&page=escapeGames');
                 }
+            }
+        }
+    }
+
+    public function addFileCover($name, $path, $id)
+    {
+        if (isset($path)) {
+            $path = $path . "/";
+            //echo "test isset path";
+            //echo "<br>";
+            //echo $path;
+            //echo "<br>";
+            //var_dump($_FILES[$name]['name'][$j]);
+            if (isset($_FILES[$name]['name'])) {
+                //echo "test name";
+                // Test s'il n'y a pas d'erreur
+                if ($_FILES[$name]['error'] == 0) {
+                    //echo "test error";
+                    // Test si la taille du fichier uploadé est conforme
+                    if ($_FILES[$name]['size'] <= 20000000) {
+                        //echo "test size";
+                        // Test si l'extension du fichier uploadé est autorisée
+                        $infosfichier = new SplFileInfo($_FILES[$name]['name']);
+                        $extension_upload = $infosfichier->getExtension();
+                        $extensions_autorisees = array('jpg', 'jpeg', 'png');
+                        if (in_array($extension_upload, $extensions_autorisees)) {
+                            //echo "test extension";
+                            //echo "<br>";
+                            //echo "img/" . $path;
+                            if (is_dir("img/" . $path)) {
+                                //echo "test is_dir";
+                                // Stockage définitif du fichier photo dans le dossier uploads
+                                //move_uploaded_file($_FILES[$name]['tmp_name'][$j], "img/" . $path . $_FILES[$name]['name'][$j]);
+                                //+++++++++++++++++++++++++++++++++++++++++++
+                                //775
+                                //echo $_FILES[$name]['tmp_name'][$j] . "<br>" . "<br>";
+                                //echo "img/" . $path . $_FILES[$name]['name'][$j] . "<br>" . "<br>";
+                                //var_dump($_FILES[$name]['name']);
+                                //see content of a folder
+                                //$dirun = "img/" . $path;
+                                //$filesun = scandir($dirun);
+                                //var_dump($filesun);
+                                //++++++++++++++
+                                //echo "Transfert du fichier " . $_FILES[$name]['name'][$j] . " effectué !";
+                                if (((file_exists("img/" . $path . $id . "-home.jpg")) || (file_exists("img/" . $path . $id . "-home.jpeg")) || (file_exists("img/" . $path . $id . "-home.png")))) {
+                                    //delete the old file
+                                    if (file_exists("img/" . $path . $id . "-home.jpg")) {
+                                        unlink("img/" . $path . $id . "-home.jpg");
+                                    } elseif (file_exists("img/" . $path . $id . "-home.jpeg")) {
+                                        unlink("img/" . $path . $id . "-home.jpeg");
+                                    } elseif (file_exists("img/" . $path . $id . "-home.png")) {
+                                        unlink("img/" . $path . $id . "-home.png");
+                                    }
+                                    move_uploaded_file($_FILES[$name]['tmp_name'], "img/" . $path . $id . '-home.' . $extension_upload);
+                                } else {
+                                    //echo "files = 1";
+                                    //var_dump($_FILES[$name]['name'][$j]);
+                                    move_uploaded_file($_FILES[$name]['tmp_name'], "img/" . $path . $id . '-home.' . $extension_upload);
+                                }
+                                /*if (!file_exists("img/" . $path . $id . "-1.jpg") or !file_exists("img/" . $path . $id . "-1.jpeg") or !file_exists("img/" . $path . $id . "-1.png")) {
+                                    move_uploaded_file($_FILES[$name]['tmp_name'][$j], "img/" . $path . $id . '-1.' . $extension_upload);
+                                    //rename('img/' . $path . $_FILES[$name]['name'][$j], 'img/' . $path . $id . '-1.' . $extension_upload);
+                                }
+                                if (file_exists("img/" . $path . $id . "-1.jpg") or file_exists("img/" . $path . $id . "-1.jpeg") or file_exists("img/" . $path . $id . "-1.png")) {
+                                    $i = 1;
+                                    while (file_exists("img/" . $path . $id . "-" . $i . "." . $extension_upload)) {
+                                        $i++;
+                                        move_uploaded_file($_FILES[$name]['tmp_name'][$j], "img/" . $path . $id . '-' . $i . '.' . $extension_upload);
+                                        //rename("img/" . $path . $_FILES[$name]['name'][$j], "img/" . $path . $id . "-" . $i . "." . $extension_upload);
+                                    }
+                                }*/
+
+                                /*if (file_exists("img/" . $path . $id . "-1.jpg") or file_exists("img/" . $path . $id . "-1.jpeg") or file_exists("img/" . $path . $id . "-1.png")) {
+                                    //Incrementation si le fichier existe déjà
+                                    $i = 1;
+                                    while (file_exists("img/" . $path . $id . "-" . $i . "." . $extension_upload)) {
+                                        $i++;
+                                        rename("img/" . $path . $_FILES[$name]['name'][$j], "img/" . $path . $id . "-" . $i . "." . $extension_upload);
+                                    }
+                                } else {
+                                    rename('img/' . $path . $_FILES[$name]['name'][$j], 'img/' . $path . $id . '-1.' . $extension_upload);
+                                }*/
+                            }
+                        } else
+                            //echo "Echec du transfert : Type de fichier non autorisé.";
+                            header('Location: index.php?action=admin&page=escapeGames');
+                    } else
+                        //echo "Echec du transfert : Fichier trop volumineux.";
+                        header('Location: index.php?action=admin&page=escapeGames');
+                } else
+                    //echo "Echec du transfert avec le code d'erreur : " . $_FILES[$name]['error'];
+                    header('Location: index.php?action=admin&page=escapeGames');
             }
         }
     }

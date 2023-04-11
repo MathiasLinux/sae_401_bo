@@ -528,6 +528,10 @@ const ADMIN_EG_NAME_FR = "Name FR";
 
 const ADMIN_EG_DISPLAY = "Display";
 
+const ADMIN_EG_PAGE_IMAGES = "Page Images";
+
+const ADMIN_EG_HOME_IMAGE = "Home Image";
+
 const ADMIN_EG_DIFFICULTY_DURATION = "Difficulty & Duration";
 
 const ADMIN_EG_DIFFICULTY = "Difficulty";

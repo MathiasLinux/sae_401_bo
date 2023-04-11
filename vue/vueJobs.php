@@ -109,7 +109,7 @@
                     </ul>
                 </div>
             </div>
-            
+
         </div>
         <?php
     }
@@ -117,49 +117,49 @@
 </div>
 <h2 class="titleUnderline"><?= JOBS_H2_3 ?></h2>
 
-<form class="contactForm contactJobs" action="#" method="post">
+<form class="contactForm contactJobs" action="index.php?action=sendForm" method="post">
     <div class="formGroup">
         <label>
             <?= CONTACT_FORM_FIRST_NAME ?>
-            <input type="text" id="firstName" name="firstName">
+            <input type="text" id="firstName" name="firstName" required>
         </label>
     </div>
     <div class="formGroup">
         <label>
             <?= CONTACT_FORM_LAST_NAME ?>
-            <input type="text" id="name" name="name">
+            <input type="text" id="name" name="name" required>
         </label>
     </div>
     <div class="formGroup">
         <label>
             <?= CONTACT_FORM_EMAIL ?>
-            <input type="email" id="email" name="email">
+            <input type="email" id="email" name="email" required>
         </label>
     </div>
     <div class="formGroup">
         <label>
             <?= CONTACT_FORM_PHONE ?>
-            <input type="tel" id="phone" name="phone">
+            <input type="tel" id="phone" name="phone" required>
         </label>
     </div>
     <div class="formGroup nop">
         <label>
             <?= CONTACT_FORM_MESSAGE ?>
-            <textarea name="message" id="message" cols="30" rows="10"></textarea>
+            <textarea name="message" id="message" cols="30" rows="10" required></textarea>
         </label>
     </div>
     <div class="formGroup formInput right">
         <input type="submit" value="<?= CONTACT_FORM_SUBMIT ?>">
     </div>
     <div class="contactInfos">
-    <div>
-        <img src="img/svg/tel.svg" alt="Phone Icon">
-        <a href="tel:017666810096">0176 66810096</a>
+        <div>
+            <img src="img/svg/tel.svg" alt="Phone Icon">
+            <a href="tel:017666810096">0176 66810096</a>
+        </div>
+        <div>
+            <img src="img/svg/email.svg" alt="Mail Icon">
+            <a href="mailto:booking@we-escape.de">booking@we-escape.de</a>
+        </div>
     </div>
-    <div>
-        <img src="img/svg/email.svg" alt="Mail Icon">
-        <a href="mailto:booking@we-escape.de">booking@we-escape.de</a>
-    </div>
-</div>
 </form>
 </div>

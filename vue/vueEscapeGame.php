@@ -70,9 +70,24 @@ if (isset($_SESSION["lang"])) {
 
     <div class="escapeGSliderIMG">
         <?php
-        echo "<img class='escapeGameSCenterSelec' src='../img/escapeGame/" . $escapeGame["id_escapeGame"] . "/1.jpg'>";
+        //verify if image exist and in what extension (jpg, png, jpeg)
+        if (file_exists("img/escapeGame/" . $escapeGame["id_escapeGame"] . "/1.jpg")) {
+            $img = "img/escapeGame/" . $escapeGame["id_escapeGame"] . "/1.jpg";
+        } else if (file_exists("img/escapeGame/" . $escapeGame["id_escapeGame"] . "/1.png")) {
+            $img = "img/escapeGame/" . $escapeGame["id_escapeGame"] . "/1.png";
+        } else if (file_exists("img/escapeGame/" . $escapeGame["id_escapeGame"] . "/1.jpeg")) {
+            $img = "img/escapeGame/" . $escapeGame["id_escapeGame"] . "/1.jpeg";
+        }
+        echo "<img class='escapeGameSCenterSelec' src='$img'>";
         for ($i = 1; $i < $nbImg; $i++) {
-            echo "<img class='escapeGameSCenter' src='../img/escapeGame/" . $escapeGame["id_escapeGame"] . "/" . $i + 1 . ".jpg'>";
+            if (file_exists("img/escapeGame/" . $escapeGame["id_escapeGame"] . "/" . $i + 1 . ".jpg")) {
+                $img = "img/escapeGame/" . $escapeGame["id_escapeGame"] . "/" . $i + 1 . ".jpg";
+            } else if (file_exists("img/escapeGame/" . $escapeGame["id_escapeGame"] . "/" . $i + 1 . ".png")) {
+                $img = "img/escapeGame/" . $escapeGame["id_escapeGame"] . "/" . $i + 1 . ".png";
+            } else if (file_exists("img/escapeGame/" . $escapeGame["id_escapeGame"] . "/" . $i + 1 . ".jpeg")) {
+                $img = "img/escapeGame/" . $escapeGame["id_escapeGame"] . "/" . $i + 1 . ".jpeg";
+            }
+            echo "<img class='escapeGameSCenter' src='$img'>";
         }
         ?>
     </div>

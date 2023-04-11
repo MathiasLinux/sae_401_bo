@@ -1041,11 +1041,25 @@ footer a {
     margin-bottom: 6%;
 }
 
-main .formAdminEG > .imgAdminEG {
+.imgAdminEG {
     display: grid;
     grid-template-columns: auto auto;
     gap: 4%;
     margin-bottom: 40%;
+}
+
+.escapeImgDivUploadCoverBig {
+    display: grid;
+}
+
+.escapeImgDivUploadCoverBig .titleUnderline {
+    justify-self: left;
+}
+
+.escapeImgDivUploadCover {
+    justify-self: center;
+    width: 50%;
+    margin-bottom: 5%
 }
 
 .difficultyAdmin {

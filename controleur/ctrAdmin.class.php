@@ -380,11 +380,14 @@ class ctrAdmin
 
     public function modifyEscapeGame($id)
     {
-        /*var_dump($_POST);
-        var_dump($_FILES);
-        var_dump($id);*/
-        if (isset($_POST["imgEscapeUpload"]) and !empty($_POST["imgEscapeUpload"])) {
+//        var_dump($_POST);
+//        var_dump($_FILES);
+//        var_dump($id);
+        if (isset($_FILES["imgEscapeUpload"]) and !empty($_FILES["imgEscapeUpload"])) {
             $this->EG->addFiles("imgEscapeUpload", "escapeGame/" . $id);
+        }
+        if (isset($_FILES["imgEscapeUploadCover"]) and !empty($_FILES["imgEscapeUploadCover"])) {
+            $this->EG->addFileCover("imgEscapeUploadCover", "escapeGames/", $id);
         }
         if (isset($_POST["name"]) and !empty($_POST["name"])) {
             $this->EG->updateName($id, $_POST["name"], "en");
@@ -460,7 +463,7 @@ class ctrAdmin
         //var_dump($_POST);
         //var_dump($_FILES);
         if (isset($_POST["name"]) and isset($_POST["nameFR"]) and isset($_POST["visible"]) and isset($_POST["difficultyEN"]) and isset($_POST["difficultyFR"]) and isset($_POST["duration"]) and isset($_POST["description"]) and isset($_POST["descriptionFR"]) and isset($_POST["address"]) and isset($_POST["price2_3Persons"]) and isset($_POST["price4Persons"]) and isset($_POST["price5Persons"]) and isset($_POST["price6Persons"]) and isset($_POST["price7Persons"]) and isset($_POST["price8Persons"]) and isset($_POST["price9Persons"]) and isset($_POST["price10Persons"]) and isset($_POST["price11Persons"]) and isset($_POST["price12Persons"]) and isset($_POST["price12PlusPersons"]) and isset($_POST["onFront"])) {
-            echo "ok post";
+            //echo "ok post";
             $this->EG->addEscapeGame($_POST["name"], $_POST["nameFR"], $_POST["visible"], $_POST["difficultyEN"], $_POST["difficultyFR"], $_POST["description"], $_POST["descriptionFR"], $_POST["duration"], $_POST["address"], $_POST["price2_3Persons"], $_POST["price4Persons"], $_POST["price5Persons"], $_POST["price6Persons"], $_POST["price7Persons"], $_POST["price8Persons"], $_POST["price9Persons"], $_POST["price10Persons"], $_POST["price11Persons"], $_POST["price12Persons"], $_POST["price12PlusPersons"], $_POST["onFront"]);
             if (isset($_FILES["imgEscapeUpload"]) and !empty($_FILES["imgEscapeUpload"]["name"][0])) {
                 //create folder
@@ -468,7 +471,13 @@ class ctrAdmin
                 mkdir("img/escapeGame/" . $id);
                 //add files
                 $this->EG->addFiles("imgEscapeUpload", "escapeGame/" . $id);
-                echo "ok files";
+                //echo "ok files";
+            }
+            if (isset($_FILES["imgEscapeUploadCover"]) and !empty($_FILES["imgEscapeUploadCover"]["name"][0])) {
+                $id = $this->EG->getEscapeGameIdByName($_POST["name"]);
+                //add files
+                $this->EG->addFileCover("imgEscapeUploadCover", "escapeGames/", $id);
+                //echo "ok files";
             }
         }
         header("Location: index.php?action=admin&page=escapeGames");

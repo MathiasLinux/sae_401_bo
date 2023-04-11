@@ -37,6 +37,8 @@ if ($_SESSION["lang"] == "fr") {
         $img = "img/escapeGames/" . $frontEscape["id_escapeGame"] . ".jpg";
     } elseif (file_exists("img/escapeGames/" . $frontEscape["id_escapeGame"] . ".png")) {
         $img = "img/escapeGames/" . $frontEscape["id_escapeGame"] . ".png";
+    } elseif (file_exists("img/escapeGames/" . $frontEscape["id_escapeGame"] . ".jpeg")) {
+        $img = "img/escapeGames/" . $frontEscape["id_escapeGame"] . ".jpeg";
     } else {
         $img = "img/escapeGames/default.jpg";
     }
@@ -102,6 +104,8 @@ if ($_SESSION["lang"] == "fr") {
                     $img = "img/escapeGames/" . $escapeGame["id_escapeGame"] . ".jpg";
                 } elseif (file_exists("img/escapeGames/" . $escapeGame["id_escapeGame"] . ".png")) {
                     $img = "img/escapeGames/" . $escapeGame["id_escapeGame"] . ".png";
+                } elseif (file_exists("img/escapeGames/" . $escapeGame["id_escapeGame"] . ".jpeg")) {
+                    $img = "img/escapeGames/" . $escapeGame["id_escapeGame"] . ".jpeg";
                 } else {
                     $img = "img/escapeGames/default.jpg";
                 }
@@ -146,6 +150,8 @@ if ($_SESSION["lang"] == "fr") {
             $img = "img/escapeGames/" . $escapeGame["id_escapeGame"] . "-home.jpg";
         } elseif (file_exists("img/escapeGames/" . $escapeGame["id_escapeGame"] . "-home.png")) {
             $img = "img/escapeGames/" . $escapeGame["id_escapeGame"] . "-home.png";
+        } elseif (file_exists("img/escapeGames/" . $escapeGame["id_escapeGame"] . "-home.jpeg")) {
+            $img = "img/escapeGames/" . $escapeGame["id_escapeGame"] . "-home.jpeg";
         } else {
             $img = "img/escapeGames/default.png";
         }
