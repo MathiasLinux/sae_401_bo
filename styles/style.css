@@ -869,6 +869,10 @@ footer a {
     margin-top: 50px;
 }
 
+.escapeGamePriceListPC {
+    display: none;
+}
+
 /* Page achat escape game vueBuyEG.php */
 
 .submitDivEscapeGameCardUse {
@@ -1088,6 +1092,10 @@ footer a {
     margin: 0px auto;
     text-align: center;
 
+}
+
+.tgMobile {
+    margin-bottom: 20px;
 }
 
 .tg td {

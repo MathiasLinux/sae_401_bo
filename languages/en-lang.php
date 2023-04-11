@@ -188,7 +188,7 @@ const ABOUT_US_PERSON_2_ROLE = "Gang leader";
 const ABOUT_US_PERSON_2_POSITION = "Event manager and development";
 
 const ABOUT_US_PERSON_4_ROLE = "The manager";
-const ABOUT_US_PERSON_4_POSITION = "Manage the team and the escape games";
+const ABOUT_US_PERSON_4_POSITION = "Manages the team and the escape games";
 
 const ABOUT_US_PERSON_3_ROLE = "The prankster";
 const ABOUT_US_PERSON_3_POSITION = "Production Manager and development";

@@ -113,7 +113,8 @@ if ($_SESSION["lang"] == "fr") {
                 <img src="<?= $img ?>" alt="<?= $titre ?>">
                 <div>
                     <h2 class="titleYellow"><?= $titre ?></h2>
-                    <a class="yellowLinkHomeEscapeMobile" href="index.php?action=escapegames"><?= HOME_MORE_INFO ?></a>
+                    <a class="yellowLinkHomeEscapeMobile"
+                       href="index.php?action=escapeGame&escapeGame=<?= $escapeGame["id_escapeGame"] ?>"><?= HOME_MORE_INFO ?></a>
                 </div>
             </div>
         </div>

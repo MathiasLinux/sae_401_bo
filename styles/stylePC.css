@@ -423,6 +423,16 @@ header img {
     flex-direction: column;
 }
 
+/* Page d'escape game vueEscapeGame.php */
+
+.escapeGamePriceListMobile {
+    display: none;
+}
+
+.escapeGamePriceListPC {
+    display: block;
+}
+
 /* Page d'achat d'escape game vueBuyEG.php */
 
 .giftCardEscapeBuyForm {

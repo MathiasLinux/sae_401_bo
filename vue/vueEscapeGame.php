@@ -266,7 +266,7 @@ if (isset($_SESSION["email"])) {
 
 <!-- Buy -->
 <h2 id="buyEscapeGame" class="titreUnderline"><?= ESCAPEGAME_H2_PRICE ?></h2>
-<div class="escapeGamePriceList">
+<div class="escapeGamePriceList escapeGamePriceListPC">
     <table class="tg">
         <thead>
         <tr>
@@ -294,6 +294,70 @@ if (isset($_SESSION["email"])) {
             <td class="tg-m5d1 pad"><?= $escapeGame["price9Persons"] ?> €</td>
             <td class="tg-m5d1 pad"><?= $escapeGame["price10Persons"] ?> €</td>
             <td class="tg-m5d1 pad"><?= $escapeGame["price11Persons"] ?> €</td>
+            <td class="tg-m5d1 pad"><?= $escapeGame["price12Persons"] ?> €</td>
+            <td class="tg-m5d1 pad"><?= $escapeGame["price12PlusPersons"] ?> €</td>
+        </tbody>
+    </table>
+</div>
+
+<div class="escapeGamePriceList escapeGamePriceListMobile">
+    <table class="tg tgMobile">
+        <thead>
+        <tr>
+            <th class="tg-a43n"><?= ESCAPE_GAME_PRICE_2_3 ?></th>
+            <th class="tg-a43n"><?= ESCAPE_GAME_PRICE_4 ?></th>
+            <th class="tg-a43n"><?= ESCAPE_GAME_PRICE_5 ?></th>
+        </tr>
+        </thead>
+        <tbody class="tg tgMobile">
+        <tr>
+            <td class="tg-m5d1 pad"><?= $escapeGame["price2_3Persons"] ?> €</td>
+            <td class="tg-m5d1 pad"><?= $escapeGame["price4Persons"] ?> €</td>
+            <td class="tg-m5d1 pad"><?= $escapeGame["price5Persons"] ?> €</td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="tg tgMobile">
+        <thead>
+        <tr>
+            <th class="tg-a43n"><?= ESCAPE_GAME_PRICE_6 ?></th>
+            <th class="tg-a43n"><?= ESCAPE_GAME_PRICE_7 ?></th>
+            <th class="tg-a43n"><?= ESCAPE_GAME_PRICE_8 ?></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="tg-m5d1 pad"><?= $escapeGame["price6Persons"] ?> €</td>
+            <td class="tg-m5d1 pad"><?= $escapeGame["price7Persons"] ?> €</td>
+            <td class="tg-m5d1 pad"><?= $escapeGame["price8Persons"] ?> €</td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="tg tgMobile">
+        <thead>
+        <tr>
+            <th class="tg-a43n"><?= ESCAPE_GAME_PRICE_9 ?></th>
+            <th class="tg-a43n"><?= ESCAPE_GAME_PRICE_10 ?></th>
+            <th class="tg-a43n"><?= ESCAPE_GAME_PRICE_11 ?></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="tg-m5d1 pad"><?= $escapeGame["price9Persons"] ?> €</td>
+            <td class="tg-m5d1 pad"><?= $escapeGame["price10Persons"] ?> €</td>
+            <td class="tg-m5d1 pad"><?= $escapeGame["price11Persons"] ?> €</td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="tg tgMobile">
+        <thead>
+        <tr>
+            <th class="tg-a43n"><?= ESCAPE_GAME_PRICE_12 ?></th>
+            <th class="tg-a43n"><?= ESCAPE_GAME_PRICE_12_PLUS ?></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
             <td class="tg-m5d1 pad"><?= $escapeGame["price12Persons"] ?> €</td>
             <td class="tg-m5d1 pad"><?= $escapeGame["price12PlusPersons"] ?> €</td>
         </tbody>
