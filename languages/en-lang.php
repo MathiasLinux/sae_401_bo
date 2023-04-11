@@ -151,6 +151,8 @@ const CHANGE_ACCOUNT_INFOS_ACTUAL_PASSWORD_INVALID = "The current password is fa
 
 const CHANGE_ACCOUNT_INFOS_NEW_PASSWORDS_NOT_IDENTICAL = "The new passwords are not identical";
 
+const CHANGE_ACCOUNT_INFOS_NEW_PASSWORD_INVALID = "The new password is invalid it must contain at least 8 characters, 1 uppercase, 1 lowercase, 1 number and 1 special character";
+
 //About us page
 
 const ABOUT_US_TITLE = "About us";

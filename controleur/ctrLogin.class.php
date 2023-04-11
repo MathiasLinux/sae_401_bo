@@ -40,7 +40,7 @@ class ctrLogin
         // Création du tableau d'erreurs
         $error = array();
         $ok = array();
-        
+
         if (!(isset($_POST["email"]) and isset($_POST["password"]) and isset($_POST["password1"]) and isset($_POST["firstName"]) and isset($_POST["lastName"]))) {
             $error[] = 3; // Un des champs est vide
         }
@@ -183,7 +183,19 @@ class ctrLogin
             if (!empty($_POST["password"]) and !empty($_POST["newPassword"]) and !empty($_POST["newPasswordConfirm"])) { // Vérification des mots de passe
                 if ($this->objLogin->compareLogin($_SESSION["email"], $_POST["password"])) { // Vérification que le mot de passe actuel est correct
                     if ($_POST["newPassword"] == $_POST["newPasswordConfirm"]) { // Vérification que les nouveaux mots de passe sont identiques
-                        $this->objUser->updatePassword($_SESSION["id"], $_POST["newPassword"]); // Mise à jour du mot de passe
+                        //Create a regex expression to check the password strength with the following rules:
+                        //1. At least one uppercase letter
+                        //2. At least one lowercase letter
+                        //3. At least one digit
+                        //4. At least one special character (e.g. !@#$%^&*()_+)
+                        //5. Minimum 8 characters
+                        //add more special characters into the expression
+                        $regex = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/";
+                        if (preg_match($regex, $_POST["newPassword"])) {
+                            $this->objUser->updatePassword($_SESSION["id"], $_POST["newPassword"]); // Mise à jour du mot de passe
+                        } else {
+                            $error[] = 7; // Le mot de passe n'est pas assez fort
+                        }
                     } else {
                         $error[] = 5; // Les nouveaux mots de passe ne sont pas identiques
                     }

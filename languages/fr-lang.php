@@ -211,6 +211,8 @@ const CHANGE_ACCOUNT_INFOS_ACTUAL_PASSWORD_INVALID = "Le mot de passe actuel est
 
 const CHANGE_ACCOUNT_INFOS_NEW_PASSWORDS_NOT_IDENTICAL = "Les nouveaux mots de passe ne sont pas identiques";
 
+const CHANGE_ACCOUNT_INFOS_NEW_PASSWORD_INVALID = "Le nouveau mot de passe est invalide il doit contenir au moins 8 caractères dont une majuscule, une minuscule, un chiffre et un caractère spécial";
+
 
 //About us page
 

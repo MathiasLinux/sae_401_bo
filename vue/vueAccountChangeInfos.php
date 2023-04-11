@@ -8,6 +8,7 @@
  * 4: Le nom contient des caractères non autorisés
  * 5: Les mots de passe ne sont pas identiques
  * 6: Le mot de passe actuel est incorrect
+ * 7: Le mot de passe doit contenir au moins 8 caractères dont 1 majuscule, 1 minuscule et 1 chiffre et 1 caractère spécial
  */
 ?>
 <form class="contactForm contactJobs changeInfosForm" action="index.php?action=accountUpdateInfos" method="post">
@@ -64,12 +65,14 @@
     <div class="form-group">
         <label for="passwordConfirm"><?= CHANGE_ACCOUNT_INFOS_NEW_PASSWORD_CONFIRM ?></label>
         <input type="password" class="form-control <?php
-        if (in_array(5, $error))
+        if (in_array(5, $error) or in_array(7, $error))
             echo "errorForm";
         ?>" id="passwordConfirm" name="newPasswordConfirm">
         <?php
         if (in_array(5, $error))
             echo "<p class='errorMessageBuy accountInfoError'>" . CHANGE_ACCOUNT_INFOS_NEW_PASSWORDS_NOT_IDENTICAL . "</p>";
+        elseif (in_array(7, $error))
+            echo "<p class='errorMessageBuy accountInfoError'>" . CHANGE_ACCOUNT_INFOS_NEW_PASSWORD_INVALID . "</p>";
         ?>
     </div>
     <div class="form-group">
