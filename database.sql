@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : lun. 03 avr. 2023 à 10:32
+-- Généré le : mar. 11 avr. 2023 à 16:30
 -- Version du serveur : 10.5.16-MariaDB
 -- Version de PHP : 8.0.27
 
@@ -18,8 +18,11 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `sae401_example`
+-- Base de données : `sae401_github`
 --
+DROP DATABASE IF EXISTS `sae401_github`;
+CREATE DATABASE IF NOT EXISTS `sae401_github` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `sae401_github`;
 
 -- --------------------------------------------------------
 
@@ -39,6 +42,13 @@ CREATE TABLE `buying` (
   `buyersLastName` varchar(32) DEFAULT NULL,
   `type` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `buying`
+--
+
+INSERT INTO `buying` (`id_user`, `id_escapeGame`, `id_buying`, `buyingDate`, `gameDate`, `hours`, `nbPlayers`, `buyersFirstName`, `buyersLastName`, `type`) VALUES
+(6, 2, 1, '2023-04-01', '2023-04-11', 14, 5, 'Jean', 'Dupont', NULL);
 
 -- --------------------------------------------------------
 
@@ -61,7 +71,7 @@ CREATE TABLE `contactForm` (
 --
 
 INSERT INTO `contactForm` (`id_contactForm`, `date`, `firstName`, `lastName`, `email`, `phone`, `message`) VALUES
-(4, '2023-04-01', 'Michel', 'Dupont', 'toto@toto.fr', 123456789, 'Test depuis la page JOBS');
+(1, '2023-03-17', 'Test', 'Test', 'test@test.fr', 123456789, 'test');
 
 -- --------------------------------------------------------
 
@@ -73,17 +83,14 @@ CREATE TABLE `escapeGame` (
   `id_escapeGame` int(11) NOT NULL,
   `name` varchar(64) DEFAULT NULL,
   `nameFR` varchar(64) DEFAULT NULL,
-  `puzzles` int(11) DEFAULT NULL,
-  `adventures` int(11) DEFAULT NULL,
-  `spots` int(11) DEFAULT NULL,
-  `story` int(11) DEFAULT NULL,
   `description` text DEFAULT NULL,
   `descriptionFR` text DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
-  `x` float NOT NULL,
-  `y` float NOT NULL,
+  `duration` int(11) NOT NULL,
+  `x` float DEFAULT NULL,
+  `y` float DEFAULT NULL,
   `visible` tinyint(1) DEFAULT NULL,
-  `onFront` tinyint(1) NOT NULL,
+  `onFront` tinyint(1) DEFAULT NULL,
   `price2_3Persons` float DEFAULT NULL,
   `price4Persons` float DEFAULT NULL,
   `price5Persons` float DEFAULT NULL,
@@ -94,19 +101,21 @@ CREATE TABLE `escapeGame` (
   `price10Persons` float DEFAULT NULL,
   `price11Persons` float DEFAULT NULL,
   `price12Persons` float DEFAULT NULL,
-  `price12PlusPersons` float DEFAULT NULL
+  `price12PlusPersons` float DEFAULT NULL,
+  `difficulty` enum('Beginner','Easy','Medium','Hard','Extreme') DEFAULT NULL,
+  `difficultyFR` enum('Débutant','Facile','Moyen','Difficile','Extrême') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `escapeGame`
 --
 
-INSERT INTO `escapeGame` (`id_escapeGame`, `name`, `nameFR`, `puzzles`, `adventures`, `spots`, `story`, `description`, `descriptionFR`, `address`, `x`, `y`, `visible`, `onFront`, `price2_3Persons`, `price4Persons`, `price5Persons`, `price6Persons`, `price7Persons`, `price8Persons`, `price9Persons`, `price10Persons`, `price11Persons`, `price12Persons`, `price12PlusPersons`) VALUES
-(1, 'The Codex', 'Le Codex', 30, 3, 4, 1, 'Codex includes the complete package. Here you can book all three adventures of the Codex series at a special price. The dates of the three adventures are still open and you can choose freely. The order does not matter.', 'Le Codex comprend le package complet. Ici, vous pouvez réserver les trois aventures de la série Codex à un prix spécial. Les dates des trois aventures sont encore ouvertes et vous pouvez choisir librement. L\'ordre n\'a pas d\'importance.', 'Blankenhornsberg 7, 79241 Ihringen, Germany', 0, 0, 1, 1, 80, 100, 120, 130, 140, 150, 160, 170, 180, 190, 220),
-(2, 'In Vino Veritas', 'In Vino Veritas', 10, 1, 2, 1, 'Professor Blankenberg is known worldwide for his achievements in the field of viticulture. It was only thanks to his years of research that in 1870 the entire Kaiserstuhl vineyard was saved from the phylloxera attack [....]', 'Le professeur Blankenberg est mondialement connu pour ses mérites dans le domaine de la viticulture. C\'est uniquement grâce à ses années de recherche qu\'en 1870, l\'ensemble des vignes du Kaiserstuhl a été sauvé de l\'attaque du phylloxéra [....]', 'Blankenhornsberg 7, 79241 Ihringen, Germany', 0, 0, 1, 0, 90, 110, 130, 150, 170, 190, 250, 645, 751, 897, 954),
-(3, 'In Cantata Vinum', 'In Cantata Vinum', 15, 1, 3, 1, 'Your Outdoor Escape adventure \"In Cantata Vinum\" starts at the Erleweiher pond in Endingen.\r\n\r\nAnna is accused of witchcraft and begs you to help her. On the way to the stake, she gives you an old bag. You soon realize that something is not quite right. Is this a real witch hunt or a fatal mistake?\r\n\r\nRiddles are not for the faint of heart. You only have two hours to solve the mystery before Anna is burned at the stake.', 'Ton aventure Outdoor Escape \"In Cantata Vinum\" débute à l\'étang d\'Erleweiher à Endingen.\r\n\r\nAnna est accusée de sorcellerie et vous supplie de l\'aider. Sur le chemin du bûcher, elle vous confie un vieux sac. Vous vous rendez vite compte que quelque chose ne se passe pas comme prévu. S\'agit-il d\'une véritable chasse aux sorcières ou d\'une erreur fatale ?\r\n\r\nLes énigmes ne sont pas pour les âmes sensibles. Vous n\'avez que deux heures pour élucider le mystère avant qu\'Anna ne soit réduite en cendres sur le bûcher.', 'Im Erle 36, 79346 Endingen am Kaiserstuhl, Germany', 0, 0, 1, 0, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180),
-(4, 'Book of the 7 Seals', 'Livre des 7 Sceaux', 7, 1, 2, 1, 'Story - Book of the Seven Seals\r\n\r\nYou are sitting in your detective\'s office when suddenly the door bursts open. Anton, the well-known shepherd, is standing in front of you. \"Ludwig has disappeared! My favorite lamb!\" he cries breathlessly. Maybe the wolf has torn the animal? But then what\'s the deal with the strange book that the shepherd found in the pasture? He has never seen the book before and it is firmly closed with seven locks. Could it contain clues to Ludwig\'s disappearance? Since you are the best detectives far and wide, the shepherd asks you for help. Can you unravel the mystery and pick up the trail of the wolf? Grab the book with the seven seals and save Ludwig the lamb!', 'Histoire - Le Livre des sept sceaux\r\n\r\nVous êtes assis dans votre bureau de détective quand soudain la porte s\'ouvre. Anton, le berger bien connu de la ville, se tient devant vous. \"Ludwig a disparu ! Mon agneau préféré !\", s\'exclame-t-il à bout de souffle. Peut-être le loup a-t-il dévoré l\'animal ? Mais alors, qu\'en est-il de l\'étrange livre que le berger a trouvé dans le pâturage ? Il n\'a jamais vu ce livre auparavant et il est solidement fermé par sept cadenas. Y trouverait-on des indices sur la disparition de Ludwig ? Comme vous êtes les meilleurs détectives, le berger vous demande de l\'aide. Pourrez-vous résoudre l\'énigme et retrouver la trace du loup ? Saisissez le livre aux sept sceaux et sauvez l\'agneau Ludwig !', 'August-Meier-Weg, 79241 Ihringen, Germany', 0, 0, 1, 0, 70, 80, 90, 120, 140, 160, 170, 180, 190, 200, 240),
-(5, 'Curse of the 9 lime trees', 'La malédiction des neuf tilleuls', 12, 2, 1, 1, 'Your outdoor escape adventure \"The Curse of the 9 Lime Trees\" starts at Martingshof-Strauße in Ihringen.\r\n\r\nYou will find an old diary. What you read in it will make your blood run cold. It tells of cruel monks who once lived in the monastery near the nine lime trees and of a curse that hangs over the hill.\r\n\r\nAnyone who lingers there after dark inexplicably disappears.\r\n\r\nRiddles are not for the faint of heart! Prepare yourself for a captivating storyline with a guarantee of horror.', 'Ton outdoor escape aventure \"La malédiction des 9 tilleuls\" débute au Martingshof-Strauße à Ihringen.\r\n\r\nVous trouverez un vieux journal intime. Ce que vous y lisez vous glace le sang. Il y est question de moines cruels qui habitaient autrefois le monastère près des neuf tilleuls et d\'une malédiction qui pèse sur la colline.\r\n\r\nQuiconque s\'y attarde après la tombée de la nuit disparaît inexplicablement.\r\n\r\nLes énigmes ne sont pas pour les âmes sensibles ! Préparez-vous à une intrigue captivante avec une garantie d\'horreur.', 'Martinshöfe 2, 79241 Ihringen, Germany', 0, 0, 1, 0, 50, 80, 90, 110, 130, 150, 170, 190, 200, 220, 240);
+INSERT INTO `escapeGame` (`id_escapeGame`, `name`, `nameFR`, `description`, `descriptionFR`, `address`, `duration`, `x`, `y`, `visible`, `onFront`, `price2_3Persons`, `price4Persons`, `price5Persons`, `price6Persons`, `price7Persons`, `price8Persons`, `price9Persons`, `price10Persons`, `price11Persons`, `price12Persons`, `price12PlusPersons`, `difficulty`, `difficultyFR`) VALUES
+(1, 'The Codex', 'Le Codex', 'Codex includes the complete package. Here you can book all three adventures of the Codex series at a special price. The dates of the three adventures are still open and you can choose freely. The order does not matter.', 'Le Codex comprend le package complet. Ici, vous pouvez réserver les trois aventures de la série Codex à un prix spécial. Les dates des trois aventures sont encore ouvertes et vous pouvez choisir librement. L\'ordre n\'a pas d\'importance.', 'Blankenhornsberg 7, 79241 Ihringen, Germany', 3, 48.0522, 7.62329, 1, 1, 80, 100, 120, 130, 140, 150, 160, 170, 180, 190, 220, 'Beginner', 'Facile'),
+(2, 'In Vino Veritas', 'In Vino Veritas', 'Professor Blankenberg is known worldwide for his achievements in the field of viticulture. It was only thanks to his years of research that in 1870 the entire Kaiserstuhl vineyard was saved from the phylloxera attack [....]', 'Le professeur Blankenberg est mondialement connu pour ses mérites dans le domaine de la viticulture. C\'est uniquement grâce à ses années de recherche qu\'en 1870, l\'ensemble des vignes du Kaiserstuhl a été sauvé de l\'attaque du phylloxéra [....]', 'Blankenhornsberg 7, 79241 Ihringen, Germany', 2, 48.0522, 7.62329, 1, 0, 90, 110, 130, 150, 170, 190, 250, 645, 751, 897, 954, 'Beginner', 'Débutant'),
+(3, 'In Cantata Vinum', 'In Cantata Vinum', 'Your Outdoor Escape adventure \"In Cantata Vinum\" starts at the Erleweiher pond in Endingen.\r\n\r\nAnna is accused of witchcraft and begs you to help her. On the way to the stake, she gives you an old bag. You soon realize that something is not quite right. Is this a real witch hunt or a fatal mistake?\r\n\r\nRiddles are not for the faint of heart. You only have two hours to solve the mystery before Anna is burned at the stake.', 'Ton aventure Outdoor Escape \"In Cantata Vinum\" débute à l\'étang d\'Erleweiher à Endingen.\r\n\r\nAnna est accusée de sorcellerie et vous supplie de l\'aider. Sur le chemin du bûcher, elle vous confie un vieux sac. Vous vous rendez vite compte que quelque chose ne se passe pas comme prévu. S\'agit-il d\'une véritable chasse aux sorcières ou d\'une erreur fatale ?\r\n\r\nLes énigmes ne sont pas pour les âmes sensibles. Vous n\'avez que deux heures pour élucider le mystère avant qu\'Anna ne soit réduite en cendres sur le bûcher.', 'Im Erle 36, 79346 Endingen am Kaiserstuhl, Germany', 1, 48.1344, 7.70051, 0, 0, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 'Beginner', 'Moyen'),
+(4, 'Book of the 7 Seals', 'Livre des 7 Sceaux', 'Story - Book of the Seven Seals\r\n\r\nYou are sitting in your detective\'s office when suddenly the door bursts open. Anton, the well-known shepherd, is standing in front of you. \"Ludwig has disappeared! My favorite lamb!\" he cries breathlessly. Maybe the wolf has torn the animal? But then what\'s the deal with the strange book that the shepherd found in the pasture? He has never seen the book before and it is firmly closed with seven locks. Could it contain clues to Ludwig\'s disappearance? Since you are the best detectives far and wide, the shepherd asks you for help. Can you unravel the mystery and pick up the trail of the wolf? Grab the book with the seven seals and save Ludwig the lamb!', 'Histoire - Le Livre des sept sceaux\r\n\r\nVous êtes assis dans votre bureau de détective quand soudain la porte s\'ouvre. Anton, le berger bien connu de la ville, se tient devant vous. \"Ludwig a disparu ! Mon agneau préféré !\", s\'exclame-t-il à bout de souffle. Peut-être le loup a-t-il dévoré l\'animal ? Mais alors, qu\'en est-il de l\'étrange livre que le berger a trouvé dans le pâturage ? Il n\'a jamais vu ce livre auparavant et il est solidement fermé par sept cadenas. Y trouverait-on des indices sur la disparition de Ludwig ? Comme vous êtes les meilleurs détectives, le berger vous demande de l\'aide. Pourrez-vous résoudre l\'énigme et retrouver la trace du loup ? Saisissez le livre aux sept sceaux et sauvez l\'agneau Ludwig !', 'August-Meier-Weg, 79241 Ihringen, Germany', 3, 48.0478, 7.64905, 1, 0, 70, 80, 90, 120, 140, 160, 170, 180, 190, 200, 240, 'Beginner', 'Difficile'),
+(5, 'Curse of the 9 lime trees', 'La malédiction des neuf tilleuls', 'Your outdoor escape adventure \"The Curse of the 9 Lime Trees\" starts at Martingshof-Strauße in Ihringen.\r\n\r\nYou will find an old diary. What you read in it will make your blood run cold. It tells of cruel monks who once lived in the monastery near the nine lime trees and of a curse that hangs over the hill.\r\n\r\nAnyone who lingers there after dark inexplicably disappears.\r\n\r\nRiddles are not for the faint of heart! Prepare yourself for a captivating storyline with a guarantee of horror.', 'Ton outdoor escape aventure \"La malédiction des 9 tilleuls\" débute au Martingshof-Strauße à Ihringen.\r\n\r\nVous trouverez un vieux journal intime. Ce que vous y lisez vous glace le sang. Il y est question de moines cruels qui habitaient autrefois le monastère près des neuf tilleuls et d\'une malédiction qui pèse sur la colline.\r\n\r\nQuiconque s\'y attarde après la tombée de la nuit disparaît inexplicablement.\r\n\r\nLes énigmes ne sont pas pour les âmes sensibles ! Préparez-vous à une intrigue captivante avec une garantie d\'horreur.', 'Martinshöfe 2, 79241 Ihringen, Germany', 5, 48.057, 7.66559, 1, 0, 50, 80, 90, 110, 130, 150, 170, 190, 200, 220, 240, 'Easy', 'Extrême');
 
 -- --------------------------------------------------------
 
@@ -130,7 +139,8 @@ CREATE TABLE `giftCard` (
 --
 
 INSERT INTO `giftCard` (`id_giftCard`, `buyingDate`, `type`, `code`, `usageDate`, `id_giftCardAmount`, `id_escapeGame`, `id_user`) VALUES
-(2, '2023-03-18', 'money', '5122354125', '2023-03-23', 1, NULL, 6);
+(2, '2023-03-18', 'money', '5122354125', '2023-03-23', 1, NULL, 6),
+(8, '2023-03-24', 'escapeGame', '3088585347406', NULL, NULL, 1, 6);
 
 -- --------------------------------------------------------
 
@@ -179,8 +189,8 @@ CREATE TABLE `jobs` (
 --
 
 INSERT INTO `jobs` (`id_jobs`, `title`, `titleFR`, `position`, `positionFR`, `task`, `taskFR`, `strength`, `strengthFR`, `visible`) VALUES
-(1, 'Account Manager', 'Gestionnaire de comptes', 'Permanent position', 'Poste permanent', 'Contact with customers via telephone and e-mail\r\nManage bookings/reservations\r\nManagement of our software/system\r\nGeneral office duties\r\nTeam coordination', 'Contact avec les clients par téléphone et par courrier électronique\r\nGestion des réservations\r\nGestion de notre logiciel/système\r\nTâches générales de bureau\r\nCoordination de l\'équipe', 'Good German, English spoken and written (French an advantage)\r\nConfidence in the use of Word, Excel, Outlook\r\nAffinity to solve complex problem quickly\r\nExperience in HR & Controlling\r\nOrganizational skills', 'Bonne connaissance de l\'allemand et de l\'anglais à l\'oral et à l\'écrit (le français est un atout)\r\nConfiance dans l\'utilisation de Word, Excel, Outlook\r\nAffinité pour la résolution rapide de problèmes complexes\r\nExpérience dans le domaine des ressources humaines et du contrôle de gestion\r\nSens de l\'organisation', 1),
-(2, 'Second Job', 'Deuxième Job', 'Permanent Position', 'Position permanente', 'The task of the second job\r\nThe second line', 'La tache du second job\r\nLa seconde ligne', 'The strength of the second job\r\nThe second line', 'La force du deuxième job\r\nLa seconde ligne', 1);
+(1, 'Account Manager', 'Gestionnaire de comptes', 'Permanent position', 'Poste permanent', 'Contact with customers via telephone and e-mail\r\nManage bookings/reservations\r\nManagement of our software/system\r\nGeneral office duties\r\nTeam coordination', 'Contact avec les clients par téléphone et par courrier électronique\r\nGestion des réservations\r\nGestion de notre logiciel/système\r\nTâches générales de bureau\r\nCoordination de l\'équipe', 'Good German, English spoken and written (French an advantage)\r\nConfidence in the use of Word, Excel, Outlook\r\nAffinity to solve complex problem quickly\r\nExperience in HR & Controlling\r\nOrganizational skills', 'Bonne connaissance de l\'allemand et de l\'anglais à l\'oral et à l\'écrit (le français est un atout)\r\nMaitrise de Word, Excel, Outlook\r\nCapacité de résolution rapide de problèmes complexes\r\nExpérience dans le domaine des ressources humaines et du contrôle de gestion\r\nSens de l\'organisation', 1),
+(2, 'Second Job', 'Deuxième Job', 'Permanent Position', 'Position permanente', 'The task of the second job\r\nThe second line', 'La tache du second job\r\nLa seconde ligne', 'The strength of the second job\r\nThe second line', 'La force du deuxième job\r\nLa seconde ligne', 0);
 
 -- --------------------------------------------------------
 
@@ -240,16 +250,16 @@ CREATE TABLE `reviews` (
   `description` text DEFAULT NULL,
   `descriptionFR` text DEFAULT NULL,
   `rating` float DEFAULT NULL,
-  `id_escapeGame` int(11) DEFAULT NULL
+  `id_escapeGame` int(11) DEFAULT NULL,
+  `id_user` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `reviews`
 --
 
-INSERT INTO `reviews` (`id_reviews`, `firstName`, `lastName`, `description`, `descriptionFR`, `rating`, `id_escapeGame`) VALUES
-(1, 'John', 'Doe', 'Very Good, I love these escape games !', 'Ouah trop bien les escape games !', 4.5, 1),
-(2, 'Jean', 'Dupont', 'I love this escape game!', 'J\'adore cet escape game !', 5, 2);
+INSERT INTO `reviews` (`id_reviews`, `firstName`, `lastName`, `description`, `descriptionFR`, `rating`, `id_escapeGame`, `id_user`) VALUES
+(2, 'Jean', 'Dupont', 'I love this escape game!', 'J\'adore cet escape game !', 5, 2, 6);
 
 -- --------------------------------------------------------
 
@@ -338,7 +348,8 @@ ALTER TABLE `qAndAQuestion`
 --
 ALTER TABLE `reviews`
   ADD PRIMARY KEY (`id_reviews`),
-  ADD KEY `id_escapeGame` (`id_escapeGame`);
+  ADD KEY `id_escapeGame` (`id_escapeGame`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Index pour la table `user`
@@ -354,25 +365,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `buying`
 --
 ALTER TABLE `buying`
-  MODIFY `id_buying` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_buying` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT pour la table `contactForm`
 --
 ALTER TABLE `contactForm`
-  MODIFY `id_contactForm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_contactForm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT pour la table `escapeGame`
 --
 ALTER TABLE `escapeGame`
-  MODIFY `id_escapeGame` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_escapeGame` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT pour la table `giftCard`
 --
 ALTER TABLE `giftCard`
-  MODIFY `id_giftCard` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_giftCard` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT pour la table `giftCardAmount`
@@ -384,7 +395,7 @@ ALTER TABLE `giftCardAmount`
 -- AUTO_INCREMENT pour la table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id_jobs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_jobs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `qAndACat`
@@ -402,13 +413,13 @@ ALTER TABLE `qAndAQuestion`
 -- AUTO_INCREMENT pour la table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id_reviews` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_reviews` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Contraintes pour les tables déchargées
@@ -445,7 +456,8 @@ ALTER TABLE `qAndAQuestion`
 -- Contraintes pour la table `reviews`
 --
 ALTER TABLE `reviews`
-  ADD CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`id_escapeGame`) REFERENCES `escapeGame` (`id_escapeGame`);
+  ADD CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`id_escapeGame`) REFERENCES `escapeGame` (`id_escapeGame`),
+  ADD CONSTRAINT `reviews_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
