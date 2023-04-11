@@ -42,6 +42,8 @@ The site has an automatic install script for Linux.
 * MariaDB
 * Apache 2.4
 
+The project has been tested on AlmaLinux 8.7, AlmaLinux 9.1, Fedora 37 and Ubuntu 22.04.
+
 ### Installation
 
 The install script will install all the requirements and the web site. It will also create a database and a user for the
@@ -111,7 +113,7 @@ Project is: _in progress_
 
 ## License
 
-This project is licensed under the GNU Gebneral Public License v2.0 - see the LICENSE.md file for details
+This project is licensed under the GNU General Public License v2.0 - see the LICENSE.md file for details
 
 ## Contributors
 
@@ -120,8 +122,6 @@ Thanks to the following people who have contributed to this project:
 * @XemWebs
 * @Benvalda
 * @CLAVURE
-
-Without them, this project would not have been possible.
 
 ## Thanks
 
