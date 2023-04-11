@@ -15,7 +15,11 @@ class ctrJobs
     public function jobs()
     {
         $jobs = $this->jobs->getJobsVisible();
-        $title = "Jobs - Kaiserstuhl escape";
+        if ($_SESSION['lang'] == "fr") {
+            $title = "Emplois - Kaiserstuhl escape";
+        } else {
+            $title = "Jobs - Kaiserstuhl escape";
+        }
         $objVue = new vue("Jobs");
         $objVue->afficher(array("jobs" => $jobs), $title);
     }

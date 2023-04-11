@@ -16,7 +16,11 @@ class ctrQAndA
     {
         $qAndACat = $this->qAndA->getQandACat();
         $allQAndAQuestions = $this->qAndA->getAllQandAQuestions();
-        $title = "Q&A - Kaiserstuhl escape";
+        if ($_SESSION['lang'] == "fr") {
+            $title = "FAQ - Kaiserstuhl escape";
+        } else {
+            $title = "Q&A - Kaiserstuhl escape";
+        }
         $objVue = new vue("QAndA");
         $objVue->afficher(array("qAndACat" => $qAndACat, "allQAndAQuestions" => $allQAndAQuestions), $title);
     }

@@ -100,7 +100,11 @@ class ctrEscapeGames
 
     public function buyEG()
     {
-        $title = "Escape Game - Payment";
+        if ($_SESSION['lang'] == 'fr') {
+            $title = "Escape Game - Paiement - Kaiserstuhl escape";
+        } else {
+            $title = "Escape Game - Payment - Kaiserstuhl escape";
+        }
         $escapeGame = $this->escapeGames->getEscapeGame($_GET["escapeGame"]);
         //change the lang of the name if the session lang is fr
         if ($_SESSION['lang'] == 'fr') {
@@ -274,7 +278,11 @@ class ctrEscapeGames
                             $okValues[$key] = $value;
                         }
                     }
-                    $title = "Payment - Kaiserstuhl escape";
+                    if ($_SESSION['lang'] == "fr") {
+                        $title = "Paiement - Kaiserstuhl escape";
+                    } else {
+                        $title = "Payment - Kaiserstuhl escape";
+                    }
                     $objVue = new vue("BuyEG");
                     $objVue->afficher(array("error" => $error, "okValue" => $okValues, "amount" => $_POST['amount']), $title);
                 }
@@ -289,7 +297,11 @@ class ctrEscapeGames
                         $okValues[$key] = $value;
                     }
                 }
-                $title = "Payment - Kaiserstuhl escape";
+                if ($_SESSION['lang'] == "fr") {
+                    $title = "Paiement - Kaiserstuhl escape";
+                } else {
+                    $title = "Payment - Kaiserstuhl escape";
+                }
                 $objVue = new vue("BuyEG");
                 //(array("nameEscapeGame" => $nameEscapeGame, "priceEscapeGame" => $priceEscapeGame, "dateEscapeGame" => $dateEscapeGame, "hourEscapeGame" => $hourEscapeGame)
                 $objVue->afficher(array("error" => $error, "okValue" => $okValues, "amount" => $_POST['amount']), $title);
@@ -299,7 +311,11 @@ class ctrEscapeGames
 
     public function buyEGSuccess()
     {
-        $title = "Payment - Kaiserstuhl escape";
+        if ($_SESSION['lang'] == "fr") {
+            $title = "Paiement - Kaiserstuhl escape";
+        } else {
+            $title = "Payment - Kaiserstuhl escape";
+        }
         $objVue = new vue("BuyEGSuccess");
         $objVue->afficher(array(), $title);
     }
@@ -403,7 +419,11 @@ class ctrEscapeGames
                         }
                     }
                     $escapeGame = $this->escapeGames->getEscapeGame($_POST["id"]);
-                    $title = "Add a review - Kaiserstuhl escape";
+                    if ($_SESSION["lang"] == "fr") {
+                        $title = "Ajouter un avis - Kaiserstuhl escape";
+                    } else {
+                        $title = "Add a review - Kaiserstuhl escape";
+                    }
                     $objVue = new vue("AddReview");
                     $objVue->afficher(array("error" => $error, "okValues" => $okValues, "escapeGame" => $escapeGame), $title);
                 }
@@ -417,7 +437,11 @@ class ctrEscapeGames
                     }
                 }
                 $escapeGame = $this->escapeGames->getEscapeGame($_POST["id"]);
-                $title = "Add a review - Kaiserstuhl escape";
+                if ($_SESSION["lang"] == "fr") {
+                    $title = "Ajouter un avis - Kaiserstuhl escape";
+                } else {
+                    $title = "Add a review - Kaiserstuhl escape";
+                }
                 $objVue = new vue("AddReview");
                 $objVue->afficher(array("error" => $error, "okValues" => $okValues, "escapeGame" => $escapeGame), $title);
             }
@@ -431,7 +455,11 @@ class ctrEscapeGames
         //check if the user has already reviewed the escape game
         if (!$this->escapeGames->verifyIfUserHasAlreadyReviewedTheEscapeGame($idUser, $_GET["id"])) {
             $escapeGame = $this->escapeGames->getEscapeGame($id);
-            $title = "Add a review - Kaiserstuhl escape";
+            if ($_SESSION["lang"] == "fr") {
+                $title = "Ajouter un avis - Kaiserstuhl escape";
+            } else {
+                $title = "Add a review - Kaiserstuhl escape";
+            }
             $objVue = new vue("AddReview");
             $objVue->afficher(array("escapeGame" => $escapeGame), $title);
         } else {

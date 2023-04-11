@@ -70,7 +70,11 @@ class ctrAdmin
     public function contactForm()
     {
         $contactInfos = $this->contact->getContactInfos();
-        $title = "Administration Contact Form - Kaiserstuhl escape";
+        if ($_SESSION["lang"] == "fr") {
+            $title = "Administration Formulaire de contact - Kaiserstuhl escape";
+        } else {
+            $title = "Administration Contact Form - Kaiserstuhl escape";
+        }
         $objVue = new vue("AdminContactForm");
         $objVue->afficher(array("contacts" => $contactInfos), $title);
     }
@@ -84,7 +88,11 @@ class ctrAdmin
     public function reservations()
     {
         $reservations = $this->EG->getAllReservations();
-        $title = "Administration Reservation - Kaiserstuhl escape";
+        if ($_SESSION["lang"] == "fr") {
+            $title = "Administration Réservations - Kaiserstuhl escape";
+        } else {
+            $title = "Administration Reservation - Kaiserstuhl escape";
+        }
         $objVue = new vue("AdminReservations");
         $objVue->afficher(array("reservations" => $reservations), $title);
     }
@@ -135,7 +143,11 @@ class ctrAdmin
         $giftCardAmount = $this->giftCards->getGiftCardAmount();
         $moneyCards = $this->giftCards->getMoneyCards();
         $escapeCards = $this->giftCards->getEscapeCards();
-        $title = "Administration Gift Cards - Kaiserstuhl escape";
+        if ($_SESSION["lang"] == "fr") {
+            $title = "Administration Cartes cadeaux - Kaiserstuhl escape";
+        } else {
+            $title = "Administration Gift Cards - Kaiserstuhl escape";
+        }
         $objVue = new vue("AdminGiftCards");
         $objVue->afficher(array("giftCardAmount" => $giftCardAmount, "moneyCards" => $moneyCards, "escapeCards" => $escapeCards), $title);
     }
@@ -155,7 +167,11 @@ class ctrAdmin
     public function qAndA()
     {
         $qAndAs = $this->qAndAs->getQandACat();
-        $title = "Administration Q&A - Kaiserstuhl escape";
+        if ($_SESSION["lang"] == "fr") {
+            $title = "Administration FAQ - Kaiserstuhl escape";
+        } else {
+            $title = "Administration Q&A - Kaiserstuhl escape";
+        }
         $objVue = new vue("AdminQAndA");
         $objVue->afficher(array("qAndAs" => $qAndAs), $title);
     }
@@ -176,7 +192,11 @@ class ctrAdmin
     {
         $qAndAs = $this->qAndAs->getOneQandACat($idCat);
         $qAndAQs = $this->qAndAs->getQandAQuestions($idCat);
-        $title = "Administration Q&A - Questions - Kaiserstuhl escape";
+        if ($_SESSION["lang"] == "fr") {
+            $title = "Administration FAQ - Questions - Kaiserstuhl escape";
+        } else {
+            $title = "Administration Q&A - Questions - Kaiserstuhl escape";
+        }
         $objVue = new vue("AdminQAndAQuestions");
         $objVue->afficher(array("qAndAQs" => $qAndAQs, "qAndAs" => $qAndAs), $title);
     }
@@ -184,7 +204,11 @@ class ctrAdmin
     public function qAndAQuestionsDelete($idQ)
     {
         $qAndAQs = $this->qAndAs->getOneQandAQuestion($idQ);
-        $title = "Administration Q&A - Delete a Q&A - Kaiserstuhl escape";
+        if ($_SESSION["lang"] == "fr") {
+            $title = "Administration FAQ - Supprimer une question - Kaiserstuhl escape";
+        } else {
+            $title = "Administration Q&A - Delete a Q&A - Kaiserstuhl escape";
+        }
         $objVue = new vue("AdminQAndAQuestionsDelete");
         $objVue->afficher(array("qAndAQs" => $qAndAQs), $title);
     }
@@ -200,7 +224,11 @@ class ctrAdmin
     public function qAndAQuestionsModify($idQ)
     {
         $qAndAQs = $this->qAndAs->getOneQandAQuestion($idQ);
-        $title = "Administration Q&A - Modify a Q&A - Kaiserstuhl escape";
+        if ($_SESSION["lang"] == "fr") {
+            $title = "Administration FAQ - Modifier une question - Kaiserstuhl escape";
+        } else {
+            $title = "Administration Q&A - Modify a Q&A - Kaiserstuhl escape";
+        }
         $objVue = new vue("AdminQAndAQuestionsModify");
         $objVue->afficher(array("qAndAQs" => $qAndAQs), $title);
     }
@@ -232,7 +260,11 @@ class ctrAdmin
     public function qAndAModifyCat($idCat)
     {
         $qAndAs = $this->qAndAs->getOneQandACat($idCat);
-        $title = "Administration Q&A - Modify category - Kaiserstuhl escape";
+        if ($_SESSION["lang"] == "fr") {
+            $title = "Administration FAQ - Modifier une catégorie - Kaiserstuhl escape";
+        } else {
+            $title = "Administration Q&A - Modify a category - Kaiserstuhl escape";
+        }
         $objVue = new vue("AdminQAndAModifyCat");
         $objVue->afficher(array("qAndAs" => $qAndAs), $title);
     }
@@ -241,7 +273,11 @@ class ctrAdmin
     {
         $EGs = $this->EG->getEscapeGames();
         $qAndAs = $this->qAndAs->getOneQandACat($idCat);
-        $title = "Administration Q&A - Modify association of escape game - Kaiserstuhl escape";
+        if ($_SESSION["lang"] == "fr") {
+            $title = "Administration FAQ - Modifier l'association d'un escape game - Kaiserstuhl escape";
+        } else {
+            $title = "Administration Q&A - Modify association of escape game - Kaiserstuhl escape";
+        }
         $objVue = new vue("AdminQAndAModifyEG");
         $objVue->afficher(array("qAndAs" => $qAndAs, "EGs" => $EGs), $title);
     }
@@ -261,7 +297,11 @@ class ctrAdmin
     public function qAndADeleteCat($idCat)
     {
         $qAndAs = $this->qAndAs->getOneQandACat($idCat);
-        $title = "Administration Q&A - Delete category - Kaiserstuhl escape";
+        if ($_SESSION["lang"] == "fr") {
+            $title = "Administration FAQ - Supprimer une catégorie - Kaiserstuhl escape";
+        } else {
+            $title = "Administration Q&A - Delete category - Kaiserstuhl escape";
+        }
         $objVue = new vue("AdminQAndADeleteCat");
         $objVue->afficher(array("qAndAs" => $qAndAs), $title);
     }
@@ -281,7 +321,11 @@ class ctrAdmin
         } else {
             $job = "";
         }
-        $title = "Administration Job - Kaiserstuhl escape";
+        if ($_SESSION["lang"] == "fr") {
+            $title = "Administration Emplois - Kaiserstuhl escape";
+        } else {
+            $title = "Administration Jobs - Kaiserstuhl escape";
+        }
         $objVue = new vue("AdminJob");
         $objVue->afficher(array("job" => $job), $title);
     }
@@ -338,7 +382,11 @@ class ctrAdmin
     public function jobs()
     {
         $jobs = $this->jobs->getJobs();
-        $title = "Administration Jobs - Kaiserstuhl escape";
+        if ($_SESSION["lang"] == "fr") {
+            $title = "Administration Emplois - Kaiserstuhl escape";
+        } else {
+            $title = "Administration Jobs - Kaiserstuhl escape";
+        }
         $objVue = new vue("AdminJobs");
         $objVue->afficher(array("jobs" => $jobs), $title);
     }
@@ -352,7 +400,11 @@ class ctrAdmin
     public function user()
     {
         $users = $this->user->getUsers();
-        $title = "Administration user - Kaiserstuhl escape";
+        if ($_SESSION["lang"] == "fr") {
+            $title = "Administration Utilisateurs - Kaiserstuhl escape";
+        } else {
+            $title = "Administration Users - Kaiserstuhl escape";
+        }
         $objVue = new vue("AdminUser");
         $objVue->afficher(array("users" => $users), $title);
     }
@@ -496,7 +548,11 @@ class ctrAdmin
     public function reviews()
     {
         $reviews = $this->reviews->getReviews();
-        $title = "Administration Reviews - Kaiserstuhl escape";
+        if ($_SESSION["lang"] == "fr") {
+            $title = "Administration Avis - Kaiserstuhl escape";
+        } else {
+            $title = "Administration Reviews - Kaiserstuhl escape";
+        }
         $objVue = new vue("AdminReviews");
         $objVue->afficher(array("reviews" => $reviews), $title);
     }

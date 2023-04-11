@@ -27,7 +27,11 @@ class ctrLogin
      ***************/
     public function login()
     {
-        $title = "Connexion - Kaiserstuhl escape";
+        if ($_SESSION['lang'] == "fr") {
+            $title = "Connexion - Kaiserstuhl escape";
+        } else {
+            $title = "Login - Kaiserstuhl escape";
+        }
         $objVue = new vue("Login");
         $objVue->afficher(array(), $title);
     }
@@ -95,7 +99,11 @@ class ctrLogin
      ***************/
     public function signUp($error = array(), $ok = array())
     {
-        $title = "Sign up - Kaiserstuhl escape";
+        if ($_SESSION['lang'] == "fr") {
+            $title = "Inscription - Kaiserstuhl escape";
+        } else {
+            $title = "Sign up - Kaiserstuhl escape";
+        }
         $objVue = new vue("SignUp");
         $objVue->afficher(array("error" => $error, "ok" => $ok), $title);
     }
@@ -144,7 +152,11 @@ class ctrLogin
         $moneyCards = $this->objGiftCards->getMoneyCardsUser($_SESSION["id"]);
         $escapeCards = $this->objGiftCards->getEscapeCardsUser($_SESSION["id"]);
         $reservation = $this->objUser->getReservationUser($_SESSION["id"]);
-        $title = "My account - Kaiserstuhl escape";
+        if ($_SESSION['lang'] == "fr") {
+            $title = "Mon compte - Kaiserstuhl escape";
+        } else {
+            $title = "My account - Kaiserstuhl escape";
+        }
         $objVue = new vue("Account");
         $objVue->afficher(array("user" => $user, "moneyCards" => $moneyCards, "escapeCards" => $escapeCards, "reservation" => $reservation), $title);
     }
@@ -214,7 +226,11 @@ class ctrLogin
     public function accountChangeInfos($error = array())
     {
         $user = $this->objUser->getUserInfo($_SESSION["id"]);
-        $title = "My account - Kaiserstuhl escape";
+        if ($_SESSION['lang'] == "fr") {
+            $title = "Mon compte - Kaiserstuhl escape";
+        } else {
+            $title = "My account - Kaiserstuhl escape";
+        }
         $objVue = new vue("AccountChangeInfos");
         $objVue->afficher(array("user" => $user, "error" => $error), $title);
     }

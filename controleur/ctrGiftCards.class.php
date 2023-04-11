@@ -25,7 +25,11 @@ class ctrGiftCards
     {
         $giftCardAmount = $this->objGiftCards->getGiftCardAmount();
         $escapeGames = $this->objEscapeGame->getEscapeGames();
-        $title = "Gift Cards - Kaiserstuhl escape";
+        if ($_SESSION['lang'] == "fr") {
+            $title = "Cartes cadeaux - Kaiserstuhl escape";
+        } else {
+            $title = "Gift Cards - Kaiserstuhl escape";
+        }
         $objVue = new vue("GiftCards");
         $objVue->afficher(array("giftCardAmount" => $giftCardAmount, "escapeGames" => $escapeGames), $title);
     }
@@ -37,7 +41,11 @@ class ctrGiftCards
             if ($type == "money") {
                 if (isset($_POST['moneyCardsAmount'])) {
                     $amount = $_POST['moneyCardsAmount'];
-                    $title = "Payment - Kaiserstuhl escape";
+                    if ($_SESSION['lang'] == "fr") {
+                        $title = "Paiement - Kaiserstuhl escape";
+                    } else {
+                        $title = "Payment - Kaiserstuhl escape";
+                    }
                     $objVue = new vue("BuyCards");
                     $objVue->afficher(array("amount" => $amount), $title);
                 }
@@ -45,7 +53,11 @@ class ctrGiftCards
                 if (isset($_POST['escapeCardsChoose']) && isset($_POST['persons'])) {
                     $idEscapeGame = $_POST['escapeCardsChoose'];
                     $persons = $_POST['persons'];
-                    $title = "Payment - Kaiserstuhl escape";
+                    if ($_SESSION['lang'] == "fr") {
+                        $title = "Paiement - Kaiserstuhl escape";
+                    } else {
+                        $title = "Payment - Kaiserstuhl escape";
+                    }
                     $objVue = new vue("BuyCardsEscape");
                     if (!empty($idEscapeGame)) {
                         if ($_SESSION['lang'] == "fr") {
@@ -149,7 +161,11 @@ class ctrGiftCards
                             $okValues[$key] = $value;
                         }
                     }
-                    $title = "Payment - Kaiserstuhl escape";
+                    if ($_SESSION['lang'] == "fr") {
+                        $title = "Paiement - Kaiserstuhl escape";
+                    } else {
+                        $title = "Payment - Kaiserstuhl escape";
+                    }
                     $objVue = new vue("BuyCards");
                     $objVue->afficher(array("error" => $error, "okValue" => $okValues, "amount" => $_POST['amount']), $title);
                 }
@@ -164,7 +180,11 @@ class ctrGiftCards
                         $okValues[$key] = $value;
                     }
                 }
-                $title = "Payment - Kaiserstuhl escape";
+                if ($_SESSION['lang'] == "fr") {
+                    $title = "Paiement - Kaiserstuhl escape";
+                } else {
+                    $title = "Payment - Kaiserstuhl escape";
+                }
                 $objVue = new vue("BuyCards");
                 $objVue->afficher(array("error" => $error, "okValue" => $okValues, "amount" => $_POST['amount']), $title);
             }
@@ -255,7 +275,11 @@ class ctrGiftCards
                             $okValues[$key] = $value;
                         }
                     }
-                    $title = "Payment - Kaiserstuhl escape";
+                    if ($_SESSION['lang'] == "fr") {
+                        $title = "Paiement - Kaiserstuhl escape";
+                    } else {
+                        $title = "Payment - Kaiserstuhl escape";
+                    }
                     $objVue = new vue("BuyCards");
                     $objVue->afficher(array("error" => $error, "okValue" => $okValues, "amount" => $_POST['amount']), $title);
                 }
@@ -270,7 +294,11 @@ class ctrGiftCards
                         $okValues[$key] = $value;
                     }
                 }
-                $title = "Payment - Kaiserstuhl escape";
+                if ($_SESSION['lang'] == "fr") {
+                    $title = "Paiement - Kaiserstuhl escape";
+                } else {
+                    $title = "Payment - Kaiserstuhl escape";
+                }
                 $objVue = new vue("BuyCardsEscape");
                 $objVue->afficher(array("error" => $error, "okValue" => $okValues, "amount" => $_POST['amount']), $title);
             }
@@ -280,7 +308,11 @@ class ctrGiftCards
 
     public function buyCardSuccess()
     {
-        $title = "Payment - Kaiserstuhl escape";
+        if ($_SESSION['lang'] == "fr") {
+            $title = "Paiement - Kaiserstuhl escape";
+        } else {
+            $title = "Payment - Kaiserstuhl escape";
+        }
         $objVue = new vue("BuyCardsSuccess");
         $objVue->afficher(array(), $title);
     }
@@ -317,7 +349,11 @@ class ctrGiftCards
                     $id_user = $this->objUser->getIdUser($_SESSION['email']);
                     $this->objGiftCards->userUsedGiftCard($_POST['giftCardNumber']);
                     $discount = $this->objGiftCards->getDiscount($_POST['giftCardNumber']);
-                    $title = "Payment - Kaiserstuhl escape";
+                    if ($_SESSION['lang'] == "fr") {
+                        $title = "Paiement - Kaiserstuhl escape";
+                    } else {
+                        $title = "Payment - Kaiserstuhl escape";
+                    }
                     $objVue = new vue("BuyEG");
                     $objVue->afficher(array("discount" => $discount, "amount" => $_POST['amount']), $title);
                 } else {
@@ -329,7 +365,11 @@ class ctrGiftCards
                             $okValues[$key] = $value;
                         }
                     }
-                    $title = "Payment - Kaiserstuhl escape";
+                    if ($_SESSION['lang'] == "fr") {
+                        $title = "Paiement - Kaiserstuhl escape";
+                    } else {
+                        $title = "Payment - Kaiserstuhl escape";
+                    }
                     $objVue = new vue("BuyEG");
                     $objVue->afficher(array("error" => $error, "okValue" => $okValues, "amount" => $_POST['amount']), $title);
                 }
@@ -344,7 +384,11 @@ class ctrGiftCards
                         $okValues[$key] = $value;
                     }
                 }
-                $title = "Payment - Kaiserstuhl escape";
+                if ($_SESSION['lang'] == "fr") {
+                    $title = "Paiement - Kaiserstuhl escape";
+                } else {
+                    $title = "Payment - Kaiserstuhl escape";
+                }
                 $objVue = new vue("BuyEG");
                 $objVue->afficher(array("error" => $error, "okValue" => $okValues, "amount" => $_POST['amount']), $title);
             }
