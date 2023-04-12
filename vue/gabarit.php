@@ -13,6 +13,13 @@
           content="Discover an immersive and thrilling experience at Kaiserstuhl Escape, the premier destination for escape game enthusiasts. With multiple themed adventure and challenging puzzles, you'll have the opportunity to test your creativity and problem-solving skills. Perfect for a fun night out with friends or a team building activity, book your escape game adventure today and see if you have what it takes to escape in time!"/>
     <meta name="description" lang="fr"
           content="Découvrez une expérience immersive et palpitante chez Kaiserstuhl Escape, la destination de choix pour les amateurs d'escape games. Avec plusieurs aventures et des énigmes stimulantes, vous aurez l'occasion de tester votre créativité et vos compétences en résolution de problèmes. Parfait pour une soirée amusante entre amis ou une activité de team building, réservez dès maintenant votre aventure et voyez si vous avez ce qu'il faut pour vous échapper à temps !"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
     <title><?= $title ?></title>
 </head>
 <body>
