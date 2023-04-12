@@ -194,7 +194,7 @@ class ctrGiftCards
 
     public function buyCardValidEscape()
     {
-        var_dump($_POST);
+        //var_dump($_POST);
         if (isset($_POST['cardNumber']) and isset($_POST['cardDate']) and isset($_POST['cardCVC']) and isset($_POST['cardName']) and isset($_POST['amount']) and isset($_POST['idEscapeGame'])) {
             $error = [];
             if (empty($_POST['cardNumber'])) {

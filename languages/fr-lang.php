@@ -794,6 +794,8 @@ const ESCAPEGAME_H2_REVIEWS = "Avis";
 
 const ESCAPEGAME_MOREREVIEWS = "Plus de commentaires";
 
+const ESCAPEGAME_NOQUESTIONS = "Il n'y a pas de questions pour cet escape game pour l'instant.";
+
 const ESCAPEGAME_NOREVIEW = "Il n'y a pas d'avis pour cet escape game pour l'instant.";
 
 const ESCAPEGAME_H2_BUY = "Réserver";

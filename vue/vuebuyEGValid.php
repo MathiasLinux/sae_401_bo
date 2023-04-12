@@ -1,4 +1,4 @@
 <?php
-    var_dump($idEscapeGame); //salut mathias
+//var_dump($idEscapeGame); //salut mathias
 
 ?>

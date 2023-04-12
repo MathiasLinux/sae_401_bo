@@ -126,7 +126,7 @@ class ctrLogin
                     if (isset($_POST["keepSignIn"])) {
                         // Récupération du token
                         $token = $this->objLogin->getToken($_SESSION["id"]);
-                        var_dump($token);
+                        //var_dump($token);
                         // Création du cookie de connexion automatique
                         setcookie("token", $token, time() + 30 * 24 * 3600, "/", null, false, true);
                     }

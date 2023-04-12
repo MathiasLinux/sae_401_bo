@@ -801,6 +801,8 @@ const ESCAPEGAME_H2_REVIEWS = "Reviews";
 
 const ESCAPEGAME_MOREREVIEWS = "More Reviews";
 
+const ESCAPEGAME_NOQUESTIONS = "There's no question for this escape game yet.";
+
 const ESCAPEGAME_NOREVIEW = "There's no review for this escape game yet.";
 
 const ESCAPEGAME_H2_BUY = "Buy";

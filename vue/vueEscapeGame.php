@@ -151,7 +151,7 @@ if (isset($_SESSION["lang"])) {
 
     <?php }
 } else {
-    echo "<p class='vide'>There's no question for this escape game yet.</p>";
+    echo "<p class='vide'>" . ESCAPEGAME_NOQUESTIONS . "</p>";
 } ?>
 
 <!-- reviews -->

@@ -446,8 +446,8 @@ class escapeGame extends bdd
         //before update verify if the value is not already in the database
         $req = "SELECT duration FROM escapeGame WHERE duration = ? AND id_escapeGame = ?";
         $actualDuration = $this->execReqPrep($req, array($duration, $id));
-        var_dump($actualDuration);
-        var_dump($duration);
+        //var_dump($actualDuration);
+        //var_dump($duration);
         if (empty($actualDuration)) {
             $req = "UPDATE escapeGame SET duration = ? WHERE id_escapeGame = ?";
             $this->execReqPrep($req, array($duration, $id));
@@ -524,7 +524,7 @@ class escapeGame extends bdd
 
     public function updateOnFront($id, $onFrontPage)
     {
-        var_dump($onFrontPage);
+        //var_dump($onFrontPage);
         echo "onFrontPage top";
         if ($onFrontPage == "1" or $onFrontPage == "0") {
             $req = "UPDATE escapeGame SET onFront = ? WHERE id_escapeGame = ?";
