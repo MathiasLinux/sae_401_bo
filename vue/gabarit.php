@@ -240,7 +240,9 @@
     <?= $contenu ?>
 </main>
 <footer class="tel">
-    <img class="taille" src="img/logo.png" alt="logo">
+    <a href="index.php">
+        <img class="taille" src="img/logo.png" alt="logo">
+    </a>
     <div class="sectionFooter">
         <p class="titleFooter"><?= FOOTER_COMPAGNY ?></p>
         <div class="ligneFooter">
@@ -266,9 +268,11 @@
 </footer>
 <footer class="pc">
     <div>
-        <div class="taille">
-            <img src="img/logo.png" alt="logo">
-        </div>
+        <a href="index.php">
+            <div class="taille">
+                <img src="img/logo.png" alt="logo">
+            </div>
+        </a>
 
         <div class="CenterName">&copy Innovative Innovators 2023</div>
     </div>

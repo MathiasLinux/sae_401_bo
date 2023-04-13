@@ -17,6 +17,13 @@
     flex-direction: column;
 }
 
+.tel a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .pc {
     display: none;
 }
