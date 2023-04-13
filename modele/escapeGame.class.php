@@ -5,18 +5,31 @@ require_once "vue/vue.class.php";
 
 class escapeGame extends bdd
 {
+    /********
+     * A function to get all the escape games visible or not
+     * @return array|false
+     */
     public function getEscapeGames()
     {
         $req = "SELECT * FROM escapeGame";
         return $this->execReq($req);
     }
 
+    /********
+     * A function to get all the escape games visible
+     * @return array|false
+     */
     public function getEscapeGamesVisible()
     {
         $req = "SELECT * FROM escapeGame WHERE visible = 1";
         return $this->execReq($req);
     }
 
+    /********
+     * A function to check if the escape game is visible
+     * @param $idEscapeGame int id of the escape game
+     * @return bool
+     */
     public function verifyIfEscapeGameVisible($idEscapeGame)
     {
         $req = "SELECT visible FROM escapeGame WHERE id_escapeGame = ?";
@@ -28,6 +41,10 @@ class escapeGame extends bdd
         }
     }
 
+    /******
+     * A function to get the name and the id of all the escape games
+     * @return array|false
+     */
     public function getNameEscapeGames()
     {
         $req = "SELECT id_escapeGame, name, nameFR FROM escapeGame";
@@ -48,6 +65,11 @@ class escapeGame extends bdd
         }
     }
 
+    /*********
+     * A function to get the name of an escape game
+     * @param $id int id of the escape game
+     * @return mixed
+     */
     public function getEscapeGame($idEG)
     {
         $req = "SELECT * FROM escapeGame WHERE id_escapeGame = ?";
@@ -59,6 +81,11 @@ class escapeGame extends bdd
         }
     }
 
+    /*********
+     * A function to get the id of an escape game by its name
+     * @param $name string name of the escape game
+     * @return false|mixed
+     */
     public function getEscapeGameIdByName($name)
     {
         $req = "SELECT id_escapeGame FROM escapeGame WHERE name = ?";
@@ -70,6 +97,12 @@ class escapeGame extends bdd
         }
     }
 
+    /**********
+     * A function to get the price of an escape game
+     * @param $id int id of the escape game
+     * @param $nbPersons int number of persons
+     * @return mixed
+     */
     public function getPriceEscapeGame($id, $nbPersons)
     {
         $ligne = "";
@@ -102,6 +135,10 @@ class escapeGame extends bdd
         return $escapeGame[0][$ligne];
     }
 
+    /******
+     * A function to get the front escape game
+     * @return false|mixed
+     */
     public function getFrontEscapeGames()
     {
         $req = "SELECT * FROM escapeGame WHERE onFront = 1";
@@ -113,6 +150,10 @@ class escapeGame extends bdd
         }
     }
 
+    /********
+     * A function to get all the escape games without the front
+     * @return array|false
+     */
     public function getEscapeGamesWithoutFront()
     {
         $req = "SELECT * FROM escapeGame WHERE onFront = 0 AND visible = 1";
@@ -120,18 +161,34 @@ class escapeGame extends bdd
         return $escapeGames;
     }
 
+    /******
+     * A function to get all the reservations
+     * @return array|false
+     */
     public function getAllReservations()
     {
         $req = "SELECT DATE_FORMAT(gameDate, '%d/%m/%Y') AS gameDateDisplay, hours, eG.name, eG.nameFR, nbPlayers, buyersFirstName, buyersLastName, id_buying from buying INNER JOIN escapeGame eG on buying.id_escapeGame = eG.id_escapeGame;";
         return $this->execReq($req);
     }
 
+    /*********
+     * A function to delete a reservation with the id of the reservation
+     * @param $id int id of the escape game
+     * @return void
+     */
     public function delReservation($id)
     {
         $req = "DELETE FROM buying WHERE id_buying = ?";
         $this->execReqPrep($req, array($id));
     }
 
+    /********
+     * A function to add the coordinates of an escape game
+     * @param $latitudeX float latitude of the escape game
+     * @param $longitudeY float longitude of the escape game
+     * @param $idEG int id of the escape game
+     * @return bool
+     */
     public function addXY($latitudeX, $longitudeY, $idEG)
     {
         $req = "UPDATE escapeGame SET x = ?, y = ? WHERE escapeGame.id_escapeGame = ?";
@@ -145,6 +202,11 @@ class escapeGame extends bdd
         }
     }
 
+    /********
+     * A function to get the reviews of an escape game
+     * @param $id int id of the escape game
+     * @return array
+     */
     public function getReviewEG($id)
     {
         $req = "SELECT * FROM reviews WHERE id_escapeGame = ?";
@@ -153,6 +215,11 @@ class escapeGame extends bdd
         return $reviewsEG;
     }
 
+    /*********
+     * A function to get the questions and answers of a category
+     * @param $id int id of the escape game
+     * @return array
+     */
     public function getQandAEG($id)
     {
         $req = "SELECT * FROM qAndAQuestion WHERE id_qAndACat = ?";
@@ -161,6 +228,10 @@ class escapeGame extends bdd
         return $qAndAEG;
     }
 
+    /*********
+     * @param $lang string language of the difficulty
+     * @return mixed
+     */
     public function getDifficulty($lang)
     {
         if ($lang == "fr") {
@@ -172,6 +243,12 @@ class escapeGame extends bdd
         return $difficulty[0]["SUBSTRING(COLUMN_TYPE,5)"];
     }
 
+    /*******
+     * A function to add new image(s) for an escape game
+     * @param $name string name of the file in the form
+     * @param $path string path where the file will be uploaded
+     * @return void
+     */
     public function addFiles($name, $path)
     {
         if (isset($path)) {
@@ -269,6 +346,13 @@ class escapeGame extends bdd
         }
     }
 
+    /*********
+     * A function to add an image for a escape game cover
+     * @param $name string name of the file in the form
+     * @param $path string path of the file
+     * @param $id int id of the escape game
+     * @return void add a file in the folder img
+     */
     public function addFileCover($name, $path, $id)
     {
         if (isset($path)) {
@@ -522,6 +606,12 @@ class escapeGame extends bdd
         }
     }
 
+    /*********
+     * Method to update the onFrontPage value of an escape game to 1 or 0
+     * @param $id int the id of the escape game
+     * @param $onFrontPage int the value of the onFrontPage (0 or 1)
+     * @return false|void
+     */
     public function updateOnFront($id, $onFrontPage)
     {
         //var_dump($onFrontPage);
@@ -535,6 +625,7 @@ class escapeGame extends bdd
     }
 
     /*********
+     * A function to let the user buy an escape game
      * @param $id_user int the id of the user
      * @param $id_escapeGame int the id of the escape game
      * @param $buyingDate string the date of the buying of the escape game (format : YYYY-MM-DD)
@@ -551,6 +642,32 @@ class escapeGame extends bdd
         $this->execReqPrep($req, array($id_user, $id_escapeGame, $buyingDate, $gameDate, $hours, $nbPlayers, $buyersFirstName, $buyersLastName));
     }
 
+
+    /*******
+     * A function to add an escape game in the database
+     * @param $name string the name of the escape game
+     * @param $nameFR string the name of the escape game in french
+     * @param $visible int 1 if the escape game is visible, 0 if not
+     * @param $difficulty  string the difficulty of the escape game
+     * @param $difficultyFR string the difficulty of the escape game in french
+     * @param $description string the description of the escape game
+     * @param $descriptionFR string the description of the escape game in french
+     * @param $duration int the duration of the escape game
+     * @param $address string the address of the escape game
+     * @param $price2_3Persons float the price of the escape game for 2 or 3 persons
+     * @param $price4Persons float the price of the escape game for 4 persons
+     * @param $price5Persons float the price of the escape game for 5 persons
+     * @param $price6Persons float the price of the escape game for 6 persons
+     * @param $price7Persons float the price of the escape game for 7 persons
+     * @param $price8Persons float the price of the escape game for 8 persons
+     * @param $price9Persons float the price of the escape game for 9 persons
+     * @param $price10Persons float the price of the escape game for 10 persons
+     * @param $price11Persons float the price of the escape game for 11 persons
+     * @param $price12Persons float the price of the escape game for 12 persons
+     * @param $price12PlusPersons float the price of the escape game for more than 12 persons
+     * @param $onFront int 1 if the escape game is on the front page, 0 if not
+     * @return void
+     */
     public function addEscapeGame($name, $nameFR, $visible, $difficulty, $difficultyFR, $description, $descriptionFR, $duration, $address, $price2_3Persons, $price4Persons, $price5Persons, $price6Persons, $price7Persons, $price8Persons, $price9Persons, $price10Persons, $price11Persons, $price12Persons, $price12PlusPersons, $onFront)
     {
         $req = "INSERT INTO escapeGame (name, nameFR, visible, difficulty, difficultyFR, description, descriptionFR, duration, address, price2_3Persons, price4Persons, price5Persons, price6Persons, price7Persons, price8Persons, price9Persons, price10Persons, price11Persons, price12Persons, price12PlusPersons, onFront) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
