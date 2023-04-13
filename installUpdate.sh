@@ -206,6 +206,21 @@ if [ ! -d "$directory" ]; then
 fi
 # Change the directory
 cd "$directory" || exit
+# If the directory is not empty, ask if the user wants to continue
+if [ "$(ls -A "$directory")" ]; then
+    warn "The directory $directory is not empty. Do you want to continue? (y/n)"
+    read -r -p "Answer: " answer
+    if [ "$answer" != "y" ]; then
+        error "Aborting..."
+        exit 1
+    fi
+fi
+# If the directory is not empty, remove the files
+
+if [ "$(ls -A "$directory")" ]; then
+    $SUDO rm -rf "$directory"/*
+fi
+
 # Download the web site
 $SUDO git clone https://github.com/MathiasLinux/sae_401_bo.git .
 
