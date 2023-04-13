@@ -16,7 +16,8 @@
 <div class="categoriesQAndA">
     <p class="categoryQAndA"> <?= ADMIN_QANDA_CAT ?> </p>
     <?php
-        if(count($qAndAs)){
+        // Display the category and these affiliates buttons (Modify questions / Modify name of the category / Modify escape game association / Delete the category)
+        if(count($qAndAs)){ // Verify if a category exist
             foreach ($qAndAs as $qAndA) {
                 echo '<div class="oneCategory">';
                 echo '<p class="titleCategoryQAndA">';
