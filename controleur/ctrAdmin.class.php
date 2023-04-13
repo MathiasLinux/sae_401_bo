@@ -245,18 +245,6 @@ class ctrAdmin
             $this->qAndAQuestions($idCat);
     }
 
-    public function qAndAModifyCat_S($idCat)
-    {
-        extract($_POST);
-        if (!empty($nameCat)) {
-            if ($this->qAndAs->updateQandACat($nameCat, $idCat))
-                $this->qAndA();
-            else
-                throw new Exception("An error occured during the update process");
-        } else
-            $this->qAndAModifyCat($idCat);
-    }
-
     public function qAndAModifyCat($idCat)
     {
         $qAndAs = $this->qAndAs->getOneQandACat($idCat);
@@ -268,6 +256,20 @@ class ctrAdmin
         $objVue = new vue("AdminQAndAModifyCat");
         $objVue->afficher(array("qAndAs" => $qAndAs), $title);
     }
+
+    public function qAndAModifyCat_S($idCat)
+    {
+        extract($_POST);
+        if (!empty($nameCat) && !empty($nameCatFR)) {
+            if ($this->qAndAs->updateQandACat($nameCat, $nameCatFR, $idCat))
+                $this->qAndA();
+            else
+                throw new Exception("An error occured during the update process");
+        } else
+            $this->qAndAModifyCat($idCat);
+    }
+
+
 
     public function qAndAModifyEG($idCat)
     {

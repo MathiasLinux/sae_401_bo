@@ -2,8 +2,13 @@
 <div class="deuxTiers">
     <form class="formAdmin" action="index.php?action=admin&page=qAndAModifyCat_S&id_qAndACat=<?= $qAndAs['id_qAndACat'] ?>" method="post">
     <label>
-        <p class="titleAdminQAndA"> <?= ADMIN_QANDA_MOD_CAT ?>:</p>
-        <input class="addTitle" type="text" name="nameCat" id="nameCat" value="<?= $_SESSION['lang']=='fr' ? $qAndAs['titleFR'] : $qAndAs['title'] ?>">
+        <p class="titleAdminQAndA"> <?= ADMIN_QANDA_MOD_CAT_EN ?>:</p>
+        <input class="addTitle" type="text" name="nameCat" id="nameCat" value="<?=$qAndAs['title'] ?>">
+    </label>
+    <div class="greenBar"></div>
+    <label>
+        <p class="titleAdminQAndA"> <?= ADMIN_QANDA_MOD_CAT_FR ?>:</p>
+        <input class="addTitle" type="text" name="nameCatFR" id="nameCatFR" value="<?=$qAndAs['titleFR']?>">
     </label>
     <input class="yellowButton" type="submit" value="<?= ADMIN_QANDA_MOD_CAT_SUBMIT ?>">
     </form>
