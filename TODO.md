@@ -57,9 +57,3 @@
 ## Buy escape game
 
 - [X] Add the gift card payement
-
-## Videos in escape games
-
-- [ ] Add videos in the escape game page for the client
-
-- [ ] Add video upload or add link from the admin page
