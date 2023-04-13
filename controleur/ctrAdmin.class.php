@@ -11,6 +11,7 @@ require_once "vue/vue.class.php";
 
 class ctrAdmin
 {
+    // Declaration of the properties
     public $jobs;
     public $qAndAs;
     public $user;
@@ -19,6 +20,7 @@ class ctrAdmin
     public $contact;
     public $reviews;
 
+    // Instantiation of the class
     public function __construct()
     {
         $this->jobs = new jobs();
@@ -30,6 +32,7 @@ class ctrAdmin
         $this->reviews = new review();
     }
 
+    // Show the home page of admin
     public function admin()
     {
         $title = "Administration - Kaiserstuhl escape";
@@ -37,6 +40,7 @@ class ctrAdmin
         $objVue->afficher(array(), $title);
     }
 
+    // Show the page of admin escape games
     public function escapeGames()
     {
         $EGs = $this->EG->getNameEscapeGames();
@@ -45,6 +49,7 @@ class ctrAdmin
         $objVue->afficher(array("EGs" => $EGs), $title);
     }
 
+    // Show the page of admin escape game
     public function escapeGame($idEG = "")
     {
         if (!empty($idEG)) {
@@ -67,6 +72,7 @@ class ctrAdmin
         }
     }
 
+    // Show the page of admin contact form
     public function contactForm()
     {
         $contactInfos = $this->contact->getContactInfos();
@@ -79,12 +85,14 @@ class ctrAdmin
         $objVue->afficher(array("contacts" => $contactInfos), $title);
     }
 
+    // Call the method to delete a contact form
     public function delContactForm($id)
     {
         $this->contact->delContactInfos($id);
         header("Location: index.php?action=admin&page=contactForm");
     }
 
+    // Show the page of admin reservations
     public function reservations()
     {
         $reservations = $this->EG->getAllReservations();
@@ -97,18 +105,21 @@ class ctrAdmin
         $objVue->afficher(array("reservations" => $reservations), $title);
     }
 
+    // Call the method to delete a reservation
     public function delReservation($id)
     {
         $this->EG->delReservation($id);
         header("Location: index.php?action=admin&page=reservations");
     }
 
+    // Call the method to delete a gift card amount
     public function delGiftCard()
     {
         $this->giftCards->delGiftCardAmount($_GET["id"]);
         header("Location: index.php?action=admin&page=giftCards");
     }
 
+    // Call the method to add a gift card amount
     public function addGiftCardsAmount()
     {
         //var_dump($_POST);
@@ -138,6 +149,7 @@ class ctrAdmin
             $this->giftCards();
     }
 
+    // Show the page admin gift cards
     public function giftCards()
     {
         $giftCardAmount = $this->giftCards->getGiftCardAmount();
@@ -152,6 +164,7 @@ class ctrAdmin
         $objVue->afficher(array("giftCardAmount" => $giftCardAmount, "moneyCards" => $moneyCards, "escapeCards" => $escapeCards), $title);
     }
 
+    // Call the method to add a Q&A category
     public function qAndANewCat_S()
     {
         extract($_POST);
@@ -164,6 +177,7 @@ class ctrAdmin
             $this->qAndA();
     }
 
+    // Show the page admin Q&A
     public function qAndA()
     {
         $qAndAs = $this->qAndAs->getQandACat();
@@ -176,6 +190,7 @@ class ctrAdmin
         $objVue->afficher(array("qAndAs" => $qAndAs), $title);
     }
 
+    // Call the method to add a Q&A question
     public function qAndAQuestionsAdd_S($idCat)
     {
         extract($_POST);
@@ -188,6 +203,7 @@ class ctrAdmin
             $this->qAndAQuestions($idCat);
     }
 
+    // Show the page admin Q&A questions
     public function qAndAQuestions($idCat)
     {
         $qAndAs = $this->qAndAs->getOneQandACat($idCat);
@@ -201,6 +217,7 @@ class ctrAdmin
         $objVue->afficher(array("qAndAQs" => $qAndAQs, "qAndAs" => $qAndAs), $title);
     }
 
+    // Show the page admin delete Q&A question
     public function qAndAQuestionsDelete($idQ)
     {
         $qAndAQs = $this->qAndAs->getOneQandAQuestion($idQ);
@@ -213,6 +230,7 @@ class ctrAdmin
         $objVue->afficher(array("qAndAQs" => $qAndAQs), $title);
     }
 
+    // Call the method to delete a Q&A question
     public function qAndAQuestionsDelete_S($idCat, $idQ)
     {
         if ($this->qAndAs->deleteQandAQuestion($idQ))
@@ -221,6 +239,7 @@ class ctrAdmin
             throw new Exception("An error occured during the delete process");
     }
 
+    // Show the page admin modify Q&A question
     public function qAndAQuestionsModify($idQ)
     {
         $qAndAQs = $this->qAndAs->getOneQandAQuestion($idQ);
@@ -233,6 +252,7 @@ class ctrAdmin
         $objVue->afficher(array("qAndAQs" => $qAndAQs), $title);
     }
 
+    // Call the method to modify a Q&A question
     public function qAndAQuestionsModify_S($idCat, $idQ)
     {
         extract($_POST);
@@ -245,6 +265,7 @@ class ctrAdmin
             $this->qAndAQuestions($idCat);
     }
 
+    // Show the page admin modify Q&A category
     public function qAndAModifyCat($idCat)
     {
         $qAndAs = $this->qAndAs->getOneQandACat($idCat);
@@ -257,6 +278,7 @@ class ctrAdmin
         $objVue->afficher(array("qAndAs" => $qAndAs), $title);
     }
 
+    // Call the method to modify a Q&A name category
     public function qAndAModifyCat_S($idCat)
     {
         extract($_POST);
@@ -269,8 +291,7 @@ class ctrAdmin
             $this->qAndAModifyCat($idCat);
     }
 
-
-
+    // Show the page admin modify association escape game and Q&A category
     public function qAndAModifyEG($idCat)
     {
         $EGs = $this->EG->getEscapeGames();
@@ -284,6 +305,7 @@ class ctrAdmin
         $objVue->afficher(array("qAndAs" => $qAndAs, "EGs" => $EGs), $title);
     }
 
+    // Call the method to modify the association between the escape game and the Q&A category
     public function qAndAModifyEG_S($idCat)
     {
         if (!empty($_POST)) {
@@ -296,6 +318,7 @@ class ctrAdmin
             $this->qAndA();
     }
 
+    // Show the page admin delete Q&A category
     public function qAndADeleteCat($idCat)
     {
         $qAndAs = $this->qAndAs->getOneQandACat($idCat);
@@ -308,6 +331,7 @@ class ctrAdmin
         $objVue->afficher(array("qAndAs" => $qAndAs), $title);
     }
 
+    // Call the method to delete a Q&A category
     public function qAndADeleteCat_S($idCat)
     {
         if ($this->qAndAs->deleteQandACat($idCat))
@@ -316,6 +340,7 @@ class ctrAdmin
             throw new Exception("An error occured during the delete process");
     }
 
+    // Show the page admin job
     public function job()
     {
         if (isset($_GET["id"])) {
@@ -332,6 +357,7 @@ class ctrAdmin
         $objVue->afficher(array("job" => $job), $title);
     }
 
+    // Call the method to add a job offer
     public function addJob()
     {
         //var_dump($_POST);
@@ -354,6 +380,7 @@ class ctrAdmin
 
     }
 
+    // Call the method to modify a job offer
     public function updateJob()
     {
         $id = $_POST["id"] ?? "";
@@ -375,12 +402,14 @@ class ctrAdmin
         header("Location: index.php?action=admin&page=jobs");
     }
 
+    // Call the method to delete a job offer
     public function delJob($id)
     {
         $this->jobs->delJobs($id);
         header("Location: index.php?action=admin&page=jobs");
     }
 
+    // Show the page admin jobs
     public function jobs()
     {
         $jobs = $this->jobs->getJobs();
@@ -393,12 +422,14 @@ class ctrAdmin
         $objVue->afficher(array("jobs" => $jobs), $title);
     }
 
+    // Call the method to delete a user
     public function delUser($id)
     {
         $this->user->delUser($id);
         header("Location: index.php?action=admin&page=users");
     }
 
+    // Show the page admin user
     public function user()
     {
         $users = $this->user->getUsers();
@@ -411,6 +442,7 @@ class ctrAdmin
         $objVue->afficher(array("users" => $users), $title);
     }
 
+    // Call the method to modify the user rights
     public function changeUsersRights($id)
     {
         $rights = "";
@@ -432,6 +464,7 @@ class ctrAdmin
         header("Location: index.php?action=admin&page=users");
     }
 
+    // Call the method to modify an escape game
     public function modifyEscapeGame($id)
     {
 //        var_dump($_POST);
@@ -516,6 +549,7 @@ class ctrAdmin
         header("Location: index.php?action=admin&page=escapeGames");
     }
 
+    // Call the method to add an escape game
     public function addEscapeGame()
     {
         //var_dump($_POST);
@@ -541,12 +575,14 @@ class ctrAdmin
         header("Location: index.php?action=admin&page=escapeGames");
     }
 
+    // Call the method to delete an escape game
     public function delEscapeGame($id)
     {
         $this->EG->delEscapeGame($id);
         header("Location: index.php?action=admin&page=escapeGames");
     }
 
+    // Show the page admin reviews
     public function reviews()
     {
         $reviews = $this->reviews->getReviews();
@@ -559,6 +595,7 @@ class ctrAdmin
         $objVue->afficher(array("reviews" => $reviews), $title);
     }
 
+    // Call the method to delete a review
     public function delReviews($id)
     {
         $this->reviews->delReviews($id);
