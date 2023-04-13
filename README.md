@@ -110,11 +110,11 @@ To access the admin panel, go to `https://yourwebsite.com/index.php?action=admin
 
 ## Status
 
-Project is: _in progress_
+Project is: _working_
 
 ## License
 
-This project is licensed under the GNU General Public License v2.0 - see the LICENSE.md file for details
+This project is licensed under the GNU General Public License v2.0 - see the LICENSE file for details
 
 ## Contributors
 
