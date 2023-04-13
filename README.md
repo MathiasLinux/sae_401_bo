@@ -42,7 +42,8 @@ The site has an automatic install script for Linux.
 * MariaDB
 * Apache 2.4
 
-The project has been tested on AlmaLinux 8.7, AlmaLinux 9.1, Fedora 37 and Ubuntu 22.04.
+The project has been tested on AlmaLinux 8.7, AlmaLinux 9.1, Fedora 37, Ubuntu 22.04 and Debian 12 (In the testing phase
+daily build from 2023-04-13).
 
 ### Installation
 
