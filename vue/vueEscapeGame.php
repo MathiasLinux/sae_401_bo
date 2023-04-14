@@ -201,6 +201,7 @@ if (isset($_SESSION["lang"])) {
             ?>
             <div class="escapeGameReview">
                 <div class="reviewNom"><?php echo $reviewsEG[$i]["firstName"] ?></div>
+                <div class="reviewNom"><?php echo $reviewsEG[$i]["lastName"] ?></div>
                 <div class="reviewDesc"><?php echo $reviewsEG[$i]["description"] ?></div>
                 <div class="reviewNote">
                     <?php
