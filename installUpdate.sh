@@ -134,7 +134,7 @@ if check_cmd dnf; then
     if [ $(dnf list php | grep -Eo '8\.[0-9]+' | head -n 1 | cut -d '.' -f 2) -ge 0 ]; then
         # Install the dependencies for a LAMP stack
         warn "Installing the dependencies for a LAMP stack..."
-        $SUDO dnf install -y httpd php mariadb php-{gd,pdo,xml,mbstring,zip,mysqlnd,opcache,json} mod_ssl openssl
+        $SUDO dnf install -y httpd php mariadb mariadb-server php-{gd,pdo,xml,mbstring,zip,mysqlnd,opcache,json} mod_ssl openssl
         # Install git and unzip
         $SUDO dnf install -y git unzip
         warn "Enabling the apache2, php-fpm and mariadb services..."
